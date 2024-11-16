@@ -1,0 +1,7 @@
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Release\net8.0\MusicalStore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Release\net8.0\MusicalStore.AssemblyInfoInputs.cache
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Release\net8.0\MusicalStore.AssemblyInfo.cs
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Release\net8.0\MusicalStore.csproj.CoreCompileInputs.cache
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Release\net8.0\MusicalStore.MvcApplicationPartsAssemblyInfo.cache
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Release\net8.0\MusicalStore.RazorAssemblyInfo.cache
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Release\net8.0\MusicalStore.RazorAssemblyInfo.cs
