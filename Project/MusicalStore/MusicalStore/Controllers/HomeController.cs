@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using MusicalStore.Data;
 using MusicalStore.Models;
 
 namespace MusicalStore.Controllers
@@ -15,7 +16,7 @@ namespace MusicalStore.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(CategoryData.categories);
         }
 
         public IActionResult Privacy()
