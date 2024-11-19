@@ -1,11 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddRazorOptions(options =>
-{
-    options.ViewLocationFormats.Add("/Views/User/{1}/{0}.cshtml");
-    options.ViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-});
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 

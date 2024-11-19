@@ -4,7 +4,7 @@ namespace MusicalStore.Data
 {
     public class CategoryData
     {
-        public static List<Category> categories = new List<Category>
+        public static List<Category> Categories = new List<Category>
         {
             new Category
             {

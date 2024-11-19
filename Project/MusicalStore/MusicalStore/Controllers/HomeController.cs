@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Dynamic;
 using Microsoft.AspNetCore.Mvc;
 using MusicalStore.Data;
 using MusicalStore.Models;
@@ -14,9 +15,17 @@ namespace MusicalStore.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            return View(CategoryData.categories);
+            int pageSize = 5;
+            dynamic dataIndex = new ExpandoObject();
+            dataIndex.Categories = CategoryData.Categories;
+            dataIndex.ProductsSale = ProductData.ProductsSale;
+            dataIndex.Collections = CollectionsData.ListCollections;
+            dataIndex.ListProduct = ProductData.ListProduct;
+            dataIndex.CurrentPage = page;
+            dataIndex.TotalPages = 10;
+            return View(dataIndex);
         }
 
         public IActionResult Privacy()
