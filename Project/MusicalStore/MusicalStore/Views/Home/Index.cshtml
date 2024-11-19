@@ -139,27 +139,44 @@
                 </div>
             }
         </div>
-    </div>
-    <!-- Pagination -->
-    <div class="row justify-content-center mt-4">
-        <nav class="">
-            <ul class="pagination">
-                <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
-                    <a class="page-link" href="?page=@(Model.CurrentPage - 1)" tabindex="-1">Previous</a>
-                </li>
-
-                @for (int i = 1; i <= Model.TotalPages; i++)
-                {
-                    <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
-                        <a class="page-link" href="?page=@i">@i</a>
+        <!-- Pagination -->
+        <div class="row justify-content-center mt-4">
+            <nav class="">
+                <ul class="pagination">
+                    <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                        <a class="page-link" href="?page=@(Model.CurrentPage - 1)" tabindex="-1">Previous</a>
                     </li>
-                }
 
-                <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
-                    <a class="page-link" href="?page=@(Model.CurrentPage + 1)">Next</a>
-                </li>
-            </ul>
-        </nav>
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
+                            <a class="page-link" href="?page=@i">@i</a>
+                        </li>
+                    }
+
+                    <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+                        <a class="page-link" href="?page=@(Model.CurrentPage + 1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="container mb-5">
+        <h2 class="mb-4">Tin tức - Sự kiện</h2>
+        <div class="row">
+            @foreach (Collections item in Model.Collections)
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow h-100">
+                        <img src="@item.ImageUrl" class="card-img-top" alt="Tablet">
+                        <div class="card-footer bg-white">
+                            <a href="/collections/tablets" class="btn btn-link">Sự kiện</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
 </div>
 
