@@ -70,7 +70,7 @@
             <!-- Product Card -->
             @foreach (Product item in Model.ProductsSale)
             {
-                <div class="col-md-4 col-lg-3 mb-4">
+                <div id="cardproduct" class="col-md-4 col-lg-3 mb-4" onclick="getProductDetail()">
                     <div class="card shadow-lg h-100 d-flex flex-column">
                         <!-- Use flex column to fill the card height -->
                         <div class="position-relative">
@@ -120,7 +120,7 @@
         <div class="row g-3">
             @foreach (Product item in Model.ListProduct)
             {
-                <div class="col-md-3 col-lg-3">
+                <div id="cardproduct" class="col-md-3 col-lg-3" onclick="getProductDetail()">
                     <div class="card shadow h-100">
                         <div class="position-relative">
                             <img src="@item.ImageUrl" class="card-img-top" alt="@item.ProductName">
@@ -299,6 +299,10 @@
         font-size: 0.9rem;
         padding: 0.75rem;
     }
+
+    #cardproduct:hover{
+        cursor: pointer;
+    }
 </style>
 
 @section Scripts{
@@ -314,6 +318,15 @@
             if (productListSection) {
                 productListSection.scrollIntoView({ behavior: "smooth" });
             }
+        }
+
+        // document.getElementById('cardproduct').addEventListener('click' function(){
+        //     getProductDetail()
+        // })
+
+        function getProductDetail()
+        {
+            window.location.href = "Home/ProductDetail/1"
         }
     </script>
 }

@@ -1,0 +1,161 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Product Detail";
+}
+
+<!-- Breadcrumb Navigation -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="bi bi-house-fill"></i></a></li>
+        <li class="breadcrumb-item active" aria-current="page">Guitar</li>
+    </ol>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-6">
+            <img src="https://via.placeholder.com/500x400?text=Product+Image" alt="Guitar Acoustic NG GT700NA" class="img-fluid product-img">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-6">
+            <h2 class="product-title">Đàn Guitar Acoustic NG GT700NA - EQ</h2>
+            <p class="text-muted">Mã sản phẩm: S240802856</p>
+
+            <!-- Price and Discount -->
+            <p class="product-price">2,600,000 VND</p>
+            <p class="product-discount">Giảm 15% còn: 2,200,000 VND</p>
+
+            <!-- Add to Cart Button -->
+            <div class="row mt-3">
+                <button class="btn btn-custom btn-lg col-5">Thêm vào giỏ hàng</button>
+                <button class="btn btn-success btn-lg col-5 ms-3">Thanh Toán</button>
+            </div>
+
+            <!-- Product Specifications -->
+            <div class="product-info mt-4">
+                <h5>Thông số kỹ thuật</h5>
+                <ul class="product-specs">
+                    <li><strong>Hãng sản xuất:</strong> Northern Gale</li>
+                    <li><strong>Loại đàn:</strong> Acoustic</li>
+                    <li><strong>Màu sắc:</strong> Màu gỗ tự nhiên</li>
+                    <li><strong>Phụ kiện kèm theo:</strong> Bao da đàn, móc cài đàn</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Description -->
+    <div class="row mt-5">
+        <div class="col-12 product-details-container">
+            <h4>Mô tả sản phẩm</h4>
+            <p class="product-description">Được sản xuất và thiết kế bởi hãng Northern Gale, chiếc đàn guitar NG GT700NA mang đến một trải nghiệm âm thanh tuyệt vời cho người chơi. Sản phẩm có thể sử dụng cho cả người mới bắt đầu và người chơi có kinh nghiệm. Với cấu tạo từ chất liệu gỗ cao cấp, đàn cho âm thanh rõ ràng, mạnh mẽ và đặc biệt là dễ dàng chơi khi luyện tập. Dễ dàng chỉnh âm với EQ, mang lại trải nghiệm tuyệt vời cho người dùng.</p>
+        </div>
+    </div>
+
+    <!-- Related Products Section -->
+    <div class="row mt-5 related-products">
+        <div class="col-md-3 product-card">
+            <img src="https://via.placeholder.com/200x150?text=Product+1" alt="Related Product 1" class="img-fluid">
+            <h6>Đàn Guitar Acoustic 1</h6>
+        </div>
+        <div class="col-md-3 product-card">
+            <img src="https://via.placeholder.com/200x150?text=Product+2" alt="Related Product 2" class="img-fluid">
+            <h6>Đàn Guitar Acoustic 2</h6>
+        </div>
+        <div class="col-md-3 product-card">
+            <img src="https://via.placeholder.com/200x150?text=Product+3" alt="Related Product 3" class="img-fluid">
+            <h6>Đàn Guitar Acoustic 3</h6>
+        </div>
+        <div class="col-md-3 product-card">
+            <img src="https://via.placeholder.com/200x150?text=Product+4" alt="Related Product 4" class="img-fluid">
+            <h6>Đàn Guitar Acoustic 4</h6>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom styling for breadcrumb */
+    .breadcrumb {
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+    /* Custom Styles */
+    .product-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product-price {
+        font-size: 28px;
+        font-weight: bold;
+        color: green;
+    }
+
+    .product-discount {
+        font-size: 20px;
+        color: red;
+        font-weight: bold;
+    }
+
+    .product-title {
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    .rating {
+        color: gold;
+    }
+
+    .product-specs li {
+        margin-bottom: 5px;
+    }
+
+    .product-info {
+        margin-top: 20px;
+    }
+
+    .related-products img {
+        width: 100%;
+        height: auto;
+    }
+
+    .related-products .product-card {
+        margin-bottom: 20px;
+    }
+
+    .related-products .product-card h6 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .product-details-container {
+        background-color: #f8f8f8;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .product-description {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .btn-custom {
+        background-color: #ff6600;
+        color: white;
+    }
+
+    .btn-custom:hover {
+        background-color: #cc5200;
+    }
+
+    .btn-success {
+        
+    }
+
+    .btn-success:hover{
+        color: black;
+    }
+</style>

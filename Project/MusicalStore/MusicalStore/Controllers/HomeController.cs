@@ -28,6 +28,11 @@ namespace MusicalStore.Controllers
             return View(dataIndex);
         }
 
+        public IActionResult ProductDetail(int productId)
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -1,4 +1,5 @@
 wwwroot\css\site.css
+wwwroot\css\style.css
 wwwroot\dist\assets\img\AdminLTEFullLogo.png
 wwwroot\dist\assets\img\AdminLTELogo.png
 wwwroot\dist\assets\img\avatar.png

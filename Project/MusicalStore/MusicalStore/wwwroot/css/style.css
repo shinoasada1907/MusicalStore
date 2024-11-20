@@ -1,0 +1,9 @@
+﻿body {
+}
+
+/* Adjust layout for responsive views */
+@media (max-width: 768px) {
+    .sidebar-footer {
+        padding: 8px 12px;
+    }
+}

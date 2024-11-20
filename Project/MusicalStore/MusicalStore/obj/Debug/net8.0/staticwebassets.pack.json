@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\dist\\assets\\img\\AdminLTEFullLogo.png",
       "PackagePath": "staticwebassets\\dist\\assets\\img\\AdminLTEFullLogo.png"
     },
