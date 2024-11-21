@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>AdminLTE v4 | Dashboard</title><!--begin::Primary Meta Tags-->
+    <title>@ViewData["Title"]</title><!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="AdminLTE v4 | Dashboard">
     <meta name="author" content="ColorlibHQ">
@@ -122,7 +122,7 @@
         <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
             <!-- Sidebar Brand -->
             <div class="sidebar-brand">
-                <a href="./index.html" class="brand-link">
+                <a asp-controller="Admin" asp-action="Dashboard" class="brand-link">
                     <img src="../../dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow">
                     <span class="brand-text fw-light">AdminLTE 4</span>
                 </a>
@@ -145,13 +145,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Admin" asp-action="AdminStaff">
+                            <a class="nav-link" asp-controller="Admin" asp-action="AdminUser">
                                 <i class="nav-icon bi bi-clipboard-fill"></i>
                                 <p>Quản lý khách hàng</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Admin" asp-action="AdminStaff">
+                            <a class="nav-link" asp-controller="Admin" asp-action="AdminProduct">
                                 <i class="nav-icon bi bi-clipboard-fill"></i>
                                 <p>Quản lý sản phẩm</p>
                             </a>
@@ -163,13 +163,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Admin" asp-action="AdminStaff">
+                            <a class="nav-link" asp-controller="Admin" asp-action="AdminPayment">
                                 <i class="nav-icon bi bi-clipboard-fill"></i>
                                 <p>Quản lý thanh toán</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Admin" asp-action="AdminStaff">
+                            <a class="nav-link" asp-controller="Admin" asp-action="AdminRevenue">
                                 <i class="nav-icon bi bi-clipboard-fill"></i>
                                 <p>Thống kê doanh thu</p>
                             </a>
