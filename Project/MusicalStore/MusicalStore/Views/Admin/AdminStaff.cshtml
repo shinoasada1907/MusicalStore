@@ -11,24 +11,31 @@
                 <tr>
                     <td class="text-center fw-bold">Họ tên</td>
                     <td class="text-center fw-bold">Ngày sinh</td>
+                    <td class="text-center fw-bold">Giới tính</td>
+                    <td class="text-center fw-bold">Số điện thoại</td>
                     <td class="text-center fw-bold">Chức vụ</td>
                     <td class="text-center fw-bold">Thao tác</td>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="text-center">
-                        <a href="/#" class="link-underline-dark text-dark">Nguyễn Văn A</a>
-                    </td>
-                    <td class="text-center">@DateTime.Now.ToShortDateString()</td>
-                    <td class="text-center">Nhân viên</td>
-                    <td class="text-center">
-                        <div class="row justify-content-center">
-                            <button class="btn btn-sm btn-warning col-3 ms-1"><i class="bi bi-pencil-fill"></i></button>
-                            <button class="btn btn-sm btn-warning col-3 ms-1"><i class="bi bi-trash"></i></button>
-                        </div>
-                    </td>
-                </tr>
+                @foreach (Staff item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <a href="/#" class="link-underline-dark text-dark">@item.StaffName</a>
+                        </td>
+                        <td class="text-center">@item.Birthday.ToShortDateString()</td>
+                        <td class="text-center">@item.Sex</td>
+                        <td class="text-center">@item.Phone</td>
+                        <td class="text-center">@item.Position</td>
+                        <td class="text-center">
+                            <div class="row justify-content-center">
+                                <button class="btn btn-sm btn-warning col-3 ms-1"><i class="bi bi-pencil-fill"></i></button>
+                                <button class="btn btn-sm btn-warning col-3 ms-1"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

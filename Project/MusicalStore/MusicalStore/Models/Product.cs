@@ -10,5 +10,8 @@ namespace MusicalStore.Models
         public decimal ProductPrice { get; set; } = 0;
         public string CategoryId { get; set; } = string.Empty;
         public string ImageUrl { get; set; } = string.Empty;
+        public string Company { get; set; } = string.Empty;
+        public string DVT { get; set; } = string.Empty;
+        public int Quantity { get; set; } = 0;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MusicalStore.Data;
 
 namespace MusicalStore.Controllers
 {
@@ -16,11 +17,11 @@ namespace MusicalStore.Controllers
 
         public IActionResult AdminStaff()
         {
-            return View();
+            return View(StaffData.staffList);
         }
         public IActionResult AdminUser()
         {
-            return View();
+            return View(UserData.ListUser);
         }
         public IActionResult AdminProduct()
         {
