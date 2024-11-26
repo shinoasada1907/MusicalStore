@@ -1,8 +1,19 @@
+using MusicalStore.Models.Service.Momo;
+using MusicalStore.Repository.Momo;
+using MusicalStore.Repository.vnpay;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors(option =>
+{
+    option.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
+builder.Services.AddScoped<IMomoService, MomoService>();
+builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 var app = builder.Build();
 
@@ -13,6 +24,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseCors();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

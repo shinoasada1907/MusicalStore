@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Đơn hàng";
+}
+<div class="container mt-5">
+    <h2>@ViewData["Title"]</h2>
+    <div class="card">
+        <div class="card-body">
+            <h4>Thông Tin Đơn Hàng</h4>
+            <p><strong>Mã Đơn Hàng:</strong> ORD123456</p>
+            <p><strong>Tên Khách Hàng:</strong> Nguyễn Văn A</p>
+            <p><strong>Địa Chỉ:</strong> 123 Đường ABC, TP.HCM</p>
+            <p><strong>Thành Tiền:</strong> 150.000 đ</p>
+
+            <h5>Chi Tiết Sản Phẩm:</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Số Lượng</th>
+                        <th>Giá</th>
+                        <th>Tổng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Đàn Guitar</td>
+                        <td>1</td>
+                        <td>100.000 đ</td>
+                        <td>100.000 đ</td>
+                    </tr>
+                    <tr>
+                        <td>Trống Cajon</td>
+                        <td>1</td>
+                        <td>50.000 đ</td>
+                        <td>50.000 đ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h4 class="mt-4">Chọn Phương Thức Thanh Toán</h4>
+    <form id="paymentForm" method="POST">
+        <input type="hidden" name="UserName" value="Tien" />
+        <input type="hidden" name="TotalAmount" value="100000" />
+        <input type="hidden" name="OrderInfo" value="Thanh toán đặt hàng qua Momo tại Musical store" />
+
+        <div class="form-group">
+            <label for="paymentMethod">Chọn phương thức thanh toán</label>
+            <select class="form-select" id="paymentMethod" name="paymentMethod">
+                <option value="Choose">Chọn phương thức thanh toán</option>
+                <option value="Momo">Momo</option>
+                <option value="VNPay">VNPay</option>
+                <option value="CashOnDelivery">Thanh toán khi nhận hàng</option>
+            </select>
+        </div>
+
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary">Thanh Toán</button>
+        </div>
+    </form>
+
+</div>
+
+@section Scripts
+{
+    <script>
+            $('#paymentMethod').change(function() {
+            var paymentMethod = $(this).val();
+            var form = $('#paymentForm');
+
+            // Thay đổi action của form dựa trên phương thức thanh toán đã chọn
+            switch (paymentMethod) {
+                case 'Momo':
+                    form.attr('action', '@Url.Action("CreatePaymentMomo", "Payment")'); // URL cho MoMo
+                    break;
+                case 'VNPay':
+                    form.attr('action', '@Url.Action("CreatePaymentUrlVnpay", "Payment")'); // URL cho VNPay
+                    break;
+                case 'CashOnDelivery':
+                    // form.attr('action', '@Url.Action("CashOnDelivery", "Payment")'); // URL cho COD
+                    break;
+                default:
+                    form.attr('action', ''); // Chưa chọn phương thức thanh toán
+                    break;
+            }
+        });
+    </script>
+}

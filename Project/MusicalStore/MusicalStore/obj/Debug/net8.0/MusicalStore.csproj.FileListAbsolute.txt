@@ -229,3 +229,4 @@ D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\bin\Debug\net8.0\System.Te
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\bin\Debug\net8.0\System.Text.Json.dll
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net8.0\MusicalStore.sourcelink.json
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\bin\Debug\net8.0\RestSharp.dll

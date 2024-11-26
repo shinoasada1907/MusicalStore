@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\views\\admin\\adminstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\admin\\adminstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\models\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\models\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\views\\payment\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\payment\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\data\\staffdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\data\\staffdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\views\\admin\\adminuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\admin\\adminuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\data\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\data\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,105 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Models\\Product.cs",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Models\\Product.cs",
-              "RelativeToolTip": "MusicalStore\\Models\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T15:15:24.144Z",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\appsettings.json",
+              "RelativeDocumentMoniker": "MusicalStore\\appsettings.json",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\appsettings.json",
+              "RelativeToolTip": "MusicalStore\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-26T04:11:37.978Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AdminStaff.cshtml",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Admin\\AdminStaff.cshtml",
-              "RelativeDocumentMoniker": "MusicalStore\\Views\\Admin\\AdminStaff.cshtml",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Admin\\AdminStaff.cshtml",
-              "RelativeToolTip": "MusicalStore\\Views\\Admin\\AdminStaff.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABMAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T15:10:11.417Z",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Program.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Program.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Program.cs",
+              "RelativeToolTip": "MusicalStore\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T04:11:35.439Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Staff.cs",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Models\\Staff.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Models\\Staff.cs",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Models\\Staff.cs",
-              "RelativeToolTip": "MusicalStore\\Models\\Staff.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T14:28:48.162Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StaffData.cs",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Data\\StaffData.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Data\\StaffData.cs",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Data\\StaffData.cs",
-              "RelativeToolTip": "MusicalStore\\Data\\StaffData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T14:18:27.551Z",
+              "Title": "Order.cshtml",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Payment\\Order.cshtml",
+              "RelativeDocumentMoniker": "MusicalStore\\Views\\Payment\\Order.cshtml",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Payment\\Order.cshtml",
+              "RelativeToolTip": "MusicalStore\\Views\\Payment\\Order.cshtml",
+              "ViewState": "AgIAADIAAAAAAAAAAAAQwEUAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-25T15:17:47.081Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Controllers\\AdminController.cs",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "MusicalStore\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBMAAAArAAAAAAAAAA==",
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Controllers\\PaymentController.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "MusicalStore\\Controllers\\PaymentController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAMwCkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T15:36:37.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserModel.cs",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Models\\UserModel.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Models\\UserModel.cs",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Models\\UserModel.cs",
-              "RelativeToolTip": "MusicalStore\\Models\\UserModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T15:33:48.904Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserData.cs",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Data\\UserData.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Data\\UserData.cs",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Data\\UserData.cs",
-              "RelativeToolTip": "MusicalStore\\Data\\UserData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T15:33:06.422Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AdminUser.cshtml",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Admin\\AdminUser.cshtml",
-              "RelativeDocumentMoniker": "MusicalStore\\Views\\Admin\\AdminUser.cshtml",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Admin\\AdminUser.cshtml",
-              "RelativeToolTip": "MusicalStore\\Views\\Admin\\AdminUser.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-21T03:01:53.22Z",
+              "WhenOpened": "2024-11-25T15:17:39.862Z",
               "EditorCaption": ""
             }
           ]
