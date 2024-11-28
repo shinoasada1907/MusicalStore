@@ -43,5 +43,14 @@ namespace MusicalStore.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult ProfileUser()
+        {
+            return View();
+        }
+        public IActionResult ShoppingCart()
+        {
+            return View();
+        }
     }
 }

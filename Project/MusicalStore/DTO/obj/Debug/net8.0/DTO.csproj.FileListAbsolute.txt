@@ -1,0 +1,14 @@
+D:\Job\MusicalStore\Project\MusicalStore\DTO\bin\Debug\net8.0\DTO.deps.json
+D:\Job\MusicalStore\Project\MusicalStore\DTO\bin\Debug\net8.0\DTO.runtimeconfig.json
+D:\Job\MusicalStore\Project\MusicalStore\DTO\bin\Debug\net8.0\DTO.dll
+D:\Job\MusicalStore\Project\MusicalStore\DTO\bin\Debug\net8.0\DTO.pdb
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\DTO.AssemblyInfoInputs.cache
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\DTO.AssemblyInfo.cs
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\DTO.csproj.CoreCompileInputs.cache
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\DTO.sourcelink.json
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\DTO.dll
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\refint\DTO.dll
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\DTO.pdb
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\DTO.genruntimeconfig.cache
+D:\Job\MusicalStore\Project\MusicalStore\DTO\obj\Debug\net8.0\ref\DTO.dll
