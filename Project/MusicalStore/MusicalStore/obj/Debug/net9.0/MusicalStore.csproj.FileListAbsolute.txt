@@ -363,8 +363,6 @@ D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\compresse
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\compressed\tf5rz9gvsm-dd6z7egasc.gz
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\compressed\afqahoa7fh-5pze98is44.gz
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\compressed\q88l5qtp1k-mlv21k5csn.gz
-D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\compressed\5or299ex6l-5mf4spwlk2.gz
-D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\compressed\cqgcu04d9z-5mf4spwlk2.gz
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\staticwebassets.build.json
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\staticwebassets.development.json
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -380,4 +378,6 @@ D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\refint\Mu
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\MusicalStore.pdb
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\MusicalStore.genruntimeconfig.cache
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\ref\MusicalStore.dll
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\compressed\5or299ex6l-lhyj12mrhs.gz
+D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\compressed\cqgcu04d9z-lhyj12mrhs.gz
 D:\Job\MusicalStore\Project\MusicalStore\MusicalStore\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

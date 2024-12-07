@@ -3,28 +3,32 @@ using System.Dynamic;
 using Microsoft.AspNetCore.Mvc;
 using MusicalStore.Data;
 using MusicalStore.Models;
+using MusicalStore.Repository.ProductRepo;
 
 namespace MusicalStore.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductRepository _productRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository)
         {
             _logger = logger;
+            _productRepository = productRepository;
         }
 
-        public IActionResult Index(int page = 1)
+        [HttpGet]
+        public IActionResult Index(int page = 1, int pageSize = 12)
         {
-            int pageSize = 5;
+            var totalPage = _productRepository.GetAllProducts().Count() / 12;
             dynamic dataIndex = new ExpandoObject();
             dataIndex.Categories = CategoryData.Categories;
             dataIndex.ProductsSale = ProductData.ProductsSale;
             dataIndex.Collections = CollectionsData.ListCollections;
-            dataIndex.ListProduct = ProductData.ListProduct;
+            dataIndex.ListProduct = _productRepository.GetListProductWithPage(page, pageSize);
             dataIndex.CurrentPage = page;
-            dataIndex.TotalPages = 10;
+            dataIndex.TotalPages = (totalPage is int) ? totalPage + 1 : totalPage;
             return View(dataIndex);
         }
 
@@ -49,6 +53,14 @@ namespace MusicalStore.Controllers
             return View();
         }
         public IActionResult ShoppingCart()
+        {
+            return View();
+        }
+        public IActionResult FormUserInformation()
+        {
+            return View();
+        }
+        public IActionResult Profile()
         {
             return View();
         }

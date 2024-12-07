@@ -4,14 +4,25 @@ namespace MusicalStore.Models
 {
     public class Product
     {
-        public string Id { get; set; } = string.Empty;
-        public string ProductName { get; set; } = string.Empty;
-        public string ProductDesc { get; set; } = string.Empty;
-        public decimal ProductPrice { get; set; } = 0;
-        public string CategoryId { get; set; } = string.Empty;
-        public string ImageUrl { get; set; } = string.Empty;
-        public string Company { get; set; } = string.Empty;
-        public string DVT { get; set; } = string.Empty;
-        public int Quantity { get; set; } = 0;
+        public string ProductCode { get; set; } = string.Empty; // Mã sản phẩm (MaSp)
+
+        public string ProductName { get; set; } = string.Empty; // Tên sản phẩm (TenSp)
+
+        public string? Brand { get; set; } // Hãng sản xuất (Hang)
+
+        public string? Unit { get; set; } // Đơn vị tính (Dvt)
+
+        public double? Price { get; set; } // Giá sản phẩm (Gia)
+
+        public string? Description { get; set; } // Mô tả sản phẩm (MoTa)
+
+        public string? ImageUrl { get; set; } // Đường dẫn hình ảnh (Hinh)
+
+        public int? StockQuantity { get; set; } // Số lượng sản phẩm (Slsp)
+
+        public string? CategoryCode { get; set; } // Mã loại sản phẩm (MaLsp)
+
+        public bool IsInStock => StockQuantity.HasValue && StockQuantity > 0; // Sản phẩm còn hàng
+
     }
 }

@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MusicalStore.bundle.scp.css",
-      "PackagePath": "staticwebassets\\MusicalStore.5mf4spwlk2.bundle.scp.css"
+      "PackagePath": "staticwebassets\\MusicalStore.lhyj12mrhs.bundle.scp.css"
     },
     {
       "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\css\\site.css",
@@ -335,6 +335,306 @@
     {
       "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Default\\images.jpg",
+      "PackagePath": "staticwebassets\\images\\Default\\images.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\AC02.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\AC02.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\AC03.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\AC03.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\AN05.png",
+      "PackagePath": "staticwebassets\\images\\Drum\\AN05.png"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\AS01.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\AS01.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\AT06.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\AT06.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\CC04.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\CC04.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\OC08.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\OC08.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\OE07.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\OE07.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\OF06.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\OF06.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\OI04.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\OI04.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\OI05.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\OI05.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\PD02.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\PD02.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\PE01.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\PE01.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\PR03.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\PR03.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\RT07.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\RT07.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\RT08.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\RT08.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\RT09.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\RT09.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Drum\\RT10.jpg",
+      "PackagePath": "staticwebassets\\images\\Drum\\RT10.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\CD06.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\CD06.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\CF07.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\CF07.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\CP05.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\CP05.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\FD02.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\FD02.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\FD03.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\FD03.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\SA10.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\SA10.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\TG04.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\TG04.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\TL01.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\TL01.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\Takamine.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\Takamine.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Guitar\\Test.jpg",
+      "PackagePath": "staticwebassets\\images\\Guitar\\Test.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\DA01.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\DA01.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\DA02.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\DA02.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\DA04.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\DA04.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\DE11.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\DE11.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\DE12.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\DE12.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\DS07.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\DS07.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\DS08.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\DS08.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\FA15.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\FA15.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\FM16.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\FM16.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\FT01.png",
+      "PackagePath": "staticwebassets\\images\\Other\\FT01.png"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\LG13.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\LG13.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\LG14.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\LG14.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\ON03.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\ON03.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\PS02.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\PS02.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\PS03.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\PS03.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\RS11.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\RS11.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\RS12.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\RS12.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\SD11.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\SD11.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\TC12.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\TC12.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\TG05.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\TG05.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\TG06.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\TG06.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\ZZ04.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\ZZ04.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\ZZ05.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\ZZ05.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\ZZ06.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\ZZ06.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\ZZ07.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\ZZ07.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\ZZ08.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\ZZ08.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\ZZ09.png",
+      "PackagePath": "staticwebassets\\images\\Other\\ZZ09.png"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Other\\ZZ10.jpg",
+      "PackagePath": "staticwebassets\\images\\Other\\ZZ10.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\EE10.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\EE10.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KC03.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KC03.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KC04.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KC04.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KG01.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KG01.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KG02.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KG02.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KG08.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KG08.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KG09.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KG09.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KK02.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KK02.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KK03.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KK03.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\KN01.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\KN01.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\SJ04.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\SJ04.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\SJ05.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\SJ05.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\SJ06.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\SJ06.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\SJ07.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\SJ07.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\SJ08.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\SJ08.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\SK05.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\SK05.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\SK06.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\SK06.jpg"
+    },
+    {
+      "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Piano\\SK07.jpg",
+      "PackagePath": "staticwebassets\\images\\Piano\\SK07.jpg"
     },
     {
       "Id": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\js\\site.js",

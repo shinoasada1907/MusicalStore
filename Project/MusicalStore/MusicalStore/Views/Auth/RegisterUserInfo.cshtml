@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Thông tin";
+}
+
+<style>
+    .card {
+        border-radius: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 10px;
+        /* Thêm khoảng cách giữa các input */
+    }
+
+        .input-group input {
+            /* Độ cong của viền */
+            border: 1px solid #ccc;
+            /* Đường viền */
+            padding: 10px;
+            /* Khoảng cách bên trong */
+            width: 100%;
+            /* Chiếm toàn bộ chiều rộng */
+            box-sizing: border-box;
+            /* Đảm bảo padding không làm tăng kích thước */
+        }
+</style>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-6 justify-content-center">
+            <div class="card align-content-center">
+                <form class="p-5" action="">
+                    <div class="input-group">
+                        <span class="">Họ và tên <span style="color: red;">&#42;</span></span><input type="text"
+                                                                                                     class="input-group">
+                    </div>
+                    <div class="input-group">
+                        <span class="">Họ và tên <span style="color: red;">&#42;</span></span><input type="text"
+                                                                                                     class="input-group">
+                    </div>
+                    <div class="input-group">
+                        <span class="">Họ và tên <span style="color: red;">&#42;</span></span><input type="text"
+                                                                                                     class="input-group">
+                    </div>
+                    <div class="input-group">
+                        <span class="">Họ và tên <span style="color: red;">&#42;</span></span><input type="text"
+                                                                                                     class="input-group">
+                    </div>
+                    <div class="input-group">
+                        <span class="">Họ và tên <span style="color: red;">&#42;</span></span><input type="text"
+                                                                                                     class="input-group">
+                    </div>
+                    <div class="input-group">
+                        <span class="">Họ và tên <span style="color: red;">&#42;</span></span><input type="text"
+                                                                                                     class="input-group">
+                    </div>
+                    <div class="input-group">
+                        <span class="">Họ và tên <span style="color: red;">&#42;</span></span><input type="text"
+                                                                                                     class="input-group">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-6 justify-content-center">
+            <div class="row">
+                <div class="card justify-content-center w-75 h-75">
+                    <img class="mt-3" id="background" src="~/images/Default/images.jpg" width="75%" height="75%" alt="">
+                    <div class="input-group mt-3">
+                        <input type="file" id="imageUpload" accept="image/*">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Sửa lỗi chính tả từ "ocument" thành "document"
+                    document.getElementById('background').src = e.target.result; // Cập nhật src của thẻ img
+                }
+                reader.readAsDataURL(file); // Đọc file dưới dạng Data URL (base64)
+            }
+        });
+    </script>
+}

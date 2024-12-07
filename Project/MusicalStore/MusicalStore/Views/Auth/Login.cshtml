@@ -1,0 +1,108 @@
+﻿@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="full-screen-container">
+    <div class="row justify-content-center">
+        <div class="pt-5 mt-5"></div>
+        <div class="col-4 align-content-center">
+            <div class="mt-lg-5">
+                <form id="loginForm" class="">
+                    <input type="text" class="form-control" placeholder="Nhập tên tài khoản hoặc email">
+                    <div class="input-group mt-2">
+                        <input type="password" class="form-control" id="passwordInput"
+                            placeholder="Enter your password">
+                        <span class="input-group-text" id="togglePassword">
+                            <i class="bi bi-eye-slash"></i>
+                        </span>
+                    </div>
+                    <div class="btn-group">
+                        <input id="btnLogin" type="submit" class="btn btn-sm btn-primary mt-2 mx-1" value="Đăng nhập">
+                        <input id="btnRegister" type="button" class="btn btn-warning btn-primary mt-2 mx-1"
+                            value="Đăng ký">
+                    </div>
+
+                </form>
+            </div>
+            <div class="text-center mt-3">Hoặc</div>
+            <div class="">
+                <button class="btn btn-danger input-group mt-3">Google</button>
+                <button class="btn btn-primary input-group mt-3">Facebook</button>
+                <button class="btn btn-secondary input-group mt-3">Apple</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Đảm bảo body và html chiếm toàn bộ chiều cao màn hình */
+    html,
+    body {
+        height: 100%;
+        /* Chiều cao của trang chiếm 100% */
+        margin: 0;
+        /* Xóa khoảng cách mặc định */
+    }
+
+    /* Định nghĩa container chiếm toàn bộ màn hình */
+    .full-screen-container {
+        width: 100%;
+        /* Chiều rộng 100% */
+        height: 100vh;
+        /* Dùng flex để dễ dàng căn giữa nội dung */
+        justify-content: center;
+        /* Căn giữa theo chiều ngang */
+        align-items: center;
+        /* Căn giữa theo chiều dọc */
+        text-align: center;
+        /* Căn giữa nội dung bên trong */
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+        });
+
+        const passwordInput = document.getElementById('passwordInput');
+        const togglePassword = document.getElementById('togglePassword');
+        const eyeIcon = togglePassword.querySelector('i');
+        togglePassword.addEventListener('click', function () {
+            // Kiểm tra nếu mật khẩu đang ẩn hay không
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type; // Thay đổi loại trường input
+
+            // Thay đổi icon
+            if (type === 'password') {
+                eyeIcon.classList.remove('bi-eye');
+                eyeIcon.classList.add('bi-eye-slash');
+            } else {
+                eyeIcon.classList.remove('bi-eye-slash');
+                eyeIcon.classList.add('bi-eye');
+            }
+        });
+
+        $('#loginForm').on('submit', function (e) {
+            // Có thể thêm validation hoặc xử lý trước khi gửi form ở đây
+            // Ví dụ: nếu không có lỗi, cho phép gửi form
+            // Nếu có lỗi, ngăn chặn gửi form bằng e.preventDefault();
+            $.ajax({
+                url: '@Url.Action("Index", "Home")',
+                method: 'GET',
+                data: {},
+                success: function (data) {
+                    window.location.href = '@Url.Action("Index", "Home")';
+                }, error: function (e) { }
+            })
+
+        });
+
+        $('#btnRegister').on('click', function () {
+            // Chuyển hướng đến trang đăng ký
+            window.location.href = '@Url.Action("Register", "Auth")';
+        });
+
+    </script>
+}

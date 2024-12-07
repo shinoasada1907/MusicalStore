@@ -1,5 +1,10 @@
+using DTO.IRepository;
+using DTO.Models;
+using DTO.Repository;
+using Microsoft.EntityFrameworkCore;
 using MusicalStore.Models.Service.Momo;
 using MusicalStore.Repository.Momo;
+using MusicalStore.Repository.ProductRepo;
 using MusicalStore.Repository.vnpay;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +16,17 @@ builder.Services.AddCors(option =>
 });
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
 builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
 builder.Services.AddScoped<IMomoService, MomoService>();
 builder.Services.AddScoped<IVnPayService, VnPayService>();
+
+builder.Services.AddDbContext<MusicalStoreContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//DTO
+builder.Services.AddScoped<ISanPhamRepository, SanPhamRepository>();
+
+//MusicalStore
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 

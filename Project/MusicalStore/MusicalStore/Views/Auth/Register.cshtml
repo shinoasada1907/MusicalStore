@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Đăng ký tài khoản";
+}
+<div class="container">
+    <div class="row justify-content-start mt-5">
+        <div class="col-md-6">
+            <!-- Đặt card ở bên trái -->
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4 style="color: #007bff;">Đăng Ký Tài Khoản</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="RegisterUserInfo" asp-controller="Auth" method="post">
+                        <div class="form-group mb-3">
+                            <!-- Thêm mb-3 để tạo khoảng cách dưới -->
+                            <input type="text" class="form-control" id="name" name="Name" placeholder="Họ và tên">
+                        </div>
+                        <div class="form-group mb-3">
+                            <!-- Thêm mb-3 để tạo khoảng cách dưới -->
+                            <input type="email" class="form-control" id="email" name="Email" placeholder="Email">
+                        </div>
+                        <div class="form-group mb-3">
+                            <!-- Thêm mb-3 để tạo khoảng cách dưới -->
+                            <input type="password" class="form-control" id="password" name="Password"
+                                   placeholder="Mật khẩu">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="terms" name="Terms">
+                            <label class="form-check-label" for="terms">
+                                Tôi đồng ý với <a href="#">
+                                    Điều khoản dịch
+                                    vụ
+                                </a> và <a href="#">Chính sách bảo mật</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Tạo tài khoản</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <small>Đã có tài khoản? <a href="@Url.Action("Login","Auth")">Đăng nhập tại đây</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        /* Màu nền sáng cho trang */
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        /* Thêm padding cho card */
+        margin: 20px 0;
+        /* Tạo khoảng cách giữa card và các phần khác */
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .form-control {
+        border-radius: 0.25rem;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {}
+
+    </script>
+}
