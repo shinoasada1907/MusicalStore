@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicalStore.Data;
 using MusicalStore.Repository.ProductRepo;
+using MusicalStore.Repository.StaffRepository;
 using MusicalStore.Repository.UserRepository;
 
 namespace MusicalStore.Controllers
@@ -9,10 +10,12 @@ namespace MusicalStore.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IProductRepository _productRepository;
-        public AdminController(IUserRepository userRepository, IProductRepository productRepository)
+        private readonly IStaffRepository _staffRepository;
+        public AdminController(IUserRepository userRepository, IProductRepository productRepository, IStaffRepository staffRepository)
         {
             _userRepository = userRepository;
             _productRepository = productRepository;
+            _staffRepository = staffRepository;
         }
         public IActionResult Dashboard()
         {
@@ -26,7 +29,8 @@ namespace MusicalStore.Controllers
 
         public IActionResult AdminStaff()
         {
-            return View(StaffData.staffList);
+            var staffs = _staffRepository.GetAllStaff();
+            return View(staffs);
         }
         public IActionResult AdminUser()
         {
