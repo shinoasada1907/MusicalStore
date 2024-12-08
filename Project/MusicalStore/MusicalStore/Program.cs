@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using MusicalStore.Models.Service.Momo;
 using MusicalStore.Repository.Momo;
 using MusicalStore.Repository.ProductRepo;
+using MusicalStore.Repository.UserRepository;
 using MusicalStore.Repository.vnpay;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,9 +25,11 @@ builder.Services.AddScoped<IVnPayService, VnPayService>();
 builder.Services.AddDbContext<MusicalStoreContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 //DTO
 builder.Services.AddScoped<ISanPhamRepository, SanPhamRepository>();
+builder.Services.AddScoped<IKhachHangRepository, KhachHangRepository>();
 
 //MusicalStore
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

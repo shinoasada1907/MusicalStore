@@ -1,10 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicalStore.Data;
+using MusicalStore.Repository.ProductRepo;
+using MusicalStore.Repository.UserRepository;
 
 namespace MusicalStore.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly IUserRepository _userRepository;
+        private readonly IProductRepository _productRepository;
+        public AdminController(IUserRepository userRepository, IProductRepository productRepository)
+        {
+            _userRepository = userRepository;
+            _productRepository = productRepository;
+        }
         public IActionResult Dashboard()
         {
             return View();
@@ -21,7 +30,8 @@ namespace MusicalStore.Controllers
         }
         public IActionResult AdminUser()
         {
-            return View(UserData.ListUser);
+            var users = _userRepository.GetAllUser();
+            return View(users);
         }
         public IActionResult AdminProduct()
         {
