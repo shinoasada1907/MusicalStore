@@ -24,9 +24,11 @@ namespace MusicalStore.Repository.ProductRepo
             return ProductMapping.MapToProducts(products);
         }
 
-        public IEnumerable<Product> GetProductById(string id)
+        public Product GetProductById(string id)
         {
-            throw new NotImplementedException();
+            var product = _sanPhamRepository.GetSanPhamById(id);
+            Console.WriteLine($"Product {product.MaSp}");
+            return ProductMapping.MappingToProduct(product);
         }
     }
 }
