@@ -39,7 +39,8 @@ namespace MusicalStore.Controllers
         }
         public IActionResult AdminProduct()
         {
-            return View();
+            var products= _productRepository.GetAllProducts();
+            return View(products);
         }
         public IActionResult AdminPayment()
         {

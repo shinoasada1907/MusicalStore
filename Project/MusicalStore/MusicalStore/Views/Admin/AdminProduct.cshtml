@@ -3,3 +3,49 @@
     ViewData["Title"] = "Quản lý sản phẩm";
 }
 <h1>Quản lý sản phẩm</h1>
+
+<div class="container mt-5">
+    <div class="">
+        <table class="table table-sm table-bordered position-sticky">
+            <thead class="table table-success">
+                <tr>
+                    <td class="text-center fw-bold">Tên sản phẩm</td>
+                    <td class="text-center fw-bold">Hãng</td>
+                    <td class="text-center fw-bold">Đơn vị tính</td>
+                    <td class="text-center fw-bold">Giá</td>
+                    <td class="text-center fw-bold">Mô tả</td>
+                    <td class="text-center fw-bold">Số lượng</td>
+                    <td class="text-center fw-bold">Thao tác</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Product item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <a href="/#" class="link-underline-dark text-dark">@item.ProductName</a>
+                        </td>
+                        <td class="text-center">@item.Brand</td>
+                        <td class="text-center">@item.Unit</td>
+                        <td class="text-center">@item.Price</td>
+                        <td class="text-center">@item.Description</td>
+                        <td class="text-center">@item.StockQuantity</td>
+                        <td class="text-center">
+                            <div class="row justify-content-center">
+                                <button class="btn btn-sm btn-warning col-3 ms-1"><i class="bi bi-pencil-fill"></i></button>
+                                <button class="btn btn-sm btn-warning col-3 ms-1"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    a:hover {
+        color: black;
+        cursor: pointer;
+    }
+</style>
