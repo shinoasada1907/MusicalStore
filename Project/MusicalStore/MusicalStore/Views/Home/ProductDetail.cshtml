@@ -1,6 +1,8 @@
-﻿@{
+﻿@model Product
+@{
     Layout = "_Layout";
     ViewData["Title"] = "Product Detail";
+
 }
 
 <!-- Breadcrumb Navigation -->
@@ -16,17 +18,17 @@
     <div class="row">
         <!-- Product Image -->
         <div class="col-md-6">
-            <img src="https://via.placeholder.com/500x400?text=Product+Image" alt="Guitar Acoustic NG GT700NA"
+            <img src="~/images/@Model.ImageUrl" alt="Guitar Acoustic NG GT700NA"
                 class="img-fluid product-img">
         </div>
 
         <!-- Product Details -->
         <div class="col-md-6">
-            <h2 class="product-title">Đàn Guitar Acoustic NG GT700NA - EQ</h2>
-            <p class="text-muted">Mã sản phẩm: S240802856</p>
+            <h2 class="product-title">@Model.ProductName</h2>
+            <p class="text-muted">Mã sản phẩm: @Model.ProductCode</p>
 
             <!-- Price and Discount -->
-            <p class="product-price">2,600,000 VND</p>
+            <p class="product-price">@string.Format("{0:N0}", Model.Price) VND</p>
             <p class="product-discount">Giảm 15% còn: 2,200,000 VND</p>
 
             <!-- Add to Cart Button -->

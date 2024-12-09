@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DTO.Models;
 
 public partial class BinhLuan
 {
+    [Column(TypeName ="nvarchar(500)")]
     public string? NoiDung { get; set; }
 
     public DateOnly? NgayDang { get; set; }

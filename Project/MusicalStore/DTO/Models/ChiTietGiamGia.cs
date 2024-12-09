@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DTO.Models;
 
-public partial class ChiTietGiamGium
+public partial class ChiTietGiamGia
 {
     public DateOnly? NgayBd { get; set; }
 
@@ -13,7 +13,7 @@ public partial class ChiTietGiamGium
 
     public string MaGg { get; set; } = null!;
 
-    public virtual MaGiamGium MaGgNavigation { get; set; } = null!;
+    public virtual MaGiamGia MaGgNavigation { get; set; } = null!;
 
     public virtual SanPham MaSpNavigation { get; set; } = null!;
 }

@@ -33,7 +33,7 @@ namespace DTO.Repository
 
         public SanPham GetSanPhamById(string id)
         {
-            return _context.SanPhams.Find(id);
+            return _context.SanPhams.FirstOrDefault(sp => sp.MaSp == id);
         }
     }
 }

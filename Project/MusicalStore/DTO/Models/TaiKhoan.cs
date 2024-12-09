@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DTO.Models;
 
@@ -7,6 +8,7 @@ public partial class TaiKhoan
 {
     public string MaTk { get; set; } = null!;
 
+    [Column(TypeName = "nvarchar(250)")]
     public string TenTk { get; set; } = null!;
 
     public string MatKhau { get; set; } = null!;

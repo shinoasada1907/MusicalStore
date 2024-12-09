@@ -6,6 +6,6 @@ namespace MusicalStore.Repository.ProductRepo
     {
         public IEnumerable<Product> GetAllProducts();
         public IEnumerable<Product> GetListProductWithPage(int page, int pageSize);
-        public IEnumerable<Product> GetProductById(string id);
+        public Product GetProductById(string id);
     }
 }
