@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace DTO.IRepository
 {
-    public interface INhanVienRespository
+    public interface INhanVienRepository
     {
         public IEnumerable<NhanVien> GetListNhanVien();
+        public Task<IEnumerable<NhanVien>> AddNewNhanVien(NhanVien nhanvien);
+        public Task<IEnumerable<NhanVien>> UpdateNhanVien(NhanVien nhanvien);
     }
 }

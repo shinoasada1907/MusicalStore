@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DTO.IRepository
 {
-    public interface IDonHangRespository
+    public interface IDonHangRepository
     {
         public IEnumerable<DonHang> GetListDonHang();
     }

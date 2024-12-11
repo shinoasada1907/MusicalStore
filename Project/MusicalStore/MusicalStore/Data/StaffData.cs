@@ -13,7 +13,7 @@ namespace MusicalStore.Data
                 Birthday = new DateTime(1990, 5, 12),
                 Sex = "Nữ",
                 Phone = "0912345678",
-                Position = "Quản lý"
+                PositionId = "Quản lý"
             },
             new Staff
             {
@@ -22,7 +22,7 @@ namespace MusicalStore.Data
                 Birthday = new DateTime(1985, 3, 25),
                 Sex = "Nam",
                 Phone = "0909876543",
-                Position = "Nhân viên"
+                PositionId = "Nhân viên"
             },
             new Staff
             {
@@ -31,7 +31,7 @@ namespace MusicalStore.Data
                 Birthday = new DateTime(1988, 7, 22),
                 Sex = "Nữ",
                 Phone = "0987654321",
-                Position = "Kế toán"
+                PositionId = "Kế toán"
             },
             new Staff
             {
@@ -40,7 +40,7 @@ namespace MusicalStore.Data
                 Birthday = new DateTime(1992, 11, 30),
                 Sex = "Nam",
                 Phone = "0931234567",
-                Position = "Lễ tân"
+                PositionId = "Lễ tân"
             },
             new Staff
             {
@@ -49,7 +49,7 @@ namespace MusicalStore.Data
                 Birthday = new DateTime(1993, 1, 18),
                 Sex = "Nữ",
                 Phone = "0901234567",
-                Position = "Marketing"
+                PositionId = "Marketing"
             }
         };
     }

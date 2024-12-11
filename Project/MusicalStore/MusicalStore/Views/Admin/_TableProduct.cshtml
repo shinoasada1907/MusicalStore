@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Product>
+<table id="productTable" class="table table-hover table-bordered align-middle">
+    <thead class="table-success text-center">
+        <tr>
+            <th>Hình ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Hãng</th>
+            <th>Loại sản phẩm</th>
+            <th>Đơn vị tính</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Số lượng</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@item.ImageUrl" alt="@item.ProductName" class="img-thumbnail" style="max-width: 100px;">
+                </td>
+                <td>
+                    <a href="/#" class="text-dark text-decoration-none fw-bold">@item.ProductName</a>
+                </td>
+                <td>@item.Brand</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.Unit</td>
+                <td>@String.Format("{0:C0}", item.Price)</td>
+                <td class="text-truncate" style="max-width: 200px;">@item.Description</td>
+                <td>@item.StockQuantity</td>
+                <td>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.ProductCode')">
+                            <i class="bi bi-pencil-fill"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" title="Xóa" onclick="DeleteProduct('@item.ProductCode')">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

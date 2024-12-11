@@ -24,5 +24,7 @@ namespace MusicalStore.Models
 
         public bool IsInStock => StockQuantity.HasValue && StockQuantity > 0; // Sản phẩm còn hàng
 
+        public Category Category { get; set; } = new Category();
+
     }
 }

@@ -6,15 +6,16 @@ namespace MusicalStore.Repository.OrderRespository
 {
     public class OrderRespository :  IOrderRespository
     {
-        private readonly IOrderRespository _nhanVienRepository;
-        public OrderRespository(IOrderRespository nhanVienRepository)
+        private readonly IDonHangRepository _orderRepository;
+        public OrderRespository(IDonHangRepository orderRepository)
         {
-            _nhanVienRepository = nhanVienRepository;
+            _orderRepository = orderRepository;
         }
-        public IEnumerable<Staff> GetAllStaff()
+
+        public IEnumerable<OrderModel> GetAllOrder()
         {
-            var nhanvien = _nhanVienRepository.GetListNhanVien();
-            return StaffMapping.MapToStaffs(nhanvien);
+            var orders = _orderRepository.GetListDonHang();
+            return OrderMapping.MapToOrderModels(orders);
         }
     }
 }

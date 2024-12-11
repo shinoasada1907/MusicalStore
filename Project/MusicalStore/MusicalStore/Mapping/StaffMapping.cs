@@ -17,7 +17,8 @@ namespace MusicalStore.Mapping
                             : DateTime.MinValue,
                 Sex = nhanVien.GioiTinh ?? string.Empty,
                 Phone = nhanVien.DienThoai ?? string.Empty,
-                Position = nhanVien.MaCvNavigation?.TenCv ?? string.Empty // Assuming TenCv exists in ChucVu
+                PositionId = nhanVien.MaCv ?? string.Empty,
+                CCCD = nhanVien.Cccd ?? string.Empty // Assuming TenCv exists in ChucVu
             };
         }
 
@@ -26,14 +27,15 @@ namespace MusicalStore.Mapping
         {
             return new NhanVien
             {
-                Cccd = staff.StaffId,
+                MaNv = staff.StaffId,
+                Cccd = staff.CCCD,
                 TenNv = staff.StaffName,
                 NgaySinh = staff.Birthday != DateTime.MinValue
                            ? DateOnly.FromDateTime(staff.Birthday)
                            : null,
                 GioiTinh = !string.IsNullOrEmpty(staff.Sex) ? staff.Sex : null,
                 DienThoai = !string.IsNullOrEmpty(staff.Phone) ? staff.Phone : null,
-                MaCv = null // Assuming Position mapping to MaCv is handled elsewhere
+                MaCv = staff.PositionId ?? string.Empty,
             };
         }
 

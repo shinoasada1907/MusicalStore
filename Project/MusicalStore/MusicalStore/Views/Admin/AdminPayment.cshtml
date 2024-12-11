@@ -2,4 +2,74 @@
     Layout = "_AdminLayout";
     ViewData["Title"] = "Quản lý thanh toán";
 }
-<h1>Quản lý thanh toán</h1>
+
+<h1 class="text-center text-primary my-4">Quản lý thanh toán</h1>
+
+<div class="container mt-5 shadow p-4 rounded bg-white">
+    <div class="table-responsive">
+        <table id="paymentTable" class="table table-hover table-bordered align-middle">
+            <thead class="table-success text-center">
+                <tr>
+                    <th>Phương thức TT</th>
+                    <th>Số điện thoại</th>
+                    <th>Người nhận</th>
+                    <th>Ngân hàng</th>
+                    <th>Số tài khoản</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Payment item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/#" class="text-dark text-decoration-none fw-bold">@item.MethodType</a>
+                        </td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.RecipientName</td>
+                        <td>@item.BankName</td>
+                        <td>@item.AccountNumber</td>
+                        <td>
+                            <div class="d-flex justify-content-center gap-2">
+                                <button class="btn btn-sm btn-primary" title="Sửa">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" title="Xóa">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<script>
+    $(document).ready(function () {
+        $('#paymentTable').DataTable({
+            language: {
+                "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                "zeroRecords": "Không tìm thấy kết quả",
+                "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                "infoEmpty": "Không có dữ liệu",
+                "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                "search": "Tìm kiếm:",
+                "paginate": {
+                    "first": "Đầu",
+                    "last": "Cuối",
+                    "next": "Sau",
+                    "previous": "Trước"
+                }
+            },
+            pageLength: 10,
+            ordering: true,
+            searching: true,
+            paging: true
+        });
+    });
+</script>
