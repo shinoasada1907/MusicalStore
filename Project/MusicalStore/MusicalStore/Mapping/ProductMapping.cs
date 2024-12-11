@@ -5,6 +5,7 @@ namespace MusicalStore.Mapping
 {
     public class ProductMapping
     {
+        //DTO -> Project
         public static Product MappingToProduct(SanPham sanPham)
         {
             return new Product
@@ -21,11 +22,20 @@ namespace MusicalStore.Mapping
             };
         }
 
+        //Project -> DTO
         public static SanPham MappingToSanPham(Product product)
         {
             return new SanPham
             {
-
+                MaSp = product.ProductCode,
+                TenSp = product.ProductName,
+                Hang = product.Brand,
+                Dvt = product.Unit,
+                Gia = product.Price,
+                MoTa = product.Description,
+                Hinh = product.ImageUrl,
+                Slsp = product.StockQuantity,
+                MaLsp = product.CategoryCode
             };
         }
 

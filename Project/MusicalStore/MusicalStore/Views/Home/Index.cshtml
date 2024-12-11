@@ -3,12 +3,12 @@
     ViewData["Title"] = "Home Page";
     Product product = new Product();
 }
-
 <div class="container-fluid">
     <!--Header Category-->
     <div class="d-flex align-items-center justify-content-between py-2">
         <div class="d-flex align-items-center">
-            <a href="#" class="btna me-3 text-dark text-decoration-none p-2"><i class="bi bi-list me-2 text-dark"></i>Danh mục sản phẩm</a>
+            <a href="#" class="btna me-3 text-dark text-decoration-none p-2"><i
+                    class="bi bi-list me-2 text-dark"></i>Danh mục sản phẩm</a>
             <div class="divider"></div>
             <ul class="nav">
                 @foreach (Category item in Model.Categories)
@@ -36,19 +36,21 @@
         <div id="carouselExampleIndicators" class="carousel slide ms-5" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="~/images/Drum/AC02.jpg" class="d-block w-100" alt="...">
+                    <img src="~/images/AC02.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="~/images/Guitar/CD06.jpg" class="d-block w-100" alt="...">
+                    <img src="~/images/CD06.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="~/images/Piano/EE10.jpg" class="d-block w-100" alt="...">
+                    <img src="~/images/EE10.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon bg-black" aria-hidden="true"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon bg-black" aria-hidden="true"></span>
             </button>
         </div>
@@ -63,7 +65,7 @@
             <!-- Product Card -->
             @foreach (Product item in Model.ProductsSale)
             {
-                <div id="cardproduct" class="col-md-4 col-lg-3 mb-4" onclick="getProductDetail()">
+                <div id="cardproduct" class="col-md-4 col-lg-3 mb-4" onclick="getProductDetail('@item.ProductCode')">
                     <div class="card shadow-lg h-100 d-flex flex-column">
                         <!-- Use flex column to fill the card height -->
                         <div class="position-relative">
@@ -113,7 +115,7 @@
         <div class="row g-3">
             @foreach (Product item in Model.ListProduct)
             {
-                <div id="cardproduct" class="col-md-3 col-lg-3" onclick="getProductDetail()">
+                <div id="cardproduct" class="col-md-3 col-lg-3" onclick="getProductDetail('@item.ProductCode')">
                     <div class="card shadow h-100">
                         <div class="position-relative">
                             <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.ProductName">
@@ -154,7 +156,7 @@
             </nav>
         </div>
     </div>
-    
+
     <div class="container mb-5">
         <h2 class="mb-4">Tin tức - Sự kiện</h2>
         <div class="row">
@@ -179,9 +181,9 @@
         color: #333;
     }
 
-        .nav-item a:hover {
-            color: #007bff;
-        }
+    .nav-item a:hover {
+        color: #007bff;
+    }
 
     .btna:hover {
         background-color: #CCCCCC;
@@ -203,6 +205,7 @@
         height: 24px;
         margin: 0 10px;
     }
+
     /*Slider bar*/
     .container {
         width: 100%;
@@ -237,7 +240,7 @@
     }
 
     a {
-        text-decoration:none;
+        text-decoration: none;
     }
 
     .carousel {
@@ -266,6 +269,7 @@
         border-radius: 5px;
         font-size: 14px;
     }
+
     /*Top Sale Today*/
     .badge {
         font-size: 0.9rem;
@@ -293,14 +297,14 @@
         padding: 0.75rem;
     }
 
-    #cardproduct:hover{
+    #cardproduct:hover {
         cursor: pointer;
     }
 </style>
 
-@section Scripts{
+@section Scripts {
     <script>
-            // Get the current page number from the URL (this assumes your page uses query parameters like ?page=1)
+        // Get the current page number from the URL (this assumes your page uses query parameters like ?page=1)
         const urlParams = new URLSearchParams(window.location.search);
         const currentPage = parseInt(urlParams.get('page')) || 1; // Default to 1 if not specified
 
@@ -313,13 +317,19 @@
             }
         }
 
-        // document.getElementById('cardproduct').addEventListener('click' function(){
-        //     getProductDetail()
-        // })
-
-        function getProductDetail()
-        {
-            window.location.href = "Home/ProductDetail/1"
+        function getProductDetail(id) {
+            $.ajax({
+                url: '@Url.Action("ProductDetail", "Home")',
+                method: 'GET',
+                type: 'GET',
+                data:{
+                    productId: id
+                },
+                success: function () {
+                    window.location.href = "Home/ProductDetail/?productId=" + id
+                },
+                error: function () { }
+            })
         }
     </script>
 }

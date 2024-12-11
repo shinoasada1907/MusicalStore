@@ -32,9 +32,12 @@ namespace MusicalStore.Controllers
             return View(dataIndex);
         }
 
-        public IActionResult ProductDetail(int productId)
+        [HttpGet]
+        public IActionResult ProductDetail(string productId)
         {
-            return View();
+            var product = _productRepository.GetProductById(productId);
+            Console.WriteLine(product.ProductCode + " " + product.ProductName);
+            return View(product);
         }
 
         public IActionResult Privacy()

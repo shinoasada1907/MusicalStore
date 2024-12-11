@@ -17,7 +17,7 @@ public partial class MusicalStoreContext : DbContext
 
     public virtual DbSet<BinhLuan> BinhLuans { get; set; }
 
-    public virtual DbSet<ChiTietGiamGium> ChiTietGiamGia { get; set; }
+    public virtual DbSet<ChiTietGiamGia> ChiTietGiamGia { get; set; }
 
     public virtual DbSet<ChucVu> ChucVus { get; set; }
 
@@ -33,7 +33,7 @@ public partial class MusicalStoreContext : DbContext
 
     public virtual DbSet<LoaiSanPham> LoaiSanPhams { get; set; }
 
-    public virtual DbSet<MaGiamGium> MaGiamGia { get; set; }
+    public virtual DbSet<MaGiamGia> MaGiamGia { get; set; }
 
     public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
 
@@ -85,7 +85,7 @@ public partial class MusicalStoreContext : DbContext
                 .HasConstraintName("FK__BINH_LUAN__MaSP__5EBF139D");
         });
 
-        modelBuilder.Entity<ChiTietGiamGium>(entity =>
+        modelBuilder.Entity<ChiTietGiamGia>(entity =>
         {
             entity.HasKey(e => new { e.MaSp, e.MaGg }).HasName("PK__CHI_TIET__155752F40C7EF9D8");
 
@@ -186,20 +186,12 @@ public partial class MusicalStoreContext : DbContext
             entity.Property(e => e.GioiThieu)
                 .HasMaxLength(200)
                 .IsUnicode(false);
-            entity.Property(e => e.MaSp)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("MaSP");
             entity.Property(e => e.ThongSo)
                 .HasMaxLength(200)
                 .IsUnicode(false);
             entity.Property(e => e.TinhNang)
                 .HasMaxLength(200)
                 .IsUnicode(false);
-
-            entity.HasOne(d => d.MaSpNavigation).WithMany(p => p.CtSanPhams)
-                .HasForeignKey(d => d.MaSp)
-                .HasConstraintName("FK__CT_SAN_PHA__MaSP__4BAC3F29");
         });
 
         modelBuilder.Entity<DonHang>(entity =>
@@ -285,7 +277,7 @@ public partial class MusicalStoreContext : DbContext
                 .HasColumnName("TenLSP");
         });
 
-        modelBuilder.Entity<MaGiamGium>(entity =>
+        modelBuilder.Entity<MaGiamGia>(entity =>
         {
             entity.HasKey(e => e.MaGg).HasName("PK__MA_GIAM___2725AE8263AD34E0");
 
@@ -455,6 +447,8 @@ public partial class MusicalStoreContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("TenSP");
+            entity.Property(e => e.MaCtsp).HasMaxLength(50).IsUnicode(false).HasColumnName("MaCTSP");
+            entity.HasOne(d => d.MaCTSPNavigation).WithMany(p=>p.SanPhams).HasForeignKey(d=>d.MaCtsp).HasConstraintName("FK__CT__SAN_PHAM__MaCTSP");
 
             entity.HasOne(d => d.MaLspNavigation).WithMany(p => p.SanPhams)
                 .HasForeignKey(d => d.MaLsp)

@@ -2,48 +2,247 @@
     Layout = "_AdminLayout";
     ViewData["Title"] = "Quản lý nhân viên";
 }
-<h1>Quản lý nhân viên</h1>
 
-<div class="container mt-5">
-    <div class="">
-        <table class="table table-sm table-bordered position-sticky">
-            <thead class="table table-success">
+<h1 class="text-center text-primary my-4">QUẢN LÝ NHÂN VIÊN</h1>
+
+<div class="container mt-5 shadow p-4 rounded bg-white">
+    <div class="col-12 mb-2 justify-content-end">
+        <button class="btn btn-success mb-1 rounded-pill px-4 py-2 text-white fw-bold" onclick="$('#addStaffModal').modal('show')">
+            <i class="bi bi-person-plus"></i> Thêm nhân viên
+        </button>
+    </div>
+    <div class="table-responsive" id="tableStaff">
+        <table id="staffTable" class="table table-hover table-bordered align-middle">
+            <thead class="table-success text-center">
                 <tr>
-                    <td class="text-center fw-bold">Họ tên</td>
-                    <td class="text-center fw-bold">Ngày sinh</td>
-                    <td class="text-center fw-bold">Giới tính</td>
-                    <td class="text-center fw-bold">Số điện thoại</td>
-                    <td class="text-center fw-bold">Chức vụ</td>
-                    <td class="text-center fw-bold">Thao tác</td>
+                    <th>Họ tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Số điện thoại</th>
+                    <th>Chức vụ</th>
+                    <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (Staff item in Model)
+                @foreach (var item in Model)
                 {
                     <tr>
-                        <td class="text-center">
-                            <a href="/#" class="link-underline-dark text-dark">@item.StaffName</a>
+                        <td>
+                            <a href="/#" class="text-dark text-decoration-none fw-bold">@item.StaffName</a>
                         </td>
-                        <td class="text-center">@item.Birthday.ToShortDateString()</td>
-                        <td class="text-center">@item.Sex</td>
-                        <td class="text-center">@item.Phone</td>
-                        <td class="text-center">@item.Position</td>
-                        <td class="text-center">
-                            <div class="row justify-content-center">
-                                <button class="btn btn-sm btn-warning col-3 ms-1"><i class="bi bi-pencil-fill"></i></button>
-                                <button class="btn btn-sm btn-warning col-3 ms-1"><i class="bi bi-trash"></i></button>
+                        <td>@item.Birthday.ToShortDateString()</td>
+                        <td>@item.Sex</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Potition.PositionName</td>
+                        <td>
+                            <div class="d-flex justify-content-center gap-2">
+                                <button class="btn btn-sm btn-primary" title="Sửa">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" title="Xóa">
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </div>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+
     </div>
 </div>
 
-<style>
-    a:hover {
-        color: black;
-        cursor: pointer;
+
+
+<!-- Dialog Modal -->
+<div class="modal fade" id="addStaffModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="addProductModalLabel">Thêm nhân viên mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Body -->
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Tên nhân viên</label>
+                        <input type="text" class="form-control" id="staffName" placeholder="Nhập tên sản phẩm" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Căn cước công dân</label>
+                        <input type="text" class="form-control" id="cccd" placeholder="Nhập số căn cước công dân" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brand" class="form-label">Giới tính</label>
+                        <select id="gender" class="form-select">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="unit" class="form-label">Ngày sinh</label>
+                        <input type="date" class="form-control" id="birthday" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Số điện thoại</label>
+                        <input type="number" class="form-control" id="phone" placeholder="Nhập số điện thoại" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Chức vụ</label>
+                        <select id="selectCV" class="form-select">
+                            @foreach (PositionModel item in ViewData["Position"] as List<PositionModel>)
+                            {
+                                <option value="@item.PositionId">@item.PositionName</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" onclick="AddNewStaff()" data-bs-dismiss="modal">Lưu sản phẩm</button>
+                    </div>
+                </form>
+            </div>
+            @*   <!-- Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="saveProductButton">Lưu sản phẩm</button>
+            </div> *@
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<script>
+    $(document).ready(function () {
+        $('#staffTable').DataTable({
+            language: {
+                "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                "zeroRecords": "Không tìm thấy kết quả",
+                "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                "infoEmpty": "Không có dữ liệu",
+                "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                "search": "Tìm kiếm:",
+                "paginate": {
+                    "first": "Đầu",
+                    "last": "Cuối",
+                    "next": "Sau",
+                    "previous": "Trước"
+                }
+            },
+            pageLength: 10, // Số dòng mặc định mỗi trang
+            ordering: true, // Kích hoạt sắp xếp
+            searching: true, // Kích hoạt tìm kiếm
+            paging: true // Kích hoạt phân trang
+        });
+    });
+
+    function showAddModal()
+    {
+        $('#addProductModal').modal('show');
     }
-</style>
+
+    function isAgeValid(birthDateString) {
+        // Chuyển đổi chuỗi ngày sinh thành đối tượng Date
+        const birthDate = new Date(birthDateString);
+        if (isNaN(birthDate)) {
+            return false; // Trả về false nếu chuỗi không hợp lệ
+        }
+
+        // Lấy ngày hiện tại
+        const today = new Date();
+
+        // Tính toán số năm giữa ngày sinh và ngày hiện tại
+        let age = today.getFullYear() - birthDate.getFullYear();
+
+        // Kiểm tra xem ngày sinh đã qua trong năm nay chưa
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+        const dayDifference = today.getDate() - birthDate.getDate();
+
+        // Nếu tháng hiện tại nhỏ hơn tháng sinh, hoặc cùng tháng nhưng ngày hiện tại nhỏ hơn ngày sinh
+        if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+            age--; // Giảm tuổi đi 1
+        }
+
+        // Trả về true nếu tuổi >= 18, ngược lại trả về false
+        return age >= 18;
+    }
+
+
+    function AddNewStaff()
+    {
+        // Thu thập dữ liệu từ form
+        const staffName = document.getElementById("staffName").value.trim();
+        const gender = document.getElementById("gender").value.trim();
+        const birthday = document.getElementById("birthday").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const cccd = document.getElementById("cccd").value.trim();
+        const position = document.getElementById("selectCV").value.trim();
+        const staffId = 'NV'+cccd.slice(-4);
+
+        const formData = new FormData();
+        formData.append("StaffId", staffId);
+        formData.append("StaffName", staffName);
+        formData.append("Sex", gender);
+        formData.append("Birthday", birthday);
+        formData.append("Phone", phone);
+        formData.append("PositionId", position);
+        formData.append("CCCD", cccd);
+
+        if(!isAgeValid(birthday))
+        {
+            Swal.fire({
+              icon: "error",
+              title: "Oopsss...",
+              text: "Tuổi nhân viên đang dưới 18"
+            });
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Action("AddStaff", "Admin")',
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: formData,
+            success: function( result ) {
+                console.log(result)
+                $("#tableStaff").html(result)
+                $('#staffTable').DataTable({
+                language: {
+                    "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                    "zeroRecords": "Không tìm thấy kết quả",
+                    "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                    "infoEmpty": "Không có dữ liệu",
+                    "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                    "search": "Tìm kiếm:",
+                    "paginate": {
+                        "first": "Đầu",
+                        "last": "Cuối",
+                        "next": "Sau",
+                        "previous": "Trước"
+                    }
+                },
+                pageLength: 10, // Số dòng mặc định mỗi trang
+                ordering: true, // Kích hoạt sắp xếp
+                searching: true, // Kích hoạt tìm kiếm
+                paging: true // Kích hoạt phân trang
+                });
+                Swal.fire({
+                  icon: "success",
+                  title: "Yay~~~",
+                  text: "Thêm nhân viên thành công"
+
+                });
+            }
+
+        });
+    }
+
+</script>

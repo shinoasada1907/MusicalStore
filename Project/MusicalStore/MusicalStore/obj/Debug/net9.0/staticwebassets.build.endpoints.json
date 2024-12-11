@@ -9,7 +9,7 @@
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000936329588"
+          "Quality": "0.000934579439"
         }
       ],
       "ResponseHeaders": [
@@ -27,7 +27,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1067"
+          "Value": "1069"
         },
         {
           "Name": "Content-Type",
@@ -35,7 +35,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XM3cbTZ2ABTJGQ3QkHAWqedYWU2GcLrqWZE5eIFs/D4=\""
+          "Value": "\"Sprk5zpFhg3sGscmBClCPpG+ZPSxuijkf1A/oqh+4Kg=\""
         },
         {
           "Name": "ETag",
@@ -129,7 +129,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1067"
+          "Value": "1069"
         },
         {
           "Name": "Content-Type",
@@ -137,7 +137,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XM3cbTZ2ABTJGQ3QkHAWqedYWU2GcLrqWZE5eIFs/D4=\""
+          "Value": "\"Sprk5zpFhg3sGscmBClCPpG+ZPSxuijkf1A/oqh+4Kg=\""
         },
         {
           "Name": "Last-Modified",
@@ -155,7 +155,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-XM3cbTZ2ABTJGQ3QkHAWqedYWU2GcLrqWZE5eIFs/D4="
+          "Value": "sha256-Sprk5zpFhg3sGscmBClCPpG+ZPSxuijkf1A/oqh+4Kg="
         },
         {
           "Name": "label",
@@ -170,7 +170,7 @@
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000936329588"
+          "Quality": "0.000934579439"
         }
       ],
       "ResponseHeaders": [
@@ -188,7 +188,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1067"
+          "Value": "1069"
         },
         {
           "Name": "Content-Type",
@@ -196,7 +196,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XM3cbTZ2ABTJGQ3QkHAWqedYWU2GcLrqWZE5eIFs/D4=\""
+          "Value": "\"Sprk5zpFhg3sGscmBClCPpG+ZPSxuijkf1A/oqh+4Kg=\""
         },
         {
           "Name": "ETag",
@@ -274,7 +274,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1067"
+          "Value": "1069"
         },
         {
           "Name": "Content-Type",
@@ -282,7 +282,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XM3cbTZ2ABTJGQ3QkHAWqedYWU2GcLrqWZE5eIFs/D4=\""
+          "Value": "\"Sprk5zpFhg3sGscmBClCPpG+ZPSxuijkf1A/oqh+4Kg=\""
         },
         {
           "Name": "Last-Modified",
@@ -296,7 +296,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XM3cbTZ2ABTJGQ3QkHAWqedYWU2GcLrqWZE5eIFs/D4="
+          "Value": "sha256-Sprk5zpFhg3sGscmBClCPpG+ZPSxuijkf1A/oqh+4Kg="
         }
       ]
     },

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DTO.Models;
 
@@ -13,6 +14,7 @@ public partial class DonHang
 
     public DateOnly NgayLap { get; set; }
 
+    [Column(TypeName = "nvarchar(100)")]
     public string? TinhTrang { get; set; }
 
     public string? MaKh { get; set; }
