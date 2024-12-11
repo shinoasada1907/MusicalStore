@@ -36,7 +36,7 @@ namespace MusicalStore.Controllers
         public IActionResult ProductDetail(string productId)
         {
             var product = _productRepository.GetProductById(productId);
-            Console.WriteLine(product.ProductCode + " " + product.ProductName);
+            Console.WriteLine(product.ProductCode + " " + product.ProductName + " " + product.DetailVoucher.StartDate + " " + product.ProductDetail.Introduction);
             return View(product);
         }
 

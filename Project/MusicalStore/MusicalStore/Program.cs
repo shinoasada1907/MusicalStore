@@ -28,6 +28,11 @@ builder.Services.AddDbContext<MusicalStoreContext>(options => options.UseSqlServ
 builder.Services.AddScoped<ISanPhamRepository, SanPhamRepository>();
 builder.Services.AddScoped<IKhachHangRepository, KhachHangRepository>();
 builder.Services.AddScoped<INhanVienRespository, NhanVienRepository>();
+builder.Services.AddScoped<IChiTietGiamGiaRepository, ChiTietGiamGiaRepository>();
+builder.Services.AddScoped<IGiamGiaRepository, GiamGiaRepository>();
+builder.Services.AddScoped<ICTSanPhamRepository, CTSanPhamRepository>();
+builder.Services.AddScoped<ILoaiSanPhamRepository, LoaiSanPhamRepository>();
+builder.Services.AddScoped<ITaiKhoanRepository, TaiKhoanRepository>();
 
 //MusicalStore
 builder.Services.AddScoped<IProductRepository, ProductRepository>();

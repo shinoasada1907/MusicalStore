@@ -28,5 +28,11 @@ namespace DTO.Repository
                 DiaChi = sp.DiaChi
             }).ToList();
         }
+
+        public KhachHang GetKhachHang(string makh)
+        {
+            var khachhang = _context.KhachHangs.FirstOrDefault(kh => kh.MaKh == makh);
+            return khachhang;
+        }
     }
 }

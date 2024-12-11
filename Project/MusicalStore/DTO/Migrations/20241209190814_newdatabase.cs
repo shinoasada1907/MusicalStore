@@ -28,7 +28,7 @@ namespace DTO.Migrations
                 name: "CT_SAN_PHAM",
                 columns: table => new
                 {
-                    MaCTSP = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 10, nullable: false),
+                    MaCTSP = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
                     GioiThieu = table.Column<string>(type: "nvarchar(max)", unicode: false, maxLength: 200, nullable: true),
                     ThongSo = table.Column<string>(type: "nvarchar(500)", unicode: false, maxLength: 200, nullable: true),
                     TinhNang = table.Column<string>(type: "nvarchar(max)", unicode: false, maxLength: 200, nullable: true)
@@ -164,7 +164,7 @@ namespace DTO.Migrations
                     DVT = table.Column<string>(type: "nvarchar(10)", unicode: false, maxLength: 20, nullable: true),
                     Gia = table.Column<double>(type: "float", nullable: true),
                     MoTa = table.Column<string>(type: "nvarchar(max)", unicode: false, maxLength: 200, nullable: true),
-                    MaCTSP = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 50, nullable: true),
+                    MaCTSP = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: true),
                     Hinh = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
                     SLSP = table.Column<int>(type: "int", nullable: true),
                     MaLSP = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true)

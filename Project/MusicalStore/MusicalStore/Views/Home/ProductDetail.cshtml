@@ -29,7 +29,7 @@
 
             <!-- Price and Discount -->
             <p class="product-price">@string.Format("{0:N0}", Model.Price) VND</p>
-            <p class="product-discount">Giảm 15% còn: 2,200,000 VND</p>
+            <p class="product-discount">@Model.DetailVoucher.Voucher.Description</p>
 
             <!-- Add to Cart Button -->
             <div class="row mt-3">
@@ -41,10 +41,8 @@
             <div class="product-info mt-4">
                 <h5>Thông số kỹ thuật</h5>
                 <ul class="product-specs">
-                    <li><strong>Hãng sản xuất:</strong> Northern Gale</li>
+                    <li><strong>Hãng sản xuất:</strong> @Model.Brand</li>
                     <li><strong>Loại đàn:</strong> Acoustic</li>
-                    <li><strong>Màu sắc:</strong> Màu gỗ tự nhiên</li>
-                    <li><strong>Phụ kiện kèm theo:</strong> Bao da đàn, móc cài đàn</li>
                 </ul>
             </div>
         </div>
@@ -54,11 +52,7 @@
     <div class="row mt-5">
         <div class="col-12 product-details-container">
             <h4>Mô tả sản phẩm</h4>
-            <p class="product-description">Được sản xuất và thiết kế bởi hãng Northern Gale, chiếc đàn guitar NG GT700NA
-                mang đến một trải nghiệm âm thanh tuyệt vời cho người chơi. Sản phẩm có thể sử dụng cho cả người mới bắt
-                đầu và người chơi có kinh nghiệm. Với cấu tạo từ chất liệu gỗ cao cấp, đàn cho âm thanh rõ ràng, mạnh mẽ
-                và đặc biệt là dễ dàng chơi khi luyện tập. Dễ dàng chỉnh âm với EQ, mang lại trải nghiệm tuyệt vời cho
-                người dùng.</p>
+            <p class="product-description">@Model.ProductDetail.Introduction</p>
         </div>
     </div>
 

@@ -180,7 +180,7 @@ public partial class MusicalStoreContext : DbContext
             entity.ToTable("CT_SAN_PHAM");
 
             entity.Property(e => e.MaCtsp)
-                .HasMaxLength(10)
+                .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("MaCTSP");
             entity.Property(e => e.GioiThieu)
@@ -447,7 +447,7 @@ public partial class MusicalStoreContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("TenSP");
-            entity.Property(e => e.MaCtsp).HasMaxLength(50).IsUnicode(false).HasColumnName("MaCTSP");
+            entity.Property(e => e.MaCtsp).HasMaxLength(20).IsUnicode(false).HasColumnName("MaCTSP");
             entity.HasOne(d => d.MaCTSPNavigation).WithMany(p=>p.SanPhams).HasForeignKey(d=>d.MaCtsp).HasConstraintName("FK__CT__SAN_PHAM__MaCTSP");
 
             entity.HasOne(d => d.MaLspNavigation).WithMany(p => p.SanPhams)

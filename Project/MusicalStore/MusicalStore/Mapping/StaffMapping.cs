@@ -6,18 +6,18 @@ namespace MusicalStore.Mapping
     public class StaffMapping
     {
         // NhanVien -> Staff
-        public static Staff MappingToStaff(NhanVien nhanVien)
+        public static Staff MappingToStaff(NhanVien? nhanVien)
         {
             return new Staff
             {
-                StaffId = nhanVien.Cccd ?? string.Empty, // Mapping CCCD to StaffId
-                StaffName = nhanVien.TenNv,
-                Birthday = nhanVien.NgaySinh.HasValue
+                StaffId = nhanVien?.Cccd ?? string.Empty, // Mapping CCCD to StaffId
+                StaffName = nhanVien?.TenNv ?? string.Empty,
+                Birthday = nhanVien!.NgaySinh.HasValue
                             ? nhanVien.NgaySinh.Value.ToDateTime(TimeOnly.MinValue)
                             : DateTime.MinValue,
-                Sex = nhanVien.GioiTinh ?? string.Empty,
-                Phone = nhanVien.DienThoai ?? string.Empty,
-                Position = nhanVien.MaCvNavigation?.TenCv ?? string.Empty // Assuming TenCv exists in ChucVu
+                Sex = nhanVien?.GioiTinh ?? string.Empty,
+                Phone = nhanVien?.DienThoai ?? string.Empty,
+                Position = nhanVien?.MaCvNavigation?.TenCv ?? string.Empty // Assuming TenCv exists in ChucVu
             };
         }
 

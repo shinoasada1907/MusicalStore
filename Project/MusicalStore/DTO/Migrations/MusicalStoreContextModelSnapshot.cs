@@ -163,9 +163,9 @@ namespace DTO.Migrations
             modelBuilder.Entity("DTO.Models.CtSanPham", b =>
                 {
                     b.Property<string>("MaCtsp")
-                        .HasMaxLength(10)
+                        .HasMaxLength(20)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)")
+                        .HasColumnType("varchar(20)")
                         .HasColumnName("MaCTSP");
 
                     b.Property<string>("GioiThieu")
@@ -247,6 +247,9 @@ namespace DTO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)")
                         .HasColumnName("MaKH");
+
+                    b.Property<string>("AnhDaiDien")
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("DiaChi")
                         .HasMaxLength(200)
@@ -521,10 +524,19 @@ namespace DTO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("MaCtGiamGia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaCtGiamGiaNavigationMaGg")
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("MaCtGiamGiaNavigationMaSp")
+                        .HasColumnType("varchar(10)");
+
                     b.Property<string>("MaCtsp")
-                        .HasMaxLength(50)
+                        .HasMaxLength(20)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(20)")
                         .HasColumnName("MaCTSP");
 
                     b.Property<string>("MaLsp")
@@ -555,6 +567,8 @@ namespace DTO.Migrations
                     b.HasIndex("MaCtsp");
 
                     b.HasIndex("MaLsp");
+
+                    b.HasIndex("MaCtGiamGiaNavigationMaSp", "MaCtGiamGiaNavigationMaGg");
 
                     b.ToTable("SAN_PHAM", (string)null);
                 });
@@ -765,7 +779,13 @@ namespace DTO.Migrations
                         .HasForeignKey("MaLsp")
                         .HasConstraintName("FK__SAN_PHAM__MaLSP__48CFD27E");
 
+                    b.HasOne("DTO.Models.ChiTietGiamGia", "MaCtGiamGiaNavigation")
+                        .WithMany()
+                        .HasForeignKey("MaCtGiamGiaNavigationMaSp", "MaCtGiamGiaNavigationMaGg");
+
                     b.Navigation("MaCTSPNavigation");
+
+                    b.Navigation("MaCtGiamGiaNavigation");
 
                     b.Navigation("MaLspNavigation");
                 });

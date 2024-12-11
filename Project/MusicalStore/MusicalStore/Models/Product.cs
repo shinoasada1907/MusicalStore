@@ -23,6 +23,7 @@ namespace MusicalStore.Models
         public string? CategoryCode { get; set; } // Mã loại sản phẩm (MaLsp)
 
         public bool IsInStock => StockQuantity.HasValue && StockQuantity > 0; // Sản phẩm còn hàng
-
+        public DetailVoucher DetailVoucher { get; set; } = new DetailVoucher();
+        public ProductDetail ProductDetail { get; set; } = new ProductDetail();
     }
 }

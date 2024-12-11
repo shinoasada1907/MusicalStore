@@ -8,9 +8,15 @@ namespace MusicalStore.Repository.ProductRepo
     public class ProductRepository : IProductRepository
     {
         private readonly ISanPhamRepository _sanPhamRepository;
-        public ProductRepository(ISanPhamRepository sanPhamRepository)
+        private readonly IChiTietGiamGiaRepository _chiTietGiamGiaRepository;
+        private readonly ICTSanPhamRepository _cTSanPhamRepository;
+        private readonly IGiamGiaRepository _giamGiaRepository;
+        public ProductRepository(ISanPhamRepository sanPhamRepository, IChiTietGiamGiaRepository chiTietGiamGiaRepository, ICTSanPhamRepository cTSanPhamRepository, IGiamGiaRepository giamGiaRepository)
         {
             _sanPhamRepository = sanPhamRepository;
+            _chiTietGiamGiaRepository = chiTietGiamGiaRepository;
+            _cTSanPhamRepository = cTSanPhamRepository;
+            _giamGiaRepository = giamGiaRepository;
         }
         public IEnumerable<Product> GetAllProducts()
         {
@@ -26,9 +32,20 @@ namespace MusicalStore.Repository.ProductRepo
 
         public Product GetProductById(string id)
         {
-            var product = _sanPhamRepository.GetSanPhamById(id);
-            Console.WriteLine($"Product {product.MaSp}");
-            return ProductMapping.MappingToProduct(product);
+            var sanpham = _sanPhamRepository.GetSanPhamById(id);
+            var chiTietSP = _cTSanPhamRepository.GetCTSanPham(sanpham.MaCtsp);
+            var chiTietGG = _chiTietGiamGiaRepository.GetChiTietGiamGia(id);
+            var detailVoucher = DetailVoucherMapping.MapToDetailVoucher(chiTietGG);
+            if(!string.IsNullOrEmpty(detailVoucher.VoucherCode))
+            {
+                var giamGia = _giamGiaRepository.GetMaGiamGia(chiTietGG.MaGg);
+                detailVoucher.Voucher = VoucherMapping.MapToVoucher(giamGia);
+            }
+
+            var product = ProductMapping.MappingToProduct(sanpham);
+            product.DetailVoucher = detailVoucher ?? new DetailVoucher();
+            product.ProductDetail = ProductDetailMapping.MapToProductDetail(chiTietSP);
+            return product;
         }
     }
 }

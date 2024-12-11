@@ -30,6 +30,8 @@ public partial class SanPham
 
     public string? MaLsp { get; set; }
 
+    public string? MaCtGiamGia { get; set; }
+
     public virtual ICollection<BinhLuan> BinhLuans { get; set; } = new List<BinhLuan>();
 
     public virtual ICollection<ChiTietGiamGia> ChiTietGiamGia { get; set; } = new List<ChiTietGiamGia>();
@@ -39,4 +41,6 @@ public partial class SanPham
     public virtual LoaiSanPham? MaLspNavigation { get; set; }
 
     public virtual CtSanPham? MaCTSPNavigation { get; set; }
+
+    public virtual ChiTietGiamGia? MaCtGiamGiaNavigation { get; set; }
 }

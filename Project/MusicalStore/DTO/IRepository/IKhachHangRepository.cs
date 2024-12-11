@@ -10,5 +10,6 @@ namespace DTO.IRepository
     public interface IKhachHangRepository
     {
         public IEnumerable<KhachHang> GetAllKhackHang();
+        public KhachHang GetKhachHang(string makh);
     }
 }

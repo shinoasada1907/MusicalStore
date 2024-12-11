@@ -23,6 +23,9 @@ public partial class KhachHang
     [Column(TypeName = "nvarchar(250)")]
     public string? DiaChi { get; set; }
 
+    [Column(TypeName = "nvarchar(250)")]
+    public string? AnhDaiDien { get; set; }
+
     public virtual ICollection<BinhLuan> BinhLuans { get; set; } = new List<BinhLuan>();
 
     public virtual ICollection<DonHang> DonHangs { get; set; } = new List<DonHang>();

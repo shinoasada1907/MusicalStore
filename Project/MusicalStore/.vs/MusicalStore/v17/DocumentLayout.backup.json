@@ -3,8 +3,40 @@
   "WorkspaceRootPath": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Migrations\\20241209163519_newdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DTO\\Migrations\\20241209163519_newdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Migrations\\20241211152405_addimagekhachang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DTO\\Migrations\\20241211152405_addimagekhachang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|d:\\job\\musicalstore\\project\\musicalstore\\dto\\repository\\khachhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|solutionrelative:dto\\repository\\khachhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|d:\\job\\musicalstore\\project\\musicalstore\\dto\\models\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|solutionrelative:dto\\models\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|d:\\job\\musicalstore\\project\\musicalstore\\dto\\irepository\\ikhachhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|solutionrelative:dto\\irepository\\ikhachhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\repository\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\repository\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\repository\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\repository\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|d:\\job\\musicalstore\\project\\musicalstore\\dto\\repository\\taikhoanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|solutionrelative:dto\\repository\\taikhoanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\job\\musicalstore\\project\\musicalstore\\musicalstore\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +55,118 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20241209163519_newdatabase.cs",
-              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Migrations\\20241209163519_newdatabase.cs",
-              "RelativeDocumentMoniker": "DTO\\Migrations\\20241209163519_newdatabase.cs",
-              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Migrations\\20241209163519_newdatabase.cs",
-              "RelativeToolTip": "DTO\\Migrations\\20241209163519_newdatabase.cs",
-              "ViewState": "AgIAABIBAAAAAAAAAAAgwJ0AAAAhAAAAAAAAAA==",
+              "Title": "20241211152405_addimagekhachang.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Migrations\\20241211152405_addimagekhachang.cs",
+              "RelativeDocumentMoniker": "DTO\\Migrations\\20241211152405_addimagekhachang.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Migrations\\20241211152405_addimagekhachang.cs",
+              "RelativeToolTip": "DTO\\Migrations\\20241211152405_addimagekhachang.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T16:35:20.104Z",
+              "WhenOpened": "2024-12-11T15:24:05.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KhachHangRepository.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Repository\\KhachHangRepository.cs",
+              "RelativeDocumentMoniker": "DTO\\Repository\\KhachHangRepository.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Repository\\KhachHangRepository.cs",
+              "RelativeToolTip": "DTO\\Repository\\KhachHangRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T15:23:47.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "KhachHang.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Models\\KhachHang.cs",
+              "RelativeDocumentMoniker": "DTO\\Models\\KhachHang.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Models\\KhachHang.cs",
+              "RelativeToolTip": "DTO\\Models\\KhachHang.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T15:22:10.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IKhachHangRepository.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\IRepository\\IKhachHangRepository.cs",
+              "RelativeDocumentMoniker": "DTO\\IRepository\\IKhachHangRepository.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\IRepository\\IKhachHangRepository.cs",
+              "RelativeToolTip": "DTO\\IRepository\\IKhachHangRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T15:20:49.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Repository\\AccountRepository\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Repository\\AccountRepository\\AccountRepository.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Repository\\AccountRepository\\AccountRepository.cs",
+              "RelativeToolTip": "MusicalStore\\Repository\\AccountRepository\\AccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T15:07:47.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Repository\\AccountRepository\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Repository\\AccountRepository\\IAccountRepository.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Repository\\AccountRepository\\IAccountRepository.cs",
+              "RelativeToolTip": "MusicalStore\\Repository\\AccountRepository\\IAccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T15:06:43.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TaiKhoanRepository.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Repository\\TaiKhoanRepository.cs",
+              "RelativeDocumentMoniker": "DTO\\Repository\\TaiKhoanRepository.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\DTO\\Repository\\TaiKhoanRepository.cs",
+              "RelativeToolTip": "DTO\\Repository\\TaiKhoanRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T15:03:00.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "MusicalStore\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T15:01:52.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Auth\\Login.cshtml",
+              "RelativeDocumentMoniker": "MusicalStore\\Views\\Auth\\Login.cshtml",
+              "ToolTip": "D:\\Job\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Auth\\Login.cshtml",
+              "RelativeToolTip": "MusicalStore\\Views\\Auth\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-11T15:01:47.309Z",
               "EditorCaption": ""
             }
           ]

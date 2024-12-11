@@ -17,5 +17,9 @@ namespace MusicalStore.Controllers
         {
             return View();
         }
+        public IActionResult LoginAccount(string username, string password)
+        {
+            return View();
+        }
     }
 }
