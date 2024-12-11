@@ -2,4 +2,430 @@
     Layout = "_AdminLayout";
     ViewData["Title"] = "Quản lý sản phẩm";
 }
-<h1>Quản lý sản phẩm</h1>
+
+<h1 class="text-center text-primary my-4">QUẢN LÝ SẢN PHẨM</h1>
+
+<div class="container mt-5 shadow p-4 rounded bg-white">
+    <div class="col-12 mb-2 justify-content-end">
+        <button class="btn btn-success mb-1 rounded-pill px-4 py-2 text-white fw-bold" onclick="showAddModal()">
+            <i class="bi bi-plus-circle"></i> Thêm sản phẩm
+        </button>
+    </div>
+    <div class="table-responsive" id="tableProduct">
+        <table id="productTable" class="table table-hover table-bordered align-middle">
+            <thead class="table-success text-center">
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Hãng</th>
+                    <th>Loại sản phẩm</th>
+                    <th>Đơn vị tính</th>
+                    <th>Giá</th>
+                    <th>Mô tả</th>
+                    <th>Số lượng</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Product item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/images/@item.ImageUrl" alt="@item.ProductName" class="img-thumbnail" style="max-width: 100px;">
+                        </td>
+                        <td>
+                            <a href="/#" class="text-dark text-decoration-none fw-bold">@item.ProductName</a>
+                        </td>
+                        <td>@item.Brand</td>
+                        <td>@item.Category.CategoryName</td>
+                        <td>@item.Unit</td>
+                        <td>@String.Format("{0:C0}", item.Price)</td>
+                        <td class="text-truncate" style="max-width: 200px;">@item.Description</td>
+                        <td>@item.StockQuantity</td>
+                        <td>
+                            <div class="d-flex justify-content-center gap-2">
+                                <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.ProductCode')">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" title="Xóa" onclick="DeleteProduct('@item.ProductCode')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Thêm sản phẩm -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="addProductModalLabel">Thêm sản phẩm mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Body -->
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Tên sản phẩm</label>
+                        <input type="text" class="form-control" id="productName" placeholder="Nhập tên sản phẩm" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brand" class="form-label">Hãng</label>
+                        <input type="text" class="form-control" id="brand" placeholder="Nhập hãng" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Loại sản phẩm</label>
+                        <select id="category" class="form-select">
+                            @foreach (Category item in ViewData["Category"] as List<Category>)
+                            {
+                                <option value="@item.CategoryId">@item.CategoryName</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="unit" class="form-label">Đơn vị tính</label>
+                        <input type="text" class="form-control" id="unit" placeholder="Nhập đơn vị tính" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Giá</label>
+                        <input type="number" class="form-control" id="price" placeholder="Nhập giá" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="description" rows="3" placeholder="Nhập mô tả"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Số lượng</label>
+                        <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Hình ảnh</label>
+                        <input type="file" class="form-control" id="image" accept="image/*" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" onclick="ModalProuctImplement()" data-bs-dismiss="modal">Lưu sản phẩm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<script>
+    $(document).ready(function () {
+        $('#productTable').DataTable({
+            language: {
+                "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                "zeroRecords": "Không tìm thấy kết quả",
+                "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                "infoEmpty": "Không có dữ liệu",
+                "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                "search": "Tìm kiếm:",
+                "paginate": {
+                    "first": "Đầu",
+                    "last": "Cuối",
+                    "next": "Sau",
+                    "previous": "Trước"
+                }
+            },
+            pageLength: 10,
+            ordering: true,
+            searching: true,
+            paging: true
+        });
+    });
+
+    //Thực thực thi add hay là update product 
+    function ModalProuctImplement()
+    {
+        //1 Add
+        if(code == 1)
+        {
+            AddNewProduct()
+        }
+
+        //2 Update
+        if(code == 2)
+        {
+            UpdateProduct()
+        }
+    }
+
+    var code
+    function showAddModal()
+    {
+        code = 1
+        document.getElementById("addProductModalLabel").textContent = 'Thêm mới sản phẩm'
+        $('#addProductModal').modal('show');
+    }
+
+    var pId
+    function showEditModal(productId)
+    {
+        code = 2
+        document.getElementById("addProductModalLabel").textContent = 'Cập nhật thông tin sản phẩm'
+        $.ajax({
+            url: '@Url.Action("GetProductById", "Admin")',
+            type: "GET",
+            data: {
+                productId: productId
+            },
+            success: function( result )
+            {
+                console.log(result)
+                pId = result.productCode;
+                document.getElementById("productName").value = result.productName;
+                document.getElementById("brand").value = result.brand;
+                document.getElementById("category").value = result.categoryCode;
+                document.getElementById("unit").value = result.unit;
+                document.getElementById("price").value = result.price;
+                document.getElementById("description").value = result.description;
+                document.getElementById("quantity").value = result.stockQuantity;
+                imageUrl = result.imageUrl
+            }
+        });
+
+        $('#addProductModal').modal('show');
+    }
+
+    function generateRandomString(length) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+    }
+
+    var imageUrl
+    async function uploadImage()
+    {
+        const input = document.getElementById('image');
+
+        const formData = new FormData();
+        formData.append("file", input.files[0]);
+
+        var image
+
+        $.ajax({
+            url: '@Url.Action("UploadImage", "Admin")',
+            type: "POST",
+            async: false,
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: formData,
+            success: function( result )
+            {
+                console.log(result)
+                imageUrl = result.filePath
+             }
+        });
+    }
+
+    //Add Product
+    async function AddNewProduct() {
+        const input = document.getElementById('image');
+        if (input.files.length === 0) {
+            Swal.fire({
+                  icon: "error",
+                  title: "Ooopss...",
+                  text: "Vui lòng chọn hình ảnh"
+                });
+            return;
+        }
+
+        const productName = document.getElementById("productName").value.trim();
+        const brand = document.getElementById("brand").value.trim();
+        const category = document.getElementById("category").value.trim();
+        const unit = document.getElementById("unit").value.trim();
+        const price = document.getElementById("price").value.trim();
+        const description = document.getElementById("description").value.trim();
+        const quantity = document.getElementById("quantity").value.trim();
+        // const image = document.getElementById("image").files[0];
+        const productId = 'SP' + generateRandomString(8);
+
+        await uploadImage()
+        console.log(imageUrl)
+        const formData = new FormData();
+        formData.append("ProductCode", productId);
+        formData.append("ProductName", productName);
+        formData.append("Brand", brand);
+        formData.append("CategoryCode", category);
+        formData.append("Unit", unit);
+        formData.append("Price", price);
+        formData.append("Description", description);
+        formData.append("StockQuantity", quantity);
+        formData.append("ImageUrl", imageUrl);
+
+        $.ajax({
+            url:  '@Url.Action("AddProduct", "Admin")',
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: formData,
+            success: function( result )
+            {
+                console.log(result)
+                $("#tableProduct").html(result)
+                $('#productTable').DataTable({
+                    language: {
+                        "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                        "zeroRecords": "Không tìm thấy kết quả",
+                        "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                        "infoEmpty": "Không có dữ liệu",
+                        "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                        "search": "Tìm kiếm:",
+                        "paginate": {
+                            "first": "Đầu",
+                            "last": "Cuối",
+                            "next": "Sau",
+                            "previous": "Trước"
+                        }
+                    },
+                    pageLength: 10, // Số dòng mặc định mỗi trang
+                    ordering: true, // Kích hoạt sắp xếp
+                    searching: true, // Kích hoạt tìm kiếm
+                    paging: true // Kích hoạt phân trang
+                });
+                Swal.fire({
+                  icon: "success",
+                  title: "Yay~~~",
+                  text: "Thêm thành công sản phẩm"
+
+                });
+             }
+            // error: function (xhr, status, error) {
+            //     alert("Đã xảy ra lỗi: " + error);
+            // }
+        });
+    }
+
+    //Update Product
+    async function UpdateProduct() {
+        const productName = document.getElementById("productName").value.trim();
+        const brand = document.getElementById("brand").value.trim();
+        const category = document.getElementById("category").value.trim();
+        const unit = document.getElementById("unit").value.trim();
+        const price = document.getElementById("price").value.trim();
+        const description = document.getElementById("description").value.trim();
+        const quantity = document.getElementById("quantity").value.trim();
+
+        const input = document.getElementById('image');
+        if (input.files.length != 0) {
+            await uploadImage()
+        }
+        console.log(imageUrl)
+        const formData = new FormData();
+        formData.append("ProductCode", pId);
+        formData.append("ProductName", productName);
+        formData.append("Brand", brand);
+        formData.append("CategoryCode", category);
+        formData.append("Unit", unit);
+        formData.append("Price", price);
+        formData.append("Description", description);
+        formData.append("StockQuantity", quantity);
+        formData.append("ImageUrl", imageUrl);
+
+        $.ajax({
+            url:  '@Url.Action("UpdateProduct", "Admin")',
+            type: "POST",
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: formData,
+            success: function( result )
+            {
+                console.log(result)
+                $("#tableProduct").html(result)
+                $('#productTable').DataTable({
+                    language: {
+                        "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                        "zeroRecords": "Không tìm thấy kết quả",
+                        "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                        "infoEmpty": "Không có dữ liệu",
+                        "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                        "search": "Tìm kiếm:",
+                        "paginate": {
+                            "first": "Đầu",
+                            "last": "Cuối",
+                            "next": "Sau",
+                            "previous": "Trước"
+                        }
+                    },
+                    pageLength: 10, // Số dòng mặc định mỗi trang
+                    ordering: true, // Kích hoạt sắp xếp
+                    searching: true, // Kích hoạt tìm kiếm
+                    paging: true // Kích hoạt phân trang
+                });
+                Swal.fire({
+                  icon: "success",
+                  title: "Yay~~~",
+                  text: "Cập nhật thành công sản phẩm"
+
+                });
+             }
+            // error: function (xhr, status, error) {
+            //     alert("Đã xảy ra lỗi: " + error);
+            // }
+        });
+    }
+
+    function DeleteProduct(productId)
+    {
+        $.ajax({
+            url:  '@Url.Action("DeleteProduct", "Admin")',
+            type: "POST",
+            data: {
+                productId: productId
+            },
+            success: function( result )
+            {
+                console.log(result)
+                $("#tableProduct").html(result)
+                $('#productTable').DataTable({
+                    language: {
+                        "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                        "zeroRecords": "Không tìm thấy kết quả",
+                        "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                        "infoEmpty": "Không có dữ liệu",
+                        "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                        "search": "Tìm kiếm:",
+                        "paginate": {
+                            "first": "Đầu",
+                            "last": "Cuối",
+                            "next": "Sau",
+                            "previous": "Trước"
+                        }
+                    },
+                    pageLength: 10, // Số dòng mặc định mỗi trang
+                    ordering: true, // Kích hoạt sắp xếp
+                    searching: true, // Kích hoạt tìm kiếm
+                    paging: true // Kích hoạt phân trang
+                });
+                Swal.fire({
+                  icon: "success",
+                  title: "Yay~~~",
+                  text: "Xóa thành công sản phẩm"
+
+                });
+             }
+            // error: function (xhr, status, error) {
+            //     alert("Đã xảy ra lỗi: " + error);
+            // }
+        });
+    }
+</script>

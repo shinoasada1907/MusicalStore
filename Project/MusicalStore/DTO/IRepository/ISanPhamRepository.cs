@@ -11,5 +11,9 @@ namespace DTO.IRepository
     {
         public IEnumerable<SanPham> GetListSanpham();
         public SanPham GetSanPhamById(string id);
+        public Task<IEnumerable<SanPham>> AddNewSanPham(SanPham sanpham);
+        public Task<IEnumerable<SanPham>> UpdateSanPham(SanPham sanpham);
+        public Task<IEnumerable<SanPham>> DeleteSanPham(string masp);
+
     }
 }

@@ -10,5 +10,6 @@ namespace DTO.IRepository
     public interface ILoaiSanPhamRepository
     {
         public LoaiSanPham GetLoaiSanPham(string malsp);
+        public IEnumerable<LoaiSanPham> GetAllLoaiSanPham();
     }
 }

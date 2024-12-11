@@ -3,7 +3,11 @@ using DTO.Models;
 using DTO.Repository;
 using Microsoft.EntityFrameworkCore;
 using MusicalStore.Models.Service.Momo;
+using MusicalStore.Repository.CategoryRespository;
+using MusicalStore.Repository.ChucVuRepository;
 using MusicalStore.Repository.Momo;
+using MusicalStore.Repository.OrderRespository;
+using MusicalStore.Repository.PaymentRespository;
 using MusicalStore.Repository.ProductRepo;
 using MusicalStore.Repository.StaffRepository;
 using MusicalStore.Repository.UserRepository;
@@ -33,11 +37,19 @@ builder.Services.AddScoped<IGiamGiaRepository, GiamGiaRepository>();
 builder.Services.AddScoped<ICTSanPhamRepository, CTSanPhamRepository>();
 builder.Services.AddScoped<ILoaiSanPhamRepository, LoaiSanPhamRepository>();
 builder.Services.AddScoped<ITaiKhoanRepository, TaiKhoanRepository>();
+builder.Services.AddScoped<INhanVienRepository, NhanVienRepository>();
+builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
+builder.Services.AddScoped<IPtThanhToanRepository, PtThanhToanRepository>();
+builder.Services.AddScoped<IChucVuRepository, ChucVuRepository>();
 
 //MusicalStore
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IStaffRepository, StaffRepository>();
+builder.Services.AddScoped<IOrderRespository, OrderRespository>();
+builder.Services.AddScoped<IPaymentRespository, PaymentRespository>();
+builder.Services.AddScoped<IPositionRepository, PositionRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 var app = builder.Build();
 

@@ -5,17 +5,15 @@ namespace MusicalStore.Mapping
 {
     public class CategoryMapping
     {
-        // LoaiSanPham -> Category
-        public static Category MapToCategory(LoaiSanPham loaiSanPham)
+        public static Category MapToCategory(LoaiSanPham? loaisanPham)
         {
             return new Category
             {
-                CategoryId = loaiSanPham.MaLsp,
-                CategoryName = loaiSanPham.TenLsp
+                CategoryId = loaisanPham?.MaLsp ?? string.Empty,
+                CategoryName = loaisanPham?.TenLsp ?? string.Empty,
             };
         }
 
-        // Category -> LoaiSanPham
         public static LoaiSanPham MapToLoaiSanPham(Category category)
         {
             return new LoaiSanPham

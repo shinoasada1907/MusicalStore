@@ -3,6 +3,14 @@ using MusicalStore.Data;
 using MusicalStore.Repository.ProductRepo;
 using MusicalStore.Repository.StaffRepository;
 using MusicalStore.Repository.UserRepository;
+using MusicalStore.Repository.OrderRespository;
+using MusicalStore.Repository.PaymentRespository;
+using MusicalStore.Repository.ChucVuRepository;
+using MusicalStore.Models;
+using MusicalStore.Repository.CategoryRespository;
+using NuGet.Protocol;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.CodeAnalysis;
 
 namespace MusicalStore.Controllers
 {
@@ -11,11 +19,29 @@ namespace MusicalStore.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IProductRepository _productRepository;
         private readonly IStaffRepository _staffRepository;
-        public AdminController(IUserRepository userRepository, IProductRepository productRepository, IStaffRepository staffRepository)
+        private readonly IOrderRespository _orderRespository;
+        private readonly IPaymentRespository _paymentResporsitory;
+        private readonly IPositionRepository _positionRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public AdminController(IPaymentRespository paymentResporsitory,
+            IUserRepository userRepository,
+            IProductRepository productRepository,
+            IStaffRepository staffRepository,
+            IOrderRespository orderRespository,
+            IPositionRepository positionRepository,
+            ICategoryRepository categoryRepository,
+            IWebHostEnvironment webHostEnvironment)
         {
             _userRepository = userRepository;
             _productRepository = productRepository;
             _staffRepository = staffRepository;
+            _orderRespository = orderRespository;
+            _paymentResporsitory = paymentResporsitory;
+            _positionRepository = positionRepository;
+            _categoryRepository = categoryRepository;
+            _webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Dashboard()
         {
@@ -24,12 +50,14 @@ namespace MusicalStore.Controllers
 
         public IActionResult AdminOrder()
         {
-            return View();
+            var oders = _orderRespository.GetAllOrder();
+            return View(oders);
         }
 
         public IActionResult AdminStaff()
         {
             var staffs = _staffRepository.GetAllStaff();
+            ViewData["Position"] = _positionRepository.GetPositions();
             return View(staffs);
         }
         public IActionResult AdminUser()
@@ -39,15 +67,94 @@ namespace MusicalStore.Controllers
         }
         public IActionResult AdminProduct()
         {
-            return View();
+            var products = _productRepository.GetAllProducts();
+            ViewData["Category"] = _categoryRepository.GetCategorys();
+            return View(products);
         }
         public IActionResult AdminPayment()
         {
-            return View();
+            var payments = _paymentResporsitory.GetAllPayment();
+            return View(payments);
         }
         public IActionResult AdminRevenue()
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult GetProductById(string productId)
+        {
+            var product = _productRepository.GetProductById(productId);
+            return Json(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddStaff(Staff staff)
+        {
+            Console.WriteLine(staff.StaffId);
+            var liststaff = await _staffRepository.AddNewStaff(staff);
+            ViewData["Position"] = _positionRepository.GetPositions();
+            return PartialView("_TableStaff", liststaff);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddProduct(Product product)
+        {
+            var listproduct = await _productRepository.AddNewProduct(product);
+            ViewData["Category"] = _categoryRepository.GetCategorys();
+            return PartialView("_TableProduct", listproduct);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(Product product)
+        {
+            Console.WriteLine(product.ProductCode);
+            var listproduct = await _productRepository.UpdateProduct(product);
+            ViewData["Category"] = _categoryRepository.GetCategorys();
+            return PartialView("_TableProduct", listproduct);
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(string productId)
+        {
+            var listproduct = await _productRepository.DeleteProduct(productId);
+            ViewData["Category"] = _categoryRepository.GetCategorys();
+            return PartialView("_TableProduct", listproduct);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UploadImage([FromForm] IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("File is empty");
+            }
+
+            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+            var fileExtension = Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(uploadsFolder, file.FileName);
+            int counter = 1;
+
+            // Kiểm tra và tạo tên tệp mới nếu tệp đã tồn tại
+            while (System.IO.File.Exists(filePath))
+            {
+                filePath = Path.Combine(uploadsFolder, $"{fileName}_{counter}{fileExtension}");
+                counter++;
+            }
+
+            // Lưu tệp tin
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            // Trả về tên tệp đã được lưu
+            return Ok(new { FilePath = Path.GetFileName(filePath) });
+        }
+
     }
+
 }

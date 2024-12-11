@@ -11,17 +11,25 @@ namespace MusicalStore.Repository.ProductRepo
         private readonly IChiTietGiamGiaRepository _chiTietGiamGiaRepository;
         private readonly ICTSanPhamRepository _cTSanPhamRepository;
         private readonly IGiamGiaRepository _giamGiaRepository;
-        public ProductRepository(ISanPhamRepository sanPhamRepository, IChiTietGiamGiaRepository chiTietGiamGiaRepository, ICTSanPhamRepository cTSanPhamRepository, IGiamGiaRepository giamGiaRepository)
+        private readonly ILoaiSanPhamRepository _loaiSanPhamRepsoritory;
+        public ProductRepository(ISanPhamRepository sanPhamRepository, IChiTietGiamGiaRepository chiTietGiamGiaRepository, ICTSanPhamRepository cTSanPhamRepository, IGiamGiaRepository giamGiaRepository, ILoaiSanPhamRepository loaiSanPhamRepsoritory)
         {
             _sanPhamRepository = sanPhamRepository;
             _chiTietGiamGiaRepository = chiTietGiamGiaRepository;
             _cTSanPhamRepository = cTSanPhamRepository;
             _giamGiaRepository = giamGiaRepository;
+            _loaiSanPhamRepsoritory = loaiSanPhamRepsoritory;
         }
         public IEnumerable<Product> GetAllProducts()
         {
-            var products = _sanPhamRepository.GetListSanpham();
-            return ProductMapping.MapToProducts(products);
+            var sanpham = _sanPhamRepository.GetListSanpham();
+            var products = ProductMapping.MapToProducts(sanpham);
+            foreach (var item in products)
+            {
+                var loaisanpham = _loaiSanPhamRepsoritory.GetLoaiSanPham(item.CategoryCode) ?? new DTO.Models.LoaiSanPham();
+                item.Category = CategoryMapping.MapToCategory(loaisanpham);
+            }
+            return products;
         }
 
         public IEnumerable<Product> GetListProductWithPage(int page, int pageSize)
@@ -36,7 +44,7 @@ namespace MusicalStore.Repository.ProductRepo
             var chiTietSP = _cTSanPhamRepository.GetCTSanPham(sanpham.MaCtsp);
             var chiTietGG = _chiTietGiamGiaRepository.GetChiTietGiamGia(id);
             var detailVoucher = DetailVoucherMapping.MapToDetailVoucher(chiTietGG);
-            if(!string.IsNullOrEmpty(detailVoucher.VoucherCode))
+            if (!string.IsNullOrEmpty(detailVoucher.VoucherCode))
             {
                 var giamGia = _giamGiaRepository.GetMaGiamGia(chiTietGG.MaGg);
                 detailVoucher.Voucher = VoucherMapping.MapToVoucher(giamGia);
@@ -46,6 +54,44 @@ namespace MusicalStore.Repository.ProductRepo
             product.DetailVoucher = detailVoucher ?? new DetailVoucher();
             product.ProductDetail = ProductDetailMapping.MapToProductDetail(chiTietSP);
             return product;
+        }
+
+        public async Task<IEnumerable<Product>> AddNewProduct(Product product)
+        {
+            var sanpham = ProductMapping.MappingToSanPham(product);
+            var listSanPham = await _sanPhamRepository.AddNewSanPham(sanpham);
+            var listProduct = ProductMapping.MapToProducts(listSanPham);
+            foreach (var item in listProduct)
+            {
+                var loaisanpham = _loaiSanPhamRepsoritory.GetLoaiSanPham(item.CategoryCode);
+                item.Category = CategoryMapping.MapToCategory(loaisanpham);
+            }
+            return listProduct;
+        }
+
+        public async Task<IEnumerable<Product>> UpdateProduct(Product product)
+        {
+            var sanpham = ProductMapping.MappingToSanPham(product);
+            var listSanPham = await _sanPhamRepository.UpdateSanPham(sanpham);
+            var listProduct = ProductMapping.MapToProducts(listSanPham);
+            foreach (var item in listProduct)
+            {
+                var loaisanpham = _loaiSanPhamRepsoritory.GetLoaiSanPham(item.CategoryCode);
+                item.Category = CategoryMapping.MapToCategory(loaisanpham);
+            }
+            return listProduct;
+        }
+
+        public async Task<IEnumerable<Product>> DeleteProduct(string productId)
+        {
+            var listSanPham = await _sanPhamRepository.DeleteSanPham(productId);
+            var listProduct = ProductMapping.MapToProducts(listSanPham);
+            foreach (var item in listProduct)
+            {
+                var loaisanpham = _loaiSanPhamRepsoritory.GetLoaiSanPham(item.CategoryCode);
+                item.Category = CategoryMapping.MapToCategory(loaisanpham);
+            }
+            return listProduct;
         }
     }
 }

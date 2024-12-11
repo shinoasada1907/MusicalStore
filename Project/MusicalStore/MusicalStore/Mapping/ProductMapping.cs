@@ -27,7 +27,15 @@ namespace MusicalStore.Mapping
         {
             return new SanPham
             {
-
+                MaSp = product.ProductCode,
+                TenSp = product.ProductName,
+                Hang = product.Brand,
+                Dvt = product.Unit,
+                Gia = product.Price,
+                MoTa = product.Description,
+                Hinh = product.ImageUrl,
+                Slsp = product.StockQuantity,
+                MaLsp = product.CategoryCode
             };
         }
 
