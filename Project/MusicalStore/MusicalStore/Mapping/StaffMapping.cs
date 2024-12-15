@@ -10,7 +10,7 @@ namespace MusicalStore.Mapping
         {
             return new Staff
             {
-                StaffId = nhanVien.MaNv ?? string.Empty, // Mapping CCCD to StaffId
+                StaffId = nhanVien.Cccd ?? string.Empty, // Mapping CCCD to StaffId
                 StaffName = nhanVien.TenNv,
                 Birthday = nhanVien.NgaySinh.HasValue
                             ? nhanVien.NgaySinh.Value.ToDateTime(TimeOnly.MinValue)

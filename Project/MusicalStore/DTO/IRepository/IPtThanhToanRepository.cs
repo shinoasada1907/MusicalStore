@@ -10,10 +10,5 @@ namespace DTO.IRepository
     public interface IPtThanhToanRepository
     {
         public IEnumerable<PtThanhToan> GetListPtThanhToan();
-        public PtThanhToan GetPtThanhToanById(string id);
-        public Task<IEnumerable<PtThanhToan>> AddNewPtThanhToan(PtThanhToan ptthanhtoan);
-        public Task<IEnumerable<PtThanhToan>> UpdatePtThanhToan(PtThanhToan ptthanhtoan);
-        public Task<IEnumerable<PtThanhToan>> DeletePtThanhToan(string mapttt);
-
     }
 }
