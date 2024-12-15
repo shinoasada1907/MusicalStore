@@ -87,12 +87,33 @@ namespace MusicalStore.Controllers
             var product = _productRepository.GetProductById(productId);
             return Json(product);
         }
+        [HttpGet]
+        public IActionResult GetStaffById(string staffId)
+        {
+            var staff = _staffRepository.GetStaffById(staffId);
+            return Json(staff);
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddStaff(Staff staff)
         {
             Console.WriteLine(staff.StaffId);
             var liststaff = await _staffRepository.AddNewStaff(staff);
+            ViewData["Position"] = _positionRepository.GetPositions();
+            return PartialView("_TableStaff", liststaff);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateStaff(Staff staff)
+        {
+            Console.WriteLine(staff.StaffId);
+            var liststaff = await _staffRepository.UpdateStaff(staff);
+            ViewData["Position"] = _positionRepository.GetPositions();
+            return PartialView("_TableStaff", liststaff);
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteStaff(string staffId)
+        {
+            var liststaff = await _staffRepository.DeleteStaff(staffId);
             ViewData["Position"] = _positionRepository.GetPositions();
             return PartialView("_TableStaff", liststaff);
         }
@@ -153,6 +174,37 @@ namespace MusicalStore.Controllers
 
             // Trả về tên tệp đã được lưu
             return Ok(new { FilePath = Path.GetFileName(filePath) });
+        }
+
+        //Payment
+        [HttpGet]
+        public IActionResult GetPaymentById(string paymentId)
+        {
+            var payment = _paymentResporsitory.GetPaymentById(paymentId);
+            return Json(payment);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddPayment(Payment payment)
+        {
+            Console.WriteLine(payment.PaymentMethodId);
+            var listPayments = await _paymentResporsitory.AddNewPayment(payment);
+            return PartialView("_TablePayment", listPayments);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdatePayment(Payment payment)
+        {
+            Console.WriteLine(payment.PaymentMethodId);
+            var listPayments = await _paymentResporsitory.UpdatePayment(payment);
+            return PartialView("_TablePayment", listPayments);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePayment(string paymentId)
+        {
+            var listPayments = await _paymentResporsitory.DeletePayment(paymentId);
+            return PartialView("_TablePayment", listPayments);
         }
 
     }

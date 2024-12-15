@@ -7,7 +7,7 @@
 
 <div class="container mt-5 shadow p-4 rounded bg-white">
     <div class="col-12 mb-2 justify-content-end">
-        <button class="btn btn-success mb-1 rounded-pill px-4 py-2 text-white fw-bold" onclick="$('#addStaffModal').modal('show')">
+        <button class="btn btn-success mb-1 rounded-pill px-4 py-2 text-white fw-bold" onclick="showAddModal()">
             <i class="bi bi-person-plus"></i> Thêm nhân viên
         </button>
     </div>
@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (Staff item in Model)
                 {
                     <tr>
                         <td>
@@ -33,13 +33,13 @@
                         <td>@item.Birthday.ToShortDateString()</td>
                         <td>@item.Sex</td>
                         <td>@item.Phone</td>
-                        <td>@item.Potition.PositionName</td>
+                        <td>@item.Position.PositionName</td>
                         <td>
                             <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-sm btn-primary" title="Sửa">
+                                <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.StaffId')">
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-danger" title="Xóa">
+                                <button class="btn btn-sm btn-danger" title="Xóa" onclick="DeleteStaff('@item.StaffId')">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </div>
@@ -54,44 +54,44 @@
 
 
 
-<!-- Dialog Modal -->
-<div class="modal fade" id="addStaffModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+<!-- Modal Thêm nhân viên-->
+<div class="modal fade" id="addStaffModal" tabindex="-1" aria-labelledby="addStaffModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Header -->
             <div class="modal-header">
-                <h5 class="modal-title" id="addProductModalLabel">Thêm nhân viên mới</h5>
+                <h5 class="modal-title" id="addStaffModalLabel">Thêm nhân viên mới</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- Body -->
             <div class="modal-body">
-                <form id="addProductForm">
+                <form id="addStaffForm">
                     <div class="mb-3">
-                        <label for="productName" class="form-label">Tên nhân viên</label>
-                        <input type="text" class="form-control" id="staffName" placeholder="Nhập tên sản phẩm" required>
+                        <label for="staffName" class="form-label">Tên nhân viên</label>
+                        <input type="text" class="form-control" id="staffName" placeholder="Nhập tên nhân viên" required>
                     </div>
                     <div class="mb-3">
-                        <label for="productName" class="form-label">Căn cước công dân</label>
+                        <label for="cccd" class="form-label">Căn cước công dân</label>
                         <input type="text" class="form-control" id="cccd" placeholder="Nhập số căn cước công dân" required>
                     </div>
                     <div class="mb-3">
-                        <label for="brand" class="form-label">Giới tính</label>
-                        <select id="gender" class="form-select">
+                        <label for="sex" class="form-label">Giới tính</label>
+                        <select id="sex" class="form-select">
                             <option value="Nam">Nam</option>
                             <option value="Nữ">Nữ</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="unit" class="form-label">Ngày sinh</label>
+                        <label for="Birthday" class="form-label">Ngày sinh</label>
                         <input type="date" class="form-control" id="birthday" required>
                     </div>
                     <div class="mb-3">
-                        <label for="price" class="form-label">Số điện thoại</label>
+                        <label for="phone" class="form-label">Số điện thoại</label>
                         <input type="number" class="form-control" id="phone" placeholder="Nhập số điện thoại" required>
                     </div>
                     <div class="mb-3">
-                        <label for="quantity" class="form-label">Chức vụ</label>
-                        <select id="selectCV" class="form-select">
+                        <label for="position" class="form-label">Chức vụ</label>
+                        <select id="position" class="form-select">
                             @foreach (PositionModel item in ViewData["Position"] as List<PositionModel>)
                             {
                                 <option value="@item.PositionId">@item.PositionName</option>
@@ -101,15 +101,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                        <button type="button" class="btn btn-primary" onclick="AddNewStaff()" data-bs-dismiss="modal">Lưu sản phẩm</button>
+                        <button type="submit" class="btn btn-primary" onclick="ModalProuctImplement()" data-bs-dismiss="modal">Lưu nhân viên</button>
                     </div>
                 </form>
             </div>
-            @*   <!-- Footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id="saveProductButton">Lưu sản phẩm</button>
-            </div> *@
         </div>
     </div>
 </div>
@@ -142,9 +137,58 @@
         });
     });
 
+    //Thực thực thi add hay là update
+    function ModalProuctImplement()
+    {
+        //1 Add
+        if(code == 1)
+        {
+            AddNewStaff()
+        }
+
+        //2 Update
+        if(code == 2)
+        {
+            UpdateStaff()
+        }
+    }
+
+    var code
     function showAddModal()
     {
-        $('#addProductModal').modal('show');
+        code = 1
+        document.getElementById("addStaffModalLabel").textContent = 'Thêm mới nhân viên'
+        $('#addStaffModal').modal('show');
+    }
+
+    //Function sửa
+    var pId
+    function showEditModal(staffId)
+    {
+        code = 2
+        document.getElementById("addStaffModalLabel").textContent = 'Cập nhật thông tin nhân viên'
+        console.log(staffId)
+
+        $.ajax({
+            url: '@Url.Action("GetStaffById", "Admin")',
+            type: "GET",
+            data: {
+                staffId: staffId
+            },
+            success: function( result )
+            {
+                console.log(result)
+                pId = result.staffId;
+                document.getElementById("staffName").value = result.staffName;
+                document.getElementById("birthday").value = result.birthday;
+                document.getElementById("sex").value = result.sex;
+                document.getElementById("phone").value = result.phone;
+                document.getElementById("cccd").value = result.cccd;
+                document.getElementById("position").value = result.positionId;
+            }
+        });
+
+        $('#addStaffModal').modal('show');
     }
 
     function isAgeValid(birthDateString) {
@@ -173,22 +217,22 @@
         return age >= 18;
     }
 
-
-    function AddNewStaff()
+    //Add Staff
+    async function AddNewStaff()
     {
         // Thu thập dữ liệu từ form
         const staffName = document.getElementById("staffName").value.trim();
-        const gender = document.getElementById("gender").value.trim();
+        const sex = document.getElementById("sex").value.trim();
         const birthday = document.getElementById("birthday").value.trim();
         const phone = document.getElementById("phone").value.trim();
         const cccd = document.getElementById("cccd").value.trim();
-        const position = document.getElementById("selectCV").value.trim();
+        const position = document.getElementById("position").value.trim();
         const staffId = 'NV'+cccd.slice(-4);
 
         const formData = new FormData();
         formData.append("StaffId", staffId);
         formData.append("StaffName", staffName);
-        formData.append("Sex", gender);
+        formData.append("Sex", sex);
         formData.append("Birthday", birthday);
         formData.append("Phone", phone);
         formData.append("PositionId", position);
@@ -241,8 +285,107 @@
 
                 });
             }
-
         });
     }
 
+    //Update Staff
+     async function UpdateStaff() {
+         const staffName = document.getElementById("staffName").value.trim();
+         const birthday = document.getElementById("birthday").value.trim();
+         const sex = document.getElementById("sex").value.trim();
+         const phone = document.getElementById("phone").value.trim();
+         const position = document.getElementById("position").value.trim();
+         const cccd = document.getElementById("cccd").value.trim();
+
+         const formData = new FormData();
+         formData.append("StaffId", pId);
+         formData.append("StaffName", StaffName);
+         formData.append("Birthday", Birthday);
+         formData.append("PositionId", Position);
+         formData.append("Sex", Sex);
+         formData.append("Phone", Phone);
+         formData.append("CCCD", CCCD);
+
+         $.ajax({
+             url:  '@Url.Action("UpdateStaff", "Admin")',
+             type: "POST",
+             processData: false,
+             contentType: false,
+             cache: false,
+             data: formData,
+             success: function( result )
+             {
+                 console.log(result)
+                 $("#tableStaff").html(result)
+                 $('#staffTable').DataTable({
+                     language: {
+                         "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                         "zeroRecords": "Không tìm thấy kết quả",
+                         "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                         "infoEmpty": "Không có dữ liệu",
+                         "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                         "search": "Tìm kiếm:",
+                         "paginate": {
+                             "first": "Đầu",
+                             "last": "Cuối",
+                             "next": "Sau",
+                             "previous": "Trước"
+                         }
+                     },
+                     pageLength: 10, // Số dòng mặc định mỗi trang
+                     ordering: true, // Kích hoạt sắp xếp
+                     searching: true, // Kích hoạt tìm kiếm
+                     paging: true // Kích hoạt phân trang
+                 });
+                 Swal.fire({
+                   icon: "success",
+                   title: "Yay~~~",
+                   text: "Cập nhật thành công nhân viên"
+
+                 });
+              }
+         });
+     }
+
+     function DeleteStaff(staffId)
+     {
+         $.ajax({
+             url:  '@Url.Action("DeleteStaff", "Admin")',
+             type: "POST",
+             data: {
+                 staffId: staffId
+             },
+             success: function( result )
+             {
+                 console.log(result)
+                 $("#tableStaff").html(result)
+                 $('#staffTable').DataTable({
+                     language: {
+                         "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                         "zeroRecords": "Không tìm thấy kết quả",
+                         "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                         "infoEmpty": "Không có dữ liệu",
+                         "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                         "search": "Tìm kiếm:",
+                         "paginate": {
+                             "first": "Đầu",
+                             "last": "Cuối",
+                             "next": "Sau",
+                             "previous": "Trước"
+                         }
+                     },
+                     pageLength: 10, // Số dòng mặc định mỗi trang
+                     ordering: true, // Kích hoạt sắp xếp
+                     searching: true, // Kích hoạt tìm kiếm
+                     paging: true // Kích hoạt phân trang
+                 });
+                 Swal.fire({
+                   icon: "success",
+                   title: "Yay~~~",
+                   text: "Xóa thành công nhân viên"
+
+                 });
+              }
+         });
+     }
 </script>

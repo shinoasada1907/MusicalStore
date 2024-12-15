@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MusicalStore.Models.Payment>
+
+<table id="paymentTable" class="table table-hover table-bordered align-middle">
+    <thead class="table-success text-center">
+        <tr>
+            <th>Mã PTTT</th>
+            <th>Hình thức</th>
+            <th>Tên người nhận</th>
+            <th>Số điện thoại</th>
+            <th>Ngân hàng</th>
+            <th>Số tài khoản</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Payment item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/#" class="text-dark text-decoration-none fw-bold">@item.PaymentMethodId</a>
+                </td>
+                <td>@item.MethodType</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.RecipientName</td>
+                <td>@item.BankName</td>
+                <td>@item.AccountNumber</td>
+                <td>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.PaymentMethodId')">
+                            <i class="bi bi-pencil-fill"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" title="Xóa" onclick="DeletePayment('@item.PaymentMethodId')">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
