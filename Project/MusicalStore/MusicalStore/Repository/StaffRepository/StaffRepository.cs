@@ -1,5 +1,4 @@
 ﻿using DTO.IRepository;
-using DTO.Repository;
 using MusicalStore.Mapping;
 using MusicalStore.Models;
 
@@ -15,57 +14,30 @@ namespace MusicalStore.Repository.StaffRepository
             _chucVuRepository = chucVuRepository;
         }
 
+        public async Task<IEnumerable<Staff>> AddNewStaff(Staff staff)
+        {
+            var nhanvien = StaffMapping.MappingToNhanVien(staff);
+            var listNhanVien = await _nhanVienRepository.AddNewNhanVien(nhanvien);
+            var listStaff = StaffMapping.MapToStaffs(listNhanVien);
+            foreach (var item in listStaff)
+            {
+                var chuvu = _chucVuRepository.GetChucVu(item.PositionId);
+                item.Potition = PositionMapping.MapToPosition(chuvu);
+            }
+            return listStaff;
+        }
+
         public IEnumerable<Staff> GetAllStaff()
         {
             var nhanvien = _nhanVienRepository.GetListNhanVien();
             var staff = StaffMapping.MapToStaffs(nhanvien);
-            foreach (var item in staff)
+            foreach(var item in staff)
             {
                 var chuvu = _chucVuRepository.GetChucVu(item.PositionId);
-                item.Position = PositionMapping.MapToPosition(chuvu);
+                item.Potition = PositionMapping.MapToPosition(chuvu);
             }
             return staff;
         }
 
-        public async Task<IEnumerable<Staff>> AddNewStaff(Staff staff)
-        {
-            var nhanvien = StaffMapping.MappingToNhanVien(staff);
-            var listNhanVien = await _nhanVienRepository.AddNhanVien(nhanvien);
-            var listStaff = StaffMapping.MapToStaffs(listNhanVien);
-            foreach (var item in listStaff)
-            {
-                var chuvu = _chucVuRepository.GetChucVu(item.PositionId);
-                item.Position = PositionMapping.MapToPosition(chuvu);
-            }
-            return listStaff;
-        }
-        public async Task<IEnumerable<Staff>> UpdateStaff(Staff staff)
-        {
-            var nhanvien = StaffMapping.MappingToNhanVien(staff);
-            var listNhanVien = await _nhanVienRepository.UpdateNhanVien(nhanvien);
-            var listStaff = StaffMapping.MapToStaffs(listNhanVien);
-            foreach (var item in listStaff)
-            {
-                var chuvu = _chucVuRepository.GetChucVu(item.PositionId);
-                item.Position = PositionMapping.MapToPosition(chuvu);
-            }
-            return listStaff;
-        }public async Task<IEnumerable<Staff>> DeleteStaff(string staffId)
-        {
-            var listNhanVien = await _nhanVienRepository.DeleteNhanVien(staffId);
-            var listStaff = StaffMapping.MapToStaffs(listNhanVien);
-            foreach (var item in listStaff)
-            {
-                var chuvu = _chucVuRepository.GetChucVu(item.PositionId);
-                item.Position = PositionMapping.MapToPosition(chuvu);
-            }
-            return listStaff;
-        }
-        public Staff GetStaffById(string id)
-        {
-            var staff = _nhanVienRepository.GetNhanVienById(id);
-            Console.WriteLine($"Staff {staff.MaNv}");
-            return StaffMapping.MappingToStaff(staff);
-        }
     }
 }
