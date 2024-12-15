@@ -33,6 +33,20 @@ namespace DTO.Repository
             }).ToList();
         }
 
+        public NhanVien GetInfoNhanVien(string manv)
+        {
+            try
+            {
+                var nhanvien = _context.NhanViens.FirstOrDefault(nv => nv.MaNv == manv);
+                return nhanvien;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
         public IEnumerable<NhanVien> GetListNhanVien()
         {
             return _context.NhanViens.Select(nv => new NhanVien

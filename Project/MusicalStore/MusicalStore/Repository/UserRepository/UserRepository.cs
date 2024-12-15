@@ -16,5 +16,25 @@ namespace MusicalStore.Repository.UserRepository
             var khachhang = _khachHangRepository.GetAllKhackHang();
             return UserMapping.MapToKhachHangs(khachhang);
         }
+
+        public UserModel GetUserInfor(string userId)
+        {
+            try
+            {
+                var khach = _khachHangRepository.GetKhachHang(userId);
+                var userInfo = UserMapping.MapToUserModel(khach);
+                return userInfo;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public UserModel RegisterNewUser()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

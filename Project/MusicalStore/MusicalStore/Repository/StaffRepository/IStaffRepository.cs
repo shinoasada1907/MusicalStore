@@ -6,5 +6,6 @@ namespace MusicalStore.Repository.StaffRepository
     {
         public IEnumerable<Staff> GetAllStaff();
         public Task<IEnumerable<Staff>> AddNewStaff(Staff staff);
+        public Staff GetStaffInfo(string staffId);
     }
 }

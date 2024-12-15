@@ -15,6 +15,12 @@ namespace DTO.Repository
         {
             _context = context;
         }
+
+        public KhachHang DangKyThongTinKhachHang(KhachHang khachHang)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<KhachHang> GetAllKhackHang()
         {
             return _context.KhachHangs.Select(sp=>new KhachHang
@@ -31,8 +37,16 @@ namespace DTO.Repository
 
         public KhachHang GetKhachHang(string makh)
         {
-            var khachhang = _context.KhachHangs.FirstOrDefault(kh => kh.MaKh == makh);
-            return khachhang;
+            try
+            {
+                var khachhang = _context.KhachHangs.FirstOrDefault(kh => kh.MaKh == makh);
+                return khachhang;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }

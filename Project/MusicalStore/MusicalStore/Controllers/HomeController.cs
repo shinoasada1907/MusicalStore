@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Dynamic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MusicalStore.Data;
 using MusicalStore.Models;
@@ -55,6 +56,7 @@ namespace MusicalStore.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult ShoppingCart()
         {
             return View();

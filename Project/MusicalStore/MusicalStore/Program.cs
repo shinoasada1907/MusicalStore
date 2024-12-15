@@ -3,6 +3,7 @@ using DTO.Models;
 using DTO.Repository;
 using Microsoft.EntityFrameworkCore;
 using MusicalStore.Models.Service.Momo;
+using MusicalStore.Repository.AccountRepository;
 using MusicalStore.Repository.CategoryRespository;
 using MusicalStore.Repository.ChucVuRepository;
 using MusicalStore.Repository.Momo;
@@ -20,7 +21,9 @@ builder.Services.AddCors(option =>
 {
     option.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
-builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
+
+builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
 builder.Services.AddRazorPages();
 
 builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
@@ -31,13 +34,12 @@ builder.Services.AddDbContext<MusicalStoreContext>(options => options.UseSqlServ
 //DTO
 builder.Services.AddScoped<ISanPhamRepository, SanPhamRepository>();
 builder.Services.AddScoped<IKhachHangRepository, KhachHangRepository>();
-builder.Services.AddScoped<INhanVienRespository, NhanVienRepository>();
+builder.Services.AddScoped<INhanVienRepository, NhanVienRepository>();
 builder.Services.AddScoped<IChiTietGiamGiaRepository, ChiTietGiamGiaRepository>();
 builder.Services.AddScoped<IGiamGiaRepository, GiamGiaRepository>();
 builder.Services.AddScoped<ICTSanPhamRepository, CTSanPhamRepository>();
 builder.Services.AddScoped<ILoaiSanPhamRepository, LoaiSanPhamRepository>();
 builder.Services.AddScoped<ITaiKhoanRepository, TaiKhoanRepository>();
-builder.Services.AddScoped<INhanVienRepository, NhanVienRepository>();
 builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
 builder.Services.AddScoped<IPtThanhToanRepository, PtThanhToanRepository>();
 builder.Services.AddScoped<IChucVuRepository, ChucVuRepository>();
@@ -50,6 +52,7 @@ builder.Services.AddScoped<IOrderRespository, OrderRespository>();
 builder.Services.AddScoped<IPaymentRespository, PaymentRespository>();
 builder.Services.AddScoped<IPositionRepository, PositionRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
 var app = builder.Build();
 
@@ -63,7 +66,7 @@ if (!app.Environment.IsDevelopment())
 app.UseCors();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();

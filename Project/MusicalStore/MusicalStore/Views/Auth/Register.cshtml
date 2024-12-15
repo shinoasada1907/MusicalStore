@@ -11,22 +11,24 @@
                     <h4 style="color: #007bff;">Đăng Ký Tài Khoản</h4>
                 </div>
                 <div class="card-body">
-                    <form asp-action="RegisterUserInfo" asp-controller="Auth" method="post">
+                    <form id="formRegister" asp-action="RegisterAccountUser" asp-controller="Auth">
                         <div class="form-group mb-3">
                             <!-- Thêm mb-3 để tạo khoảng cách dưới -->
-                            <input type="text" class="form-control" id="name" name="Name" placeholder="Họ và tên">
+                            <input type="text" class="form-control" id="username" name="AccountName" placeholder="Họ và tên" required>
                         </div>
                         <div class="form-group mb-3">
                             <!-- Thêm mb-3 để tạo khoảng cách dưới -->
-                            <input type="email" class="form-control" id="email" name="Email" placeholder="Email">
+                            <input type="email" class="form-control" id="email" name="Email" placeholder="Email" required>
                         </div>
-                        <div class="form-group mb-3">
-                            <!-- Thêm mb-3 để tạo khoảng cách dưới -->
-                            <input type="password" class="form-control" id="password" name="Password"
-                                   placeholder="Mật khẩu">
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" id="Password"
+                                   placeholder="Enter your password" required>
+                            <span class="input-group-text" id="togglePassword">
+                                <i class="bi bi-eye-slash"></i>
+                            </span>
                         </div>
                         <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="terms" name="Terms">
+                            <input type="checkbox" class="form-check-input" id="terms" name="Terms" required>
                             <label class="form-check-label" for="terms">
                                 Tôi đồng ý với <a href="#">
                                     Điều khoản dịch
@@ -75,8 +77,62 @@
 </style>
 
 @section Scripts {
+    <script src="~/js/site.js"></script>
     <script>
-        $(document).ready(function () {}
+
+        $(document).ready(function(){
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+            const eyeIcon = togglePassword.querySelector('i');
+            togglePassword.addEventListener('click', function () {
+                // Kiểm tra nếu mật khẩu đang ẩn hay không
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type; // Thay đổi loại trường input
+
+                // Thay đổi icon
+                if (type === 'password') {
+                    eyeIcon.classList.remove('bi-eye');
+                    eyeIcon.classList.add('bi-eye-slash');
+                } else {
+                    eyeIcon.classList.remove('bi-eye-slash');
+                    eyeIcon.classList.add('bi-eye');
+                }
+            });
+        })
+
+        // $('#formRegister').on('submit', function(e){
+        //     e.preventDefault();
+
+        //     var username = ''
+        //     var password = ''
+        //     var permission = 'PQ03'
+        //     var accountId = 'TK' + generateRandomString(5)
+        //     var email = 'hehehe'
+        //     var userId = 'KH' + generateRandomString(5)
+
+        //     var formData = new FormData();
+        //     formData.append("AccountId", accountId)
+        //     formData.append("AccountName", username)
+        //     formData.append("Password", password)
+        //     formData.append("Email", email)
+        //     formData.append("CustomerId", userId)
+        //     formData.append("PermissionId", permission)
+
+        //     $.ajax({
+        //         url: '@Url.Action("RegisterAccountUser")',
+        //         method: 'POST',
+        //         type: 'POST',
+        //         processData: false,
+        //         contentType: false,
+        //         cache: false,
+        //         data: formData,
+        //         success: function(result)
+        //         {
+        //             console.log(result)
+        //             // window.location.href = '@Url.Action("RegisterUserInfo")'
+        //         }
+        //     })
+        // })
 
     </script>
 }

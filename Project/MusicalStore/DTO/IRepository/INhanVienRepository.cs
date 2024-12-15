@@ -12,5 +12,6 @@ namespace DTO.IRepository
         public IEnumerable<NhanVien> GetListNhanVien();
         public Task<IEnumerable<NhanVien>> AddNewNhanVien(NhanVien nhanvien);
         public Task<IEnumerable<NhanVien>> UpdateNhanVien(NhanVien nhanvien);
+        public NhanVien GetInfoNhanVien(string manv);
     }
 }

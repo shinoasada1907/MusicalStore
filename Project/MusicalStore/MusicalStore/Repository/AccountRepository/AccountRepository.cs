@@ -13,9 +13,22 @@ namespace MusicalStore.Repository.AccountRepository
         }
         public Account LoginAccount(string username, string password)
         {
-            var taikhoan = _taiKhoanRepository.GetThongTinTaiKhoan(username, password);
-            var account = AccountMapping.MapToAccount(taikhoan);
-            return account;
+            try
+            {
+                var taikhoan = _taiKhoanRepository.GetThongTinTaiKhoan(username, password);
+                var account = AccountMapping.MapToAccount(taikhoan);
+                return account;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public Account RegisterAccount(Account account)
+        {
+            throw new NotImplementedException();
         }
     }
 }

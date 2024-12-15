@@ -27,8 +27,7 @@ namespace MusicalStore.Mapping
                 Email = account.Email,
                 MaKh = account.CustomerId,
                 MaNv = account.EmployeeId,
-                MaPq = account.PermissionId,
-                MatKhau = account.pass
+                MaPq = account.PermissionId
             };
         }
     }

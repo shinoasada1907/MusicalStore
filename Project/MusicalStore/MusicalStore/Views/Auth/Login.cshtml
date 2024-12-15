@@ -9,10 +9,10 @@
         <div class="col-4 align-content-center">
             <div class="mt-lg-5">
                 <form id="loginForm" class="">
-                    <input type="text" class="form-control" placeholder="Nhập tên tài khoản hoặc email">
+                    <input type="text" id="usernameInput" class="form-control" placeholder="Nhập tên tài khoản hoặc email">
                     <div class="input-group mt-2">
                         <input type="password" class="form-control" id="passwordInput"
-                            placeholder="Enter your password">
+                               placeholder="Enter your password">
                         <span class="input-group-text" id="togglePassword">
                             <i class="bi bi-eye-slash"></i>
                         </span>
@@ -20,7 +20,7 @@
                     <div class="btn-group">
                         <input id="btnLogin" type="submit" class="btn btn-sm btn-primary mt-2 mx-1" value="Đăng nhập">
                         <input id="btnRegister" type="button" class="btn btn-warning btn-primary mt-2 mx-1"
-                            value="Đăng ký">
+                               value="Đăng ký">
                     </div>
 
                 </form>
@@ -85,15 +85,43 @@
         });
 
         $('#loginForm').on('submit', function (e) {
-            // Có thể thêm validation hoặc xử lý trước khi gửi form ở đây
-            // Ví dụ: nếu không có lỗi, cho phép gửi form
-            // Nếu có lỗi, ngăn chặn gửi form bằng e.preventDefault();
+            e.preventDefault();
+
+            var username = document.getElementById("usernameInput").value.trim()
+            var password = document.getElementById("passwordInput").value.trim()
+
+            console.log(username, password)
+
             $.ajax({
-                url: '@Url.Action("Index", "Home")',
+                url: '@Url.Action("LoginAccount", "Auth")',
                 method: 'GET',
-                data: {},
+                data: {
+                    username: username,
+                    password: password
+                },
                 success: function (data) {
-                    window.location.href = '@Url.Action("Index", "Home")';
+                    console.log(data)
+                    if(data == null)
+                    {
+                        Swal.fire({
+                          icon: "error",
+                          title: "Lỗi",
+                          text: "Không tìm thấy thông tin tài khoản. Vui lòng kiểm tra lại tài khoản hoặc mật khẩu đăng nhập!"
+
+                        });
+                        return
+                    }
+
+                    if(data.customerId != null)
+                    {
+                        window.location.href = '@Url.Action("Index", "Home")';
+                    }
+
+                    if(data.employeeId != null)
+                    {
+                        window.location.href = '@Url.Action("Dashboard", "Admin")';
+                    }
+
                 }, error: function (e) { }
             })
 

@@ -5,9 +5,9 @@
         public string AccountId { get; set; } = string.Empty;
         public string AccountName { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public string? Email { get; set; }
-        public string? CustomerId { get; set; }
-        public string? EmployeeId { get; set; }
-        public string? PermissionId { get; set; }
+        public string? Email { get; set; } = string.Empty;
+        public string? CustomerId { get; set; } = string.Empty;
+        public string? EmployeeId { get; set; } = string.Empty;
+        public string? PermissionId { get; set; } = string.Empty;
     }
 }

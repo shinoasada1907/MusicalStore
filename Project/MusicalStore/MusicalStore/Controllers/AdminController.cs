@@ -81,6 +81,11 @@ namespace MusicalStore.Controllers
             return View();
         }
 
+        public IActionResult AdminAccount()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult GetProductById(string productId)
         {

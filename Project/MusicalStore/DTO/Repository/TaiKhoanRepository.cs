@@ -16,10 +16,24 @@ namespace DTO.Repository
         {
             _context = context;
         }
+
+        public TaiKhoan DangKyTaiKhoan(TaiKhoan taikhoan)
+        {
+            throw new NotImplementedException();
+        }
+
         public TaiKhoan GetThongTinTaiKhoan(string tentk, string matkhau)
         {
-            var taikhoan = _context.TaiKhoans.FirstOrDefault(tk => tk.TenTk == tentk && tk.MatKhau == matkhau);
-            return taikhoan;
+            try
+            {
+                var taikhoan = _context.TaiKhoans.FirstOrDefault(tk => tk.TenTk == tentk && tk.MatKhau == matkhau);
+                return taikhoan;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }
