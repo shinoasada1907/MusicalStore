@@ -1,18 +1,24 @@
 ﻿@{
     Layout = "_AdminLayout";
-    ViewData["Title"] = "Quản lý thanh toán";
+    ViewData["Title"] = "Quản lý phương thức thanh toán";
 }
 
-<h1 class="text-center text-primary my-4">Quản lý thanh toán</h1>
+<h1 class="text-center text-primary my-4">QUẢN LÝ PHƯƠNG THỨC THANH TOÁN</h1>
 
 <div class="container mt-5 shadow p-4 rounded bg-white">
-    <div class="table-responsive">
+    <div class="col-12 mb-2 justify-content-end">
+        <button class="btn btn-success mb-1 rounded-pill px-4 py-2 text-white fw-bold" onclick="showAddModal()">
+            <i class="bi bi-plus-circle"></i> Thêm phương thức thanh toán
+        </button>
+    </div>
+    <div class="table-responsive" id="tablePayment">
         <table id="paymentTable" class="table table-hover table-bordered align-middle">
             <thead class="table-success text-center">
                 <tr>
-                    <th>Phương thức TT</th>
+                    <th>Mã PTTT</th>
+                    <th>Hình thức</th>
+                    <th>Tên người nhận</th>
                     <th>Số điện thoại</th>
-                    <th>Người nhận</th>
                     <th>Ngân hàng</th>
                     <th>Số tài khoản</th>
                     <th>Thao tác</th>
@@ -22,19 +28,18 @@
                 @foreach (Payment item in Model)
                 {
                     <tr>
-                        <td>
-                            <a href="/#" class="text-dark text-decoration-none fw-bold">@item.MethodType</a>
-                        </td>
-                        <td>@item.PhoneNumber</td>
+                        <td>@item.PaymentMethodId</td>
+                        <td>@item.MethodType</td>
                         <td>@item.RecipientName</td>
+                        <td>@item.PhoneNumber</td>
                         <td>@item.BankName</td>
                         <td>@item.AccountNumber</td>
                         <td>
                             <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-sm btn-primary" title="Sửa">
+                                <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.PaymentMethodId')">
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-danger" title="Xóa">
+                                <button class="btn btn-sm btn-danger" title="Xóa" onclick="DeletePayment('@item.PaymentMethodId')">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </div>
@@ -45,6 +50,53 @@
         </table>
     </div>
 </div>
+
+<!-- Modal Thêm phương thức thanh toán -->
+<div class="modal fade" id="addPaymentModal" tabindex="-1" aria-labelledby="addPaymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPaymentModalLabel">Thêm phương thức thanh toán</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Body -->
+            <div class="modal-body">
+                <form id="addPaymentForm">
+                    <div class="mb-3">
+                        <label for="paymentmethodId" class="form-label">Mã PTTT</label>
+                        <input type="text" class="form-control" id="paymentmethodId" placeholder="Nhập mã PTTT" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="methodType" class="form-label">Hình thức</label>
+                        <input type="text" class="form-control" id="methodType" placeholder="Nhập hình thức thanh toán" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipientName" class="form-label">Tên người nhận</label>
+                        <input type="text" class="form-control" id="recipientName" placeholder="Nhập tên người nhận" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="Nhập số điện thoại" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bankName" class="form-label">Ngân hàng</label>
+                        <input type="text" class="form-control" id="bankName" placeholder="Nhập tên ngân hàng" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="accountNumber" class="form-label">Số tài khoản</label>
+                        <input type="text" class="form-control" id="accountNumber" placeholder="Nhập số tài khoản" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-primary" onclick="ModalPaymentImplement()" data-bs-dismiss="modal">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -72,4 +124,206 @@
             paging: true
         });
     });
+
+    //Thực thực thi add hay là update
+    function ModalPaymentImplement() {
+        if (code === 1) {
+            AddNewPayment();
+        } 
+        if (code === 2) {
+            UpdatePayment();
+        }
+    }
+
+    var code;
+    function showAddModal() {
+        code = 1;
+        document.getElementById("addPaymentModalLabel").textContent = 'Thêm mới phương thức thanh toán';
+        $('#addPaymentModal').modal('show');
+    }
+
+    //Function sửa
+    var pId
+    function showEditModal(paymentId) {
+        code = 2;
+        document.getElementById("addPaymentModalLabel").textContent = 'Cập nhật phương thức thanh toán';
+        console.log(paymentId)
+
+        $.ajax({
+            url: '@Url.Action("GetPaymentById", "Admin")',
+            type: "GET",
+            data: { paymentId: paymentId },
+            success: function (result) {
+                console.log(result)
+                document.getElementById("paymentmethodId").value = paymentId;
+                document.getElementById("methodType").value = result.methodType;
+                document.getElementById("recipientName").value = result.recipientName;
+                document.getElementById("phoneNumber").value = result.phoneNumber;
+                document.getElementById("bankName").value = result.bankName;
+                document.getElementById("accountNumber").value = result.accountNumber;
+            }
+        });
+
+        $('#addPaymentModal').modal('show');
+    }
+
+    
+    //Add
+    async function AddNewPayment() {
+        const paymentmethodId = document.getElementById("paymentmethodId").value.trim();
+        const methodType = document.getElementById("methodType").value.trim();
+        const recipientName = document.getElementById("recipientName").value.trim();
+        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+        const bankName = document.getElementById("bankName").value.trim();
+        const accountNumber = document.getElementById("accountNumber").value.trim();
+
+
+         const formData = new FormData();
+        formData.append("paymentmethodId", paymentmethodId);
+        formData.append("MethodType", methodType);
+        formData.append("RecipientName", recipientName);
+        formData.append("PhoneNumber", phoneNumber);
+        formData.append("BankName", bankName);
+        formData.append("AccountNumber", accountNumber);
+
+        
+
+        $.ajax({
+            url: '@Url.Action("AddPayment", "Admin")',
+            type: 'POST',
+           processData: false,
+            contentType: false,
+            cache: false,
+            data: formData,
+            success: function( result ) {
+                console.log(result)
+                $("#tablePayment").html(result)
+                $('#paymentTable').DataTable({
+                language: {
+                    "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                    "zeroRecords": "Không tìm thấy kết quả",
+                    "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                    "infoEmpty": "Không có dữ liệu",
+                    "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                    "search": "Tìm kiếm:",
+                    "paginate": {
+                        "first": "Đầu",
+                        "last": "Cuối",
+                        "next": "Sau",
+                        "previous": "Trước"
+                    }
+                },
+                pageLength: 10, // Số dòng mặc định mỗi trang
+                ordering: true, // Kích hoạt sắp xếp
+                searching: true, // Kích hoạt tìm kiếm
+                paging: true // Kích hoạt phân trang
+                });
+                Swal.fire({
+                  icon: "success",
+                  title: "Yay~~~",
+                  text: "Thêm thành công"
+
+                });
+            }
+        });
+    }
+
+    //Update
+    async function UpdatePayment() {
+        const paymentmethodId = document.getElementById("paymentmethodId").value.trim();
+        const methodType = document.getElementById("methodType").value.trim();
+        const recipientName = document.getElementById("recipientName").value.trim();
+        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+        const bankName = document.getElementById("bankName").value.trim();
+        const accountNumber = document.getElementById("accountNumber").value.trim();
+
+       const formData = new FormData();
+        formData.append("paymentmethodId", paymentmethodId);
+        formData.append("MethodType", methodType);
+        formData.append("RecipientName", recipientName);
+        formData.append("PhoneNumber", phoneNumber);
+        formData.append("BankName", bankName);
+        formData.append("AccountNumber", accountNumber);
+
+        $.ajax({
+            url: '@Url.Action("UpdatePayment", "Admin")',
+            type: 'POST',
+            processData: false,
+             contentType: false,
+             cache: false,
+             data: formData,
+             success: function( result )
+         {
+                 console.log(result)
+                 $("#tablePayment").html(result)
+                 $('#paymentTable').DataTable({
+                     language: {
+                         "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                         "zeroRecords": "Không tìm thấy kết quả",
+                         "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                         "infoEmpty": "Không có dữ liệu",
+                         "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                         "search": "Tìm kiếm:",
+                         "paginate": {
+                             "first": "Đầu",
+                             "last": "Cuối",
+                             "next": "Sau",
+                             "previous": "Trước"
+                         }
+                     },
+                     pageLength: 10, // Số dòng mặc định mỗi trang
+                     ordering: true, // Kích hoạt sắp xếp
+                     searching: true, // Kích hoạt tìm kiếm
+                     paging: true // Kích hoạt phân trang
+                 });
+                 Swal.fire({
+                   icon: "success",
+                   title: "Yay~~~",
+                   text: "Cập nhật thành công"
+
+                 });
+              }
+         });
+     }
+
+    function DeletePayment(paymentId) {
+         $.ajax({
+             url:  '@Url.Action("DeletePayment", "Admin")',
+             type: "POST",
+             data: {
+                 paymentId: paymentId
+             },
+             success: function( result )
+             {
+                 console.log(result)
+                 $("#tablePayment").html(result)
+                 $('#paymentTable').DataTable({
+                     language: {
+                         "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                         "zeroRecords": "Không tìm thấy kết quả",
+                         "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                         "infoEmpty": "Không có dữ liệu",
+                         "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                         "search": "Tìm kiếm:",
+                         "paginate": {
+                             "first": "Đầu",
+                             "last": "Cuối",
+                             "next": "Sau",
+                             "previous": "Trước"
+                         }
+                     },
+                     pageLength: 10, // Số dòng mặc định mỗi trang
+                     ordering: true, // Kích hoạt sắp xếp
+                     searching: true, // Kích hoạt tìm kiếm
+                     paging: true // Kích hoạt phân trang
+                 });
+                 Swal.fire({
+                   icon: "success",
+                   title: "Yay~~~",
+                   text: "Xóa thành công"
+
+                 });
+              }
+         });
+     }
 </script>
