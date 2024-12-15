@@ -12,22 +12,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (Staff item in Model)
         {
             <tr>
                 <td>
-                    <a href="/#" class="text-dark text-decoration-none fw-bold">@item.StaffName</a>
-                </td>
+                    <a href="/#" class="text-dark text-decoration-none fw-bold">@item.StaffName</a></td>
                 <td>@item.Birthday.ToShortDateString()</td>
                 <td>@item.Sex</td>
                 <td>@item.Phone</td>
-                <td>@item.Potition.PositionName</td>
+                <td>@item.Position.PositionName</td>
                 <td>
                     <div class="d-flex justify-content-center gap-2">
-                        <button class="btn btn-sm btn-primary" title="Sửa">
+                        <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.StaffId')">
                             <i class="bi bi-pencil-fill"></i>
                         </button>
-                        <button class="btn btn-sm btn-danger" title="Xóa">
+                        <button class="btn btn-sm btn-danger" title="Xóa" onclick="DeleteProduct('@item.StaffId')">
                             <i class="bi bi-trash"></i>
                         </button>
                     </div>
