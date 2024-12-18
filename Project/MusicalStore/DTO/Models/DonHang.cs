@@ -10,12 +10,7 @@ public partial class DonHang
 
     public double TongTienHang { get; set; }
 
-    public double TongTt { get; set; }
-
     public DateOnly NgayLap { get; set; }
-
-    [Column(TypeName = "nvarchar(100)")]
-    public string? TinhTrang { get; set; }
 
     public string? MaKh { get; set; }
 

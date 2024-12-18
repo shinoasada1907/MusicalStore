@@ -29,33 +29,38 @@
     <div class="row mt-5">
         <div class="col-6 justify-content-center">
             <div class="card align-content-center">
-                <form id="formRegisterInfo" class="p-5" action="">
+                <form id="formRegisterInfo" class="p-5">
                     <div class="input-group">
+                        <input type="text" id="uId" value="@ViewData["CustomerId"]" hidden />
                         <span class="">Họ và tên <span style="color: red;">&#42;</span></span>
-                        <input type="text" class="input-group" required>
+                        <input type="text" class="input-group" id="uName" required>
                     </div>
                     <div class="input-group">
                         <span class="">Số CCCD <span style="color: red;">&#42;</span></span>
-                        <input type="text" class="input-group" required>
+                        <input type="text" class="input-group" id="uCCCD" required>
                     </div>
                     <div class="input-group">
                         <span class="">Ngày sinh <span style="color: red;">&#42;</span></span>
-                        <input type="text" class="input-group" required>
+                        <input type="date" class="input-group" id="birthday" required>
                     </div>
                     <div class="input-group">
                         <span class="">Giới tính</span>
-                        <select class="input-group form-select w-100">
-                            <option value="">Nam</option>
-                            <option value="">Nữ</option>
+                        <select id="gender" class="input-group form-select w-100">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
                         </select>
                     </div>
                     <div class="input-group">
+                        <span class="">Số điện thoại <span style="color: red;">&#42;</span></span>
+                        <input type="text" class="input-group" id="phone" required>
+                    </div>
+                    <div class="input-group">
                         <span class="">Email <span style="color: red;">&#42;</span></span>
-                        <input type="text" class="input-group" value="" required>
+                        <input type="text" class="input-group" id="email" value="@ViewData["Email"]" required>
                     </div>
                     <div class="input-group">
                         <span class="">Địa chỉ <span style="color: red;">&#42;</span></span>
-                        <input type="text" class="input-group" required>
+                        <input type="text" class="input-group" id="address" required>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Đăng ký thông tin</button>
                 </form>
@@ -98,24 +103,87 @@
 {
     <script>
         $(document).ready(function(){
-            console.log(@TempData["Email"])
+
         })
         document.getElementById('imageUpload').addEventListener('change', function (event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    // Sửa lỗi chính tả từ "ocument" thành "document"
-                    document.getElementById('background').src = e.target.result; // Cập nhật src của thẻ img
+            try {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById('background').src = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
                 }
-                reader.readAsDataURL(file); // Đọc file dưới dạng Data URL (base64)
+            } catch (error) {
+                console.error("Lỗi khi đọc file: ", error);
             }
 
         });
 
-        $('#formRegisterInfo').on('submit',function(e){
+        var imageUrl
+        async function uploadImage()
+        {
+            const input = document.getElementById('imageUpload');
+
+            const formData = new FormData();
+            formData.append("file", input.files[0]);
+
+            $.ajax({
+                url: '@Url.Action("UploadImage", "Auth")',
+                type: "POST",
+                async: false,
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: formData,
+                success: function( result )
+                {
+                    console.log(result)
+                    imageUrl = result.filePath
+                 }
+            });
+        }
+
+        $('#formRegisterInfo').on('submit',async function(e) {
             e.preventDefault();
-            window.location.href = '@Url.Action("Index", "Home")'
+
+            await uploadImage()
+            var userId = document.getElementById('uId').value.trim();
+            var userName = document.getElementById('uName').value.trim();
+            var cccd = document.getElementById('uCCCD').value.trim();
+            var gender = document.getElementById('gender').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var address = document.getElementById('address').value.trim();
+            var birthday = document.getElementById('birthday').value.trim();
+
+            var formData = new FormData();
+            formData.append("UID", userId)
+            formData.append("UName", userName)
+            formData.append("Email", email)
+            formData.append("SDT", phone)
+            formData.append("Sex", gender)
+            formData.append("Birthday", birthday)
+            formData.append("Address", address)
+            formData.append("Avatar", imageUrl)
+
+            $.ajax({
+                url: '@Url.Action("RegisterUserInformation", "Auth")',
+                type: "POST",
+                async: false,
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: formData,
+                success: function( result )
+                {
+                    console.log(result)
+                    window.location.href = '@Url.Action("Index", "Home")'
+                }
+            });
+
+
         })
     </script>
 }

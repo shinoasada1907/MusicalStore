@@ -9,5 +9,6 @@
         public string Sex { get; set; } = string.Empty;
         public DateTime Birthday { get; set; } = DateTime.MinValue;
         public string Address { get; set; } = string.Empty;
+        public string Avatar { get; set; } = string.Empty;
     }
 }

@@ -11,6 +11,7 @@ namespace DTO.IRepository
     {
         public IEnumerable<KhachHang> GetAllKhackHang();
         public KhachHang GetKhachHang(string makh);
-        public KhachHang DangKyThongTinKhachHang(KhachHang khachHang);
+        public Task<KhachHang> DangKyThongTinKhachHang(KhachHang khachHang);
+        public Task<KhachHang> CapNhatThongTinKhachHang(KhachHang khachHang);
     }
 }

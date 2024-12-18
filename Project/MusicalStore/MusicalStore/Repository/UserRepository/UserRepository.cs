@@ -11,6 +11,7 @@ namespace MusicalStore.Repository.UserRepository
         {
             _khachHangRepository = khachHangRepository;
         }
+
         public IEnumerable<UserModel> GetAllUser()
         {
             var khachhang = _khachHangRepository.GetAllKhackHang();
@@ -32,9 +33,20 @@ namespace MusicalStore.Repository.UserRepository
             }
         }
 
-        public UserModel RegisterNewUser()
+        public async Task<UserModel> RegisterNewUser(UserModel userModel)
         {
-            throw new NotImplementedException();
+            var khachHang = UserMapping.MapToKhachHang(userModel);
+            var user = await _khachHangRepository.DangKyThongTinKhachHang(khachHang);
+            var userMapping = UserMapping.MapToUserModel(user);
+            return userMapping;
+        }
+
+        public async Task<UserModel> UpdateNewUser(UserModel userModel)
+        {
+            var user = UserMapping.MapToKhachHang(userModel);
+            var khach = await _khachHangRepository.CapNhatThongTinKhachHang(user);
+            var khachhang = UserMapping.MapToUserModel(khach);
+            return khachhang;
         }
     }
 }

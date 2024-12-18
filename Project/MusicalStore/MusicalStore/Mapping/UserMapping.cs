@@ -15,7 +15,8 @@ namespace MusicalStore.Mapping
                 SDT = khachHang.Sdt ?? string.Empty,
                 Sex = khachHang.GioiTinh ?? string.Empty,
                 Birthday = khachHang.NgaySinhKh?.ToDateTime(TimeOnly.MinValue) ?? DateTime.MinValue,
-                Address = khachHang.DiaChi ?? string.Empty
+                Address = khachHang.DiaChi ?? string.Empty,
+                Avatar = khachHang.AnhDaiDien ?? string.Empty
             };
         }
 
@@ -29,7 +30,8 @@ namespace MusicalStore.Mapping
                 Sdt = string.IsNullOrWhiteSpace(userModel.SDT) ? null : userModel.SDT,
                 GioiTinh = string.IsNullOrWhiteSpace(userModel.Sex) ? null : userModel.Sex,
                 NgaySinhKh = userModel.Birthday == DateTime.MinValue ? null : DateOnly.FromDateTime(userModel.Birthday),
-                DiaChi = string.IsNullOrWhiteSpace(userModel.Address) ? null : userModel.Address
+                DiaChi = string.IsNullOrWhiteSpace(userModel.Address) ? null : userModel.Address,
+                AnhDaiDien = userModel.Avatar ?? string.Empty
             };
         }
 

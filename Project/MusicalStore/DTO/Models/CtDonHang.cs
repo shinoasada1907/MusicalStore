@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DTO.Models;
 
 public partial class CtDonHang
 {
-    public string MaDh { get; set; } = null!;
+    [Key]
+    public string MaCtDh { get; set; }
+    public string? MaDh { get; set; } = null!;
 
     public int SoLuong { get; set; }
 
@@ -13,5 +16,8 @@ public partial class CtDonHang
 
     public double? Tong { get; set; }
 
+    public string? MaSP { get; set; }
+
     public virtual DonHang MaDhNavigation { get; set; } = null!;
+    public virtual SanPham MaSPNavigation { get; set; } = null!;
 }
