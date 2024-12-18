@@ -37,6 +37,7 @@ public partial class SanPham
     public virtual ICollection<ChiTietGiamGia> ChiTietGiamGia { get; set; } = new List<ChiTietGiamGia>();
 
     public virtual ICollection<CtPhieuNhap> CtPhieuNhaps { get; set; } = new List<CtPhieuNhap>();
+    public virtual ICollection<CtDonHang> CtDonHangs { get; set; } = new List<CtDonHang>();
 
     public virtual LoaiSanPham? MaLspNavigation { get; set; }
 

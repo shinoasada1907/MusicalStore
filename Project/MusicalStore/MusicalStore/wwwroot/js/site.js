@@ -6,3 +6,16 @@
     }
     return result;
 }
+
+
+function validatePassword(password) {
+    // Biểu thức chính quy kiểm tra mật khẩu
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // Kiểm tra mật khẩu với regex
+    if (regex.test(password)) {
+        return true; // Mật khẩu hợp lệ
+    } else {
+        return false; // Mật khẩu không hợp lệ
+    }
+}

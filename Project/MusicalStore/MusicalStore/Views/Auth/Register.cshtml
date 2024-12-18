@@ -11,7 +11,7 @@
                     <h4 style="color: #007bff;">Đăng Ký Tài Khoản</h4>
                 </div>
                 <div class="card-body">
-                    <form id="formRegister" asp-action="RegisterAccountUser" asp-controller="Auth">
+                    <form id="formRegister">
                         <div class="form-group mb-3">
                             <!-- Thêm mb-3 để tạo khoảng cách dưới -->
                             <input type="text" class="form-control" id="username" name="AccountName" placeholder="Họ và tên" required>
@@ -21,11 +21,14 @@
                             <input type="email" class="form-control" id="email" name="Email" placeholder="Email" required>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" id="Password"
+                            <input type="password" class="form-control" id="password" name="Password"
                                    placeholder="Enter your password" required>
                             <span class="input-group-text" id="togglePassword">
                                 <i class="bi bi-eye-slash"></i>
                             </span>
+                            <div id="error-message" class="error-message">
+                                Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt.
+                            </div>
                         </div>
                         <div class="form-check mb-3">
                             <input type="checkbox" class="form-check-input" id="terms" name="Terms" required>
@@ -74,6 +77,13 @@
     .form-control {
         border-radius: 0.25rem;
     }
+
+    .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none; /* Ẩn thông báo ban đầu */
+    }
 </style>
 
 @section Scripts {
@@ -100,39 +110,84 @@
             });
         })
 
-        // $('#formRegister').on('submit', function(e){
-        //     e.preventDefault();
+        var checkExist
+        async function checkExistsUser()
+        {
+            var username = document.getElementById('username').value;
+            $.ajax({
+                url: '@Url.Action("CheckExistsUser", "Auth")',
+                method: 'GET',
+                type: 'GET',
+                async: false,
+                data: {
+                    username: username
+                },
+                success: function(result)
+                {
+                    // console.log(result)
+                    checkExist = result.result;
+                }
+            })
+        }
 
-        //     var username = ''
-        //     var password = ''
-        //     var permission = 'PQ03'
-        //     var accountId = 'TK' + generateRandomString(5)
-        //     var email = 'hehehe'
-        //     var userId = 'KH' + generateRandomString(5)
+        $('#formRegister').on('submit', async function(e){
+            e.preventDefault();
 
-        //     var formData = new FormData();
-        //     formData.append("AccountId", accountId)
-        //     formData.append("AccountName", username)
-        //     formData.append("Password", password)
-        //     formData.append("Email", email)
-        //     formData.append("CustomerId", userId)
-        //     formData.append("PermissionId", permission)
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var permission = 'PQ03'
+            var accountId = 'TK' + generateRandomString(5)
+            var email = document.getElementById('email').value;
+            var userId = 'KH' + generateRandomString(5)
 
-        //     $.ajax({
-        //         url: '@Url.Action("RegisterAccountUser")',
-        //         method: 'POST',
-        //         type: 'POST',
-        //         processData: false,
-        //         contentType: false,
-        //         cache: false,
-        //         data: formData,
-        //         success: function(result)
-        //         {
-        //             console.log(result)
-        //             // window.location.href = '@Url.Action("RegisterUserInfo")'
-        //         }
-        //     })
-        // })
+            var formData = new FormData();
+            formData.append("AccountId", accountId)
+            formData.append("AccountName", username)
+            formData.append("Password", password)
+            formData.append("Email", email)
+            formData.append("CustomerId", userId)
+            formData.append("PermissionId", permission)
+
+            await checkExistsUser()
+            console.log(checkExist)
+
+            if(checkExist)
+            {
+                Swal.fire({
+                  icon: "error",
+                  title: "Ooopsss",
+                  text: "Tên tài khoản đã được đăng ký vui lòng đăng ký tên tài khoản khác nhé. hihi!"
+
+                });
+                return;
+            }
+
+            if(!validatePassword(password))
+            {
+                Swal.fire({
+                  icon: "error",
+                  title: "Ooopsss",
+                  text: "Mật khẩu phải có ít nhất 8 ký tự và phải có đầu đủ ký tự chữ số, chữ hoa, chữ thường và ký tự đặc biệt. Xin vui lòng kiểm tra lại mật khẩu. hihi!"
+
+                });
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("RegisterAccountUser")',
+                method: 'POST',
+                type: 'POST',
+                async: true,
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: formData,
+                success: function(result)
+                {
+                    window.location.href = '@Url.Action("RegisterUserInfo", "Auth")';
+                }
+            })
+        })
 
     </script>
 }

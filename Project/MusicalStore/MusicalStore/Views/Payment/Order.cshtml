@@ -7,10 +7,10 @@
     <div class="card">
         <div class="card-body">
             <h4>Thông Tin Đơn Hàng</h4>
-            <p><strong>Mã Đơn Hàng:</strong> ORD123456</p>
-            <p><strong>Tên Khách Hàng:</strong> Nguyễn Văn A</p>
-            <p><strong>Địa Chỉ:</strong> 123 Đường ABC, TP.HCM</p>
-            <p><strong>Thành Tiền:</strong> 150.000 đ</p>
+            <p><strong>Mã Đơn Hàng:</strong> @Context.Session.GetString("OrderId")</p>
+            <p><strong>Tên Khách Hàng:</strong> @Context.Session.GetString("UserName")</p>
+            <p><strong>Số điện thoại:</strong> @Context.Session.GetString("Phone")</p>
+            <p><strong>Địa Chỉ:</strong> @Context.Session.GetString("Address")</p>
 
             <h5>Chi Tiết Sản Phẩm:</h5>
             <table class="table">

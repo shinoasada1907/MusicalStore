@@ -35,8 +35,7 @@ namespace MusicalStore.Controllers
 
         [HttpGet]
         public IActionResult ProductDetail(string productId)
-        {
-            var product = _productRepository.GetProductById(productId);
+        {            var product = _productRepository.GetProductById(productId);
             Console.WriteLine(product.ProductCode + " " + product.ProductName + " " + product.DetailVoucher.StartDate + " " + product.ProductDetail.Introduction);
             return View(product);
         }
@@ -59,6 +58,10 @@ namespace MusicalStore.Controllers
         [HttpGet]
         public IActionResult ShoppingCart()
         {
+            if(string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             return View();
         }
         public IActionResult FormUserInformation()
@@ -67,7 +70,23 @@ namespace MusicalStore.Controllers
         }
         public IActionResult Profile()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             return View();
+        }
+
+        public IActionResult AddShoppingCart(string productId, int countProduct)
+        {
+            return Json("");
+        }
+
+        [HttpGet]
+        public IActionResult PaymentProduct(string productId)
+        {
+            TempData["ProductId"] = productId;
+            return RedirectToAction("Order", "Payment");
         }
     }
 }

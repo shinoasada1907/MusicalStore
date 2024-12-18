@@ -112,12 +112,12 @@
                         return
                     }
 
-                    if(data.customerId != null)
+                    if(data.customerId != '')
                     {
                         window.location.href = '@Url.Action("Index", "Home")';
                     }
 
-                    if(data.employeeId != null)
+                    if(data.employeeId != '')
                     {
                         window.location.href = '@Url.Action("Dashboard", "Admin")';
                     }

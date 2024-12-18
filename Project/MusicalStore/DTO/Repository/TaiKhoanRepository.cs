@@ -17,9 +17,31 @@ namespace DTO.Repository
             _context = context;
         }
 
-        public TaiKhoan DangKyTaiKhoan(TaiKhoan taikhoan)
+        public async Task<TaiKhoan> CapNhatTaiKhoan(TaiKhoan taiKhoan)
         {
-            throw new NotImplementedException();
+            _context.TaiKhoans.Update(taiKhoan);
+            await _context.SaveChangesAsync();
+            return _context.TaiKhoans.FirstOrDefault(tk => tk.MaTk == taiKhoan.MaTk);
+        }
+
+        public bool KiemTraTaiKhoan(string tentk)
+        {
+            var taikhoan = _context.TaiKhoans.FirstOrDefault(tk => tk.TenTk == tentk);
+            if (taikhoan != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<TaiKhoan> DangKyTaiKhoan(TaiKhoan taikhoan)
+        {
+            _context.TaiKhoans.Add(taikhoan);
+            await _context.SaveChangesAsync();
+            return _context.TaiKhoans.FirstOrDefault(tk => tk.MaTk == taikhoan.MaTk);
         }
 
         public TaiKhoan GetThongTinTaiKhoan(string tentk, string matkhau)

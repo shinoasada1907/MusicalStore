@@ -23,9 +23,7 @@ namespace DTO.Repository
             {
                 MaDh = dh.MaDh,
                 TongTienHang = dh.TongTienHang,
-                TongTt = dh.TongTt,
                 NgayLap = dh.NgayLap,
-                TinhTrang = dh.TinhTrang,
                 MaKh = dh.MaKh,
                 MaTt = dh.MaTt,
                 MaPttt = dh.MaPttt,

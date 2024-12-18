@@ -16,9 +16,18 @@ namespace DTO.Repository
             _context = context;
         }
 
-        public KhachHang DangKyThongTinKhachHang(KhachHang khachHang)
+        public async Task<KhachHang> CapNhatThongTinKhachHang(KhachHang khachHang)
         {
-            throw new NotImplementedException();
+            _context.KhachHangs.Update(khachHang);
+            await _context.SaveChangesAsync();
+            return _context.KhachHangs.FirstOrDefault(kh => kh.MaKh == khachHang.MaKh);
+        }
+
+        public async Task<KhachHang> DangKyThongTinKhachHang(KhachHang khachHang)
+        {
+            _context.KhachHangs.Add(khachHang);
+            await _context.SaveChangesAsync();
+            return _context.KhachHangs.FirstOrDefault(kh => kh.MaKh == khachHang.MaKh);
         }
 
         public IEnumerable<KhachHang> GetAllKhackHang()

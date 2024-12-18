@@ -10,6 +10,8 @@ namespace DTO.IRepository
     public interface ITaiKhoanRepository
     {
         public TaiKhoan GetThongTinTaiKhoan(string tentk, string matkhau);
-        public TaiKhoan DangKyTaiKhoan(TaiKhoan taikhoan);
+        public Task<TaiKhoan> DangKyTaiKhoan(TaiKhoan taikhoan);
+        public Task<TaiKhoan> CapNhatTaiKhoan(TaiKhoan taiKhoan);
+        public bool KiemTraTaiKhoan(string tentk);
     }
 }

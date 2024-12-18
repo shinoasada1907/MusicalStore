@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MusicalStore.Function;
 using MusicalStore.Models;
 using MusicalStore.Models.Service.Vnpay;
 using MusicalStore.Repository.Momo;
+using MusicalStore.Repository.ProductRepo;
+using MusicalStore.Repository.UserRepository;
 using MusicalStore.Repository.vnpay;
 using Newtonsoft.Json;
 
@@ -11,15 +14,26 @@ namespace MusicalStore.Controllers
     {
         private IMomoService _momoService;
         private readonly IVnPayService _vnPayService;
-        public PaymentController(IMomoService momoService, IVnPayService vnPayService)
+        private readonly IUserRepository _userRepository;
+        private readonly IProductRepository _productRepository;
+        public PaymentController(IMomoService momoService, IVnPayService vnPayService, IUserRepository userRepository, IProductRepository productRepository)
         {
             _momoService = momoService;
             _vnPayService = vnPayService;
+            _userRepository = userRepository;
+            _productRepository = productRepository;
         }
         [HttpGet]
-        public IActionResult Order()
+        public IActionResult Order(string productId)
         {
-            return View();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+            var product = _productRepository.GetProductById(productId);
+            Console.WriteLine(product.ProductCode + " - " + product.ProductName);
+            HttpContext.Session.SetString("OrderId", FunctionApplication.GenerateId(9));
+            return View(product);
         }
 
         [HttpPost]
@@ -53,6 +67,9 @@ namespace MusicalStore.Controllers
 
             return Json(response);
         }
-
+        public IActionResult PaymentCallBack()
+        {
+            return View();
+        }
     }
 }

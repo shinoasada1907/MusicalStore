@@ -110,23 +110,36 @@ namespace DTO.Migrations
 
             modelBuilder.Entity("DTO.Models.CtDonHang", b =>
                 {
+                    b.Property<string>("MaCtDh")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double?>("Gia")
+                        .HasColumnType("float");
+
                     b.Property<string>("MaDh")
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)")
                         .HasColumnName("MaDH");
 
+                    b.Property<string>("MaSP")
+                        .HasMaxLength(10)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("MaSP");
+
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
-
-                    b.Property<double?>("Gia")
-                        .HasColumnType("float");
 
                     b.Property<double?>("Tong")
                         .HasColumnType("float");
 
-                    b.HasKey("MaDh", "SoLuong")
+                    b.HasKey("MaCtDh")
                         .HasName("PK__CT_DON_H__52737C6725ADE823");
+
+                    b.HasIndex("MaDh");
+
+                    b.HasIndex("MaSP");
 
                     b.ToTable("CT_DON_HANG", (string)null);
                 });
@@ -216,17 +229,8 @@ namespace DTO.Migrations
                     b.Property<DateOnly>("NgayLap")
                         .HasColumnType("date");
 
-                    b.Property<string>("TinhTrang")
-                        .HasMaxLength(20)
-                        .IsUnicode(false)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<double>("TongTienHang")
                         .HasColumnType("float");
-
-                    b.Property<double>("TongTt")
-                        .HasColumnType("float")
-                        .HasColumnName("TongTT");
 
                     b.HasKey("MaDh")
                         .HasName("PK__DON_HANG__2725866136FFA2BC");
@@ -273,11 +277,10 @@ namespace DTO.Migrations
                     b.Property<string>("Sdt")
                         .HasMaxLength(11)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(11)")
+                        .HasColumnType("varchar(20)")
                         .HasColumnName("SDT");
 
                     b.Property<string>("TenKh")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("nvarchar(250)")
@@ -694,10 +697,16 @@ namespace DTO.Migrations
                     b.HasOne("DTO.Models.DonHang", "MaDhNavigation")
                         .WithMany("CtDonHangs")
                         .HasForeignKey("MaDh")
-                        .IsRequired()
                         .HasConstraintName("FK__CT_DON_HAN__MaDH__5AEE82B9");
 
+                    b.HasOne("DTO.Models.SanPham", "MaSPNavigation")
+                        .WithMany("CtDonHangs")
+                        .HasForeignKey("MaSP")
+                        .HasConstraintName("FK__SAN__PHAM__MaSP__5AEE82B9");
+
                     b.Navigation("MaDhNavigation");
+
+                    b.Navigation("MaSPNavigation");
                 });
 
             modelBuilder.Entity("DTO.Models.CtPhieuNhap", b =>
@@ -883,6 +892,8 @@ namespace DTO.Migrations
                     b.Navigation("BinhLuans");
 
                     b.Navigation("ChiTietGiamGia");
+
+                    b.Navigation("CtDonHangs");
 
                     b.Navigation("CtPhieuNhaps");
                 });

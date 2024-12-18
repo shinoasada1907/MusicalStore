@@ -8,7 +8,8 @@
 <!-- Breadcrumb Navigation -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index"><i class="bi bi-house-fill"></i></a>
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index"><i class="bi bi-house-fill"></i></a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">Guitar</li>
     </ol>
@@ -19,11 +20,12 @@
         <!-- Product Image -->
         <div class="col-md-6">
             <img src="~/images/@Model.ImageUrl" alt="Guitar Acoustic NG GT700NA"
-                class="img-fluid product-img">
+                 class="img-fluid product-img">
         </div>
 
         <!-- Product Details -->
         <div class="col-md-6">
+            <input class="product-title" hidden id="productId" value="@Model.ProductCode"></input>
             <h2 class="product-title">@Model.ProductName</h2>
             <p class="text-muted">Mã sản phẩm: @Model.ProductCode</p>
 
@@ -128,10 +130,10 @@
         margin-bottom: 20px;
     }
 
-    .related-products .product-card h6 {
-        font-size: 14px;
-        text-align: center;
-    }
+        .related-products .product-card h6 {
+            font-size: 14px;
+            text-align: center;
+        }
 
     .product-details-container {
         background-color: #f8f8f8;
@@ -149,34 +151,28 @@
         color: white;
     }
 
-    .btn-custom:hover {
-        background-color: #cc5200;
+        .btn-custom:hover {
+            background-color: #cc5200;
+        }
+
+    .btn-success {
     }
 
-    .btn-success {}
-
-    .btn-success:hover {
-        color: black;
-    }
+        .btn-success:hover {
+            color: black;
+        }
 </style>
 
 @section Scripts {
     <script>
+        $(document).ready(function(){
+
+        })
         function Checkout() {
-            console.log('hihi')
-            $.ajax({
-                url: '@Url.Action("Order", "Payment")',
-                method: 'GET',
-                type: 'GET',
-                data: {},
-                success: function (data) {
-                    console.log(data);
-                    window.location.href = '@Url.Action("Order", "Payment")'
-                },
-                error: function (error) {
-                    console.log(error)
-                }
-            })
+            var productId = document.getElementById('productId').value;
+            console.log(productId)
+            window.location.href='/Payment/Order?productId=' + productId;
+            
         }
 
         function AddShoppingCart() {
