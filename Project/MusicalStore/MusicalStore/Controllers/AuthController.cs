@@ -90,9 +90,6 @@ namespace MusicalStore.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterAccountUser(Account account)
         {
-            //account.AccountId = "TK" + FunctionApplication.GenerateId(5);
-            //account.CustomerId = "KH" + FunctionApplication.GenerateId(5);
-            //account.PermissionId = "PQ03";
             UserModel user = new UserModel { UID = account.CustomerId };
             var customer = await _userRepository.RegisterNewUser(user);
             var acc = await _accountRepository.RegisterAccount(account);
