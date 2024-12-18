@@ -40,6 +40,7 @@ namespace MusicalStore.Repository.StaffRepository
                 Console.WriteLine(ex.Message);
                 return null;
             }
+        }
         public async Task<IEnumerable<Staff>> AddNewStaff(Staff staff)
         {
             var nhanvien = StaffMapping.MappingToNhanVien(staff);

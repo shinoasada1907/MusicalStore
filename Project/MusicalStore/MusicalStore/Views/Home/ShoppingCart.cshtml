@@ -1,91 +1,58 @@
 ﻿@{
     Layout = "_Layout";
-    ViewData["Title"] = "Giỏ hàng yêu thích";
+    ViewData["Title"] = "Giỏ hàng";
 }
 
 <div class="container mt-5">
-    <div class="">
+    <h2 class="text-center mb-4">Giỏ hàng của bạn</h2>
+    <!-- Header -->
+    <div class="card">
         <div class="card-header row">
-            <div class="col-5">
-                <div class="row justify-content-start">
-                    <div class="col-1">
-                        <input type="checkbox" id="select-all" />
-                    </div>
-                    <div class="col-6">
-                        <span>Sản phẩm</span>
-                    </div>
-                </div>
+            <div class="col-md-6">
+                <input type="checkbox" id="select-all" /> Chọn tất cả
             </div>
-            <div class="col-7 row justify-content-between">
-                <div class="col-3 text-start">
-                    Đơn giá
-                </div>
-                <div class="col-3 text-center">
-                    Số lượng
-                </div>
-                <div class="col-3 text-end">Số tiền</div>
-                <div class="col-3 text-center">Thao tác</div>
-            </div>
+            <div class="col-md-2 text-center">Đơn giá</div>
+            <div class="col-md-2 text-center">Số lượng</div>
+            <div class="col-md-2 text-end">Tổng tiền</div>
         </div>
-        <div class="">
-            @for (int i = 0; i < 10; i++)
+        <!-- List of Products -->
+        <div class="card-body">
+            @for (int i = 0; i < 3; i++) // Thay thế vòng lặp bằng danh sách sản phẩm thực tế
             {
-                <div class="card mt-2 mb-3">
-                    <section class="row justify-content-between px-3">
-                        <div class="col-4 row">
-                            <div class="col-1 align-content-center">
-                                <input type="checkbox" class="product-select">
-                            </div>
-                            <img class="col-4 img-fluid"
-                                src="~/images/Guitar/FD03.jpg"
-                                alt="Guitar" width="100" height="100">
-                            <div class="col-7 align-content-center">
-                                <p>Guitar Điện</p>
-                            </div>
+                <div class="row align-items-center mb-3 product-item">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <input type="checkbox" class="product-select me-3" />
+                        <img src="~/images/product.jpg" alt="Product" class="img-fluid me-3" style="width: 60px; height: 60px;">
+                        <span class="product-name">Tên sản phẩm @i</span>
+                    </div>
+                    <div class="col-md-2 text-center product-price">100,000₫</div>
+                    <div class="col-md-2 text-center">
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary decrease-btn">-</button>
+                            <input type="number" class="form-control text-center quantity-input" value="1" min="1">
+                            <button class="btn btn-outline-secondary increase-btn">+</button>
                         </div>
-                        <div class="col-8 row justify-content-between align-content-center">
-                            <div class="col-3">
-                                <span class="text-decoration-line-through text-danger">1500000đ</span>&nbsp;&nbsp;<span
-                                    class="price">1000000đ</span>
-                            </div>
-                            <div class="col-3">
-                                <div class="btn-group">
-                                    <button class=" btn btn-outline-secondary decrease-btn" type="button">-</button>
-                                    <input type="number" class="form-control text-center quantity-input" value="1"
-                                        aria-label="Quantity" min="1">
-                                    <button class="btn btn-outline-secondary increase-btn" type="button">+</button>
-                                </div>
-                            </div>
-                            <div class="col-2"><span class="total-price">1000000đ</span></div>
-                            <div class="col-2"><a class="text-decoration-none text-black" href="#"><span>Xóa</span></a>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
+                    <div class="col-md-2 text-end product-total">100,000₫</div>
                 </div>
             }
         </div>
-        <div class="card-footer bg-white position-sticky border shadow-lg mb-5" style="bottom: 0px;">
-            <div class="row">
-                <div class="col-6"></div>
-                <div class="col-6 row justify-content-between">
-                    <div class="col-6 text-end">Chọn Voucher</div>
-                    <div class="col-3 align-items-end">
-                        <a href="" class="text-decoration-none text-end">Chọn mã</a>
-                    </div>
+        <!-- Footer -->
+        <div class="card-footer">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <button class="btn btn-danger" id="clear-cart">Xóa tất cả</button>
+                </div>
+                <div class="col-md-6 text-end">
+                    Tổng thanh toán: <span class="total-amount text-danger fw-bold">300,000₫</span>
                 </div>
             </div>
-            <div class="row justify-content-between mt-3">
-                <div class="col-3">
-                    <a href="" class="text-decoration-none text-end">Xóa tất cả</a>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <a href="@Url.Action("ProductList", "Home")" class="btn btn-outline-primary">Tiếp tục mua sắm</a>
                 </div>
-                <div class="col-6 row justify-content-between">
-                    <div class="col-6">
-                        Tổng Thanh Toán (0 Sản phẩm):&nbsp;
-                        <span class="text-danger fs-3">&#273;0</span>
-                    </div>
-                    <div class="col-4">
-                        <button class="btn btn-danger" onclick="Checkout()">Thanh Toán</button>
-                    </div>
+                <div class="col-md-6 text-end">
+                    <button class="btn btn-success" onclick="Checkout()">Thanh Toán</button>
                 </div>
             </div>
         </div>
@@ -94,53 +61,69 @@
 
 @section Scripts {
     <script>
-        // Select all checkbox logic
+        // Select All Logic
         document.getElementById("select-all").addEventListener("change", function (e) {
             const checkboxes = document.querySelectorAll(".product-select");
-            checkboxes.forEach(function (checkbox) {
-                checkbox.checked = e.target.checked;
+            checkboxes.forEach(checkbox => checkbox.checked = e.target.checked);
+            updateTotal();
+        });
+
+        // Quantity Increase/Decrease
+        document.querySelectorAll(".increase-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const input = this.parentElement.querySelector(".quantity-input");
+                input.value = parseInt(input.value) + 1;
+                updateItemTotal(this);
+                updateTotal();
             });
         });
 
-        // Handle increase/decrease quantity and update total price
-        const decreaseBtns = document.querySelectorAll('.decrease-btn');
-        const increaseBtns = document.querySelectorAll('.increase-btn');
-
-        // Update quantity and price
-        decreaseBtns.forEach(btn => {
-            btn.addEventListener('click', function () {
-                const quantityInput = btn.parentElement.querySelector('.quantity-input');
-                let quantity = parseInt(quantityInput.value);
-                if (quantity > 1) {
-                    quantity--;
-                    quantityInput.value = quantity;
-                    updatePrice(btn, quantity);
+        document.querySelectorAll(".decrease-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const input = this.parentElement.querySelector(".quantity-input");
+                if (parseInt(input.value) > 1) {
+                    input.value = parseInt(input.value) - 1;
+                    updateItemTotal(this);
+                    updateTotal();
                 }
             });
         });
 
-        increaseBtns.forEach(btn => {
-            btn.addEventListener('click', function () {
-                const quantityInput = btn.parentElement.querySelector('.quantity-input');
-                let quantity = parseInt(quantityInput.value);
-                quantity++;
-                quantityInput.value = quantity;
-                updatePrice(btn, quantity);
-            });
+        // Clear Cart
+        document.getElementById("clear-cart").addEventListener("click", function () {
+            if (confirm("Bạn có chắc muốn xóa tất cả sản phẩm?")) {
+                document.querySelector(".card-body").innerHTML = "";
+                updateTotal();
+            }
         });
 
-        // Update the total price for the item
-        function updatePrice(button, quantity) {
-            const card = button.closest('.card');
-            const priceElement = card.querySelector('.price');
-            const totalPriceElement = card.querySelector('.total-price');
-            const unitPrice = parseInt(priceElement.innerText.replace('đ', '').replace(',', '').trim());
-            const totalPrice = unitPrice * quantity;
-            totalPriceElement.innerText = totalPrice.toLocaleString() + 'đ';
+        // Update Item Total
+        function updateItemTotal(button) {
+            const productItem = button.closest(".product-item");
+            const price = parseInt(productItem.querySelector(".product-price").innerText.replace(/[₫,]/g, ""));
+            const quantity = parseInt(productItem.querySelector(".quantity-input").value);
+            const total = price * quantity;
+            productItem.querySelector(".product-total").innerText = total.toLocaleString("vi-VN") + "₫";
         }
 
+        // Update Total Amount
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll(".product-item").forEach(item => {
+                const checkbox = item.querySelector(".product-select");
+                if (checkbox.checked) {
+                    const totalPrice = parseInt(item.querySelector(".product-total").innerText.replace(/[₫,]/g, ""));
+                    total += totalPrice;
+                }
+            });
+            document.querySelector(".total-amount").innerText = total.toLocaleString("vi-VN") + "₫";
+        }
+
+        // Checkout
         function Checkout() {
-            window.location.href = '@Url.Action("Order", "Payment")'
+            if (confirm("Xác nhận thanh toán?")) {
+                window.location.href = '@Url.Action("Checkout", "Payment")';
+            }
         }
     </script>
 }

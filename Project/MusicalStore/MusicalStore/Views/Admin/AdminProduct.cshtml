@@ -163,11 +163,18 @@
         }
     }
 
+    //Hàm reser form
+    function resetAddProductForm() 
+    {
+        document.getElementById("addProductForm").reset(); // Đặt lại giá trị các trường input
+        document.getElementById("image").value = ""; // Đặt riêng trường file
+    }
     var code
     function showAddModal()
     {
-        code = 1
-        document.getElementById("addProductModalLabel").textContent = 'Thêm mới sản phẩm'
+        code = 1;
+        resetAddProductForm(); // Reset form trước khi hiển thị
+        document.getElementById("addProductModalLabel").textContent = 'Thêm mới sản phẩm';
         $('#addProductModal').modal('show');
     }
 

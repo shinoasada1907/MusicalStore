@@ -67,6 +67,15 @@
             <div class="modal-body">
                 <form id="addStaffForm">
                     <div class="mb-3">
+                        <div class="image-container mb-3">
+                            <img class="form-control" id="background" src="~/images/images.jpg" alt="">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="file" id="imageUpload" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="staffName" class="form-label">Tên nhân viên</label>
                         <input type="text" class="form-control" id="staffName" placeholder="Nhập tên nhân viên" required>
                     </div>
@@ -101,13 +110,30 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                        <button type="submit" class="btn btn-primary" onclick="ModalProuctImplement()" data-bs-dismiss="modal">Lưu nhân viên</button>
+                        <button type="button" class="btn btn-primary" onclick="ModalProuctImplement()" data-bs-dismiss="modal">Lưu nhân viên</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    /* Đặt kích thước cố định cho container */
+    .image-container {
+        width: 200px; /* Chiều rộng cố định */
+        height: 200px; /* Chiều cao cố định */
+        overflow: hidden; /* Ẩn phần vượt ra ngoài container */
+    }
+
+        /* Áp dụng style cho ảnh bên trong container */
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cắt ảnh để vừa khít với container */
+            object-position: top; /* Căn giữa ảnh */
+        }
+</style>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -137,6 +163,43 @@
         });
     });
 
+    document.getElementById('imageUpload').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                // Sửa lỗi chính tả từ "ocument" thành "document"
+                document.getElementById('background').src = e.target.result; // Cập nhật src của thẻ img
+            }
+            reader.readAsDataURL(file); // Đọc file dưới dạng Data URL (base64)
+        }
+
+    });
+
+    var imageUrl
+    async function uploadImage()
+    {
+        const input = document.getElementById('imageUpload');
+
+        const formData = new FormData();
+        formData.append("file", input.files[0]);
+
+        $.ajax({
+            url: '@Url.Action("UploadImage", "Admin")',
+            type: "POST",
+            async: false,
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: formData,
+            success: function( result )
+            {
+                console.log(result)
+                imageUrl = result.filePath
+             }
+        });
+    }
+
     //Thực thực thi add hay là update
     function ModalProuctImplement()
     {
@@ -153,11 +216,23 @@
         }
     }
 
+    function resetFormFields() {
+        document.getElementById("staffName").value = '';
+        document.getElementById("cccd").value = '';
+        document.getElementById("sex").value = 'Nam'; // Đặt mặc định là "Nam"
+        document.getElementById("birthday").value = '';
+        document.getElementById("phone").value = '';
+        document.getElementById("position").value = ''; // Đặt lại giá trị mặc định của select
+        document.getElementById("background").src = '~/images/images.jpg'; // Ảnh mặc định
+        document.getElementById("imageUpload").value = ''; // Reset input file
+    }
+
     var code
     function showAddModal()
     {
-        code = 1
-        document.getElementById("addStaffModalLabel").textContent = 'Thêm mới nhân viên'
+        code = 1; // Mã code để xác định trạng thái thêm mới
+        resetFormFields(); // Reset các trường trong form
+        document.getElementById("addStaffModalLabel").textContent = 'Thêm mới nhân viên';
         $('#addStaffModal').modal('show');
     }
 
@@ -179,12 +254,20 @@
             {
                 console.log(result)
                 pId = result.staffId;
+                imageUrl = result.avatar;
                 document.getElementById("staffName").value = result.staffName;
-                document.getElementById("birthday").value = result.birthday;
+                const formattedDate = result.birthday.split('T')[0];
+                document.getElementById("birthday").value = formattedDate;
                 document.getElementById("sex").value = result.sex;
                 document.getElementById("phone").value = result.phone;
                 document.getElementById("cccd").value = result.cccd;
                 document.getElementById("position").value = result.positionId;
+                if(result.avatar != '')
+                {
+                    document.getElementById("background").src = '/images/'+result.avatar;
+                    document.getElementById("imageUpload").setAttribute("title", result.avatar);
+                }
+                
             }
         });
 
@@ -229,6 +312,8 @@
         const position = document.getElementById("position").value.trim();
         const staffId = 'NV'+cccd.slice(-4);
 
+        await uploadImage()
+
         const formData = new FormData();
         formData.append("StaffId", staffId);
         formData.append("StaffName", staffName);
@@ -237,6 +322,7 @@
         formData.append("Phone", phone);
         formData.append("PositionId", position);
         formData.append("CCCD", cccd);
+        formData.append("Avatar", imageUrl);
 
         if(!isAgeValid(birthday))
         {
@@ -297,14 +383,30 @@
          const position = document.getElementById("position").value.trim();
          const cccd = document.getElementById("cccd").value.trim();
 
+         const input = document.getElementById('imageUpload');
+         if (input.files.length != 0) {
+             await uploadImage()
+         }
+
+         if(!isAgeValid(birthday))
+         {
+             Swal.fire({
+               icon: "error",
+               title: "Oopsss...",
+               text: "Tuổi nhân viên đang dưới 18"
+             });
+             return;
+         }
+
          const formData = new FormData();
          formData.append("StaffId", pId);
-         formData.append("StaffName", StaffName);
-         formData.append("Birthday", Birthday);
-         formData.append("PositionId", Position);
-         formData.append("Sex", Sex);
-         formData.append("Phone", Phone);
-         formData.append("CCCD", CCCD);
+         formData.append("StaffName", staffName);
+         formData.append("Birthday", birthday);
+         formData.append("PositionId", position);
+         formData.append("Sex", sex);
+         formData.append("Phone", phone);
+         formData.append("CCCD", cccd);
+         formData.append("Avatar", imageUrl);
 
          $.ajax({
              url:  '@Url.Action("UpdateStaff", "Admin")',

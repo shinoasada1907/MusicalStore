@@ -360,6 +360,9 @@ namespace DTO.Migrations
                         .HasColumnType("varchar(10)")
                         .HasColumnName("MaNV");
 
+                    b.Property<string>("AnhDaiDien")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Cccd")
                         .HasMaxLength(20)
                         .IsUnicode(false)

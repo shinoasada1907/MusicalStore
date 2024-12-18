@@ -18,7 +18,8 @@ namespace MusicalStore.Mapping
                 Sex = nhanVien.GioiTinh ?? string.Empty,
                 Phone = nhanVien.DienThoai ?? string.Empty,
                 PositionId = nhanVien.MaCv ?? string.Empty,
-                CCCD = nhanVien.Cccd ?? string.Empty // Assuming TenCv exists in ChucVu
+                CCCD = nhanVien.Cccd ?? string.Empty,
+                Avatar = nhanVien.AnhDaiDien ?? string.Empty
             };
         }
 
@@ -36,6 +37,7 @@ namespace MusicalStore.Mapping
                 GioiTinh = !string.IsNullOrEmpty(staff.Sex) ? staff.Sex : null,
                 DienThoai = !string.IsNullOrEmpty(staff.Phone) ? staff.Phone : null,
                 MaCv = staff.PositionId ?? string.Empty,
+                AnhDaiDien = staff.Avatar ?? string.Empty
             };
         }
 
