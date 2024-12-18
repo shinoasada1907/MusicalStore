@@ -9,6 +9,7 @@
         public string Phone { get; set; } = string.Empty;
         public string PositionId { get; set; } = string.Empty;
         public string CCCD { get; set; } = string.Empty;
+        public string Avatar { get; set; } = string.Empty;
         public PositionModel Position { get; set; } = new PositionModel();
     }
 }

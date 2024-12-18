@@ -16,7 +16,7 @@ namespace MusicalStore.Repository.CategoryRespository
 
         public IEnumerable<Category> GetCategorys()
         {
-            return CategoryMapping.MapToCategorys(_loaiSanPhamRepository.GetAllLoaiSanPham());
+            return CategoryMapping.MapToCategories(_loaiSanPhamRepository.GetAllLoaiSanPham());
         }
     }
 }

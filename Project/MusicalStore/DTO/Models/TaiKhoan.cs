@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DTO.Models;
 
 public partial class TaiKhoan
 {
+    [Required]
     public string MaTk { get; set; } = null!;
 
     [Column(TypeName = "nvarchar(250)")]
@@ -13,11 +15,11 @@ public partial class TaiKhoan
 
     public string MatKhau { get; set; } = null!;
 
-    public string? Email { get; set; }
+    public string? Email { get; set; } = string.Empty;
 
     public string? MaKh { get; set; }
 
-    public string? MaNv { get; set; }
+    public string? MaNv { get; set; } 
 
     public string? MaPq { get; set; }
 

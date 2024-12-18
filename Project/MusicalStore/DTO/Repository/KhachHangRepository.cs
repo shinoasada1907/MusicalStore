@@ -15,6 +15,21 @@ namespace DTO.Repository
         {
             _context = context;
         }
+
+        public async Task<KhachHang> CapNhatThongTinKhachHang(KhachHang khachHang)
+        {
+            _context.KhachHangs.Update(khachHang);
+            await _context.SaveChangesAsync();
+            return _context.KhachHangs.FirstOrDefault(kh => kh.MaKh == khachHang.MaKh);
+        }
+
+        public async Task<KhachHang> DangKyThongTinKhachHang(KhachHang khachHang)
+        {
+            _context.KhachHangs.Add(khachHang);
+            await _context.SaveChangesAsync();
+            return _context.KhachHangs.FirstOrDefault(kh => kh.MaKh == khachHang.MaKh);
+        }
+
         public IEnumerable<KhachHang> GetAllKhackHang()
         {
             return _context.KhachHangs.Select(sp=>new KhachHang
@@ -27,6 +42,20 @@ namespace DTO.Repository
                 NgaySinhKh = sp.NgaySinhKh,
                 DiaChi = sp.DiaChi
             }).ToList();
+        }
+
+        public KhachHang GetKhachHang(string makh)
+        {
+            try
+            {
+                var khachhang = _context.KhachHangs.FirstOrDefault(kh => kh.MaKh == makh);
+                return khachhang;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }

@@ -8,10 +8,16 @@ namespace MusicalStore.Repository.ProductRepo
     public class ProductRepository : IProductRepository
     {
         private readonly ISanPhamRepository _sanPhamRepository;
+        private readonly IChiTietGiamGiaRepository _chiTietGiamGiaRepository;
+        private readonly ICTSanPhamRepository _cTSanPhamRepository;
+        private readonly IGiamGiaRepository _giamGiaRepository;
         private readonly ILoaiSanPhamRepository _loaiSanPhamRepsoritory;
-        public ProductRepository(ISanPhamRepository sanPhamRepository, ILoaiSanPhamRepository loaiSanPhamRepsoritory)
+        public ProductRepository(ISanPhamRepository sanPhamRepository, IChiTietGiamGiaRepository chiTietGiamGiaRepository, ICTSanPhamRepository cTSanPhamRepository, IGiamGiaRepository giamGiaRepository, ILoaiSanPhamRepository loaiSanPhamRepsoritory)
         {
             _sanPhamRepository = sanPhamRepository;
+            _chiTietGiamGiaRepository = chiTietGiamGiaRepository;
+            _cTSanPhamRepository = cTSanPhamRepository;
+            _giamGiaRepository = giamGiaRepository;
             _loaiSanPhamRepsoritory = loaiSanPhamRepsoritory;
         }
         public IEnumerable<Product> GetAllProducts()
@@ -34,9 +40,20 @@ namespace MusicalStore.Repository.ProductRepo
 
         public Product GetProductById(string id)
         {
-            var product = _sanPhamRepository.GetSanPhamById(id);
-            Console.WriteLine($"Product {product.MaSp}");
-            return ProductMapping.MappingToProduct(product);
+            var sanpham = _sanPhamRepository.GetSanPhamById(id);
+            var chiTietSP = _cTSanPhamRepository.GetCTSanPham(sanpham.MaCtsp);
+            var chiTietGG = _chiTietGiamGiaRepository.GetChiTietGiamGia(id);
+            var detailVoucher = DetailVoucherMapping.MapToDetailVoucher(chiTietGG);
+            if (!string.IsNullOrEmpty(detailVoucher.VoucherCode))
+            {
+                var giamGia = _giamGiaRepository.GetMaGiamGia(chiTietGG.MaGg);
+                detailVoucher.Voucher = VoucherMapping.MapToVoucher(giamGia);
+            }
+
+            var product = ProductMapping.MappingToProduct(sanpham);
+            product.DetailVoucher = detailVoucher ?? new DetailVoucher();
+            product.ProductDetail = ProductDetailMapping.MapToProductDetail(chiTietSP);
+            return product;
         }
 
         public async Task<IEnumerable<Product>> AddNewProduct(Product product)
@@ -51,7 +68,7 @@ namespace MusicalStore.Repository.ProductRepo
             }
             return listProduct;
         }
-        
+
         public async Task<IEnumerable<Product>> UpdateProduct(Product product)
         {
             var sanpham = ProductMapping.MappingToSanPham(product);
@@ -63,8 +80,8 @@ namespace MusicalStore.Repository.ProductRepo
                 item.Category = CategoryMapping.MapToCategory(loaisanpham);
             }
             return listProduct;
-        } 
-        
+        }
+
         public async Task<IEnumerable<Product>> DeleteProduct(string productId)
         {
             var listSanPham = await _sanPhamRepository.DeleteSanPham(productId);

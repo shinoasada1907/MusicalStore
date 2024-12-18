@@ -19,13 +19,20 @@ namespace MusicalStore.Mapping
             return new LoaiSanPham
             {
                 MaLsp = category.CategoryId,
-                TenLsp = category.CategoryName,
+                TenLsp = category.CategoryName
             };
         }
 
-        public static IEnumerable<Category> MapToCategorys(IEnumerable<LoaiSanPham> loaisanPhams)
+        // IEnumerable<LoaiSanPham> -> IEnumerable<Category>
+        public static IEnumerable<Category> MapToCategories(IEnumerable<LoaiSanPham> loaiSanPhams)
         {
-            return loaisanPhams.Select(loaisanpham => MapToCategory(loaisanpham)).ToList();
+            return loaiSanPhams.Select(loaiSanPham => MapToCategory(loaiSanPham)).ToList();
+        }
+
+        // IEnumerable<Category> -> IEnumerable<LoaiSanPham>
+        public static IEnumerable<LoaiSanPham> MapToLoaiSanPhams(IEnumerable<Category> categories)
+        {
+            return categories.Select(category => MapToLoaiSanPham(category)).ToList();
         }
     }
 }

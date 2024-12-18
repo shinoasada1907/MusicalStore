@@ -11,6 +11,7 @@ using MusicalStore.Repository.CategoryRespository;
 using NuGet.Protocol;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.CodeAnalysis;
+using MusicalStore.Function;
 
 namespace MusicalStore.Controllers
 {
@@ -81,6 +82,11 @@ namespace MusicalStore.Controllers
             return View();
         }
 
+        public IActionResult AdminAccount()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult GetProductById(string productId)
         {
@@ -143,37 +149,40 @@ namespace MusicalStore.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadImage([FromForm] IFormFile file)
         {
-            if (file == null || file.Length == 0)
-            {
-                return BadRequest("File is empty");
-            }
+            //if (file == null || file.Length == 0)
+            //{
+            //    return BadRequest("File is empty");
+            //}
 
-            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
-            if (!Directory.Exists(uploadsFolder))
-            {
-                Directory.CreateDirectory(uploadsFolder);
-            }
+            //var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+            //if (!Directory.Exists(uploadsFolder))
+            //{
+            //    Directory.CreateDirectory(uploadsFolder);
+            //}
 
-            var fileName = Path.GetFileNameWithoutExtension(file.FileName);
-            var fileExtension = Path.GetExtension(file.FileName);
-            var filePath = Path.Combine(uploadsFolder, file.FileName);
-            int counter = 1;
+            //var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+            //var fileExtension = Path.GetExtension(file.FileName);
+            //var filePath = Path.Combine(uploadsFolder, file.FileName);
+            //int counter = 1;
 
-            // Kiểm tra và tạo tên tệp mới nếu tệp đã tồn tại
-            while (System.IO.File.Exists(filePath))
-            {
-                filePath = Path.Combine(uploadsFolder, $"{fileName}_{counter}{fileExtension}");
-                counter++;
-            }
+            //// Kiểm tra và tạo tên tệp mới nếu tệp đã tồn tại
+            //while (System.IO.File.Exists(filePath))
+            //{
+            //    filePath = Path.Combine(uploadsFolder, $"{fileName}_{counter}{fileExtension}");
+            //    counter++;
+            //}
 
-            // Lưu tệp tin
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(stream);
-            }
+            //// Lưu tệp tin
+            //using (var stream = new FileStream(filePath, FileMode.Create))
+            //{
+            //    await file.CopyToAsync(stream);
+            //}
+
+            FunctionApplication func = new FunctionApplication(_webHostEnvironment);
+            string filelName = await func.UploadImage(file);
 
             // Trả về tên tệp đã được lưu
-            return Ok(new { FilePath = Path.GetFileName(filePath) });
+            return Ok(new { FilePath = filelName });
         }
 
         //Payment

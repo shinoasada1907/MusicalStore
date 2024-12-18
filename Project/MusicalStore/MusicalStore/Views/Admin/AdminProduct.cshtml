@@ -39,7 +39,7 @@
                         <td>@item.Brand</td>
                         <td>@item.Category.CategoryName</td>
                         <td>@item.Unit</td>
-                        <td>@String.Format("{0:C0}", item.Price)</td>
+                        <td>@String.Format("{0:0,0đ}", item.Price)</td>
                         <td class="text-truncate" style="max-width: 200px;">@item.Description</td>
                         <td>@item.StockQuantity</td>
                         <td>
@@ -163,11 +163,18 @@
         }
     }
 
+    //Hàm reser form
+    function resetAddProductForm() 
+    {
+        document.getElementById("addProductForm").reset(); // Đặt lại giá trị các trường input
+        document.getElementById("image").value = ""; // Đặt riêng trường file
+    }
     var code
     function showAddModal()
     {
-        code = 1
-        document.getElementById("addProductModalLabel").textContent = 'Thêm mới sản phẩm'
+        code = 1;
+        resetAddProductForm(); // Reset form trước khi hiển thị
+        document.getElementById("addProductModalLabel").textContent = 'Thêm mới sản phẩm';
         $('#addProductModal').modal('show');
     }
 

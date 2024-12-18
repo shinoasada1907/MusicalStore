@@ -2,10 +2,12 @@
 {
     public class Account
     {
-        public string UserId { get; set; } = string.Empty;
-        public string UserName { get; set; } = string.Empty;
+        public string AccountId { get; set; } = string.Empty;
+        public string AccountName { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Role { get; set; } = string.Empty;
+        public string? Email { get; set; } = string.Empty;
+        public string? CustomerId { get; set; } 
+        public string? EmployeeId { get; set; }
+        public string? PermissionId { get; set; }
     }
 }

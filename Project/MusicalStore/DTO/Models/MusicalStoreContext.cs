@@ -131,9 +131,19 @@ public partial class MusicalStoreContext : DbContext
 
         modelBuilder.Entity<CtDonHang>(entity =>
         {
-            entity.HasKey(e => new { e.MaDh, e.SoLuong }).HasName("PK__CT_DON_H__52737C6725ADE823");
+            entity.HasKey(e => new { e.MaCtDh }).HasName("PK__CT_DON_H__52737C6725ADE823");
 
             entity.ToTable("CT_DON_HANG");
+
+            entity.Property(e => e.MaSP)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("MaSP");
+
+            entity.HasOne(d => d.MaSPNavigation).WithMany(p => p.CtDonHangs)
+                .HasForeignKey(d => d.MaSP)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__SAN__PHAM__MaSP__5AEE82B9");
 
             entity.Property(e => e.MaDh)
                 .HasMaxLength(10)
@@ -180,7 +190,7 @@ public partial class MusicalStoreContext : DbContext
             entity.ToTable("CT_SAN_PHAM");
 
             entity.Property(e => e.MaCtsp)
-                .HasMaxLength(10)
+                .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("MaCTSP");
             entity.Property(e => e.GioiThieu)
@@ -213,10 +223,6 @@ public partial class MusicalStoreContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("MaPTTT");
             entity.Property(e => e.MaTt).HasColumnName("MaTT");
-            entity.Property(e => e.TinhTrang)
-                .HasMaxLength(20)
-                .IsUnicode(false);
-            entity.Property(e => e.TongTt).HasColumnName("TongTT");
 
             entity.HasOne(d => d.MaKhNavigation).WithMany(p => p.DonHangs)
                 .HasForeignKey(d => d.MaKh)
@@ -447,7 +453,7 @@ public partial class MusicalStoreContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("TenSP");
-            entity.Property(e => e.MaCtsp).HasMaxLength(50).IsUnicode(false).HasColumnName("MaCTSP");
+            entity.Property(e => e.MaCtsp).HasMaxLength(20).IsUnicode(false).HasColumnName("MaCTSP");
             entity.HasOne(d => d.MaCTSPNavigation).WithMany(p=>p.SanPhams).HasForeignKey(d=>d.MaCtsp).HasConstraintName("FK__CT__SAN_PHAM__MaCTSP");
 
             entity.HasOne(d => d.MaLspNavigation).WithMany(p => p.SanPhams)

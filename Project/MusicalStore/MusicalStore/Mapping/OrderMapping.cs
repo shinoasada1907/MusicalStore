@@ -14,8 +14,6 @@ namespace MusicalStore.Mapping
                 UserId = donHang.MaKh ?? string.Empty,
                 UserName = donHang.MaKhNavigation?.TenKh ?? string.Empty, // Assuming KhachHang has TenKh
                 OrderDate = donHang.NgayLap.ToDateTime(TimeOnly.MinValue),
-                TotalAmount = (decimal)donHang.TongTt, // Cast double to decimal
-                Status = donHang.TinhTrang ?? string.Empty,
                 OrderInfo = GenerateOrderInfo(donHang) // Helper function to construct detailed order info
             };
         }
@@ -27,9 +25,7 @@ namespace MusicalStore.Mapping
             {
                 MaDh = orderModel.OrderId,
                 MaKh = string.IsNullOrEmpty(orderModel.UserId) ? null : orderModel.UserId,
-                TongTt = (double)orderModel.TotalAmount,
-                NgayLap = DateOnly.FromDateTime(orderModel.OrderDate),
-                TinhTrang = string.IsNullOrEmpty(orderModel.Status) ? null : orderModel.Status
+                NgayLap = DateOnly.FromDateTime(orderModel.OrderDate)
                 // Other fields (like MaTt, MaPttt, or navigation properties) may need additional logic
             };
         }
@@ -50,7 +46,7 @@ namespace MusicalStore.Mapping
         private static string GenerateOrderInfo(DonHang donHang)
         {
             // Example logic to construct order details (can be customized)
-            return $"Order ID: {donHang.MaDh}, Total: {donHang.TongTt}, Status: {donHang.TinhTrang}";
+            return $"Order ID: {donHang.MaDh}, Total: , Status: ";
         }
     }
 }

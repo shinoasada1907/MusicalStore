@@ -27,6 +27,20 @@ namespace MusicalStore.Repository.StaffRepository
             return staff;
         }
 
+        public Staff GetStaffInfo(string staffId)
+        {
+            try
+            {
+                var nhanvien = _nhanVienRepository.GetInfoNhanVien(staffId);
+                var staffInfo = StaffMapping.MappingToStaff(nhanvien);
+                return staffInfo;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
         public async Task<IEnumerable<Staff>> AddNewStaff(Staff staff)
         {
             var nhanvien = StaffMapping.MappingToNhanVien(staff);
@@ -50,7 +64,8 @@ namespace MusicalStore.Repository.StaffRepository
                 item.Position = PositionMapping.MapToPosition(chuvu);
             }
             return listStaff;
-        }public async Task<IEnumerable<Staff>> DeleteStaff(string staffId)
+        }
+        public async Task<IEnumerable<Staff>> DeleteStaff(string staffId)
         {
             var listNhanVien = await _nhanVienRepository.DeleteNhanVien(staffId);
             var listStaff = StaffMapping.MapToStaffs(listNhanVien);

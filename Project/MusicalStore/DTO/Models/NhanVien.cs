@@ -20,6 +20,8 @@ public partial class NhanVien
 
     public DateOnly? NgaySinh { get; set; }
 
+    public string? AnhDaiDien { get; set; }
+
     public string? MaCv { get; set; }
 
     public virtual ChucVu? MaCvNavigation { get; set; }

@@ -1,4 +1,21 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function generateRandomString(length) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
 
-// Write your JavaScript code.
+
+function validatePassword(password) {
+    // Biểu thức chính quy kiểm tra mật khẩu
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // Kiểm tra mật khẩu với regex
+    if (regex.test(password)) {
+        return true; // Mật khẩu hợp lệ
+    } else {
+        return false; // Mật khẩu không hợp lệ
+    }
+}

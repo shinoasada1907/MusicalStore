@@ -6,24 +6,24 @@ namespace MusicalStore.Mapping
     public class ProductMapping
     {
         //DTO -> Project
-        public static Product MappingToProduct(SanPham sanPham)
+        public static Product MappingToProduct(SanPham? sanPham)
         {
             return new Product
             {
-                ProductCode = sanPham.MaSp,
-                ProductName = sanPham.TenSp,
-                Brand = sanPham.Hang,
-                Unit = sanPham.Dvt,
-                Price = sanPham.Gia,
-                Description = sanPham.MoTa,
-                ImageUrl = sanPham.Hinh,
-                StockQuantity = sanPham.Slsp,
-                CategoryCode = sanPham.MaLsp
+                ProductCode = sanPham?.MaSp ?? string.Empty,
+                ProductName = sanPham?.TenSp ?? string.Empty,
+                Brand = sanPham?.Hang ?? string.Empty,
+                Unit = sanPham?.Dvt ?? string.Empty,
+                Price = sanPham?.Gia ?? 0,
+                Description = sanPham?.MoTa ?? string.Empty,
+                ImageUrl = sanPham?.Hinh ?? string.Empty,
+                StockQuantity = sanPham?.Slsp ?? 0,
+                CategoryCode = sanPham?.MaLsp ?? string.Empty
             };
         }
 
         //Project -> DTO
-        public static SanPham MappingToSanPham(Product product)
+        public static SanPham MappingToSanPham(Product? product)
         {
             return new SanPham
             {
