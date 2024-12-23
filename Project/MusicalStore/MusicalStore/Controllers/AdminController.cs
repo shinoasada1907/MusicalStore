@@ -12,6 +12,7 @@ using NuGet.Protocol;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.CodeAnalysis;
 using MusicalStore.Function;
+using MusicalStore.Repository.ProductdetailRepo;
 
 namespace MusicalStore.Controllers
 {
@@ -19,12 +20,14 @@ namespace MusicalStore.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IProductRepository _productRepository;
+        private readonly IProductdetailRepo _productdetailRepo;
         private readonly IStaffRepository _staffRepository;
         private readonly IOrderRespository _orderRespository;
         private readonly IPaymentRespository _paymentResporsitory;
         private readonly IPositionRepository _positionRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
+
 
         public AdminController(IPaymentRespository paymentResporsitory,
             IUserRepository userRepository,
@@ -33,7 +36,8 @@ namespace MusicalStore.Controllers
             IOrderRespository orderRespository,
             IPositionRepository positionRepository,
             ICategoryRepository categoryRepository,
-            IWebHostEnvironment webHostEnvironment)
+            IWebHostEnvironment webHostEnvironment,
+            IProductdetailRepo productdetailRepo)
         {
             _userRepository = userRepository;
             _productRepository = productRepository;
@@ -43,6 +47,7 @@ namespace MusicalStore.Controllers
             _positionRepository = positionRepository;
             _categoryRepository = categoryRepository;
             _webHostEnvironment = webHostEnvironment;
+            _productdetailRepo = productdetailRepo;
         }
         public IActionResult Dashboard()
         {
@@ -77,6 +82,10 @@ namespace MusicalStore.Controllers
             var payments = _paymentResporsitory.GetAllPayment();
             return View(payments);
         }
+        public IActionResult AdminWarehouse()
+        {
+            return View();
+        }
         public IActionResult AdminRevenue()
         {
             return View();
@@ -91,6 +100,7 @@ namespace MusicalStore.Controllers
         public IActionResult GetProductById(string productId)
         {
             var product = _productRepository.GetProductById(productId);
+            product.ProductDetail = _productdetailRepo.GetProductdetaiById(product.ProductDetailId);
             return Json(product);
         }
         [HttpGet]
@@ -125,24 +135,29 @@ namespace MusicalStore.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddProduct(Product product)
+        public async Task<IActionResult> AddProduct([FromForm] Product product, [FromForm] ProductDetail productDetail)
         {
+            var listproductdetail = await _productdetailRepo.AddNewProductDetail(productDetail);
             var listproduct = await _productRepository.AddNewProduct(product);
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
         }
+
+        
         [HttpPost]
-        public async Task<IActionResult> UpdateProduct(Product product)
+        public async Task<IActionResult> UpdateProduct([FromForm] Product product, [FromForm] ProductDetail productDetail)
         {
             Console.WriteLine(product.ProductCode);
+            var listproductdetail = await _productdetailRepo.UpdateProductDetail(productDetail);
             var listproduct = await _productRepository.UpdateProduct(product);
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
         }
         [HttpPost]
-        public async Task<IActionResult> DeleteProduct(string productId)
+        public async Task<IActionResult> DeleteProduct(string productId, string producdetailtId)
         {
             var listproduct = await _productRepository.DeleteProduct(productId);
+            var listproductdetail = await _productdetailRepo.DeleteProductDetail(producdetailtId);
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
         }

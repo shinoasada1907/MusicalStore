@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MusicalStore.Data;
 using MusicalStore.Models;
+using MusicalStore.Repository.CategoryRespository;
 using MusicalStore.Repository.ProductRepo;
 
 namespace MusicalStore.Controllers
@@ -12,11 +13,13 @@ namespace MusicalStore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository)
+        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
             _logger = logger;
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
 
         [HttpGet]
@@ -24,8 +27,8 @@ namespace MusicalStore.Controllers
         {
             var totalPage = _productRepository.GetAllProducts().Count() / 12;
             dynamic dataIndex = new ExpandoObject();
-            dataIndex.Categories = CategoryData.Categories;
-            dataIndex.ProductsSale = ProductData.ProductsSale;
+            dataIndex.Categories = _categoryRepository.GetCategorys();
+            dataIndex.ProductsSale = _productRepository.GetTopSellingProducts();
             dataIndex.Collections = CollectionsData.ListCollections;
             dataIndex.ListProduct = _productRepository.GetListProductWithPage(page, pageSize);
             dataIndex.CurrentPage = page;
@@ -77,6 +80,20 @@ namespace MusicalStore.Controllers
             return View();
         }
 
+        public IActionResult ListProduct(string categoryId, int page = 1, int pageSize = 12)
+        {
+            var categoryName = _categoryRepository.GetCategoryNameById(categoryId);
+            ViewData["categoryId"] = categoryId;
+            ViewData["CategoryName"] = categoryName;
+            var totalPage = _productRepository.GetListProductByCategoryWithPage(categoryId, page, pageSize).Count() / 12;
+            dynamic dataIndex = new ExpandoObject();
+            dataIndex.ListProduct = _productRepository.GetListProductByCategoryWithPage(categoryId, page, pageSize);
+            dataIndex.CurrentPage = page;
+            dataIndex.TotalPages = (totalPage is int) ? totalPage + 1 : totalPage;
+            return View(dataIndex);
+        }
+
+
         public IActionResult AddShoppingCart(string productId, int countProduct)
         {
             return Json("");
@@ -88,5 +105,6 @@ namespace MusicalStore.Controllers
             TempData["ProductId"] = productId;
             return RedirectToAction("Order", "Payment");
         }
+
     }
 }

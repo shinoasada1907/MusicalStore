@@ -10,5 +10,8 @@ namespace MusicalStore.Repository.ProductRepo
         public Task<IEnumerable<Product>> AddNewProduct(Product product);
         public Task<IEnumerable<Product>> UpdateProduct(Product product);
         public Task<IEnumerable<Product>> DeleteProduct(string productId);
+        public IEnumerable<Product> GetTopSellingProducts();
+        public IEnumerable<Product> GetListProductByCategory(string category);
+        public IEnumerable<Product> GetListProductByCategoryWithPage(string category, int page, int pageSize);
     }
 }

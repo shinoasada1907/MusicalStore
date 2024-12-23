@@ -1,5 +1,6 @@
 ﻿using DTO.IRepository;
 using DTO.Repository;
+using Microsoft.CodeAnalysis;
 using MusicalStore.Mapping;
 using MusicalStore.Models;
 
@@ -31,6 +32,7 @@ namespace MusicalStore.Repository.ProductRepo
             }
             return products;
         }
+
 
         public IEnumerable<Product> GetListProductWithPage(int page, int pageSize)
         {
@@ -92,6 +94,31 @@ namespace MusicalStore.Repository.ProductRepo
                 item.Category = CategoryMapping.MapToCategory(loaisanpham);
             }
             return listProduct;
+        }
+
+        //Lấy top sản phẩm
+        public IEnumerable<Product> GetTopSellingProducts()
+        {
+            var listSanPham = _sanPhamRepository.GetTopSellingProductsInMonth();
+            var listProduct = ProductMapping.MapToProducts(listSanPham);
+            foreach (var item in listProduct)
+            {
+                var loaisanpham = _loaiSanPhamRepsoritory.GetLoaiSanPham(item.CategoryCode);
+                item.Category = CategoryMapping.MapToCategory(loaisanpham);
+            }
+            return listProduct;
+
+        }
+
+        public IEnumerable<Product> GetListProductByCategory(string category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Product> GetListProductByCategoryWithPage(string category, int page, int pageSize)
+        {
+            var products = _sanPhamRepository.GetListSanPhamByCategory(category).OrderBy(p => p.MaLsp).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            return ProductMapping.MapToProducts(products);
         }
     }
 }

@@ -30,10 +30,10 @@ namespace MusicalStore.Controllers
         {
             return View();
         }
-        public IActionResult RegisterUserInfo(string userId, string email)
+        public IActionResult RegisterUserInfo()
         {
-            ViewData["CustomerId"] = userId;
-            ViewData["Email"] = email;
+            ViewData["CustomerId"] = TempData["UserId"];
+            ViewData["Email"] = TempData["Email"];
             return View();
         }
         [HttpGet]
@@ -90,9 +90,8 @@ namespace MusicalStore.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterAccountUser(Account account)
         {
-            //account.AccountId = "TK" + FunctionApplication.GenerateId(5);
-            //account.CustomerId = "KH" + FunctionApplication.GenerateId(5);
-            //account.PermissionId = "PQ03";
+            TempData["UserId"] = account.CustomerId;
+            TempData["Email"] = account.Email;
             UserModel user = new UserModel { UID = account.CustomerId };
             var customer = await _userRepository.RegisterNewUser(user);
             var acc = await _accountRepository.RegisterAccount(account);

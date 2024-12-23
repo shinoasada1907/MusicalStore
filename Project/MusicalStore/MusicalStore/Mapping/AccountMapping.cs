@@ -19,17 +19,17 @@ namespace MusicalStore.Mapping
             };
         }
 
-        public static TaiKhoan MapToTaiKhoan(Account account)
+        public static TaiKhoan MapToTaiKhoan(Account? account)
         {
             return new TaiKhoan
             {
-                MaTk = account.AccountId ?? string.Empty,
-                TenTk = account.AccountName ?? string.Empty,
-                MatKhau = account.Password ?? string.Empty,
-                Email = account.Email ?? string.Empty,
-                MaKh = account.CustomerId ?? string.Empty,
-                MaNv = account.EmployeeId ?? string.Empty,
-                MaPq = account.PermissionId ?? string.Empty
+                MaTk = account!.AccountId,
+                TenTk = account!.AccountName,
+                MatKhau = account!.Password,
+                Email = account!.Email,
+                MaKh = account!.CustomerId,
+                MaNv = account!.EmployeeId,
+                MaPq = account!.PermissionId
             };
         }
     }

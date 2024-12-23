@@ -31,7 +31,7 @@
                 {
                     <tr>
                         <td>
-                            <img src="~/images/@item.ImageUrl" alt="@item.ProductName" class="img-thumbnail" style="max-width: 100px;">
+                            <img src="/images/@item.ImageUrl" alt="@item.ProductName" class="img-thumbnail" style="max-width: 100px;">
                         </td>
                         <td>
                             <a href="/#" class="text-dark text-decoration-none fw-bold">@item.ProductName</a>
@@ -47,7 +47,7 @@
                                 <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.ProductCode')">
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-danger" title="Xóa" onclick="DeleteProduct('@item.ProductCode')">
+                                <button class="btn btn-sm btn-danger" title="Xóa" onclick="DeleteProduct('@item.ProductCode', '@item.ProductDetailId')">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </div>
@@ -104,6 +104,18 @@
                     <div class="mb-3">
                         <label for="quantity" class="form-label">Số lượng</label>
                         <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="introduction" class="form-label">Giới thiệu</label>
+                        <textarea class="form-control" id="introduction" rows="3" placeholder="Nhập giới thiệu"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="specifications" class="form-label">Thông số</label>
+                        <textarea class="form-control" id="specifications" rows="3" placeholder="Nhập thông số"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="features" class="form-label">Chức năng</label>
+                        <textarea class="form-control" id="features" rows="3" placeholder="Nhập chức năng"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Hình ảnh</label>
@@ -179,6 +191,7 @@
     }
 
     var pId
+    var pdId
     function showEditModal(productId)
     {
         code = 2
@@ -193,6 +206,7 @@
             {
                 console.log(result)
                 pId = result.productCode;
+                pdId = result.productDetailId;
                 document.getElementById("productName").value = result.productName;
                 document.getElementById("brand").value = result.brand;
                 document.getElementById("category").value = result.categoryCode;
@@ -200,6 +214,10 @@
                 document.getElementById("price").value = result.price;
                 document.getElementById("description").value = result.description;
                 document.getElementById("quantity").value = result.stockQuantity;
+
+                document.getElementById("introduction").value = result.productDetail.introduction;
+                document.getElementById("specifications").value = result.productDetail.specifications;
+                document.getElementById("features").value = result.productDetail.features;
                 imageUrl = result.imageUrl
             }
         });
@@ -254,6 +272,7 @@
             return;
         }
 
+        // Product
         const productName = document.getElementById("productName").value.trim();
         const brand = document.getElementById("brand").value.trim();
         const category = document.getElementById("category").value.trim();
@@ -263,18 +282,34 @@
         const quantity = document.getElementById("quantity").value.trim();
         // const image = document.getElementById("image").files[0];
         const productId = 'SP' + generateRandomString(8);
+        const productDetailId = 'CT' + productId;
 
-        await uploadImage()
+        const introduction = document.getElementById("introduction").value.trim();
+        const specifications = document.getElementById("specifications").value.trim();
+        const features = document.getElementById("features").value.trim();
+
+        await uploadImage();
         console.log(imageUrl)
         const formData = new FormData();
-        formData.append("ProductCode", productId);
-        formData.append("ProductName", productName);
-        formData.append("Brand", brand);
-        formData.append("CategoryCode", category);
-        formData.append("Unit", unit);
-        formData.append("Price", price);
-        formData.append("Description", description);
-        formData.append("StockQuantity", quantity);
+        //Add Form data product
+        formData.append("product.ProductCode", productId);
+        formData.append("product.ProductName", productName);
+        formData.append("product.Brand", brand);
+        formData.append("product.CategoryCode", category);
+        formData.append("product.Unit", unit);
+        formData.append("product.Price", price);
+        formData.append("product.Description", description);
+        formData.append("product.StockQuantity", quantity);
+        formData.append("product.ProductDetailId", productDetailId);
+        formData.append("product.ImageUrl", imageUrl);
+
+        //Add Form data product detail
+        formData.append("productDetail.ProductDetailCode", productDetailId);
+        formData.append("productDetail.Introduction", introduction);
+        formData.append("productDetail.Specifications", specifications);
+        formData.append("productDetail.Features", features);
+
+
         formData.append("ImageUrl", imageUrl);
 
         $.ajax({
@@ -331,21 +366,31 @@
         const description = document.getElementById("description").value.trim();
         const quantity = document.getElementById("quantity").value.trim();
 
+        const introduction = document.getElementById("introduction").value.trim();
+        const specifications = document.getElementById("specifications").value.trim();
+        const features = document.getElementById("features").value.trim();
+
         const input = document.getElementById('image');
         if (input.files.length != 0) {
             await uploadImage()
         }
         console.log(imageUrl)
         const formData = new FormData();
-        formData.append("ProductCode", pId);
-        formData.append("ProductName", productName);
-        formData.append("Brand", brand);
-        formData.append("CategoryCode", category);
-        formData.append("Unit", unit);
-        formData.append("Price", price);
-        formData.append("Description", description);
-        formData.append("StockQuantity", quantity);
-        formData.append("ImageUrl", imageUrl);
+        formData.append("product.ProductCode", pId);
+        formData.append("product.ProductName", productName);
+        formData.append("product.Brand", brand);
+        formData.append("product.CategoryCode", category);
+        formData.append("product.Unit", unit);
+        formData.append("product.Price", price);
+        formData.append("product.Description", description);
+        formData.append("product.StockQuantity", quantity);
+        formData.append("product.ProductDetailId", pdId);
+        formData.append("product.ImageUrl", imageUrl);
+
+        formData.append("productDetail.ProductDetailCode", pdId);
+        formData.append("productDetail.Introduction", introduction);
+        formData.append("productDetail.Specifications", specifications);
+        formData.append("productDetail.Features", features);
 
         $.ajax({
             url:  '@Url.Action("UpdateProduct", "Admin")',
@@ -391,13 +436,15 @@
         });
     }
 
-    function DeleteProduct(productId)
+    function DeleteProduct(productId, productDetailId)
     {
+        console.log(productId, productDetailId)
         $.ajax({
             url:  '@Url.Action("DeleteProduct", "Admin")',
             type: "POST",
             data: {
-                productId: productId
+                productId: productId,
+                producdetailtId: productDetailId
             },
             success: function( result )
             {
