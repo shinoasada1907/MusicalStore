@@ -18,7 +18,8 @@ namespace MusicalStore.Mapping
                 Description = sanPham?.MoTa ?? string.Empty,
                 ImageUrl = sanPham?.Hinh ?? string.Empty,
                 StockQuantity = sanPham?.Slsp ?? 0,
-                CategoryCode = sanPham?.MaLsp ?? string.Empty
+                CategoryCode = sanPham?.MaLsp ?? string.Empty,
+                ProductDetailId = sanPham?.MaCtsp ?? string.Empty
             };
         }
 
@@ -27,15 +28,16 @@ namespace MusicalStore.Mapping
         {
             return new SanPham
             {
-                MaSp = product.ProductCode,
-                TenSp = product.ProductName,
-                Hang = product.Brand,
-                Dvt = product.Unit,
-                Gia = product.Price,
-                MoTa = product.Description,
-                Hinh = product.ImageUrl,
-                Slsp = product.StockQuantity,
-                MaLsp = product.CategoryCode
+                MaSp = product!.ProductCode,
+                TenSp = product!.ProductName,
+                Hang = product!.Brand,
+                Dvt = product!.Unit,
+                Gia = product!.Price,
+                MoTa = product!.Description,
+                Hinh = product!.ImageUrl,
+                Slsp = product!.StockQuantity,
+                MaLsp = product!.CategoryCode,
+                MaCtsp = product!.ProductDetailId,
             };
         }
 

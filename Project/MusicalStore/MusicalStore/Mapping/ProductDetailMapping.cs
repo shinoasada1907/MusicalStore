@@ -20,11 +20,16 @@ namespace MusicalStore.Mapping
         {
             return new CtSanPham
             {
-                MaCtsp = productDetail?.ProductDetailCode ?? string.Empty,
-                GioiThieu = productDetail?.Introduction ?? string.Empty,
-                ThongSo = productDetail?.Specifications ?? string.Empty,
-                TinhNang = productDetail?.Features ?? string.Empty
+                MaCtsp = productDetail.ProductDetailCode,
+                GioiThieu = productDetail.Introduction,
+                ThongSo = productDetail.Specifications ,
+                TinhNang = productDetail.Features
             };
+        }
+
+        public static IEnumerable<ProductDetail> MapToProductDetails(IEnumerable<CtSanPham> ctsanPhams)
+        {
+            return ctsanPhams.Select(ctsanPham => MapToProductDetail(ctsanPham)).ToList();
         }
     }
 }

@@ -21,12 +21,14 @@ namespace MusicalStore.Models
                 public int? StockQuantity { get; set; } // Số lượng sản phẩm (Slsp)
 
                 public string? CategoryCode { get; set; } // Mã loại sản phẩm (MaLsp)
-
+                public string? ProductDetailId { get; set; }
                 public bool IsInStock => StockQuantity.HasValue && StockQuantity > 0; // Sản phẩm còn hàng
                 public DetailVoucher DetailVoucher { get; set; } = new DetailVoucher();
                 public ProductDetail ProductDetail { get; set; } = new ProductDetail();
 
                 public Category Category { get; set; } = new Category();
+
+
 
         }
 }
