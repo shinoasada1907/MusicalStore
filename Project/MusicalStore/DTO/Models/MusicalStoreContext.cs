@@ -454,8 +454,15 @@ public partial class MusicalStoreContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("TenSP");
-            entity.Property(e => e.MaCtsp).HasMaxLength(20).IsUnicode(false).HasColumnName("MaCTSP");
-            entity.HasOne(d => d.MaCTSPNavigation).WithMany(p => p.SanPhams).HasForeignKey(d => d.MaCtsp).HasConstraintName("FK__CT__SAN_PHAM__MaCTSP");
+
+            entity.Property(e => e.MaCtsp)
+            .HasMaxLength(20)
+            .IsUnicode(false)
+            .HasColumnName("MaCTSP");
+
+            entity.HasOne(d => d.MaCTSPNavigation).WithMany(p => p.SanPhams)
+            .HasForeignKey(d => d.MaCtsp)
+            .HasConstraintName("FK__CT__SAN_PHAM__MaCTSP");
 
             entity.HasOne(d => d.MaLspNavigation).WithMany(p => p.SanPhams)
                 .HasForeignKey(d => d.MaLsp)
@@ -536,11 +543,11 @@ public partial class MusicalStoreContext : DbContext
                 .HasColumnName("SoLuong");
             entity.Property(e => e.Gia)
                 .HasColumnName("Gia");
-            entity.Property(e=>e.MaSp)
+            entity.Property(e => e.MaSp)
                 .HasMaxLength(10)
                 .IsUnicode(false)
                 .HasColumnName("MaSP");
-            entity.Property(e=>e.MaKh)
+            entity.Property(e => e.MaKh)
                 .HasMaxLength(10)
                 .IsUnicode(false)
                 .HasColumnName("MaKH");

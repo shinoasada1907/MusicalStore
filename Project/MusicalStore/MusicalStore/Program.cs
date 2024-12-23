@@ -10,6 +10,7 @@ using MusicalStore.Repository.Momo;
 using MusicalStore.Repository.OrderDetailRepository;
 using MusicalStore.Repository.OrderRespository;
 using MusicalStore.Repository.PaymentRespository;
+using MusicalStore.Repository.ProductdetailRepo;
 using MusicalStore.Repository.ProductRepo;
 using MusicalStore.Repository.ShoppingCartRepo;
 using MusicalStore.Repository.StaffRepository;
@@ -50,6 +51,7 @@ builder.Services.AddScoped<IGioHangRepository, GioHangRepository>();
 
 //MusicalStore
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductdetailRepo, ProductdetailRepo>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 builder.Services.AddScoped<IOrderRespository, OrderRespository>();

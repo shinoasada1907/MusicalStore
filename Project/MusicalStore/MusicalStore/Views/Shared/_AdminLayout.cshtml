@@ -204,6 +204,12 @@
                                 <p>Quản lý thanh toán</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Admin" asp-action="AdminWarehouse">
+                                <i class="nav-icon bi bi-clipboard-fill"></i>
+                                <p>Quản lý nhập kho</p>
+                            </a>
+                        </li>
                         @if (Context.Session.GetString("Permission") == "PQ01")//PQ01 = Admin
                         {
                             <li class="nav-item">

@@ -15,10 +15,56 @@ namespace DTO.Repository
         {
             _context = context;
         }
-        public CtSanPham GetCTSanPham(string masp)
+
+        //Thêm mới chi tiết ctsp
+        public async Task<IEnumerable<CtSanPham>> AddNewCtSanPham(CtSanPham ctsanpham)
         {
-            var CTSP = _context.CtSanPhams.FirstOrDefault(sp => sp.MaCtsp == masp);
-            return CTSP;
+            _context.CtSanPhams.Add(ctsanpham);
+            await _context.SaveChangesAsync();
+
+            return _context.CtSanPhams.Select(ctsp => new CtSanPham
+            {
+                MaCtsp = ctsp.MaCtsp,
+                GioiThieu = ctsp.GioiThieu,
+                ThongSo = ctsp.ThongSo,
+                TinhNang = ctsp.TinhNang,
+            }).ToList();
+        }
+
+        public async Task<IEnumerable<CtSanPham>> DeleteCtSanPham(string mactsp)
+        {
+            var ctsanpham = _context.CtSanPhams.FirstOrDefault(ctsp => ctsp.MaCtsp == mactsp);
+            _context.CtSanPhams.Remove(ctsanpham);
+            await _context.SaveChangesAsync();
+
+            return _context.CtSanPhams.Select(ctsp => new CtSanPham
+            {
+                MaCtsp = ctsp.MaCtsp,
+                GioiThieu = ctsp.GioiThieu,
+                ThongSo = ctsp.ThongSo,
+                TinhNang = ctsp.TinhNang,
+            }).ToList();
+        }
+    
+
+        public CtSanPham GetCTSanPham(string mactsp)
+        {
+            var ctsp = _context.CtSanPhams.FirstOrDefault(ctsp => ctsp.MaCtsp == mactsp);
+            return ctsp;
+        }
+
+        public async Task<IEnumerable<CtSanPham>> UpdateCtSanPham(CtSanPham ctsanpham)
+        {
+            _context.CtSanPhams.Update(ctsanpham);
+            await _context.SaveChangesAsync();
+
+            return _context.CtSanPhams.Select(ctsp => new CtSanPham
+            {
+                MaCtsp = ctsp.MaCtsp,
+                GioiThieu = ctsp.GioiThieu,
+                ThongSo = ctsp.ThongSo,
+                TinhNang = ctsp.TinhNang,
+            }).ToList();
         }
     }
 }
