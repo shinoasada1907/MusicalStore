@@ -95,5 +95,10 @@ namespace DTO.Repository
             var sanpham = _context.SanPhams.FirstOrDefault(sp => sp.MaSp == id);
             return sanpham;
         }
+
+        public IEnumerable<SanPham> GetTopSaleSanPham()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

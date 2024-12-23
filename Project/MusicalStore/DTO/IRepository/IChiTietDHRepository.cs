@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DTO.IRepository
 {
-    public interface IDonHangRepository
+    public interface IChiTietDHRepository
     {
-        public IEnumerable<DonHang> GetListDonHang();
-        public Task<DonHang> KhoiTaoDonHang(DonHang donHang);
+        public Task<CtDonHang> TaoChiTietDonHang(CtDonHang ctDonHang);
     }
 }

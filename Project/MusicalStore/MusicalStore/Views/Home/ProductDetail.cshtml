@@ -176,7 +176,21 @@
         }
 
         function AddShoppingCart() {
-            window.location.href = '@Url.Action("ShoppingCart", "Home")'
+            var productId = document.getElementById('productId').value;
+
+            $.ajax({
+                url: '@Url.Action("AddShoppingCart", "Home")',
+                method: 'POST',
+                type: 'POST',
+                data:{
+                    productId: productId
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function () { }
+            })
+            
         }
     </script>
 }

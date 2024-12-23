@@ -3,8 +3,10 @@ using System.Dynamic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MusicalStore.Data;
+using MusicalStore.Function;
 using MusicalStore.Models;
 using MusicalStore.Repository.ProductRepo;
+using MusicalStore.Repository.ShoppingCartRepo;
 
 namespace MusicalStore.Controllers
 {
@@ -12,11 +14,13 @@ namespace MusicalStore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProductRepository _productRepository;
+        private readonly IShoppingCartRepository _shoppingCartRepository;
 
-        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository)
+        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository, IShoppingCartRepository shoppingCartRepository)
         {
             _logger = logger;
             _productRepository = productRepository;
+            _shoppingCartRepository = shoppingCartRepository;
         }
 
         [HttpGet]
@@ -62,6 +66,7 @@ namespace MusicalStore.Controllers
             {
                 return RedirectToAction("Login", "Auth");
             }
+            var shoppingCart = _shoppingCartRepository.GetShoppingCarts(HttpContext.Session.GetString("UserId")) ?? new List<ShoppingCart>();
             return View();
         }
         public IActionResult FormUserInformation()
@@ -77,9 +82,18 @@ namespace MusicalStore.Controllers
             return View();
         }
 
-        public IActionResult AddShoppingCart(string productId, int countProduct)
+        [HttpPost]
+        public IActionResult AddShoppingCart(string productId)
         {
-            return Json("");
+            var product = _productRepository.GetProductById(productId);
+            ShoppingCart sCart = new ShoppingCart();
+            sCart.CartId = FunctionApplication.GenerateId(5);
+            sCart.CustomerId = HttpContext.Session.GetString("UserId");
+            sCart.ProductId = productId;
+            sCart.Quantity = 1;
+            sCart.Price = product.Price ?? 0;
+            var cart = _shoppingCartRepository.AddShoppingCart(sCart);
+            return Json(cart);
         }
 
         [HttpGet]

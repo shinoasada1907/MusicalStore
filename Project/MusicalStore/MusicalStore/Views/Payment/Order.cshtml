@@ -12,7 +12,7 @@
             <p><strong>Số điện thoại:</strong> @Context.Session.GetString("Phone")</p>
             <p><strong>Địa Chỉ:</strong> @Context.Session.GetString("Address")</p>
 
-            <h5>Chi Tiết Sản Phẩm:</h5>
+            <h5>Chi Tiết Đơn Hàng:</h5>
             <table class="table">
                 <thead>
                     <tr>
@@ -24,30 +24,36 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Đàn Guitar</td>
-                        <td>1</td>
-                        <td>100.000 đ</td>
-                        <td>100.000 đ</td>
-                    </tr>
-                    <tr>
-                        <td>Trống Cajon</td>
-                        <td>1</td>
-                        <td>50.000 đ</td>
-                        <td>50.000 đ</td>
+                        <td>@Model.ProductName</td>
+                        <td>
+                            <div class="col-4 text-center">
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary decrease-btn">-</button>
+                                    <input type="number" class="form-control text-center quantity-input" value="1" min="1">
+                                    <button class="btn btn-outline-secondary increase-btn">+</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-start product-price" data-price="@Model.Price">@Model.Price</div>
+                        </td>
+                        <td>
+                            <div class="text-start product-total">@Model.Price</div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <h4 class="mt-4">Chọn Phương Thức Thanh Toán</h4>
-    <form id="paymentForm" method="POST">
+    <h4 class="mt-4 mb-1">Chọn Phương Thức Thanh Toán</h4>
+    <form id="paymentForm" method="POST" class="mb-5">
         <input type="hidden" name="UserName" value="Tien" />
         <input type="hidden" name="TotalAmount" value="100000" />
         <input type="hidden" name="OrderInfo" value="Thanh toán đặt hàng qua Momo tại Musical store" />
 
         <div class="form-group">
-            <label for="paymentMethod">Chọn phương thức thanh toán</label>
+            <label for="paymentMethod" class="mb-2">Chọn phương thức thanh toán</label>
             <select class="form-select" id="paymentMethod" name="paymentMethod">
                 <option value="Choose">Chọn phương thức thanh toán</option>
                 <option value="Momo">Momo</option>
@@ -66,7 +72,60 @@
 @section Scripts
 {
     <script>
-            $('#paymentMethod').change(function() {
+        function updateItemTotal(button) {
+            const row = button.closest('tr');
+            const quantityInput = row.querySelector('.quantity-input');
+            const priceElement = row.querySelector('.product-price');
+            const totalElement = row.querySelector('.product-total');
+            const price = parseInt(priceElement.getAttribute('data-price'));
+            const quantity = parseInt(quantityInput.value);
+
+            // Update the total for this row
+            totalElement.textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price * quantity);
+        }
+
+        function updateTotal() {
+            let grandTotal = 0;
+            document.querySelectorAll('.product-total').forEach(totalElement => {
+                const total = parseInt(totalElement.textContent.replace(/[^0-9]/g, ''));
+                grandTotal += total;
+            });
+
+            // Update the total amount in the form
+            document.querySelector('[name="TotalAmount"]').value = grandTotal;
+        }
+
+        document.querySelectorAll(".increase-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const input = this.parentElement.querySelector(".quantity-input");
+                input.value = parseInt(input.value) + 1;
+                updateItemTotal(this);
+                updateTotal();
+            });
+        });
+
+        document.querySelectorAll(".decrease-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const input = this.parentElement.querySelector(".quantity-input");
+                if (parseInt(input.value) > 1) {
+                    input.value = parseInt(input.value) - 1;
+                    updateItemTotal(this);
+                    updateTotal();
+                }
+            });
+        });
+
+        document.querySelectorAll(".quantity-input").forEach(input => {
+            input.addEventListener("input", function () {
+                if (isNaN(this.value) || parseInt(this.value) < 1) {
+                    this.value = 1;
+                }
+                updateItemTotal(this);
+                updateTotal();
+            });
+        });
+
+        $('#paymentMethod').change(function() {
             var paymentMethod = $(this).val();
             var form = $('#paymentForm');
 

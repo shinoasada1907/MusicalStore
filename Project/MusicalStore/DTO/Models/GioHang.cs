@@ -10,12 +10,12 @@ public partial class GioHang
 
     [Column(TypeName = "nvarchar(250)")]
     public string MaKh { get; set; } = null!;
-
     public string MaSp { get; set; } = null!;
+    public int SoLuong { get; set; } = 0;
+    public double? Gia { get; set; } // Giá sản phẩm (Gia)
 
     public virtual KhachHang MaKhNavigation { get; set; } = null!;
 
-    public int SoLuong { get; set; } = 0;
-    public double? Gia { get; set; } // Giá sản phẩm (Gia)
+    public virtual SanPham MaSpNavigation { get; set; } = null!;
 
 }

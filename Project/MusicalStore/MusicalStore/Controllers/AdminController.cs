@@ -127,6 +127,7 @@ namespace MusicalStore.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product product)
         {
+            //chỗ này em gọi hàm add detail product
             var listproduct = await _productRepository.AddNewProduct(product);
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
@@ -136,6 +137,7 @@ namespace MusicalStore.Controllers
         {
             Console.WriteLine(product.ProductCode);
             var listproduct = await _productRepository.UpdateProduct(product);
+            //chỗ này em gọi hàm update detail product
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
         }
@@ -143,6 +145,7 @@ namespace MusicalStore.Controllers
         public async Task<IActionResult> DeleteProduct(string productId)
         {
             var listproduct = await _productRepository.DeleteProduct(productId);
+            //chỗ này em gọi hàm xóa detai product
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
         }

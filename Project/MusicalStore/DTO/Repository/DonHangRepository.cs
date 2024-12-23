@@ -32,5 +32,13 @@ namespace DTO.Repository
                 MaTtNavigation = dh.MaTtNavigation,
             }).ToList();
         }
+
+        public async Task<DonHang> KhoiTaoDonHang(DonHang donHang)
+        {
+            _context.DonHangs.Add(donHang);
+            await _context.SaveChangesAsync();
+            var don = _context.DonHangs.FirstOrDefault(d => d.MaDh == donHang.MaDh);
+            return don!;
+        }
     }
 }

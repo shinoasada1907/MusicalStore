@@ -40,7 +40,7 @@ namespace MusicalStore.Controllers
         public async Task<IActionResult> CreatePaymentMomo(OrderModel model)
         {
             var respose = await _momoService.CreatePaymentAsync(model);
-            //Console.WriteLine(JsonConvert.SerializeObject(respose, Formatting.Indented));
+            Console.WriteLine(JsonConvert.SerializeObject(respose, Formatting.Indented));
             return Redirect(respose.PayUrl);
         }
 

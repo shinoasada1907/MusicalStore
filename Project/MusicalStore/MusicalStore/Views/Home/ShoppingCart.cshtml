@@ -17,25 +17,29 @@
         </div>
         <!-- List of Products -->
         <div class="card-body">
-            @for (int i = 0; i < 3; i++) // Thay thế vòng lặp bằng danh sách sản phẩm thực tế
+            @if (Model != null)
             {
-                <div class="row align-items-center mb-3 product-item">
-                    <div class="col-md-6 d-flex align-items-center">
-                        <input type="checkbox" class="product-select me-3" />
-                        <img src="~/images/product.jpg" alt="Product" class="img-fluid me-3" style="width: 60px; height: 60px;">
-                        <span class="product-name">Tên sản phẩm @i</span>
-                    </div>
-                    <div class="col-md-2 text-center product-price">100,000₫</div>
-                    <div class="col-md-2 text-center">
-                        <div class="input-group">
-                            <button class="btn btn-outline-secondary decrease-btn">-</button>
-                            <input type="number" class="form-control text-center quantity-input" value="1" min="1">
-                            <button class="btn btn-outline-secondary increase-btn">+</button>
+                foreach (ShoppingCart item in Model) // Thay thế vòng lặp bằng danh sách sản phẩm thực tế
+                {
+                    <div class="row align-items-center mb-3 product-item">
+                        <div class="col-md-6 d-flex align-items-center">
+                            <input type="checkbox" class="product-select me-3" />
+                            <img src="~/images/product.jpg" alt="Product" class="img-fluid me-3" style="width: 60px; height: 60px;">
+                            <span class="product-name">@item.Product.ProductName</span>
                         </div>
+                        <div class="col-md-2 text-center product-price">@item.Price</div>
+                        <div class="col-md-2 text-center">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary decrease-btn">-</button>
+                                <input type="number" class="form-control text-center quantity-input" value="1" min="1">
+                                <button class="btn btn-outline-secondary increase-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-end product-total">100,000₫</div>
                     </div>
-                    <div class="col-md-2 text-end product-total">100,000₫</div>
-                </div>
+                }
             }
+
         </div>
         <!-- Footer -->
         <div class="card-footer">
@@ -44,7 +48,7 @@
                     <button class="btn btn-danger" id="clear-cart">Xóa tất cả</button>
                 </div>
                 <div class="col-md-6 text-end">
-                    Tổng thanh toán: <span class="total-amount text-danger fw-bold">300,000₫</span>
+                    Tổng thanh toán: <span class="total-amount text-danger fw-bold">0₫</span>
                 </div>
             </div>
             <div class="row mt-3">

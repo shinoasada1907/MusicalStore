@@ -7,9 +7,11 @@ using MusicalStore.Repository.AccountRepository;
 using MusicalStore.Repository.CategoryRespository;
 using MusicalStore.Repository.ChucVuRepository;
 using MusicalStore.Repository.Momo;
+using MusicalStore.Repository.OrderDetailRepository;
 using MusicalStore.Repository.OrderRespository;
 using MusicalStore.Repository.PaymentRespository;
 using MusicalStore.Repository.ProductRepo;
+using MusicalStore.Repository.ShoppingCartRepo;
 using MusicalStore.Repository.StaffRepository;
 using MusicalStore.Repository.UserRepository;
 using MusicalStore.Repository.vnpay;
@@ -43,6 +45,8 @@ builder.Services.AddScoped<ITaiKhoanRepository, TaiKhoanRepository>();
 builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
 builder.Services.AddScoped<IPtThanhToanRepository, PtThanhToanRepository>();
 builder.Services.AddScoped<IChucVuRepository, ChucVuRepository>();
+builder.Services.AddScoped<IChiTietDHRepository, ChiTietDHRepository>();
+builder.Services.AddScoped<IGioHangRepository, GioHangRepository>();
 
 //MusicalStore
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -53,6 +57,8 @@ builder.Services.AddScoped<IPaymentRespository, PaymentRespository>();
 builder.Services.AddScoped<IPositionRepository, PositionRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 
 var app = builder.Build();
 
