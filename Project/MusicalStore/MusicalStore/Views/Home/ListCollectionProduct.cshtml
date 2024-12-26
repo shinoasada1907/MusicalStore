@@ -1,13 +1,15 @@
 ﻿@{
+  
     Layout = "_Layout";
-    ViewData["Title"] = "Danh sách sản phẩm";
+    ViewData["Title"] = "Bộ sưu tập";
     var categoryId = ViewData["categoryId"];
     var categoryName= ViewData["CategoryName"];
 }
+
 <div class="container-fluid">
     <!--The Product for You-->
     <div id="product-list" class="container mt-5 mb-5">
-        <h2 class="mb-4">@ViewData["CategoryName"]</h2>
+        <h2 class="mb-4">@ViewData["Collection"]</h2>
         <div class="row g-3">
             @foreach (Product item in Model.ListProduct)
             {
@@ -35,18 +37,18 @@
             <nav class="">
                 <ul class="pagination">
                     <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
-                        <a class="page-link" href="?categoryId=@categoryId&page=@(Model.CurrentPage - 1)" tabindex="-1">Trước</a>
+                        <a class="page-link" href="?categoryName=@categoryName&page=@(Model.CurrentPage - 1)" tabindex="-1">Trước</a>
                     </li>
 
                     @for (int i = 1; i <= Model.TotalPages; i++)
                     {
                         <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
-                            <a class="page-link" href="?categoryId=@categoryId&page=@i">@i</a>
+                            <a class="page-link" href="?categoryName=@categoryName&page=@i">@i</a>
                         </li>
                     }
 
                     <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
-                        <a class="page-link" href="?categoryId=@categoryId&page=@(Model.CurrentPage + 1)">Sau</a>
+                        <a class="page-link" href="?categoryName=@categoryName&page=@(Model.CurrentPage + 1)">Sau</a>
                     </li>
                 </ul>
             </nav>

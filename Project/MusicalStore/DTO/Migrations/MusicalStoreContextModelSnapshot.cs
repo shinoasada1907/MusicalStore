@@ -146,27 +146,36 @@ namespace DTO.Migrations
 
             modelBuilder.Entity("DTO.Models.CtPhieuNhap", b =>
                 {
+                    b.Property<string>("MaCtPn")
+                        .HasMaxLength(10)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<double?>("GiaNhap")
+                        .HasColumnType("float");
+
                     b.Property<string>("MaPn")
+                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)")
                         .HasColumnName("MaPN");
 
                     b.Property<string>("MaSp")
+                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)")
                         .HasColumnName("MaSP");
 
-                    b.Property<double?>("GiaNhap")
-                        .HasColumnType("float");
-
                     b.Property<int?>("Slnhap")
                         .HasColumnType("int")
                         .HasColumnName("SLNhap");
 
-                    b.HasKey("MaPn", "MaSp")
+                    b.HasKey("MaCtPn")
                         .HasName("PK__CT_PHIEU__F557B7712CD9316A");
+
+                    b.HasIndex("MaPn");
 
                     b.HasIndex("MaSp");
 

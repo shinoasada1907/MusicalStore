@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Dynamic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +30,7 @@ namespace MusicalStore.Controllers
             dataIndex.Categories = _categoryRepository.GetCategorys();
             dataIndex.ProductsSale = _productRepository.GetTopSellingProducts();
             dataIndex.Collections = CollectionsData.ListCollections;
+            dataIndex.News = NewsData.listNews;
             dataIndex.ListProduct = _productRepository.GetListProductWithPage(page, pageSize);
             dataIndex.CurrentPage = page;
             dataIndex.TotalPages = (totalPage is int) ? totalPage + 1 : totalPage;
@@ -38,11 +39,29 @@ namespace MusicalStore.Controllers
 
         [HttpGet]
         public IActionResult ProductDetail(string productId)
-        {            var product = _productRepository.GetProductById(productId);
-            Console.WriteLine(product.ProductCode + " " + product.ProductName + " " + product.DetailVoucher.StartDate + " " + product.ProductDetail.Introduction);
-            return View(product);
+        {
+            var product = _productRepository.GetProductById(productId);
+            dynamic dataProduct = new ExpandoObject();
+            dataProduct.ProductDetail = product;
+            dataProduct.ListRelatedProduct = _productRepository.GetListProductByCategory(product.CategoryCode)
+                                                                .OrderByDescending(p=>p.StockQuantity)
+                                                                .Take(4)
+                                                                .ToList();
+            
+            //Console.WriteLine(product.ProductCode + " " + product.ProductName + " " + product.DetailVoucher.StartDate + " " + product.ProductDetail.Introduction);
+            return View(dataProduct);
         }
-
+        public IActionResult ListCollectionProduct(string categoryName, int page = 1, int pageSize = 12)
+        {
+            ViewData["Collection"] = categoryName;
+            //var collection = _productRepository.GetListCollectionProduct(categoryName, page, pageSize);
+            var totalPage = _productRepository.GetListCollectionProduct(categoryName, page, pageSize).Count() / 12;
+            dynamic dataIndex = new ExpandoObject();
+            dataIndex.ListProduct = _productRepository.GetListCollectionProduct(categoryName, page, pageSize);
+            dataIndex.CurrentPage = page;
+            dataIndex.TotalPages = (totalPage is int) ? totalPage + 1 : totalPage;
+            return View(dataIndex);
+        }
         public IActionResult Privacy()
         {
             return View();
@@ -61,7 +80,7 @@ namespace MusicalStore.Controllers
         [HttpGet]
         public IActionResult ShoppingCart()
         {
-            if(string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
             {
                 return RedirectToAction("Login", "Auth");
             }
@@ -106,5 +125,11 @@ namespace MusicalStore.Controllers
             return RedirectToAction("Order", "Payment");
         }
 
+        // Action để lấy danh sách sản phẩm cùng danh mục
+        public ActionResult RelatedProducts(string category)
+        {
+            var relatedProducts = _productRepository.GetListProductByCategory(category);
+            return PartialView("_RelatedProducts", relatedProducts);
+        }
     }
 }
