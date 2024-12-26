@@ -131,5 +131,23 @@ namespace DTO.Repository
             var sanphams = _context.SanPhams.Where(sp => sp.MaLsp == category).ToList();
             return sanphams;
         }
+
+        public IEnumerable<SanPham> GetCollectionProduct(string categoryName)
+        {
+            var suutap = _context.SanPhams
+                .Join(_context.LoaiSanPhams
+                .Where(lsp => lsp.TenLsp.Contains(categoryName)),
+                sp=>sp.MaLsp, 
+                lsp => lsp.MaLsp,
+                (sp, lsp) => new
+                {
+                    Product = sp,
+                    Category = lsp
+                })
+                .OrderBy(x => x.Category.TenLsp)
+                .Select(x => x.Product)
+                .ToList();
+            return suutap;
+        }
     }
 }

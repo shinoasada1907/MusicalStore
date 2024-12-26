@@ -17,6 +17,7 @@ namespace DTO.IRepository
                 public IEnumerable<SanPham> GetTopSaleSanPham();
                 public IEnumerable<SanPham> GetTopSellingProductsInMonth();
                 public IEnumerable<SanPham> GetListSanPhamByCategory(string category);
+                public IEnumerable<SanPham> GetCollectionProduct(string categoryName);
 
         }
 }

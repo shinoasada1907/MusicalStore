@@ -121,13 +121,13 @@
             @foreach (Collections item in Model.Collections)
             {
                 <div class="col-md-3 mb-4">
-                    <div class="card shadow h-100">
+                    <div id="cardproduct" class="card shadow h-100">
                         <img src="~/images/@item.ImageUrl" class="card-img-top" alt="Tablet">
                         <div class="card-body">
                             <h5 class="card-title">@item.NameCollection</h5>
                         </div>
                         <div class="card-footer bg-white">
-                            <a href="/collections/tablets" class="btn btn-link">Xem tất cả &gt;</a>
+                            <a href="/Home/ListCollectionProduct?categoryName=@item.Value" class="btn btn-link">Xem tất cả &gt;</a>
                         </div>
                     </div>
                 </div>
@@ -141,8 +141,8 @@
         <div class="row g-3">
             @foreach (Product item in Model.ListProduct)
             {
-                <div id="cardproduct" class="col-md-3 col-lg-3" onclick="getProductDetail('@item.ProductCode')">
-                    <div class="card shadow h-100">
+                <div class="col-md-3 col-lg-3" onclick="getProductDetail('@item.ProductCode')">
+                    <div id="cardproduct" class="card shadow h-100">
                         <div class="position-relative">
                             <img src="~/images/@item.ImageUrl" class="card-img-top" alt="@item.ProductName">
                         </div>
@@ -183,16 +183,20 @@
         </div>
     </div>
 
+    <!-- Tin tức sự kiện -->
     <div class="container mb-5">
         <h2 class="mb-4">Tin tức - Sự kiện</h2>
         <div class="row">
-            @foreach (Collections item in Model.Collections)
+            @foreach (BlogPost item in Model.News)
             {
                 <div class="col-md-3 mb-4">
-                    <div class="card shadow h-100">
-                        <img src="~/images/@item.ImageUrl" class="card-img-top" alt="Tablet">
+                    <div id="cardproduct" class="card shadow h-100">
+                        <img src="@item.ImageUrl" class="card-img-top" alt="@item.Title">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Title</h5>
+                        </div>
                         <div class="card-footer bg-white">
-                            <a href="/collections/tablets" class="btn btn-link">Sự kiện</a>
+                            <a href="/News/Blog?Id=@item.Id" class="btn btn-link">Xem thêm</a>
                         </div>
                     </div>
                 </div>
@@ -296,6 +300,7 @@
             color: white;
         }
 
+
     #categoryHeader {
         font-size: 1.25rem; /* Tăng kích thước chữ */
         font-weight: bold; /* In đậm chữ */
@@ -344,6 +349,16 @@
 
     .btna {
         cursor: pointer;
+    }
+
+    .btn-link{
+        justify-content: center; /* Căn giữa theo chiều ngang */
+        text-decoration: none; /* Loại bỏ gạch chân mặc định */
+        text-decoration-color: black;
+        color: black;
+        font-size: 1rem;
+        font-weight: bold; /* In đậm chữ */
+        padding: 0.75rem;
     }
 
     /* Hiển thị menu khi kích hoạt */
