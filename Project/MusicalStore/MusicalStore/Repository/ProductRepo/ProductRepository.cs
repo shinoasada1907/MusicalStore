@@ -112,13 +112,29 @@ namespace MusicalStore.Repository.ProductRepo
 
         public IEnumerable<Product> GetListProductByCategory(string category)
         {
-            throw new NotImplementedException();
+            var products = _sanPhamRepository.GetListSanPhamByCategory(category);
+            var mappedProducts = ProductMapping.MapToProducts(products);
+
+            foreach (var product in mappedProducts)
+            {
+                var loaiSanPham = _loaiSanPhamRepsoritory.GetLoaiSanPham(product.CategoryCode);
+                product.Category = CategoryMapping.MapToCategory(loaiSanPham);
+            }
+
+            return mappedProducts;
         }
 
         public IEnumerable<Product> GetListProductByCategoryWithPage(string category, int page, int pageSize)
         {
             var products = _sanPhamRepository.GetListSanPhamByCategory(category).OrderBy(p => p.MaLsp).Skip((page - 1) * pageSize).Take(pageSize).ToList();
             return ProductMapping.MapToProducts(products);
+        }
+
+        public IEnumerable<Product> GetListCollectionProduct(string category, int page, int pageSize)
+        {
+            var suutap = _sanPhamRepository.GetCollectionProduct(category).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var collection = ProductMapping.MapToProducts(suutap);
+            return collection;
         }
     }
 }

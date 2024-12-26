@@ -1,5 +1,4 @@
-﻿@model Product
-@{
+﻿@{
     Layout = "_Layout";
     ViewData["Title"] = "Product Detail";
 
@@ -18,26 +17,26 @@
 <!-- PHẦN CHÍNH HIỂN THỊ SẢN PHẨM -->
 
 <div class="container mt-5 p-4 rounded shadow-lg bg-white">
-    <div class="row">
+    <div class="row product-container mt-5">
         <!-- Product Image -->
         <div class="col-md-6 text-center">
-            <img src="~/images/@Model.ImageUrl"
+            <img src="~/images/@Model.ProductDetail.ImageUrl"
                  alt="Guitar Acoustic NG GT700NA"
                  class="img-fluid product-img zoom-effect">
         </div>
 
         <!-- Product Details -->
         <div class="col-md-6">
-            <input class="product-title" hidden id="productId" value="@Model.ProductCode"></input>
+            <input class="product-title" hidden id="productId" value="@Model.ProductDetail.ProductCode"></input>
 
             <!-- Product Title -->
-            <h2 class="product-title fw-bold text-dark">@Model.ProductName</h2>
-            <p class="text-muted">Mã sản phẩm: <span class="fw-semibold">@Model.ProductCode</span></p>
+            <h2 class="product-title-header fw-bold text-dark">@Model.ProductDetail.ProductName</h2>
+            <p class="text-muted">Mã sản phẩm: <span class="fw-semibold">@Model.ProductDetail.ProductCode</span></p>
 
             <!-- Price and Discount -->
             <div class="product-pricing">
-                <p class="product-price fs-4 text-danger">@string.Format("{0:N0}", Model.Price) VND</p>
-                <p class="product-discount badge bg-warning text-dark">@Model.DetailVoucher.Voucher.Description</p>
+                <p class="product-price fs-4 text-danger">@string.Format("{0:N0}", Model.ProductDetail.Price) VND</p>
+                <p class="product-discount badge bg-warning text-dark">@Model.ProductDetail.DetailVoucher.Voucher.Description</p>
             </div>
 
             <!-- Add to Cart and Checkout Buttons -->
@@ -58,17 +57,16 @@
                 <ul class="product-specs list-unstyled">
                     <li class="mb-3 d-flex align-items-center">
                         <i class="bi bi-building text-secondary me-2"></i>
-                        <span><strong>Hãng sản xuất:</strong> @Model.Brand</span>
+                        <span><strong>Hãng sản xuất:</strong> @Model.ProductDetail.Brand</span>
                     </li>
                     <li class="d-flex align-items-center">
                         <i class="bi bi-box-seam text-secondary me-2"></i>
-                        <span><strong>Số lượng sản phẩm:</strong> @Model.StockQuantity</span>
+                        <span><strong>Số lượng sản phẩm:</strong> @Model.ProductDetail.StockQuantity</span>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-</div>
 
 
 
@@ -81,9 +79,9 @@
             <div class="product-description-section mt-4">
                 <h5><i class="bi bi-gear"></i> Thông số kỹ thuật</h5>
                 <ul class="product-specifications list-unstyled ps-3">
-                    @if (!string.IsNullOrEmpty(Model.ProductDetail.Specifications))
+                    @if (!string.IsNullOrEmpty(Model.ProductDetail.ProductDetail.Specifications))
                     {
-                        foreach (var spec in Model.ProductDetail.Specifications.Split(';'))
+                        foreach (var spec in Model.ProductDetail.ProductDetail.Specifications.Split(';'))
                         {
                             <li class="mb-2"><i class="bi bi-dot"></i> @spec</li>
                         }
@@ -98,7 +96,7 @@
             <!-- Introduction -->
             <div class="product-description-section mt-4">
                 <h5><i class="bi bi-info-circle"></i> Giới thiệu</h5>
-                <p class="product-description text-justify">@Model.ProductDetail.Introduction</p>
+                <p class="product-description text-justify">@Model.ProductDetail.ProductDetail.Introduction</p>
             </div>
 
 
@@ -106,9 +104,9 @@
             <div class="product-description-section mt-4">
                 <h5><i class="bi bi-lightbulb"></i> Chức năng</h5>
                 <p class="product-features text-justify">
-                    @if (!string.IsNullOrEmpty(Model.ProductDetail.Features))
+                    @if (!string.IsNullOrEmpty(Model.ProductDetail.ProductDetail.Features))
                     {
-                        @Model.ProductDetail.Features
+                        @Model.ProductDetail.ProductDetail.Features
                     }
                     else
                     {
@@ -124,23 +122,21 @@
 
     <!-- Related Products Section -->
     <div class="row mt-5 mb-5 related-products">
-        <div class="col-md-3 product-card">
-            <img src="https://via.placeholder.com/200x150?text=Product+1" alt="Related Product 1" class="img-fluid">
-            <h6>Đàn Guitar Acoustic 1</h6>
-        </div>
-        <div class="col-md-3 product-card">
-            <img src="https://via.placeholder.com/200x150?text=Product+2" alt="Related Product 2" class="img-fluid">
-            <h6>Đàn Guitar Acoustic 2</h6>
-        </div>
-        <div class="col-md-3 product-card">
-            <img src="https://via.placeholder.com/200x150?text=Product+3" alt="Related Product 3" class="img-fluid">
-            <h6>Đàn Guitar Acoustic 3</h6>
-        </div>
-        <div class="col-md-3 product-card">
-            <img src="https://via.placeholder.com/200x150?text=Product+4" alt="Related Product 4" class="img-fluid">
-            <h6>Đàn Guitar Acoustic 4</h6>
-        </div>
+        <h2 class="mb-4 text-center">Sản phẩm liên quan</h2>
+        @foreach (Product item in Model.ListRelatedProduct)
+        {
+            <div class="col-md-3 col-lg-3 mb-4">
+                <div class="card product-card shadow border-0 h-100">
+                    <img src="~/images/@item.ImageUrl" alt="@item.ProductName" class="product-image img-fluid">
+                    <div class="card-body text-center">
+                        <h6 class="product-title text-truncate">@item.ProductName</h6>
+                        <a href="/Home/ProductDetail/?productId=@item.ProductCode" class="btn btn-primary-d mt-2">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
+
 </div>
 
 <style>
@@ -164,7 +160,7 @@
 
     /* Custom Styles */
 
-    .product-title {
+    .product-title-header {
         font-size: 2rem;
         color: #000; /* Màu chữ đen */
     }
@@ -231,23 +227,14 @@
 
 
 
-    /* Sản phẩm liên quan */
-    .related-products img {
-        width: 100%;
-        height: auto;
-    }
-
-    .related-products .product-card {
-        margin-bottom: 20px;
-    }
-
-        .related-products .product-card h6 {
-            font-size: 14px;
-            text-align: center;
-        }
-
     .product-details-container {
         background-color: #f8f8f8;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .product-container {
+        background-color: white;
         padding: 20px;
         border-radius: 8px;
     }
@@ -257,21 +244,34 @@
         color: #555;
     }
 
-    .btn-custom {
-        background-color: #ff6600;
+    /* Button styles */
+    .btn-primary {
         color: white;
+        transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-        .btn-custom:hover {
-            background-color: #cc5200;
+        .btn-primary:hover {
+            background-color: #0d6efd;
+            transform: scale(1.1); /* Slight zoom on hover */
         }
 
+    .btn-primary-d {
+        color: white;
+        background-color: #555;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        
     .btn-success {
+        transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
         .btn-success:hover {
-            color: black;
+            color: #fff;
+            background-color: #198754;
+            transform: scale(1.1); /* Slight zoom on hover */
         }
+
 
     /* PHẦN MÔ TẢ SẢN PHẨM*/
     .product-details-container {
@@ -296,8 +296,9 @@
         .product-description-section h4 {
             margin-bottom: 10px;
             font-weight: bold;
-            color: #000; 
+            color: #000;
         }
+
     .product-specifications li {
         font-size: 16px;
         line-height: 1.8;
@@ -314,7 +315,58 @@
         color: #000; /* Màu đen cho phần giới thiệu */
     }
 
+    /* General styles for product card */
+    .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        border-radius: 8px; /* Smooth corners */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; /* Đảm bảo card luôn có chiều cao đầy đủ */
+    }
 
+        /* Hover effect for product card */
+        .product-card:hover {
+            transform: scale(1.05); /* Zoom effect */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+            cursor: pointer;
+        }
+
+    /* Product image styles */
+    .product-image {
+        width: 100%; /* Đảm bảo hình ảnh chiếm hết chiều ngang của thẻ cha */
+        height: 200px; /* Đặt chiều cao cố định */
+        object-fit: contain; /* Cắt hình ảnh để vừa khung mà vẫn giữ tỷ lệ */
+        border-radius: 8px 8px 0 0; /* Làm tròn góc trên */
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Hover effect for product image */
+    .product-card:hover .product-image {
+        transform: scale(1.1); /* Zoom effect for image */
+    }
+
+    /* Title styles */
+    .product-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin: 10px 0;
+        text-align: center;
+        min-height: 40px; /* Đảm bảo tiêu đề có chiều cao cố định */
+        line-height: 1.2; /* Tăng khoảng cách giữa các dòng nếu tiêu đề dài */
+    }
+
+
+
+    /* Card body alignment */
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Đảm bảo nút luôn nằm ở dưới cùng */
+        align-items: center;
+    }
 
 </style>
 
@@ -327,7 +379,7 @@
             var productId = document.getElementById('productId').value;
             console.log(productId)
             window.location.href='/Payment/Order?productId=' + productId;
-            
+
         }
 
         function AddShoppingCart() {

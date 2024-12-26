@@ -9,17 +9,20 @@ namespace MusicalStore.Data
             new Collections
             {
                 NameCollection = "Đàn Piano",
-                ImageUrl = "Guitar/FD02.jpg"
+                ImageUrl = "KK02.jpg",
+                Value = "Piano"
             },
             new Collections
             {
                 NameCollection = "Trống Drum",
-                ImageUrl = "Piano/KK02.jpg"
+                ImageUrl = "OF06.jpg",
+                Value = "Trống"
             },
             new Collections
             {
                 NameCollection = "Đàn Guitar",
-                ImageUrl = "Drum/OF06.jpg"
+                ImageUrl = "FD02.jpg",
+                Value = "Guitar"
             },
         };
     }

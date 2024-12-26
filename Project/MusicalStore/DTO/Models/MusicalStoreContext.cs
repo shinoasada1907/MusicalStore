@@ -158,10 +158,12 @@ public partial class MusicalStoreContext : DbContext
 
         modelBuilder.Entity<CtPhieuNhap>(entity =>
         {
-            entity.HasKey(e => new { e.MaPn, e.MaSp }).HasName("PK__CT_PHIEU__F557B7712CD9316A");
+            entity.HasKey(e => e.MaCtPn).HasName("PK__CT_PHIEU__F557B7712CD9316A");
 
             entity.ToTable("CT_PHIEU_NHAP");
-
+            entity.Property(e => e.MaCtPn)
+                .HasMaxLength(10)
+                .IsUnicode(false);
             entity.Property(e => e.MaPn)
                 .HasMaxLength(10)
                 .IsUnicode(false)
