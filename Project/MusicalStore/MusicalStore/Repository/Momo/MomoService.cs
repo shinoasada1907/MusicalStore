@@ -17,17 +17,6 @@ namespace MusicalStore.Repository.Momo
         }
         public async Task<MomoCreatePaymentResponseModel> CreatePaymentAsync(OrderModel model)
         {
-            model = new OrderModel
-            {
-                OrderId = DateTime.UtcNow.Ticks.ToString(),
-                UserId = "USR789",
-                UserName = "Nguyễn Văn A",
-                OrderDate = DateTime.Now,
-                TotalAmount = 150000,
-                Status = "Chờ xử lý",
-                OrderInfo = "Đơn hàng bao gồm đàn Guitar và trống Cajon."
-            };
-
             var rawData =
              $"partnerCode={_options.Value.PartnerCode}" +
              $"&accessKey={_options.Value.AccessKey}" +
@@ -64,25 +53,49 @@ namespace MusicalStore.Repository.Momo
             request.AddParameter("application/json", JsonConvert.SerializeObject(requestData), ParameterType.RequestBody);
 
             var response = await client.ExecuteAsync(request);
-            var momoResponse = JsonConvert.DeserializeObject<MomoCreatePaymentResponseModel>(response.Content);
+            var momoResponse = JsonConvert.DeserializeObject<MomoCreatePaymentResponseModel>(response.Content!);
             Console.WriteLine(JsonConvert.SerializeObject(response.Content));
-            return momoResponse;
+            return momoResponse!;
 
         }
 
         public MomoExecuteResponseModel PaymentExecuteAsync(IQueryCollection collection)
         {
-            Console.WriteLine("Hello");
-            var amount = collection.First(s => s.Key == "amount").Value;
-            var orderInfo = collection.First(s => s.Key == "orderInfo").Value;
-            var orderId = collection.First(s => s.Key == "orderId").Value;
+
+            var partnerCode = collection.FirstOrDefault(s => s.Key == "partnerCode").Value.FirstOrDefault();
+            var accessKey = collection.FirstOrDefault(s => s.Key == "accessKey").Value.FirstOrDefault();
+            var requestId = collection.FirstOrDefault(s => s.Key == "requestId").Value.FirstOrDefault();
+            var amount = collection.FirstOrDefault(s => s.Key == "amount").Value.FirstOrDefault();
+            var orderId = collection.FirstOrDefault(s => s.Key == "orderId").Value.FirstOrDefault();
+            var orderInfo = collection.FirstOrDefault(s => s.Key == "orderInfo").Value.FirstOrDefault();
+            var orderType = collection.FirstOrDefault(s => s.Key == "orderType").Value.FirstOrDefault();
+            var transId = collection.FirstOrDefault(s => s.Key == "transId").Value.FirstOrDefault();
+            var message = collection.FirstOrDefault(s => s.Key == "message").Value.FirstOrDefault();
+            var localMessage = collection.FirstOrDefault(s => s.Key == "localMessage").Value.FirstOrDefault();
+            var responseTime = collection.FirstOrDefault(s => s.Key == "responseTime").Value.FirstOrDefault();
+            var errorCode = collection.FirstOrDefault(s => s.Key == "errorCode").Value.FirstOrDefault();
+            var payType = collection.FirstOrDefault(s => s.Key == "payType").Value.FirstOrDefault();
+            var extraData = collection.FirstOrDefault(s => s.Key == "extraData").Value.FirstOrDefault();
+            var signature = collection.FirstOrDefault(s => s.Key == "signature").Value.FirstOrDefault();
+
 
             return new MomoExecuteResponseModel()
             {
-                Amount = amount,
-                OrderId = orderId,
-                OrderInfo = orderInfo
-
+                PartnerCode = partnerCode!,
+                AccessKey = accessKey!,
+                RequestId = requestId!,
+                Amount = amount!,
+                OrderId = orderId!,
+                OrderInfo = orderInfo!,
+                OrderType = orderType!,
+                TransId = transId!,
+                Message = message!,
+                LocalMessage = localMessage!,
+                ResponseTime = responseTime!,
+                ErrorCode = errorCode!,
+                PayType = payType!,
+                ExtraData = extraData!,
+                Signature = signature!
             };
 
         }

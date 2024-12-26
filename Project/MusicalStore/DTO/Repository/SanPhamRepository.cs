@@ -104,6 +104,7 @@ namespace DTO.Repository
         public IEnumerable<SanPham> GetTopSaleSanPham()
         {
             throw new NotImplementedException();
+        }
         //Lấy top 4 sản phẩm bán chạy trong tháng
         public IEnumerable<SanPham> GetTopSellingProductsInMonth()
         {

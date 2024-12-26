@@ -15,11 +15,12 @@ namespace DTO.Repository
         {
             _context = context;
         }
-        public async Task<CtDonHang> TaoChiTietDonHang(CtDonHang ctDonHang)
+        public async Task<IEnumerable<CtDonHang>> TaoChiTietDonHang(List<CtDonHang> ctDonHang)
         {
-            _context.CtDonHangs.Add(ctDonHang);
+            _context.CtDonHangs.AddRange(ctDonHang);
             await _context.SaveChangesAsync();
-            var ctdh = _context.CtDonHangs.FirstOrDefault(ct => ct.MaCtDh == ctDonHang.MaCtDh);
+            var maCtDhList = ctDonHang.Select(ct => ct.MaCtDh).ToList();
+            var ctdh = _context.CtDonHangs.Where(ct => maCtDhList.Contains(ct.MaCtDh)).ToList();
             return ctdh!;
         }
     }

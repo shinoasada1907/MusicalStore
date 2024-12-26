@@ -18,7 +18,17 @@ namespace DTO.Repository
 
         public async Task<IEnumerable<GioHang>> AddGioHang(GioHang giohang)
         {
-            _context.GioHangs.Add(giohang);
+            var existGioHang = _context.GioHangs.FirstOrDefault(gh => gh.MaSp == giohang.MaSp && gh.MaSp == giohang.MaKh);
+            if(existGioHang != null)
+            {
+                existGioHang.SoLuong += 1;
+                _context.GioHangs.Update(existGioHang);
+            }    
+            else
+            {
+                _context.GioHangs.Add(giohang);
+            }    
+            
             await _context.SaveChangesAsync();
             var giohangs = _context.GioHangs.Where(gh => gh.MaKh == giohang.MaKh).ToList();
             return giohangs;

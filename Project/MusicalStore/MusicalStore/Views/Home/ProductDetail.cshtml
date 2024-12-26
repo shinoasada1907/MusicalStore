@@ -36,6 +36,7 @@
 
             <!-- Price and Discount -->
             <div class="product-pricing">
+                <input hidden id="price" value="@Model.Price" />
                 <p class="product-price fs-4 text-danger">@string.Format("{0:N0}", Model.Price) VND</p>
                 <p class="product-discount badge bg-warning text-dark">@Model.DetailVoucher.Voucher.Description</p>
             </div>
@@ -72,75 +73,75 @@
 
 
 
-    <!-- Product Description -->
-    <div class="row mt-5">
-        <div class="col-12 product-details-container">
-            <h4 class="fw-bold">Mô tả sản phẩm</h4>
+<!-- Product Description -->
+<div class="row mt-5">
+    <div class="col-12 product-details-container">
+        <h4 class="fw-bold">Mô tả sản phẩm</h4>
 
-            <!-- Specifications -->
-            <div class="product-description-section mt-4">
-                <h5><i class="bi bi-gear"></i> Thông số kỹ thuật</h5>
-                <ul class="product-specifications list-unstyled ps-3">
-                    @if (!string.IsNullOrEmpty(Model.ProductDetail.Specifications))
+        <!-- Specifications -->
+        <div class="product-description-section mt-4">
+            <h5><i class="bi bi-gear"></i> Thông số kỹ thuật</h5>
+            <ul class="product-specifications list-unstyled ps-3">
+                @if (!string.IsNullOrEmpty(Model.ProductDetail.Specifications))
+                {
+                    foreach (var spec in Model.ProductDetail.Specifications.Split(';'))
                     {
-                        foreach (var spec in Model.ProductDetail.Specifications.Split(';'))
-                        {
-                            <li class="mb-2"><i class="bi bi-dot"></i> @spec</li>
-                        }
+                        <li class="mb-2"><i class="bi bi-dot"></i> @spec</li>
                     }
-                    else
-                    {
-                        <li>Không có thông tin.</li>
-                    }
-                </ul>
-            </div>
+                }
+                else
+                {
+                    <li>Không có thông tin.</li>
+                }
+            </ul>
+        </div>
 
-            <!-- Introduction -->
-            <div class="product-description-section mt-4">
-                <h5><i class="bi bi-info-circle"></i> Giới thiệu</h5>
-                <p class="product-description text-justify">@Model.ProductDetail.Introduction</p>
-            </div>
+        <!-- Introduction -->
+        <div class="product-description-section mt-4">
+            <h5><i class="bi bi-info-circle"></i> Giới thiệu</h5>
+            <p class="product-description text-justify">@Model.ProductDetail.Introduction</p>
+        </div>
 
 
-            <!-- Features -->
-            <div class="product-description-section mt-4">
-                <h5><i class="bi bi-lightbulb"></i> Chức năng</h5>
-                <p class="product-features text-justify">
-                    @if (!string.IsNullOrEmpty(Model.ProductDetail.Features))
-                    {
-                        @Model.ProductDetail.Features
-                    }
-                    else
-                    {
-                        <span>Không có thông tin.</span>
-                    }
-                </p>
-            </div>
+        <!-- Features -->
+        <div class="product-description-section mt-4">
+            <h5><i class="bi bi-lightbulb"></i> Chức năng</h5>
+            <p class="product-features text-justify">
+                @if (!string.IsNullOrEmpty(Model.ProductDetail.Features))
+                {
+                    @Model.ProductDetail.Features
+                }
+                else
+                {
+                    <span>Không có thông tin.</span>
+                }
+            </p>
         </div>
     </div>
+</div>
 
 
 
 
-    <!-- Related Products Section -->
-    <div class="row mt-5 mb-5 related-products">
-        <div class="col-md-3 product-card">
-            <img src="https://via.placeholder.com/200x150?text=Product+1" alt="Related Product 1" class="img-fluid">
-            <h6>Đàn Guitar Acoustic 1</h6>
-        </div>
-        <div class="col-md-3 product-card">
-            <img src="https://via.placeholder.com/200x150?text=Product+2" alt="Related Product 2" class="img-fluid">
-            <h6>Đàn Guitar Acoustic 2</h6>
-        </div>
-        <div class="col-md-3 product-card">
-            <img src="https://via.placeholder.com/200x150?text=Product+3" alt="Related Product 3" class="img-fluid">
-            <h6>Đàn Guitar Acoustic 3</h6>
-        </div>
-        <div class="col-md-3 product-card">
-            <img src="https://via.placeholder.com/200x150?text=Product+4" alt="Related Product 4" class="img-fluid">
-            <h6>Đàn Guitar Acoustic 4</h6>
-        </div>
+<!-- Related Products Section -->
+<div class="row mt-5 mb-5 related-products">
+    <div class="col-md-3 product-card">
+        <img src="https://via.placeholder.com/200x150?text=Product+1" alt="Related Product 1" class="img-fluid">
+        <h6>Đàn Guitar Acoustic 1</h6>
     </div>
+    <div class="col-md-3 product-card">
+        <img src="https://via.placeholder.com/200x150?text=Product+2" alt="Related Product 2" class="img-fluid">
+        <h6>Đàn Guitar Acoustic 2</h6>
+    </div>
+    <div class="col-md-3 product-card">
+        <img src="https://via.placeholder.com/200x150?text=Product+3" alt="Related Product 3" class="img-fluid">
+        <h6>Đàn Guitar Acoustic 3</h6>
+    </div>
+    <div class="col-md-3 product-card">
+        <img src="https://via.placeholder.com/200x150?text=Product+4" alt="Related Product 4" class="img-fluid">
+        <h6>Đàn Guitar Acoustic 4</h6>
+    </div>
+</div>
 </div>
 
 <style>
@@ -296,8 +297,9 @@
         .product-description-section h4 {
             margin-bottom: 10px;
             font-weight: bold;
-            color: #000; 
+            color: #000;
         }
+
     .product-specifications li {
         font-size: 16px;
         line-height: 1.8;
@@ -314,20 +316,42 @@
         color: #000; /* Màu đen cho phần giới thiệu */
     }
 
-
-
 </style>
 
 @section Scripts {
+    <script src="~/js/site.js"></script>
     <script>
         $(document).ready(function(){
 
         })
         function Checkout() {
             var productId = document.getElementById('productId').value;
-            console.log(productId)
-            window.location.href='/Payment/Order?productId=' + productId;
-            
+            var price = document.getElementById('price').value;
+
+            var order = {
+                orderDetailId: 'ODO'+ generateRandomString(6),
+                orderId: "",
+                productId: productId,
+                voucherId: "",
+                quantity: 1,
+                unitPrice: price,
+                totalPrice: price
+            }
+
+            var orderDetails = [order]
+
+            $.ajax({
+                url: '@Url.Action("SendRequestOrder", "Payment")',
+                method: 'POST',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(orderDetails),
+                success: function (data) {
+                    console.log(data);
+                    window.location.href = '/Payment/Order'
+                },
+                error: function () { }
+            })
         }
 
         function AddShoppingCart() {
@@ -337,7 +361,7 @@
                 url: '@Url.Action("AddShoppingCart", "Home")',
                 method: 'POST',
                 type: 'POST',
-                data:{
+                data: {
                     productId: productId
                 },
                 success: function (data) {
@@ -345,7 +369,7 @@
                 },
                 error: function () { }
             })
-            
+
         }
     </script>
 }

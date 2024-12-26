@@ -1,0 +1,148 @@
+﻿<div class="order-container">
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Tất cả</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Chờ thanh toán</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Vận chuyển</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Hoàn thành</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Đã hủy</a>
+        </li>
+    </ul>
+
+    <!-- Order Item -->
+    <div class="order-item">
+        <div class="row align-items-center">
+            <div class="col-md-2 text-center">
+                <img src="https://via.placeholder.com/80" alt="Product Image">
+            </div>
+            <div class="col-md-6">
+                <p class="order-title">Áo Polo Nam GOZIN STORE chất thoáng khí thoải mái vải cotton trơn BASIC</p>
+                <p>Phân loại: Màu trắng - JA09_XL</p>
+                <p class="order-status">Giao hàng thành công</p>
+            </div>
+            <div class="col-md-2 text-end">
+                <p class="order-price">₫108,240</p>
+            </div>
+            <div class="col-md-2 text-end">
+                <button class="btn btn-orange btn-sm">Đánh Giá</button>
+                <button class="btn btn-outline-secondary btn-sm">Yêu Cầu Hoàn Tiền</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Another Order Item -->
+    <div class="order-item">
+        <div class="row align-items-center">
+            <div class="col-md-2 text-center">
+                <img src="https://via.placeholder.com/80" alt="Product Image">
+            </div>
+            <div class="col-md-6">
+                <p class="order-title">Giày Thể Thao Nam KATEZA cao cấp thoáng khí</p>
+                <p>Phân loại: KATEZA69 - Đen Cam, Size 40</p>
+                <p class="order-status">Giao hàng thành công</p>
+            </div>
+            <div class="col-md-2 text-end">
+                <p class="order-price">₫245,520</p>
+            </div>
+            <div class="col-md-2 text-end">
+                <button class="btn btn-orange btn-sm">Đánh Giá</button>
+                <button class="btn btn-outline-secondary btn-sm">Yêu Cầu Hoàn Tiền</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f9f9f9;
+    }
+
+    .order-container {
+        max-width: 1200px;
+        margin: 30px auto;
+    }
+
+    .order-header {
+        border-bottom: 2px solid #ff5722;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .order-item {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .order-item img {
+            max-width: 80px;
+            border-radius: 4px;
+        }
+
+    .order-title {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .order-status {
+        color: #ff5722;
+        font-weight: bold;
+    }
+
+    .order-price {
+        color: #ff5722;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .btn-orange {
+        background-color: #ff5722;
+        color: #fff;
+        font-weight: bold;
+    }
+
+        .btn-orange:hover {
+            background-color: #e64a19;
+        }
+</style>
+
+<script>
+    $(document).ready(function () {
+        function loadTabContent(url) {
+            $("#tabContent").html('<div class="loading-spinner">Đang tải nội dung...</div>');
+
+            // AJAX call to load the tab content
+            $.get(url, function (data) {
+                $("#tabContent").html(data);
+            }).fail(function () {
+                $("#tabContent").html('<div class="loading-spinner text-danger">Không thể tải nội dung. Vui lòng thử lại!</div>');
+            });
+        }
+
+        // Load initial tab
+        const initialTabUrl = "/Profile/AllOrders";
+        loadTabContent(initialTabUrl);
+
+        // Handle tab clicks
+        $(".nav-link").click(function (e) {
+            e.preventDefault();
+
+            $(".nav-link").removeClass("active");
+            $(this).addClass("active");
+
+            const url = $(this).data("url");
+            loadTabContent(url);
+        });
+    });
+</script>

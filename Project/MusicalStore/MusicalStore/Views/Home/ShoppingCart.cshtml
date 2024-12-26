@@ -23,19 +23,20 @@
                 {
                     <div class="row align-items-center mb-3 product-item">
                         <div class="col-md-6 d-flex align-items-center">
+                            <input type="text" hidden class="productId" value="@item.ProductId" />
                             <input type="checkbox" class="product-select me-3" />
-                            <img src="~/images/product.jpg" alt="Product" class="img-fluid me-3" style="width: 60px; height: 60px;">
+                            <img src="~/images/@item.Product.ImageUrl" alt="Product" class="img-fluid me-3" style="width: 60px; height: 60px;">
                             <span class="product-name">@item.Product.ProductName</span>
                         </div>
                         <div class="col-md-2 text-center product-price">@item.Price</div>
                         <div class="col-md-2 text-center">
                             <div class="input-group">
                                 <button class="btn btn-outline-secondary decrease-btn">-</button>
-                                <input type="number" class="form-control text-center quantity-input" value="1" min="1">
+                                <input type="number" class="form-control text-center quantity-input" value="@item.Quantity" min="1">
                                 <button class="btn btn-outline-secondary increase-btn">+</button>
                             </div>
                         </div>
-                        <div class="col-md-2 text-end product-total">100,000₫</div>
+                        <div class="col-md-2 text-end product-total">@item.Total</div>
                     </div>
                 }
             }
@@ -53,7 +54,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col-md-6">
-                    <a href="@Url.Action("ProductList", "Home")" class="btn btn-outline-primary">Tiếp tục mua sắm</a>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-primary">Tiếp tục mua sắm</a>
                 </div>
                 <div class="col-md-6 text-end">
                     <button class="btn btn-success" onclick="Checkout()">Thanh Toán</button>
@@ -64,6 +65,7 @@
 </div>
 
 @section Scripts {
+    <script src="~/js/site.js"></script>
     <script>
         // Select All Logic
         document.getElementById("select-all").addEventListener("change", function (e) {
@@ -125,8 +127,45 @@
 
         // Checkout
         function Checkout() {
+            // Thu thập danh sách sản phẩm đã chọn
+            const selectedProducts = [];
+            document.querySelectorAll(".product-item").forEach(item => {
+                const checkbox = item.querySelector(".product-select");
+                if (checkbox.checked) {
+                    const productId = item.querySelector(".productId").value;
+                    const quantity = parseInt(item.querySelector(".quantity-input").value);
+                    const unitPrice = parseInt(item.querySelector(".product-price").innerText.replace(/[₫,]/g, ""));
+                    const totalPrice = parseInt(item.querySelector(".product-total").innerText.replace(/[₫,]/g, ""));
+
+                    selectedProducts.push({
+                        orderDetailId: 'ODO'+ generateRandomString(6), // Có thể để trống nếu chưa cần
+                        orderId: "", // Có thể để trống nếu chưa cần
+                        productId: productId,
+                        voucherId: "",
+                        quantity: quantity,
+                        unitPrice: unitPrice,
+                        totalPrice: totalPrice
+                    });
+                }
+            });
+
+            if (selectedProducts.length === 0) {
+                alert("Vui lòng chọn ít nhất một sản phẩm để thanh toán.");
+                return;
+            }
             if (confirm("Xác nhận thanh toán?")) {
-                window.location.href = '@Url.Action("Checkout", "Payment")';
+                $.ajax({
+                url: '@Url.Action("SendRequestOrder", "Payment")',
+                method: 'POST',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(selectedProducts),
+                success: function (data) {
+                    console.log(data);
+                    window.location.href = '/Payment/Order'
+                },
+                error: function () { }
+            })
             }
         }
     </script>

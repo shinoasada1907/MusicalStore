@@ -18,7 +18,14 @@ namespace MusicalStore.Repository.ShoppingCartRepo
         {
             var gh = ShoppingCartMapping.MapToGioHang(cart);
             var giohang = await _gioHangRepository.AddGioHang(gh);
-            return ShoppingCartMapping.MapToShoppingCartList(giohang);
+            var shoppingCart = ShoppingCartMapping.MapToShoppingCartList(giohang);
+            foreach (var item in shoppingCart)
+            {
+                var sanPham = _sanPhamRepository.GetSanPhamById(item.ProductId);
+                item.Product = ProductMapping.MappingToProduct(sanPham);
+            }
+
+            return shoppingCart;
         }
 
         public Task<IEnumerable<ShoppingCart>> DeleteAllShoppingCart(string customerId)
@@ -40,7 +47,7 @@ namespace MusicalStore.Repository.ShoppingCartRepo
         {
             var giohangs = _gioHangRepository.GetListGioHang(customerId);
             var cart = ShoppingCartMapping.MapToShoppingCartList(giohangs);
-            foreach(var item in cart)
+            foreach (var item in cart)
             {
                 var sanpham = _sanPhamRepository.GetSanPhamById(item.ProductId);
                 item.Product = ProductMapping.MappingToProduct(sanpham);

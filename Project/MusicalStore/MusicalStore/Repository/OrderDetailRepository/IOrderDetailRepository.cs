@@ -4,6 +4,6 @@ namespace MusicalStore.Repository.OrderDetailRepository
 {
     public interface IOrderDetailRepository
     {
-        public Task<OrderDetail> CreateOrderDetail(OrderDetail orderDetail);
+        public Task<IEnumerable<OrderDetail>> CreateOrderDetail(List<OrderDetail> orderDetail);
     }
 }

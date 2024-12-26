@@ -1,10 +1,11 @@
-﻿using MusicalStore.Models.Service.Vnpay;
+﻿using MusicalStore.Models;
+using MusicalStore.Models.Service.Vnpay;
 
 namespace MusicalStore.Repository.vnpay
 {
     public interface IVnPayService
     {
-        string CreatePaymentUrl(PaymentInformationModel model, HttpContext context);
+        string CreatePaymentUrl(OrderModel model, HttpContext context);
         PaymentResponseModel PaymentExecute(IQueryCollection collections);
 
     }

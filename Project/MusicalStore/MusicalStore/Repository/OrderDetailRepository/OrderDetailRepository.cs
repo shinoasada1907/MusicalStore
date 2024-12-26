@@ -1,5 +1,6 @@
 ﻿using DTO.IRepository;
 using DTO.Models;
+using MusicalStore.Mapping;
 using MusicalStore.Models;
 
 namespace MusicalStore.Repository.OrderDetailRepository
@@ -11,9 +12,12 @@ namespace MusicalStore.Repository.OrderDetailRepository
         {
             _chiTietDHRepository = chiTietDHRepository;
         }
-        public Task<OrderDetail> CreateOrderDetail(OrderDetail orderDetail)
+        public async Task<IEnumerable<OrderDetail>> CreateOrderDetail(List<OrderDetail> orderDetail)
         {
-            throw new NotImplementedException();
+            var dhmapping = OrderDetailMapping.MapToListChiTietDH(orderDetail);
+            var ctdh = await _chiTietDHRepository.TaoChiTietDonHang(dhmapping as List<CtDonHang>);
+            var detail = OrderDetailMapping.MapToListDetail(ctdh);
+            return detail;
         }
     }
 }

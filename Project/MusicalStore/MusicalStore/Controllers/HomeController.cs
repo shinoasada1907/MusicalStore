@@ -71,7 +71,7 @@ namespace MusicalStore.Controllers
                 return RedirectToAction("Login", "Auth");
             }
             var shoppingCart = _shoppingCartRepository.GetShoppingCarts(HttpContext.Session.GetString("UserId")) ?? new List<ShoppingCart>();
-            return View();
+            return View(shoppingCart);
         }
         public IActionResult FormUserInformation()
         {
@@ -86,8 +86,6 @@ namespace MusicalStore.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult AddShoppingCart(string productId)
         public IActionResult ListProduct(string categoryId, int page = 1, int pageSize = 12)
         {
             var categoryName = _categoryRepository.GetCategoryNameById(categoryId);
@@ -101,8 +99,8 @@ namespace MusicalStore.Controllers
             return View(dataIndex);
         }
 
-
-        public IActionResult AddShoppingCart(string productId, int countProduct)
+        [HttpPost]
+        public async Task<IActionResult> AddShoppingCart(string productId)
         {
             var product = _productRepository.GetProductById(productId);
             ShoppingCart sCart = new ShoppingCart();
@@ -111,7 +109,7 @@ namespace MusicalStore.Controllers
             sCart.ProductId = productId;
             sCart.Quantity = 1;
             sCart.Price = product.Price ?? 0;
-            var cart = _shoppingCartRepository.AddShoppingCart(sCart);
+            var cart = await _shoppingCartRepository.AddShoppingCart(sCart);
             return Json(cart);
         }
 

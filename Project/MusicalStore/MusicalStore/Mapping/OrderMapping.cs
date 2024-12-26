@@ -6,27 +6,32 @@ namespace MusicalStore.Mapping
     public class OrderMapping
     {
         // DonHang -> OrderModel
-        public static OrderModel MappingToOrderModel(DonHang donHang)
+        public static OrderModel MappingToOrderModel(DonHang? donHang)
         {
             return new OrderModel
             {
-                OrderId = donHang.MaDh,
+                OrderId = donHang!.MaDh,
                 UserId = donHang.MaKh ?? string.Empty,
                 UserName = donHang.MaKhNavigation?.TenKh ?? string.Empty, // Assuming KhachHang has TenKh
                 OrderDate = donHang.NgayLap.ToDateTime(TimeOnly.MinValue),
-                OrderInfo = GenerateOrderInfo(donHang) // Helper function to construct detailed order info
+                TotalAmount = (decimal)donHang.TongTienHang,
+                StatusId = donHang.MaTt ?? 0, // Assuming TinhTrang has TenTt
+                PaymentId = donHang.MaPttt ?? string.Empty,
+                OrderInfo = GenerateOrderInfo(donHang) // Helper function for detailed order info
             };
         }
 
         // OrderModel -> DonHang
-        public static DonHang MappingToDonHang(OrderModel orderModel)
+        public static DonHang MappingToDonHang(OrderModel? orderModel)
         {
             return new DonHang
             {
-                MaDh = orderModel.OrderId,
+                MaDh = orderModel!.OrderId,
                 MaKh = string.IsNullOrEmpty(orderModel.UserId) ? null : orderModel.UserId,
-                NgayLap = DateOnly.FromDateTime(orderModel.OrderDate)
-                // Other fields (like MaTt, MaPttt, or navigation properties) may need additional logic
+                NgayLap = DateOnly.FromDateTime(orderModel.OrderDate),
+                TongTienHang = (double)orderModel.TotalAmount,
+                MaTt = orderModel.StatusId, 
+                MaPttt = string.IsNullOrEmpty(orderModel.PaymentId) ? null : orderModel.PaymentId
             };
         }
 
