@@ -9,6 +9,6 @@ namespace DTO.IRepository
 {
     public interface IChiTietDHRepository
     {
-        public Task<CtDonHang> TaoChiTietDonHang(CtDonHang ctDonHang);
+        public Task<IEnumerable<CtDonHang>> TaoChiTietDonHang(List<CtDonHang> ctDonHang);
     }
 }

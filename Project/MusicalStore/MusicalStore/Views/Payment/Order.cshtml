@@ -97,7 +97,8 @@
             });
 
             // Cập nhật tổng cộng trong tfoot
-            document.querySelector('.grand-total').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal);
+            var totalAmount = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal);
+            document.querySelector('.grand-total').textContent = `Tổng cộng: ${totalAmount} (Đã bao gồm VAT)`
 
             // Cập nhật tổng tiền trong hidden input của form
             document.querySelector('[name="TotalAmount"]').value = grandTotal;
@@ -113,17 +114,6 @@
 
             // Update the total for this row
             totalElement.textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price * quantity);
-        }
-
-        function updateTotal() {
-            let grandTotal = 0;
-            document.querySelectorAll('.product-total').forEach(totalElement => {
-                const total = parseInt(totalElement.textContent.replace(/[^0-9]/g, ''));
-                grandTotal += total;
-            });
-
-            // Update the total amount in the form
-            document.querySelector('[name="TotalAmount"]').value = grandTotal;
         }
 
         document.querySelectorAll(".increase-btn").forEach(button => {

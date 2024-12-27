@@ -18,7 +18,7 @@ namespace DTO.Repository
 
         public async Task<IEnumerable<GioHang>> AddGioHang(GioHang giohang)
         {
-            var existGioHang = _context.GioHangs.FirstOrDefault(gh => gh.MaSp == giohang.MaSp && gh.MaSp == giohang.MaKh);
+            var existGioHang = _context.GioHangs.FirstOrDefault(gh => gh.MaSp == giohang.MaSp && gh.MaKh == giohang.MaKh);
             if(existGioHang != null)
             {
                 existGioHang.SoLuong += 1;
