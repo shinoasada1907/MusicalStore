@@ -10,5 +10,6 @@ namespace DTO.IRepository
     public interface IChiTietDHRepository
     {
         public Task<IEnumerable<CtDonHang>> TaoChiTietDonHang(List<CtDonHang> ctDonHang);
+        public IEnumerable<CtDonHang> GetAllChiTietDonHang(string makh);
     }
 }

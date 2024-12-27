@@ -50,6 +50,14 @@
                 </div>
             </div>
 
+            <div class="col-4 text-center mt-3">
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary decrease-btn">-</button>
+                    <input type="number" class="form-control text-center quantity-input" id="quantity" value="1" min="1">
+                    <button class="btn btn-outline-secondary increase-btn">+</button>
+                </div>
+            </div>
+
             <!-- Product Specifications -->
             <div class="product-info mt-4 p-4 bg-light rounded shadow-sm border">
                 <h5 class="fw-bold text-dark mb-3">
@@ -86,6 +94,7 @@
                         {
                             <li class="mb-2"><i class="bi bi-dot"></i> @spec</li>
                         }
+
                     }
                     else
                     {
@@ -376,20 +385,39 @@
     <script src="~/js/site.js"></script>
     <script>
         $(document).ready(function(){
+            document.querySelectorAll(".increase-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const input = this.parentElement.querySelector(".quantity-input");
+                    input.value = parseInt(input.value) + 1;
+                    updateItemTotal(this);
+                    updateTotal();
+                });
+            });
 
+            document.querySelectorAll(".decrease-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const input = this.parentElement.querySelector(".quantity-input");
+                    if (parseInt(input.value) > 1) {
+                        input.value = parseInt(input.value) - 1;
+                        updateItemTotal(this);
+                        updateTotal();
+                    }
+                });
+            });
         })
         function Checkout() {
             var productId = document.getElementById('productId').value;
             var price = document.getElementById('price').value;
+            var quantity = document.getElementById('quantity').value
 
             var order = {
                 orderDetailId: 'ODO'+ generateRandomString(6),
                 orderId: "",
                 productId: productId,
                 voucherId: "",
-                quantity: 1,
+                quantity: quantity,
                 unitPrice: price,
-                totalPrice: price
+                totalPrice: price * quantity
             }
 
             var orderDetails = [order]

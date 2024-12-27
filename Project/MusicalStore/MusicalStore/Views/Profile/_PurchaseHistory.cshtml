@@ -19,46 +19,27 @@
     </ul>
 
     <!-- Order Item -->
-    <div class="order-item">
-        <div class="row align-items-center">
-            <div class="col-md-2 text-center">
-                <img src="https://via.placeholder.com/80" alt="Product Image">
-            </div>
-            <div class="col-md-6">
-                <p class="order-title">Áo Polo Nam GOZIN STORE chất thoáng khí thoải mái vải cotton trơn BASIC</p>
-                <p>Phân loại: Màu trắng - JA09_XL</p>
-                <p class="order-status">Giao hàng thành công</p>
-            </div>
-            <div class="col-md-2 text-end">
-                <p class="order-price">₫108,240</p>
-            </div>
-            <div class="col-md-2 text-end">
-                <button class="btn btn-orange btn-sm">Đánh Giá</button>
-                <button class="btn btn-outline-secondary btn-sm">Yêu Cầu Hoàn Tiền</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Another Order Item -->
-    <div class="order-item">
-        <div class="row align-items-center">
-            <div class="col-md-2 text-center">
-                <img src="https://via.placeholder.com/80" alt="Product Image">
-            </div>
-            <div class="col-md-6">
-                <p class="order-title">Giày Thể Thao Nam KATEZA cao cấp thoáng khí</p>
-                <p>Phân loại: KATEZA69 - Đen Cam, Size 40</p>
-                <p class="order-status">Giao hàng thành công</p>
-            </div>
-            <div class="col-md-2 text-end">
-                <p class="order-price">₫245,520</p>
-            </div>
-            <div class="col-md-2 text-end">
-                <button class="btn btn-orange btn-sm">Đánh Giá</button>
-                <button class="btn btn-outline-secondary btn-sm">Yêu Cầu Hoàn Tiền</button>
+    @foreach(OrderDetail item in Model)
+    {
+        <div class="order-item">
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center">
+                    <img src="~/images/@item.Product.ImageUrl" alt="Product Image">
+                </div>
+                <div class="col-md-6">
+                    <p class="order-title">@item.Product.ProductName</p>
+                    <p class="order-status">Số lượng: @item.Quantity</p>
+                </div>
+                <div class="col-md-2 text-end">
+                    <p class="order-price">@string.Format("{0:N0}VNĐ",item.UnitPrice)</p>
+                </div>
+                <div class="col-md-2 text-end">
+                    <button class="btn btn-orange btn-sm mb-1">Đánh Giá</button>
+                    <button class="btn btn-outline-secondary btn-sm mt-1">Yêu Cầu Hoàn Tiền</button>
+                </div>
             </div>
         </div>
-    </div>
+    }
 </div>
 
 <style>
