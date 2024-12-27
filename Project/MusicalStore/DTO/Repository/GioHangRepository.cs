@@ -52,10 +52,17 @@ namespace DTO.Repository
 
         public async Task<IEnumerable<GioHang>> DeleteGioHang(string makh, List<string> listId)
         {
-            var giohangs = _context.GioHangs.Where(gh => listId.Contains(gh.MaGh)).ToList();
-            _context.GioHangs.RemoveRange(giohangs);
-            await _context.SaveChangesAsync();
-            return _context.GioHangs.Where(gh => gh.MaKh == makh).ToList();
+            try
+            {
+                var giohangs = _context.GioHangs.Where(gh => listId.Contains(gh.MaGh)).ToList();
+                _context.GioHangs.RemoveRange(giohangs);
+                await _context.SaveChangesAsync();
+                return _context.GioHangs.Where(gh => gh.MaKh == makh).ToList();
+            }
+            catch(Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
         }
 
         public IEnumerable<GioHang> GetListGioHang(string makh)

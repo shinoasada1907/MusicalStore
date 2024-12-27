@@ -56,6 +56,7 @@ builder.Services.AddScoped<IPtThanhToanRepository, PtThanhToanRepository>();
 builder.Services.AddScoped<IChucVuRepository, ChucVuRepository>();
 builder.Services.AddScoped<IChiTietDHRepository, ChiTietDHRepository>();
 builder.Services.AddScoped<IGioHangRepository, GioHangRepository>();
+builder.Services.AddScoped<ITrangThaiRepository, TrangThaiRepository>();
 
 //MusicalStore
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
