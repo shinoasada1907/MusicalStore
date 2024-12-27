@@ -91,6 +91,18 @@
             });
         });
 
+                // Quantity Input Change
+        document.querySelectorAll(".quantity-input").forEach(input => {
+            input.addEventListener("input", function () {
+                if (parseInt(this.value) < 1 || isNaN(parseInt(this.value))) {
+                    this.value = 1; // Đảm bảo số lượng tối thiểu là 1
+                }
+                updateItemTotal(this);
+                updateTotal();
+            });
+        });
+
+
         document.querySelectorAll(".decrease-btn").forEach(button => {
             button.addEventListener("click", function () {
                 const input = this.parentElement.querySelector(".quantity-input");

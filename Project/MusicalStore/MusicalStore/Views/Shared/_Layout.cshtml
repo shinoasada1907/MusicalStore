@@ -40,7 +40,7 @@
                         {
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                    <img width="50" height="50" src="../../dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow"
+                                    <img width="50" height="50" src="~/images/@Context.Session.GetString("UserAvatar")" class="user-image rounded-circle shadow"
                                          alt="User Image"> <span class="d-none d-md-inline">@Context.Session.GetString("UserName")</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end custom-width">

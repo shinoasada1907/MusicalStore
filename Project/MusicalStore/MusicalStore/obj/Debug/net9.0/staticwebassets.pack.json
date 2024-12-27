@@ -393,6 +393,14 @@
       "PackagePath": "staticwebassets\\images\\DE12.jpg"
     },
     {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DEVISER.png",
+      "PackagePath": "staticwebassets\\images\\DEVISER.png"
+    },
+    {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DEVISER_1.png",
+      "PackagePath": "staticwebassets\\images\\DEVISER_1.png"
+    },
+    {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DS07.jpg",
       "PackagePath": "staticwebassets\\images\\DS07.jpg"
     },
@@ -483,6 +491,14 @@
     {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\FT01.png",
       "PackagePath": "staticwebassets\\images\\FT01.png"
+    },
+    {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Heritage Ascent.png",
+      "PackagePath": "staticwebassets\\images\\Heritage Ascent.png"
+    },
+    {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Heritage Ascent_1.png",
+      "PackagePath": "staticwebassets\\images\\Heritage Ascent_1.png"
     },
     {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\JS08.jpg",
@@ -755,6 +771,10 @@
     {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\ZZ10.jpg",
       "PackagePath": "staticwebassets\\images\\ZZ10.jpg"
+    },
+    {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\ava.JPG",
+      "PackagePath": "staticwebassets\\images\\ava.JPG"
     },
     {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\banner1.png",

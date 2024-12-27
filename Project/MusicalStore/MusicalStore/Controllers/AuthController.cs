@@ -59,7 +59,7 @@ namespace MusicalStore.Controllers
                     var staffInfo = _staffRepository.GetStaffInfo(account.EmployeeId);
                     HttpContext.Session.SetString("StaffId", account.EmployeeId);
                     HttpContext.Session.SetString("StaffName", staffInfo.StaffName);
-                    HttpContext.Session.SetString("StaffAvatar", "");
+                    HttpContext.Session.SetString("StaffAvatar", staffInfo.Avatar);
                     HttpContext.Session.SetString("Permission", account.PermissionId);
                 }
                 return Json(account);

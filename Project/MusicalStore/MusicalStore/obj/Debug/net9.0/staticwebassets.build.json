@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vAyQIiIa92hOJiEMDTCHM1NHFJ9HYLYLfM0An3crv/Q=",
+  "Hash": "frB1GVKizYbHJmw2vM9DtAH9LxniaiEHgHgNPuEQJF8=",
   "Source": "MusicalStore",
   "BasePath": "_content/MusicalStore",
   "Mode": "Default",
@@ -4259,6 +4259,27 @@
       "OriginalItemSpec": "wwwroot\\images\\AT06.jpg"
     },
     {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\ava.JPG",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/ava#[.{fingerprint}]?.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kmgrtw3m31",
+      "Integrity": "7Pn8YA30tbYNOQYH7F+tSIVmJRKxXDiZW5J2EUwPPfc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ava.JPG"
+    },
+    {
       "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\banner1.png",
       "SourceId": "MusicalStore",
       "SourceType": "Discovered",
@@ -4509,6 +4530,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\DE12.jpg"
+    },
+    {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DEVISER.png",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/DEVISER#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bb17hhkfn8",
+      "Integrity": "Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\DEVISER.png"
+    },
+    {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DEVISER_1.png",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/DEVISER_1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bb17hhkfn8",
+      "Integrity": "Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\DEVISER_1.png"
     },
     {
       "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DS07.jpg",
@@ -5055,6 +5118,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\harrypotter.jpg"
+    },
+    {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Heritage Ascent.png",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/Heritage Ascent#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hnkf8jknwx",
+      "Integrity": "s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Heritage Ascent.png"
+    },
+    {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Heritage Ascent_1.png",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/Heritage Ascent_1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hnkf8jknwx",
+      "Integrity": "s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Heritage Ascent_1.png"
     },
     {
       "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\images.jpg",
@@ -25820,6 +25925,88 @@
       ]
     },
     {
+      "Route": "images/ava.JPG",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\ava.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2942924"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7Pn8YA30tbYNOQYH7F+tSIVmJRKxXDiZW5J2EUwPPfc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 31 Dec 2010 17:00:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7Pn8YA30tbYNOQYH7F+tSIVmJRKxXDiZW5J2EUwPPfc="
+        }
+      ]
+    },
+    {
+      "Route": "images/ava.kmgrtw3m31.JPG",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\ava.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2942924"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7Pn8YA30tbYNOQYH7F+tSIVmJRKxXDiZW5J2EUwPPfc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 31 Dec 2010 17:00:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kmgrtw3m31"
+        },
+        {
+          "Name": "label",
+          "Value": "images/ava.JPG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7Pn8YA30tbYNOQYH7F+tSIVmJRKxXDiZW5J2EUwPPfc="
+        }
+      ]
+    },
+    {
       "Route": "images/banner1.pfnxinszlp.png",
       "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\banner1.png",
       "Selectors": [],
@@ -26800,6 +26987,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-akFy9Q0Ks69s/Ql8j0h30ODtZ/Js9X80Ggn167rcaQA="
+        }
+      ]
+    },
+    {
+      "Route": "images/DEVISER.bb17hhkfn8.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DEVISER.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152556"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 15:59:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bb17hhkfn8"
+        },
+        {
+          "Name": "label",
+          "Value": "images/DEVISER.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8="
+        }
+      ]
+    },
+    {
+      "Route": "images/DEVISER.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DEVISER.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152556"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 15:59:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8="
+        }
+      ]
+    },
+    {
+      "Route": "images/DEVISER_1.bb17hhkfn8.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DEVISER_1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152556"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 16:03:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bb17hhkfn8"
+        },
+        {
+          "Name": "label",
+          "Value": "images/DEVISER_1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8="
+        }
+      ]
+    },
+    {
+      "Route": "images/DEVISER_1.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DEVISER_1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152556"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 16:03:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Z5eX/Mpr0WYP8+jzPQjLgZZEAp/T98o1cex2tm1bOw8="
         }
       ]
     },
@@ -28932,6 +29283,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-L/nX1MhDI5SbmJwRTxUG5i5NvNq9nNjehEzrNDjAhCo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Heritage Ascent.hnkf8jknwx.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Heritage Ascent.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45913"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 15:52:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hnkf8jknwx"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Heritage Ascent.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI="
+        }
+      ]
+    },
+    {
+      "Route": "images/Heritage Ascent.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Heritage Ascent.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45913"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 15:52:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI="
+        }
+      ]
+    },
+    {
+      "Route": "images/Heritage Ascent_1.hnkf8jknwx.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Heritage Ascent_1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45913"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 15:53:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hnkf8jknwx"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Heritage Ascent_1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI="
+        }
+      ]
+    },
+    {
+      "Route": "images/Heritage Ascent_1.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Heritage Ascent_1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45913"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 27 Dec 2024 15:53:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-s7UUiMPczpSs9gUzJfrpP7nnOc4Rx5nBquRdfkhbCVI="
         }
       ]
     },

@@ -196,6 +196,7 @@ wwwroot\images\AC03.jpg
 wwwroot\images\AN05.png
 wwwroot\images\AS01.jpg
 wwwroot\images\AT06.jpg
+wwwroot\images\ava.JPG
 wwwroot\images\banner1.png
 wwwroot\images\banner2.png
 wwwroot\images\banner3.png
@@ -208,6 +209,8 @@ wwwroot\images\DA02.jpg
 wwwroot\images\DA04.jpg
 wwwroot\images\DE11.jpg
 wwwroot\images\DE12.jpg
+wwwroot\images\DEVISER.png
+wwwroot\images\DEVISER_1.png
 wwwroot\images\DS07.jpg
 wwwroot\images\DS08.jpg
 wwwroot\images\DSCN9723.JPG
@@ -234,6 +237,8 @@ wwwroot\images\FM16.jpg
 wwwroot\images\FT01.png
 wwwroot\images\ghibli.png
 wwwroot\images\harrypotter.jpg
+wwwroot\images\Heritage Ascent.png
+wwwroot\images\Heritage Ascent_1.png
 wwwroot\images\images.jpg
 wwwroot\images\JS08.jpg
 wwwroot\images\JS09.jpg
