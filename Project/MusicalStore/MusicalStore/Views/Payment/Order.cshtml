@@ -30,13 +30,14 @@
                         <tr>
                             <td>@item.Product.ProductName</td>
                             <td>
-                                <div class="col-4 text-center">
+                                @* <div class="col-4 text-center">
                                     <div class="input-group">
                                         <button class="btn btn-outline-secondary decrease-btn">-</button>
                                         <input type="number" class="form-control text-center quantity-input" value="@item.Quantity" min="1">
                                         <button class="btn btn-outline-secondary increase-btn">+</button>
                                     </div>
-                                </div>
+                                </div> *@
+                                <div class="text-start product-total">@item.Quantity</div>
                             </td>
                             <td>
                                 <div class="text-start product-price" data-price="@item.UnitPrice">@item.UnitPrice</div>
@@ -81,6 +82,7 @@
         </div>
 
         <div class="form-group mt-3">
+            <button type="button" class="btn btn-secondary" id="btnback">Trở lại</button>
             <button type="submit" class="btn btn-primary">Thanh Toán</button>
         </div>
     </form>
@@ -89,6 +91,12 @@
 @section Scripts
 {
     <script>
+
+        document.getElementById("btnback").addEventListener("click", function () {
+            // Quay lại trang trước
+            window.history.back();
+        });
+
         function updateTotal() {
             let grandTotal = 0;
             document.querySelectorAll('.product-total').forEach(totalElement => {
@@ -97,7 +105,8 @@
             });
 
             // Cập nhật tổng cộng trong tfoot
-            document.querySelector('.grand-total').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal);
+            var totalAmount = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(+grandTotal);
+            document.querySelector('.grand-total').textContent = `Tổng cộng: ${totalAmount} (Đã bao gồm VAT)`;
 
             // Cập nhật tổng tiền trong hidden input của form
             document.querySelector('[name="TotalAmount"]').value = grandTotal;
@@ -113,17 +122,6 @@
 
             // Update the total for this row
             totalElement.textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price * quantity);
-        }
-
-        function updateTotal() {
-            let grandTotal = 0;
-            document.querySelectorAll('.product-total').forEach(totalElement => {
-                const total = parseInt(totalElement.textContent.replace(/[^0-9]/g, ''));
-                grandTotal += total;
-            });
-
-            // Update the total amount in the form
-            document.querySelector('[name="TotalAmount"]').value = grandTotal;
         }
 
         document.querySelectorAll(".increase-btn").forEach(button => {

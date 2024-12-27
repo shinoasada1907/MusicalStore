@@ -46,7 +46,7 @@ namespace MusicalStore.Controllers
         {
             var product = _productRepository.GetProductById(productId);
             Console.WriteLine(product.ProductCode + " " + product.ProductName + " " + product.DetailVoucher.StartDate + " " + product.ProductDetail.Introduction);
-            return View(product);
+            //return View(product);
             dynamic dataProduct = new ExpandoObject();
             dataProduct.ProductDetail = product;
             dataProduct.ListRelatedProduct = _productRepository.GetListProductByCategory(product.CategoryCode)

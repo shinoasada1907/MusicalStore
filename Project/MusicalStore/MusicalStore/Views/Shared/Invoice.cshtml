@@ -130,8 +130,8 @@
                                 <td>@index</td>
                                 <td>@item.ProductName</td>
                                 <td>@item.Quantity</td>
-                                <td>@item.UnitPrice.ToString("C")</td>
-                                <td>@((item.Quantity * item.UnitPrice).ToString("C"))</td>
+                                <td>@string.Format("{0:N0}VNĐ", item.UnitPrice)</td>
+                                <td>@string.Format("{0:N0}VNĐ", (item.Quantity * item.UnitPrice))</td>
                             </tr>
                             index++;
                         }

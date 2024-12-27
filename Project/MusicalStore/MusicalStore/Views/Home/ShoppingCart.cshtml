@@ -3,7 +3,7 @@
     ViewData["Title"] = "Giỏ hàng";
 }
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <h2 class="text-center mb-4">Giỏ hàng của bạn</h2>
     <!-- Header -->
     <div class="card">
@@ -67,11 +67,18 @@
 @section Scripts {
     <script src="~/js/site.js"></script>
     <script>
-        // Select All Logic
+                // Select All Logic
         document.getElementById("select-all").addEventListener("change", function (e) {
             const checkboxes = document.querySelectorAll(".product-select");
             checkboxes.forEach(checkbox => checkbox.checked = e.target.checked);
             updateTotal();
+        });
+
+        // Handle checkbox change
+        document.querySelectorAll(".product-select").forEach(checkbox => {
+            checkbox.addEventListener("change", function () {
+                updateTotal();
+            });
         });
 
         // Quantity Increase/Decrease
@@ -138,7 +145,7 @@
                     const totalPrice = parseInt(item.querySelector(".product-total").innerText.replace(/[₫,]/g, ""));
 
                     selectedProducts.push({
-                        orderDetailId: 'ODO'+ generateRandomString(6), // Có thể để trống nếu chưa cần
+                        orderDetailId: 'ODO' + generateRandomString(6), // Có thể để trống nếu chưa cần
                         orderId: "", // Có thể để trống nếu chưa cần
                         productId: productId,
                         voucherId: "",
@@ -153,8 +160,7 @@
                 alert("Vui lòng chọn ít nhất một sản phẩm để thanh toán.");
                 return;
             }
-            if (confirm("Xác nhận thanh toán?")) {
-                $.ajax({
+            $.ajax({
                 url: '@Url.Action("SendRequestOrder", "Payment")',
                 method: 'POST',
                 type: 'POST',
@@ -162,11 +168,13 @@
                 data: JSON.stringify(selectedProducts),
                 success: function (data) {
                     console.log(data);
-                    window.location.href = '/Payment/Order'
+                    window.location.href = '/Payment/Order';
                 },
-                error: function () { }
-            })
-            }
+                error: function () {
+                    alert("Đã xảy ra lỗi. Vui lòng thử lại!");
+                }
+            });
         }
+
     </script>
 }
