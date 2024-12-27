@@ -38,9 +38,24 @@ namespace MusicalStore.Repository.ShoppingCartRepo
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ShoppingCart>> DeleteShoppingCart(string customerId, List<string> listId)
+        public async Task<IEnumerable<ShoppingCart>> DeleteShoppingCart(string customerId, List<string> listId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var giohangs = await _gioHangRepository.DeleteGioHang(customerId, listId);
+                var shoppingCarts = ShoppingCartMapping.MapToShoppingCartList(giohangs);
+                foreach (var item in shoppingCarts)
+                {
+                    var sanPham = _sanPhamRepository.GetSanPhamById(item.ProductId);
+                    item.Product = ProductMapping.MappingToProduct(sanPham);
+                }
+                return shoppingCarts;
+            }
+            catch(Exception ex)
+            {
+
+                throw new NotImplementedException(ex.Message);
+            }
         }
 
         public IEnumerable<ShoppingCart> GetShoppingCarts(string customerId)

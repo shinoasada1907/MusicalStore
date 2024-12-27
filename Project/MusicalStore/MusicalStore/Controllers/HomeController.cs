@@ -125,12 +125,20 @@ namespace MusicalStore.Controllers
             var product = _productRepository.GetProductById(productId);
             ShoppingCart sCart = new ShoppingCart();
             sCart.CartId = FunctionApplication.GenerateId(5);
-            sCart.CustomerId = HttpContext.Session.GetString("UserId");
+            sCart.CustomerId = HttpContext.Session.GetString("UserId")!;
             sCart.ProductId = productId;
             sCart.Quantity = 1;
             sCart.Price = product.Price ?? 0;
             var cart = await _shoppingCartRepository.AddShoppingCart(sCart);
             return Json(cart);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteShoppingCart([FromBody] List<string> listId)
+        {
+            string customerId = HttpContext.Session.GetString("UserId")!;
+            var carts = await _shoppingCartRepository.DeleteShoppingCart(customerId, listId);
+            return PartialView("_ListProductShoppingCart", carts);
         }
 
         [HttpGet]

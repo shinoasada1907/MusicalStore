@@ -131,8 +131,8 @@ namespace MusicalStore.Controllers
 
             if(response.ErrorCode == "0")
             {
-                //var newOrder = await _orderRespository.CreateNewOrder(order!);
-                //var newOrderDetail = await _orderDetailRepository.CreateOrderDetail(orderDetails!);
+                var newOrder = await _orderRespository.CreateNewOrder(order!);
+                var newOrderDetail = await _orderDetailRepository.CreateOrderDetail(orderDetails!);
                 InvoiceModel model = new InvoiceModel();
                 model = InvoiceMapping.ToInvoiceModel(order!, orderDetails!);
                 model.CustomerName = HttpContext.Session.GetString("UserName")!;
@@ -168,8 +168,8 @@ namespace MusicalStore.Controllers
 
             if (response.VnPayResponseCode == "00")
             {
-                //var newOrder = await _orderRespository.CreateNewOrder(order!);
-                //var newOrderDetail = await _orderDetailRepository.CreateOrderDetail(orderDetails!);
+                var newOrder = await _orderRespository.CreateNewOrder(order!);
+                var newOrderDetail = await _orderDetailRepository.CreateOrderDetail(orderDetails!);
                 InvoiceModel model = new InvoiceModel();
                 model = InvoiceMapping.ToInvoiceModel(order!, orderDetails!);
                 model.CustomerName = HttpContext.Session.GetString("UserName")!;

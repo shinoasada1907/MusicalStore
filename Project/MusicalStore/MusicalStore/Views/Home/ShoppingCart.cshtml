@@ -16,13 +16,14 @@
             <div class="col-md-2 text-end">Tổng tiền</div>
         </div>
         <!-- List of Products -->
-        <div class="card-body">
+        <div class="card-body" id="listproduct">
             @if (Model != null)
             {
                 foreach (ShoppingCart item in Model) // Thay thế vòng lặp bằng danh sách sản phẩm thực tế
                 {
                     <div class="row align-items-center mb-3 product-item">
                         <div class="col-md-6 d-flex align-items-center">
+                            <input type="text" hidden class="shoppingId" value="@item.CartId" />
                             <input type="text" hidden class="productId" value="@item.ProductId" />
                             <input type="checkbox" class="product-select me-3" />
                             <img src="~/images/@item.Product.ImageUrl" alt="Product" class="img-fluid me-3" style="width: 60px; height: 60px;">
@@ -46,7 +47,7 @@
         <div class="card-footer">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <button class="btn btn-danger" id="clear-cart">Xóa tất cả</button>
+                    <button class="btn btn-danger" onclick="DeleteProductShoppingCart()">Xóa sản phẩm</button>
                 </div>
                 <div class="col-md-6 text-end">
                     Tổng thanh toán: <span class="total-amount text-danger fw-bold">0₫</span>
@@ -100,14 +101,6 @@
                     updateTotal();
                 }
             });
-        });
-
-        // Clear Cart
-        document.getElementById("clear-cart").addEventListener("click", function () {
-            if (confirm("Bạn có chắc muốn xóa tất cả sản phẩm?")) {
-                document.querySelector(".card-body").innerHTML = "";
-                updateTotal();
-            }
         });
 
         // Update Item Total
@@ -168,6 +161,7 @@
                 data: JSON.stringify(selectedProducts),
                 success: function (data) {
                     console.log(data);
+                    DeleteProductShoppingCart();
                     window.location.href = '/Payment/Order';
                 },
                 error: function () {
@@ -176,5 +170,35 @@
             });
         }
 
+        function DeleteProductShoppingCart()
+        {
+            const selectedProducts = [];
+            document.querySelectorAll(".product-item").forEach(item => {
+                const checkbox = item.querySelector(".product-select");
+                if (checkbox.checked) {
+                    const productId = item.querySelector(".shoppingId").value;
+
+                    selectedProducts.push(productId);
+                }
+            });
+            if (selectedProducts.length === 0) {
+                alert("Vui lòng chọn ít nhất một sản phẩm để thanh toán.");
+                return;
+            }
+            $.ajax({
+                url: '@Url.Action("DeleteShoppingCart", "Home")',
+                method: 'POST',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(selectedProducts),
+                success: function (data) {
+                    console.log(data);
+                    $("#listproduct").html(data)
+                },
+                error: function () {
+                    alert("Đã xảy ra lỗi. Vui lòng thử lại!");
+                }
+            });
+        }
     </script>
 }

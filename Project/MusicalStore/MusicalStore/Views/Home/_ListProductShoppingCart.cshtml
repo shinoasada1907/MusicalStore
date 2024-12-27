@@ -1,0 +1,26 @@
+﻿<div class="card-body" id="listproduct">
+    @if (Model != null)
+    {
+        foreach (ShoppingCart item in Model) // Thay thế vòng lặp bằng danh sách sản phẩm thực tế
+        {
+            <div class="row align-items-center mb-3 product-item">
+                <div class="col-md-6 d-flex align-items-center">
+                    <input type="text" hidden class="productId" value="@item.ProductId" />
+                    <input type="checkbox" class="product-select me-3" />
+                    <img src="~/images/@item.Product.ImageUrl" alt="Product" class="img-fluid me-3" style="width: 60px; height: 60px;">
+                    <span class="product-name">@item.Product.ProductName</span>
+                </div>
+                <div class="col-md-2 text-center product-price">@item.Price</div>
+                <div class="col-md-2 text-center">
+                    <div class="input-group">
+                        <button class="btn btn-outline-secondary decrease-btn">-</button>
+                        <input type="number" class="form-control text-center quantity-input" value="@item.Quantity" min="1">
+                        <button class="btn btn-outline-secondary increase-btn">+</button>
+                    </div>
+                </div>
+                <div class="col-md-2 text-end product-total">@item.Total</div>
+            </div>
+        }
+    }
+
+</div>
