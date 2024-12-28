@@ -12,5 +12,6 @@
         public string OrderInfo { get; set; } = string.Empty;
         public string PaymentId { get; set; } = string.Empty;
         public string OrderType { get; set; } = string.Empty;
+        public StatusModel StatusModel { get; set; } = new StatusModel();
     }
 }

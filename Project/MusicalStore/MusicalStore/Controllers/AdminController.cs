@@ -57,6 +57,7 @@ namespace MusicalStore.Controllers
         public IActionResult AdminOrder()
         {
             var oders = _orderRespository.GetAllOrder();
+            ViewData["Status"] = _orderRespository.GetAllStatus();
             return View(oders);
         }
 

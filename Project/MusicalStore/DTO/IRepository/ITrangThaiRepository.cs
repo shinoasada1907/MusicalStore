@@ -10,5 +10,6 @@ namespace DTO.IRepository
     public interface ITrangThaiRepository
     {
         public IEnumerable<TinhTrang> GetAllTrangThai();
+        public TinhTrang GetTrangThaiById(int id);
     }
 }

@@ -28,14 +28,11 @@
                         <td>@item.UserName</td>
                         <td>@String.Format("{0:C0}", item.TotalAmount)</td>
                         <td>@item.OrderDate.ToShortDateString()</td>
-                        <td>@item.Status</td>
+                        <td>@item.StatusModel.StatusName</td>
                         <td>
                             <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-sm btn-primary" title="Sửa">
+                                <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal(`${@item.OrderId}`)">
                                     <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button class="btn btn-sm btn-danger" title="Xóa">
-                                    <i class="bi bi-trash"></i>
                                 </button>
                             </div>
                         </td>
@@ -45,6 +42,57 @@
         </table>
     </div>
 </div>
+
+<!-- Modal Thêm sản phẩm -->
+<div class="modal fade" id="updateOrderModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Cập nhật đơn hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Body -->
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="mb-3">
+                        <label for="orderId" class="form-label">Mã đơn hàng</label>
+                        <input type="text" disabled class="form-control" id="orderId" placeholder="Nhập tên sản phẩm" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerName" class="form-label">Khách hàng</label>
+                        <input type="text" disabled class="form-control" id="customerId" placeholder="Nhập hãng" required>
+                        <input type="text" disabled class="form-control" id="customerName" placeholder="Nhập hãng" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Trạng thái đơn hàng</label>
+                        <select id="status" class="form-select">
+                            @foreach (StatusModel item in ViewData["Status"] as List<StatusModel>)
+                            {
+                                <option value="@item.StatusId">@item.StatusName</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="orderDate" class="form-label">Ngày tạo hóa đơn</label>
+                        <input type="date" disabled class="form-control" id="orderDate" placeholder="Nhập đơn vị tính" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="totalPrice" class="form-label">Tổng tiền</label>
+                        <input type="number" disabled class="form-control" id="totalPrice" placeholder="Nhập giá" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" onclick="ModalProuctImplement()" data-bs-dismiss="modal">Lưu sản phẩm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -72,4 +120,9 @@
             paging: true // Kích hoạt phân trang
         });
     });
+
+    function showEditModal(orderId)
+    {
+        $("#updateOrderModal").modal('show')
+    }
 </script>
