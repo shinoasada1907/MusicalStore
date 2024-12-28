@@ -451,6 +451,12 @@
                 },
                 success: function (data) {
                     console.log(data);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Yay~~~",
+                        text: "Đã thêm sản phẩm vào giỏ hàng"
+
+                    });
                 },
                 error: function () { }
             })

@@ -17,6 +17,23 @@ namespace DTO.Repository
             _context = context;
         }
 
+        public async Task<IEnumerable<DonHang>> CapNhatTrangThaiDonHang(string makh, string madh, int trangthai)
+        {
+            try
+            {
+                var donhang = _context.DonHangs.FirstOrDefault(d => d.MaDh == madh);
+                donhang!.MaTt = trangthai;
+                _context.DonHangs.Update(donhang);
+                await _context.SaveChangesAsync();
+                return _context.DonHangs.Where(d => d.MaKh == makh).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+
+        }
+
         public IEnumerable<DonHang> GetListDonHang()
         {
             return _context.DonHangs.Select(dh => new DonHang

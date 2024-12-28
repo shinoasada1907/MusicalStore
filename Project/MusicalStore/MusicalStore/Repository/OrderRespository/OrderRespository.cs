@@ -7,9 +7,11 @@ namespace MusicalStore.Repository.OrderRespository
     public class OrderRespository : IOrderRespository
     {
         private readonly IDonHangRepository _donHangRepository;
-        public OrderRespository(IDonHangRepository donHangRepository)
+        private readonly ITrangThaiRepository _trangThaiRepository;
+        public OrderRespository(IDonHangRepository donHangRepository, ITrangThaiRepository trangThaiRepository)
         {
             _donHangRepository = donHangRepository;
+            _trangThaiRepository = trangThaiRepository;
         }
 
         public async Task<OrderModel> CreateNewOrder(OrderModel model)
@@ -23,7 +25,19 @@ namespace MusicalStore.Repository.OrderRespository
         public IEnumerable<OrderModel> GetAllOrder()
         {
             var orders = _donHangRepository.GetListDonHang();
-            return OrderMapping.MapToOrderModels(orders);
+            var listOrder = OrderMapping.MapToOrderModels(orders);
+            foreach(OrderModel item in listOrder)
+            {
+                var tt = _trangThaiRepository.GetTrangThaiById(item.StatusId);
+                item.StatusModel = StatusMapping.MapToStatusModel(tt);
+            }
+            return listOrder;
+        }
+
+        public IEnumerable<StatusModel> GetAllStatus()
+        {
+            var tt = _trangThaiRepository.GetAllTrangThai();
+            return StatusMapping.MapToStatuses(tt);
         }
     }
 }
