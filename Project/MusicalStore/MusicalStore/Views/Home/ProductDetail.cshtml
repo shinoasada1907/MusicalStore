@@ -27,7 +27,7 @@
 
         <!-- Product Details -->
         <div class="col-md-6">
-            <input class="product-title" hidden id="productId" value="@Model.ProductDetail.ProductCode"></input>
+            <input class="product-title" hidden id="productId" value="@Model.ProductDetail.ProductCode"/>
 
             <!-- Product Title -->
             <h2 class="product-title-header fw-bold text-dark">@Model.ProductDetail.ProductName</h2>
@@ -451,6 +451,12 @@
                 },
                 success: function (data) {
                     console.log(data);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Yay~~~",
+                        text: "Đã thêm sản phẩm vào giỏ hàng"
+
+                    });
                 },
                 error: function () { }
             })

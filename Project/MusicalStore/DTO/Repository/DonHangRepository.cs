@@ -17,6 +17,11 @@ namespace DTO.Repository
             _context = context;
         }
 
+        public Task<DonHang> CapNhatTrangThaiDonHang(string trangthai)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<DonHang> GetListDonHang()
         {
             return _context.DonHangs.Select(dh => new DonHang

@@ -173,7 +173,6 @@
                 data: JSON.stringify(selectedProducts),
                 success: function (data) {
                     console.log(data);
-                    DeleteProductShoppingCart();
                     window.location.href = '/Payment/Order';
                 },
                 error: function () {

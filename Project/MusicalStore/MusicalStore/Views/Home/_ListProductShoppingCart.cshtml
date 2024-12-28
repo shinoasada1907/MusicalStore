@@ -5,6 +5,7 @@
         {
             <div class="row align-items-center mb-3 product-item">
                 <div class="col-md-6 d-flex align-items-center">
+                    <input type="text" hidden class="shoppingId" value="@item.CartId" />
                     <input type="text" hidden class="productId" value="@item.ProductId" />
                     <input type="checkbox" class="product-select me-3" />
                     <img src="~/images/@item.Product.ImageUrl" alt="Product" class="img-fluid me-3" style="width: 60px; height: 60px;">

@@ -146,6 +146,7 @@ namespace MusicalStore.Controllers
         public IActionResult PaymentProduct(string productId)
         {
             TempData["ProductId"] = productId;
+            
             return RedirectToAction("Order", "Payment");
         }
 
