@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "frB1GVKizYbHJmw2vM9DtAH9LxniaiEHgHgNPuEQJF8=",
+  "Hash": "ddDpOX0QNbTLtveyzJm5Ji0RQeAhlT2yt+lEpqOLIQ8=",
   "Source": "MusicalStore",
   "BasePath": "_content/MusicalStore",
   "Mode": "Default",
@@ -4637,6 +4637,27 @@
       "OriginalItemSpec": "wwwroot\\images\\DSCN9723.JPG"
     },
     {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DSCN9723_1.JPG",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/DSCN9723_1#[.{fingerprint}]?.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pevyvgr89u",
+      "Integrity": "f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\DSCN9723_1.JPG"
+    },
+    {
       "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DSCN9729.JPG",
       "SourceId": "MusicalStore",
       "SourceType": "Discovered",
@@ -5855,6 +5876,69 @@
       "OriginalItemSpec": "wwwroot\\images\\Picture1_5.png"
     },
     {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_6.png",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/Picture1_6#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rs018cssni",
+      "Integrity": "SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Picture1_6.png"
+    },
+    {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_7.png",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/Picture1_7#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rs018cssni",
+      "Integrity": "SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Picture1_7.png"
+    },
+    {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_8.png",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/Picture1_8#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rs018cssni",
+      "Integrity": "SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Picture1_8.png"
+    },
+    {
       "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture2.png",
       "SourceId": "MusicalStore",
       "SourceType": "Discovered",
@@ -6611,6 +6695,27 @@
       "OriginalItemSpec": "wwwroot\\images\\yamaha-C40M_3.jpg"
     },
     {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamaha-C40M_4.jpg",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/yamaha-C40M_4#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "243jcb5cic",
+      "Integrity": "gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\yamaha-C40M_4.jpg"
+    },
+    {
       "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl.jpg",
       "SourceId": "MusicalStore",
       "SourceType": "Discovered",
@@ -6672,6 +6777,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\yamahacl_2.jpg"
+    },
+    {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_3.jpg",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/yamahacl_3#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f0ltrcr6c2",
+      "Integrity": "n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\yamahacl_3.jpg"
+    },
+    {
+      "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_4.jpg",
+      "SourceId": "MusicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\",
+      "BasePath": "_content/MusicalStore",
+      "RelativePath": "images/yamahacl_4#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f0ltrcr6c2",
+      "Integrity": "n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\yamahacl_4.jpg"
     },
     {
       "Identity": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\ZZ04.jpg",
@@ -27401,6 +27548,88 @@
       ]
     },
     {
+      "Route": "images/DSCN9723_1.JPG",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DSCN9723_1.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3186729"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 00:10:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs="
+        }
+      ]
+    },
+    {
+      "Route": "images/DSCN9723_1.pevyvgr89u.JPG",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DSCN9723_1.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3186729"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 00:10:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pevyvgr89u"
+        },
+        {
+          "Name": "label",
+          "Value": "images/DSCN9723_1.JPG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs="
+        }
+      ]
+    },
+    {
       "Route": "images/DSCN9729.3e7akegxyq.JPG",
       "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DSCN9729.JPG",
       "Selectors": [],
@@ -32157,6 +32386,252 @@
       ]
     },
     {
+      "Route": "images/Picture1_6.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_6.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 09:31:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_6.rs018cssni.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_6.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 09:31:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs018cssni"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Picture1_6.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_7.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_7.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:18:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_7.rs018cssni.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_7.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:18:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs018cssni"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Picture1_7.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_8.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_8.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:19:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_8.rs018cssni.png",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_8.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:19:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs018cssni"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Picture1_8.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
       "Route": "images/Picture2.5ipweew5fc.png",
       "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture2.png",
       "Selectors": [],
@@ -35109,6 +35584,88 @@
       ]
     },
     {
+      "Route": "images/yamaha-C40M_4.243jcb5cic.jpg",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamaha-C40M_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30542"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:09:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "243jcb5cic"
+        },
+        {
+          "Name": "label",
+          "Value": "images/yamaha-C40M_4.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8="
+        }
+      ]
+    },
+    {
+      "Route": "images/yamaha-C40M_4.jpg",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamaha-C40M_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30542"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:09:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8="
+        }
+      ]
+    },
+    {
       "Route": "images/yamahacl.f0ltrcr6c2.jpg",
       "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl.jpg",
       "Selectors": [],
@@ -35341,6 +35898,170 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 18 Dec 2024 16:42:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c="
+        }
+      ]
+    },
+    {
+      "Route": "images/yamahacl_3.f0ltrcr6c2.jpg",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 03:35:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f0ltrcr6c2"
+        },
+        {
+          "Name": "label",
+          "Value": "images/yamahacl_3.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c="
+        }
+      ]
+    },
+    {
+      "Route": "images/yamahacl_3.jpg",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 03:35:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c="
+        }
+      ]
+    },
+    {
+      "Route": "images/yamahacl_4.f0ltrcr6c2.jpg",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 03:40:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f0ltrcr6c2"
+        },
+        {
+          "Name": "label",
+          "Value": "images/yamahacl_4.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c="
+        }
+      ]
+    },
+    {
+      "Route": "images/yamahacl_4.jpg",
+      "AssetFile": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 03:40:04 GMT"
         },
         {
           "Name": "Cache-Control",

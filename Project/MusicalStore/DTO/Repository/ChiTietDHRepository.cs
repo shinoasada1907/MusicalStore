@@ -27,6 +27,17 @@ namespace DTO.Repository
             return ctdh;
         }
 
+        public IEnumerable<CtDonHang> GetChiTietDonTrangThai(string makh, int trangthai)
+        {
+            var ctdh = _context.CtDonHangs.Join(_context.DonHangs
+                .Where(dh => dh.MaKh == makh && dh.MaTt == trangthai), dh => dh.MaDh, ctdh => ctdh.MaDh, (ctdh, dh) => new
+                {
+                    Don = dh,
+                    CtDon = ctdh
+                }).OrderBy(x => x.Don.NgayLap).Select(x => x.CtDon).ToList();
+            return ctdh;
+        }
+
         public async Task<IEnumerable<CtDonHang>> TaoChiTietDonHang(List<CtDonHang> ctDonHang)
         {
             try

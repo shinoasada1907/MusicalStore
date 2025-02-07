@@ -3,36 +3,36 @@
   "WorkspaceRootPath": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\repository\\orderrespository\\orderrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\repository\\orderrespository\\orderrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\dto\\repository\\donhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|solutionrelative:dto\\repository\\donhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\views\\home\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\home\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\views\\home\\shoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\home\\shoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\repository\\orderrespository\\iorderrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\repository\\orderrespository\\iorderrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\dto\\irepository\\idonhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84E1BC08-8EBB-407A-A382-BCDE95400EE6}|DTO\\DTO.csproj|solutionrelative:dto\\irepository\\idonhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\views\\profile\\_purchasehistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\profile\\_purchasehistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\views\\payment\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\payment\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|d:\\daihoc\\kltn\\xyz\\musicalstore\\project\\musicalstore\\musicalstore\\views\\profile\\_listorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ACE4F912-85CD-492D-989B-895B16F2DC9D}|MusicalStore\\MusicalStore.csproj|solutionrelative:musicalstore\\views\\profile\\_listorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 634,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,102 +50,107 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "MusicalStore\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "MusicalStore\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACAAAAAAAAAAAAAIwCgAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T23:25:04.661Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "MusicalStore\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "MusicalStore\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T23:23:15.863Z",
+              "Title": "DonHangRepository.cs",
+              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\DTO\\Repository\\DonHangRepository.cs",
+              "RelativeDocumentMoniker": "DTO\\Repository\\DonHangRepository.cs",
+              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\DTO\\Repository\\DonHangRepository.cs",
+              "RelativeToolTip": "DTO\\Repository\\DonHangRepository.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwBsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T13:34:45.85Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "MusicalStore\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAUwJQAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "OrderRespository.cs",
+              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Repository\\OrderRespository\\OrderRespository.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Repository\\OrderRespository\\OrderRespository.cs",
+              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Repository\\OrderRespository\\OrderRespository.cs",
+              "RelativeToolTip": "MusicalStore\\Repository\\OrderRespository\\OrderRespository.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwDQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:31:58.354Z"
+              "WhenOpened": "2024-12-30T13:28:39.855Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "MusicalStore\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAASwDAAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "IOrderRespository.cs",
+              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Repository\\OrderRespository\\IOrderRespository.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Repository\\OrderRespository\\IOrderRespository.cs",
+              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Repository\\OrderRespository\\IOrderRespository.cs",
+              "RelativeToolTip": "MusicalStore\\Repository\\OrderRespository\\IOrderRespository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:20:05.914Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PaymentController.cs",
-              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\PaymentController.cs",
-              "RelativeDocumentMoniker": "MusicalStore\\Controllers\\PaymentController.cs",
-              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\PaymentController.cs",
-              "RelativeToolTip": "MusicalStore\\Controllers\\PaymentController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAIAzwDQAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:19:49.186Z",
+              "WhenOpened": "2024-12-30T13:28:22.596Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProductDetail.cshtml",
-              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Home\\ProductDetail.cshtml",
-              "RelativeDocumentMoniker": "MusicalStore\\Views\\Home\\ProductDetail.cshtml",
-              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Home\\ProductDetail.cshtml",
-              "RelativeToolTip": "MusicalStore\\Views\\Home\\ProductDetail.cshtml",
-              "ViewState": "AgIAAI4BAAAAAAAAAAAAAKQBAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T18:18:46.979Z"
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "MusicalStore\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwDsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T13:27:16.23Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ShoppingCart.cshtml",
-              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Home\\ShoppingCart.cshtml",
-              "RelativeDocumentMoniker": "MusicalStore\\Views\\Home\\ShoppingCart.cshtml",
-              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Home\\ShoppingCart.cshtml",
-              "RelativeToolTip": "MusicalStore\\Views\\Home\\ShoppingCart.cshtml",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAAAK4AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T18:18:45.674Z"
+              "DocumentIndex": 2,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "MusicalStore\\Controllers\\ProfileController.cs",
+              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Controllers\\ProfileController.cs",
+              "RelativeToolTip": "MusicalStore\\Controllers\\ProfileController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAzwDMAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T18:09:56.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IDonHangRepository.cs",
+              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\DTO\\IRepository\\IDonHangRepository.cs",
+              "RelativeDocumentMoniker": "DTO\\IRepository\\IDonHangRepository.cs",
+              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\DTO\\IRepository\\IDonHangRepository.cs",
+              "RelativeToolTip": "DTO\\IRepository\\IDonHangRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T13:34:27.986Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Order.cshtml",
-              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Payment\\Order.cshtml",
-              "RelativeDocumentMoniker": "MusicalStore\\Views\\Payment\\Order.cshtml",
-              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Payment\\Order.cshtml",
-              "RelativeToolTip": "MusicalStore\\Views\\Payment\\Order.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
+              "Title": "_ListOrder.cshtml",
+              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Profile\\_ListOrder.cshtml",
+              "RelativeDocumentMoniker": "MusicalStore\\Views\\Profile\\_ListOrder.cshtml",
+              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Profile\\_ListOrder.cshtml",
+              "RelativeToolTip": "MusicalStore\\Views\\Profile\\_ListOrder.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T18:18:28.845Z"
+              "WhenOpened": "2024-12-29T18:43:57.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_PurchaseHistory.cshtml",
+              "DocumentMoniker": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Profile\\_PurchaseHistory.cshtml",
+              "RelativeDocumentMoniker": "MusicalStore\\Views\\Profile\\_PurchaseHistory.cshtml",
+              "ToolTip": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\Views\\Profile\\_PurchaseHistory.cshtml",
+              "RelativeToolTip": "MusicalStore\\Views\\Profile\\_PurchaseHistory.cshtml",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-29T18:13:46.919Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -413,6 +413,10 @@
       "PackagePath": "staticwebassets\\images\\DSCN9723.JPG"
     },
     {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DSCN9723_1.JPG",
+      "PackagePath": "staticwebassets\\images\\DSCN9723_1.JPG"
+    },
+    {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\DSCN9729.JPG",
       "PackagePath": "staticwebassets\\images\\DSCN9729.JPG"
     },
@@ -641,6 +645,18 @@
       "PackagePath": "staticwebassets\\images\\Picture1_5.png"
     },
     {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_6.png",
+      "PackagePath": "staticwebassets\\images\\Picture1_6.png"
+    },
+    {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_7.png",
+      "PackagePath": "staticwebassets\\images\\Picture1_7.png"
+    },
+    {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture1_8.png",
+      "PackagePath": "staticwebassets\\images\\Picture1_8.png"
+    },
+    {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\Picture2.png",
       "PackagePath": "staticwebassets\\images\\Picture2.png"
     },
@@ -833,6 +849,10 @@
       "PackagePath": "staticwebassets\\images\\yamaha-C40M_3.jpg"
     },
     {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamaha-C40M_4.jpg",
+      "PackagePath": "staticwebassets\\images\\yamaha-C40M_4.jpg"
+    },
+    {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl.jpg",
       "PackagePath": "staticwebassets\\images\\yamahacl.jpg"
     },
@@ -843,6 +863,14 @@
     {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_2.jpg",
       "PackagePath": "staticwebassets\\images\\yamahacl_2.jpg"
+    },
+    {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_3.jpg",
+      "PackagePath": "staticwebassets\\images\\yamahacl_3.jpg"
+    },
+    {
+      "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\images\\yamahacl_4.jpg",
+      "PackagePath": "staticwebassets\\images\\yamahacl_4.jpg"
     },
     {
       "Id": "D:\\DAIHOC\\KLTN\\xyz\\MusicalStore\\Project\\MusicalStore\\MusicalStore\\wwwroot\\js\\site.js",

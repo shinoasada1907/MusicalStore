@@ -64,6 +64,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/DAIHOC/KLTN/xyz/MusicalStore/Project/MusicalStore/MusicalStore/Views/Admin/_TableOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DAIHOC/KLTN/xyz/MusicalStore/Project/MusicalStore/MusicalStore/Views/Admin/_TablePayment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlUGF5bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -154,6 +158,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DAIHOC/KLTN/xyz/MusicalStore/Project/MusicalStore/MusicalStore/Views/Profile/_Favorites.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxfRmF2b3JpdGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DAIHOC/KLTN/xyz/MusicalStore/Project/MusicalStore/MusicalStore/Views/Profile/_ListOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxfTGlzdE9yZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DAIHOC/KLTN/xyz/MusicalStore/Project/MusicalStore/MusicalStore/Views/Profile/_Notifications.cshtml]

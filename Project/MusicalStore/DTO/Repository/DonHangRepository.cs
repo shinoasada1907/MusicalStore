@@ -21,11 +21,11 @@ namespace DTO.Repository
         {
             try
             {
-                var donhang = _context.DonHangs.FirstOrDefault(d => d.MaDh == madh);
-                donhang!.MaTt = trangthai;
+                var donhang = GetDonHangById(makh);
+                donhang.MaTt = trangthai;
                 _context.DonHangs.Update(donhang);
                 await _context.SaveChangesAsync();
-                return _context.DonHangs.Where(d => d.MaKh == makh).ToList();
+                return GetListDonHang();
             }
             catch (Exception ex)
             {
@@ -33,9 +33,21 @@ namespace DTO.Repository
             }
         }
 
+        public DonHang GetDonHangById(string id)
+        {
+            var donhang = _context.DonHangs.FirstOrDefault(dh => dh.MaDh == id);
+            return donhang!;
+        }
+
+        public IEnumerable<DonHang> GetDonHangTrangThai(string makh, int trangthai)
+        {
+            var donhang = _context.DonHangs.Where(dh=>dh.MaKh == makh && dh.MaTt == trangthai).ToList();
+            return donhang;
+        }
+
         public IEnumerable<DonHang> GetListDonHang()
         {
-            return _context.DonHangs.Select(dh => new DonHang
+            return _context.DonHangs.Select(dh=>new DonHang
             {
                 MaDh = dh.MaDh,
                 TongTienHang = dh.TongTienHang,
@@ -45,8 +57,13 @@ namespace DTO.Repository
                 MaPttt = dh.MaPttt,
                 MaKhNavigation = dh.MaKhNavigation,
                 MaPtttNavigation = dh.MaPtttNavigation,
-                MaTtNavigation = dh.MaTtNavigation,
+                MaTtNavigation = dh.MaTtNavigation
             }).ToList();
+        }
+
+        public IEnumerable<DonHang> GetListDonHangKhachHang(string makh)
+        {
+            return _context.DonHangs.Where(dh => dh.MaKh == makh).ToList();
         }
 
         public async Task<DonHang> KhoiTaoDonHang(DonHang donHang)

@@ -123,6 +123,10 @@ namespace MusicalStore.Controllers
         [HttpPost]
         public async Task<IActionResult> AddShoppingCart(string productId)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             var product = _productRepository.GetProductById(productId);
             ShoppingCart sCart = new ShoppingCart();
             sCart.CartId = FunctionApplication.GenerateId(5);
@@ -146,7 +150,7 @@ namespace MusicalStore.Controllers
         public IActionResult PaymentProduct(string productId)
         {
             TempData["ProductId"] = productId;
-            
+
             return RedirectToAction("Order", "Payment");
         }
 
@@ -155,6 +159,15 @@ namespace MusicalStore.Controllers
         {
             var relatedProducts = _productRepository.GetListProductByCategory(category);
             return PartialView("_RelatedProducts", relatedProducts);
+        }
+
+        [HttpGet]
+        public IActionResult CheckQuantity(string productId, string quantity)
+        {
+            return Json(new
+            {
+                check = _productRepository.CheckQuantityProduct(productId, Convert.ToInt32(quantity))
+            });
         }
     }
 }

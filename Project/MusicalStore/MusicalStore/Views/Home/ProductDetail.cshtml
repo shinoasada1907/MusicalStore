@@ -21,13 +21,13 @@
         <!-- Product Image -->
         <div class="col-md-6 text-center">
             <img src="~/images/@Model.ProductDetail.ImageUrl"
-                 alt="Guitar Acoustic NG GT700NA"
-                 class="img-fluid product-img zoom-effect">
+            alt="Guitar Acoustic NG GT700NA"
+            class="img-fluid product-img zoom-effect">
         </div>
 
         <!-- Product Details -->
         <div class="col-md-6">
-            <input class="product-title" hidden id="productId" value="@Model.ProductDetail.ProductCode"/>
+            <input class="product-title" hidden id="productId" value="@Model.ProductDetail.ProductCode" />
 
             <!-- Product Title -->
             <h2 class="product-title-header fw-bold text-dark">@Model.ProductDetail.ProductName</h2>
@@ -41,14 +41,25 @@
             </div>
 
             <!-- Add to Cart and Checkout Buttons -->
-            <div class="row mt-4">
-                <div class="col-6">
-                    <button class="btn btn-primary btn-lg w-100" onclick="AddShoppingCart()">Thêm vào giỏ hàng</button>
+            @if (Model.ProductDetail.StockQuantity != 0)
+            {
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <button class="btn btn-primary btn-lg w-100" onclick="AddShoppingCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-success btn-lg w-100" onclick="Checkout()">Thanh Toán</button>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <button class="btn btn-success btn-lg w-100" onclick="Checkout()">Thanh Toán</button>
+            }
+            else
+            {
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <button class="btn btn-primary btn-lg w-100">Liên hệ</button>
+                    </div>
                 </div>
-            </div>
+            }
 
             <div class="col-4 text-center mt-3">
                 <div class="input-group">
@@ -126,27 +137,22 @@
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-<!-- Related Products Section -->
-<div class="row mt-5 mb-5 related-products">
-    <h2 class="mb-4 text-center">Sản phẩm liên quan</h2>
-    @foreach (Product item in Model.ListRelatedProduct)
-    {
-        <div class="col-md-3 col-lg-3 mb-4">
-            <div class="card product-card shadow border-0 h-100">
-                <img src="~/images/@item.ImageUrl" alt="@item.ProductName" class="product-image img-fluid">
-                <div class="card-body text-center">
-                    <h6 class="product-title text-truncate">@item.ProductName</h6>
-                    <a href="/Home/ProductDetail/?productId=@item.ProductCode" class="btn btn-primary-d mt-2">Xem chi tiết</a>
+    <!-- Related Products Section -->
+    <div class="row mt-5 mb-5 related-products">
+        <h2 class="mb-4 text-center">Sản phẩm liên quan</h2>
+        @foreach (Product item in Model.ListRelatedProduct)
+        {
+            <div class="col-md-3 col-lg-3 mb-4">
+                <div class="card product-card shadow border-0 h-100">
+                    <img src="~/images/@item.ImageUrl" alt="@item.ProductName" class="product-image img-fluid">
+                    <div class="card-body text-center">
+                        <h6 class="product-title text-truncate">@item.ProductName</h6>
+                        <a href="/Home/ProductDetail/?productId=@item.ProductCode" class="btn btn-primary-d mt-2">Xem chi tiết</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
 
 </div>
 
@@ -389,8 +395,8 @@
                 button.addEventListener("click", function () {
                     const input = this.parentElement.querySelector(".quantity-input");
                     input.value = parseInt(input.value) + 1;
-                    updateItemTotal(this);
-                    updateTotal();
+                    // updateItemTotal(this);
+                    // updateTotal();
                 });
             });
 
@@ -399,8 +405,8 @@
                     const input = this.parentElement.querySelector(".quantity-input");
                     if (parseInt(input.value) > 1) {
                         input.value = parseInt(input.value) - 1;
-                        updateItemTotal(this);
-                        updateTotal();
+                        // updateItemTotal(this);
+                        // updateTotal();
                     }
                 });
             });
@@ -423,19 +429,43 @@
             var orderDetails = [order]
 
             $.ajax({
-                url: '@Url.Action("SendRequestOrder", "Payment")',
-                method: 'POST',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(orderDetails),
+                url: '@Url.Action("CheckQuantity", "Home")',
+                method: 'GET',
+                type: 'GET',
+                data: {
+                    productId: productId,
+                    quantity: quantity
+                },
                 success: function (data) {
-                    console.log(data);
-                    window.location.href = '/Payment/Order'
+                    console.log(data.check);
+                    if(!data.check){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Opppp~~~",
+                            text: "Số lượng vượt quá số lượng sản phẩm đang có!"
+                        });
+                        return;
+                    }
+                    else
+                    {
+                        $.ajax({
+                            url: '@Url.Action("SendRequestOrder", "Payment")',
+                            method: 'POST',
+                            type: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify(orderDetails),
+                            success: function (data) {
+                                console.log(data);
+                                window.location.href = '/Payment/Order'
+                            },
+                            error: function () { }
+                        })
+                    }
                 },
                 error: function () { }
             })
-            //console.log(productId)
-            //window.location.href='/Payment/Order?productId=' + productId;
+
+
 
         }
 

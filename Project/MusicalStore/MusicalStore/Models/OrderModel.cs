@@ -13,5 +13,6 @@
         public string PaymentId { get; set; } = string.Empty;
         public string OrderType { get; set; } = string.Empty;
         public StatusModel StatusModel { get; set; } = new StatusModel();
+        public UserModel UserModel { get; set; } = new UserModel();
     }
 }

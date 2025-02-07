@@ -214,6 +214,7 @@ wwwroot\images\DEVISER_1.png
 wwwroot\images\DS07.jpg
 wwwroot\images\DS08.jpg
 wwwroot\images\DSCN9723.JPG
+wwwroot\images\DSCN9723_1.JPG
 wwwroot\images\DSCN9729.JPG
 wwwroot\images\DSCN9730.JPG
 wwwroot\images\DSCN9730_1.JPG
@@ -272,6 +273,9 @@ wwwroot\images\Picture1_2.png
 wwwroot\images\Picture1_3.png
 wwwroot\images\Picture1_4.png
 wwwroot\images\Picture1_5.png
+wwwroot\images\Picture1_6.png
+wwwroot\images\Picture1_7.png
+wwwroot\images\Picture1_8.png
 wwwroot\images\Picture2.png
 wwwroot\images\Picture2_1.png
 wwwroot\images\pop-ballad-revolution.jpg
@@ -308,9 +312,12 @@ wwwroot\images\yamaha-C40M.jpg
 wwwroot\images\yamaha-C40M_1.jpg
 wwwroot\images\yamaha-C40M_2.jpg
 wwwroot\images\yamaha-C40M_3.jpg
+wwwroot\images\yamaha-C40M_4.jpg
 wwwroot\images\yamahacl.jpg
 wwwroot\images\yamahacl_1.jpg
 wwwroot\images\yamahacl_2.jpg
+wwwroot\images\yamahacl_3.jpg
+wwwroot\images\yamahacl_4.jpg
 wwwroot\images\ZZ04.jpg
 wwwroot\images\ZZ05.jpg
 wwwroot\images\ZZ06.jpg

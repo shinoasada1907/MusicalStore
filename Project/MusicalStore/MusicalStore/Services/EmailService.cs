@@ -23,8 +23,8 @@ namespace MusicalStore.Services
                     Body = body,
                     IsBodyHtml = true,
                 };
-
                 mailMessage.To.Add(toEmail);
+                //mailMessage.CC.Add("thuytusp@gmail.com");
 
                 await smtpClient.SendMailAsync(mailMessage);
             }

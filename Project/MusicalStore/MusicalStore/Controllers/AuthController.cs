@@ -49,7 +49,7 @@ namespace MusicalStore.Controllers
                     HttpContext.Session.SetString("UserId", account.CustomerId);
                     HttpContext.Session.SetString("UserName", userInfo.UName);
                     HttpContext.Session.SetString("UserAvatar", userInfo.Avatar ?? "");
-                    HttpContext.Session.SetString("Email", userInfo.Email);
+                    HttpContext.Session.SetString("Email", account.Email);
                     HttpContext.Session.SetString("Address", userInfo.Address);
                     HttpContext.Session.SetString("Phone", userInfo.SDT);
                 }

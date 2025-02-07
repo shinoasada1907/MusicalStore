@@ -1272,6 +1272,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"pevyvgr89u"},{"Name":"integrity","Value":"sha256-f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs="},{"Name":"label","Value":"_content/MusicalStore/images/DSCN9723.JPG"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3186729"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 22 Dec 2024 16:39:30 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/DSCN9723_1.JPG">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\DSCN9723_1.JPG'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3186729"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs=\u0022"},{"Name":"Last-Modified","Value":"Sat, 28 Dec 2024 00:10:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/DSCN9723_1.pevyvgr89u.JPG">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\DSCN9723_1.JPG'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"pevyvgr89u"},{"Name":"integrity","Value":"sha256-f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs="},{"Name":"label","Value":"_content/MusicalStore/images/DSCN9723_1.JPG"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3186729"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs=\u0022"},{"Name":"Last-Modified","Value":"Sat, 28 Dec 2024 00:10:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MusicalStore/images/DSCN9729.3e7akegxyq.JPG">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\DSCN9729.JPG'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -1968,6 +1980,42 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rs018cssni"},{"Name":"integrity","Value":"sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="},{"Name":"label","Value":"_content/MusicalStore/images/Picture1_5.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"298137"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 21 Dec 2024 15:43:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/Picture1_6.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Picture1_6.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"298137"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 28 Dec 2024 09:31:36 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/Picture1_6.rs018cssni.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Picture1_6.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rs018cssni"},{"Name":"integrity","Value":"sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="},{"Name":"label","Value":"_content/MusicalStore/images/Picture1_6.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"298137"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 28 Dec 2024 09:31:36 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/Picture1_7.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Picture1_7.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"298137"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\u0022"},{"Name":"Last-Modified","Value":"Mon, 30 Dec 2024 13:18:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/Picture1_7.rs018cssni.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Picture1_7.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rs018cssni"},{"Name":"integrity","Value":"sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="},{"Name":"label","Value":"_content/MusicalStore/images/Picture1_7.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"298137"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\u0022"},{"Name":"Last-Modified","Value":"Mon, 30 Dec 2024 13:18:52 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/Picture1_8.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Picture1_8.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"298137"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\u0022"},{"Name":"Last-Modified","Value":"Mon, 30 Dec 2024 13:19:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/Picture1_8.rs018cssni.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Picture1_8.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rs018cssni"},{"Name":"integrity","Value":"sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="},{"Name":"label","Value":"_content/MusicalStore/images/Picture1_8.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"298137"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\u0022"},{"Name":"Last-Modified","Value":"Mon, 30 Dec 2024 13:19:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MusicalStore/images/Picture2.5ipweew5fc.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Picture2.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -2400,6 +2448,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-gn7\u002BUQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"30542"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022gn7\u002BUQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 06:42:36 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/yamaha-C40M_4.243jcb5cic.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yamaha-C40M_4.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"243jcb5cic"},{"Name":"integrity","Value":"sha256-gn7\u002BUQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8="},{"Name":"label","Value":"_content/MusicalStore/images/yamaha-C40M_4.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"30542"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022gn7\u002BUQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 30 Dec 2024 13:09:24 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/yamaha-C40M_4.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yamaha-C40M_4.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-gn7\u002BUQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"30542"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022gn7\u002BUQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 30 Dec 2024 13:09:24 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MusicalStore/images/yamahacl.f0ltrcr6c2.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yamahacl.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -2435,6 +2495,30 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"60624"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Dec 2024 16:42:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/yamahacl_3.f0ltrcr6c2.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yamahacl_3.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f0ltrcr6c2"},{"Name":"integrity","Value":"sha256-n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c="},{"Name":"label","Value":"_content/MusicalStore/images/yamahacl_3.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"60624"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c=\u0022"},{"Name":"Last-Modified","Value":"Sat, 28 Dec 2024 03:35:33 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/yamahacl_3.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yamahacl_3.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"60624"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c=\u0022"},{"Name":"Last-Modified","Value":"Sat, 28 Dec 2024 03:35:33 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/yamahacl_4.f0ltrcr6c2.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yamahacl_4.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f0ltrcr6c2"},{"Name":"integrity","Value":"sha256-n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c="},{"Name":"label","Value":"_content/MusicalStore/images/yamahacl_4.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"60624"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c=\u0022"},{"Name":"Last-Modified","Value":"Sat, 28 Dec 2024 03:40:04 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MusicalStore/images/yamahacl_4.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yamahacl_4.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"60624"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022n\u002BooyqQzNeV9/W6jBF\u002BgrJtGn8ezVsvEhBDbn3ZwV2c=\u0022"},{"Name":"Last-Modified","Value":"Sat, 28 Dec 2024 03:40:04 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MusicalStore/images/ZZ04.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\ZZ04.jpg'))</AssetFile>

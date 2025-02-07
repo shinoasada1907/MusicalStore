@@ -2,44 +2,45 @@
     <!-- Tabs -->
     <ul class="nav nav-tabs mb-3">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Tất cả</a>
+            <a class="nav-link active" onclick="getAllOrder()">Tất cả</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Chờ thanh toán</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Vận chuyển</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Hoàn thành</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Đã hủy</a>
-        </li>
+        @foreach (StatusModel item in ViewData["ListStatus"] as IEnumerable<StatusModel>)
+        {
+            <li class="nav-item">
+                <a class="nav-link" onclick="getOrderByStatus('@item.StatusId')">@item.StatusName</a>
+            </li>
+        }
     </ul>
 
     <!-- Order Item -->
-    @foreach(OrderDetail item in Model)
-    {
-        <div class="order-item">
-            <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                    <img src="~/images/@item.Product.ImageUrl" alt="Product Image">
+    <div id="listOrder">
+        @if(Model.Count !=0)
+        {
+            foreach (OrderDetail item in Model)
+            {
+                <div class="order-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <img src="~/images/@item.Product.ImageUrl" alt="Product Image">
+                        </div>
+                        <div class="col-md-6">
+                            <p class="order-title">@item.Product.ProductName</p>
+                            <p class="order-status">Số lượng: @item.Quantity</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <p class="order-price">@string.Format("{0:N0}VNĐ", item.UnitPrice)</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <button class="btn btn-orange btn-sm mb-1">Đánh Giá</button>
+                            <button class="btn btn-outline-secondary btn-sm mt-1">Yêu Cầu Hoàn Tiền</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <p class="order-title">@item.Product.ProductName</p>
-                    <p class="order-status">Số lượng: @item.Quantity</p>
-                </div>
-                <div class="col-md-2 text-end">
-                    <p class="order-price">@string.Format("{0:N0}VNĐ",item.UnitPrice)</p>
-                </div>
-                <div class="col-md-2 text-end">
-                    <button class="btn btn-orange btn-sm mb-1">Đánh Giá</button>
-                    <button class="btn btn-outline-secondary btn-sm mt-1">Yêu Cầu Hoàn Tiền</button>
-                </div>
-            </div>
-        </div>
-    }
+            }
+        }
+        
+    </div>
+    
 </div>
 
 <style>
@@ -100,30 +101,40 @@
 
 <script>
     $(document).ready(function () {
-        function loadTabContent(url) {
-            $("#tabContent").html('<div class="loading-spinner">Đang tải nội dung...</div>');
-
-            // AJAX call to load the tab content
-            $.get(url, function (data) {
-                $("#tabContent").html(data);
-            }).fail(function () {
-                $("#tabContent").html('<div class="loading-spinner text-danger">Không thể tải nội dung. Vui lòng thử lại!</div>');
-            });
-        }
-
-        // Load initial tab
-        const initialTabUrl = "/Profile/AllOrders";
-        loadTabContent(initialTabUrl);
-
         // Handle tab clicks
         $(".nav-link").click(function (e) {
             e.preventDefault();
 
             $(".nav-link").removeClass("active");
             $(this).addClass("active");
-
-            const url = $(this).data("url");
-            loadTabContent(url);
         });
     });
+
+    function getAllOrder(){
+        $.ajax({
+            url: '@Url.Action("GetAllOrder", "Profile")',
+            type: "GET",
+            success: function( result )
+            {
+                $('#listOrder').html(result)
+            }
+        });
+    }
+
+    function getOrderByStatus(statusId)
+    {
+        console.log(statusId)
+        $.ajax({
+            url: '@Url.Action("GetListOrderByStatus", "Profile")',
+            type: "GET",
+            data: {
+                statusId: statusId
+            },
+            success: function( result )
+            {
+                $('#listOrder').html(result)
+            }
+        });
+        
+    }
 </script>

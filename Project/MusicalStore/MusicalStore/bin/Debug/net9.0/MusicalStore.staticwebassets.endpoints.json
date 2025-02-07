@@ -19249,6 +19249,88 @@
       ]
     },
     {
+      "Route": "images/DSCN9723_1.JPG",
+      "AssetFile": "images/DSCN9723_1.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3186729"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 00:10:27 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs="
+        }
+      ]
+    },
+    {
+      "Route": "images/DSCN9723_1.pevyvgr89u.JPG",
+      "AssetFile": "images/DSCN9723_1.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3186729"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 00:10:27 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pevyvgr89u"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-f72ocEVrnH7CkXNmL50qj7BdUr8Ie52034QTSkywDxs="
+        },
+        {
+          "Name": "label",
+          "Value": "images/DSCN9723_1.JPG"
+        }
+      ]
+    },
+    {
       "Route": "images/DSCN9729.3e7akegxyq.JPG",
       "AssetFile": "images/DSCN9729.JPG",
       "Selectors": [],
@@ -23923,6 +24005,252 @@
       ]
     },
     {
+      "Route": "images/Picture1_6.png",
+      "AssetFile": "images/Picture1_6.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 09:31:36 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_6.rs018cssni.png",
+      "AssetFile": "images/Picture1_6.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 09:31:36 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs018cssni"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        },
+        {
+          "Name": "label",
+          "Value": "images/Picture1_6.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_7.png",
+      "AssetFile": "images/Picture1_7.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:18:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_7.rs018cssni.png",
+      "AssetFile": "images/Picture1_7.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:18:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs018cssni"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        },
+        {
+          "Name": "label",
+          "Value": "images/Picture1_7.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_8.png",
+      "AssetFile": "images/Picture1_8.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:19:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        }
+      ]
+    },
+    {
+      "Route": "images/Picture1_8.rs018cssni.png",
+      "AssetFile": "images/Picture1_8.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:19:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs018cssni"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SzKRqTOpB1Etnu/Ss09E5MLeMvyA3Q31Uk/YmXE6rLo="
+        },
+        {
+          "Name": "label",
+          "Value": "images/Picture1_8.png"
+        }
+      ]
+    },
+    {
       "Route": "images/Picture2.5ipweew5fc.png",
       "AssetFile": "images/Picture2.png",
       "Selectors": [],
@@ -27859,6 +28187,88 @@
       ]
     },
     {
+      "Route": "images/yamaha-C40M_4.243jcb5cic.jpg",
+      "AssetFile": "images/yamaha-C40M_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30542"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:09:24 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "243jcb5cic"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8="
+        },
+        {
+          "Name": "label",
+          "Value": "images/yamaha-C40M_4.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "images/yamaha-C40M_4.jpg",
+      "AssetFile": "images/yamaha-C40M_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30542"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 30 Dec 2024 13:09:24 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gn7+UQb/r8NeKD/remDNK6QAyD6ZSVQAB6mI5mNSaM8="
+        }
+      ]
+    },
+    {
       "Route": "images/yamahacl.f0ltrcr6c2.jpg",
       "AssetFile": "images/yamahacl.jpg",
       "Selectors": [],
@@ -28095,6 +28505,170 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 18 Dec 2024 16:42:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c="
+        }
+      ]
+    },
+    {
+      "Route": "images/yamahacl_3.f0ltrcr6c2.jpg",
+      "AssetFile": "images/yamahacl_3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 03:35:33 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f0ltrcr6c2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c="
+        },
+        {
+          "Name": "label",
+          "Value": "images/yamahacl_3.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "images/yamahacl_3.jpg",
+      "AssetFile": "images/yamahacl_3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 03:35:33 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c="
+        }
+      ]
+    },
+    {
+      "Route": "images/yamahacl_4.f0ltrcr6c2.jpg",
+      "AssetFile": "images/yamahacl_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 03:40:04 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f0ltrcr6c2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c="
+        },
+        {
+          "Name": "label",
+          "Value": "images/yamahacl_4.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "images/yamahacl_4.jpg",
+      "AssetFile": "images/yamahacl_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n+ooyqQzNeV9/W6jBF+grJtGn8ezVsvEhBDbn3ZwV2c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 03:40:04 GMT"
         }
       ],
       "EndpointProperties": [

@@ -137,10 +137,11 @@ namespace MusicalStore.Controllers
             {
                 var newOrder = await _orderRespository.CreateNewOrder(order!);
                 var newOrderDetail = await _orderDetailRepository.CreateOrderDetail(orderDetails!);
+                string email = HttpContext.Session.GetString("Email")!;
                 InvoiceModel model = new InvoiceModel();
                 model = InvoiceMapping.ToInvoiceModel(order!, orderDetails!);
                 model.CustomerName = HttpContext.Session.GetString("UserName")!;
-                await _invoiceEmailService.SendInvoiceEmailAsync(model, "takatamashiho.tm2503@gmail.com");
+                await _invoiceEmailService.SendInvoiceEmailAsync(model, email);
             }
 
             return View(response);
@@ -174,10 +175,11 @@ namespace MusicalStore.Controllers
             {
                 var newOrder = await _orderRespository.CreateNewOrder(order!);
                 var newOrderDetail = await _orderDetailRepository.CreateOrderDetail(orderDetails!);
+                string email = HttpContext.Session.GetString("Email")!;
                 InvoiceModel model = new InvoiceModel();
                 model = InvoiceMapping.ToInvoiceModel(order!, orderDetails!);
                 model.CustomerName = HttpContext.Session.GetString("UserName")!;
-                await _invoiceEmailService.SendInvoiceEmailAsync(model, "takatamashiho.tm2503@gmail.com");
+                await _invoiceEmailService.SendInvoiceEmailAsync(model, email);
             }
 
             return View(response);
