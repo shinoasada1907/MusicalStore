@@ -31,6 +31,13 @@ Hệ thống được xây dựng bằng ngôn ngữ C# với phần mềm Visua
 - Kiểm thử các chức năng của trang web.
 
 # VI. GIAO DIỆN
-
+## Giao diện trang chủ
 ![image](https://github.com/user-attachments/assets/ac9125ef-e872-4744-bf5d-cc36c1d1b7e4)
+### Giao diện chi tiết sản phẩm
+![image](https://github.com/user-attachments/assets/b0574665-9434-47c0-a988-3ccd20d2fcea)
+## Giao diện admin
+![image](https://github.com/user-attachments/assets/ab77bba3-d65a-4c1d-bc77-3c6afba00ab0)
+### Giao diện quản lý (quản lý sản phẩm)
+![image](https://github.com/user-attachments/assets/ea54c118-6ae1-40c4-87da-d18e2a138234)
+
 
