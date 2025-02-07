@@ -29,3 +29,8 @@ Hệ thống được xây dựng bằng ngôn ngữ C# với phần mềm Visua
 - Cài đặt chức năng quản lý của admin (chi tiết nhạc cụ, thêm các nhạc cụ).
 - Kết nối cơ sở dữ liệu.
 - Kiểm thử các chức năng của trang web.
+
+# VI. GIAO DIỆN
+
+![image](https://github.com/user-attachments/assets/ac9125ef-e872-4744-bf5d-cc36c1d1b7e4)
+
