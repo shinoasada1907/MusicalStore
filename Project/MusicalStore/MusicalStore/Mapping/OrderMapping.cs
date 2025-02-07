@@ -36,9 +36,9 @@ namespace MusicalStore.Mapping
         }
 
         // IEnumerable<DonHang> -> IEnumerable<OrderModel>
-        public static IEnumerable<OrderModel> MapToOrderModels(IEnumerable<DonHang> donHangs)
+        public static IEnumerable<OrderModel> MapToOrderModels(IEnumerable<DonHang>? donHangs)
         {
-            return donHangs.Select(donHang => MappingToOrderModel(donHang)).ToList();
+            return donHangs!.Select(donHang => MappingToOrderModel(donHang)).ToList();
         }
 
         // IEnumerable<OrderModel> -> IEnumerable<DonHang>

@@ -1,0 +1,25 @@
+﻿@if(Model.Count != 0)
+{
+    foreach (OrderDetail item in Model)
+    {
+        <div class="order-item">
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center">
+                    <img src="~/images/@item.Product.ImageUrl" alt="Product Image">
+                </div>
+                <div class="col-md-6">
+                    <p class="order-title">@item.Product.ProductName</p>
+                    <p class="order-status">Số lượng: @item.Quantity</p>
+                </div>
+                <div class="col-md-2 text-end">
+                    <p class="order-price">@string.Format("{0:N0}VNĐ", item.UnitPrice)</p>
+                </div>
+                <div class="col-md-2 text-end">
+                    <button class="btn btn-orange btn-sm mb-1">Đánh Giá</button>
+                    <button class="btn btn-outline-secondary btn-sm mt-1">Yêu Cầu Hoàn Tiền</button>
+                </div>
+            </div>
+        </div>
+    }
+}
+

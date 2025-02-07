@@ -27,7 +27,19 @@ namespace MusicalStore.Repository.OrderDetailRepository
         {
             var ctdh = _chiTietDHRepository.GetAllChiTietDonHang(customerId);
             var orderdetail = OrderDetailMapping.MapToListDetail(ctdh);
-            foreach(OrderDetail item in orderdetail)
+            foreach (OrderDetail item in orderdetail)
+            {
+                var sanpham = _sanPhamRepository.GetSanPhamById(item.ProductId);
+                item.Product = ProductMapping.MappingToProduct(sanpham);
+            }
+            return orderdetail;
+        }
+
+        public IEnumerable<OrderDetail> GetOrderDetailByStatus(string customerId, int statusId)
+        {
+            var ctdh = _chiTietDHRepository.GetChiTietDonTrangThai(customerId, statusId);
+            var orderdetail = OrderDetailMapping.MapToListDetail(ctdh);
+            foreach (OrderDetail item in orderdetail)
             {
                 var sanpham = _sanPhamRepository.GetSanPhamById(item.ProductId);
                 item.Product = ProductMapping.MappingToProduct(sanpham);

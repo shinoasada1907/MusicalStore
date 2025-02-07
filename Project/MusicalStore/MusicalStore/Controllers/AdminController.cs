@@ -56,6 +56,7 @@ namespace MusicalStore.Controllers
 
         public IActionResult AdminOrder()
         {
+            string customerId = HttpContext.Session.GetString("UserId")!;
             var oders = _orderRespository.GetAllOrder();
             ViewData["Status"] = _orderRespository.GetAllStatus();
             return View(oders);
@@ -235,6 +236,19 @@ namespace MusicalStore.Controllers
             return PartialView("_TablePayment", listPayments);
         }
 
+        [HttpGet]
+        public IActionResult GetOrderInformation(string orderId)
+        {
+            var order = _orderRespository.GerOrderById(orderId);
+            return Json(order);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateStatusOrder(string orderId, string customerId, int statusId)
+        {
+            var order = await _orderRespository.UpdateStatusOrder(orderId, customerId, statusId);
+            return PartialView("_TableOrder", order);
+        }
     }
 
 }

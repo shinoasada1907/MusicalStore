@@ -105,8 +105,9 @@
             });
 
             // Cập nhật tổng cộng trong tfoot
-            var totalAmount = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(+grandTotal);
-            document.querySelector('.grand-total').textContent = `Tổng cộng: ${totalAmount} (Đã bao gồm VAT)`;
+            var totalAmount = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal);
+            document.querySelector('.grand-total').textContent = `Tổng cộng: ${totalAmount} (Đã bao gồm VAT)`
+
 
             // Cập nhật tổng tiền trong hidden input của form
             document.querySelector('[name="TotalAmount"]').value = grandTotal;

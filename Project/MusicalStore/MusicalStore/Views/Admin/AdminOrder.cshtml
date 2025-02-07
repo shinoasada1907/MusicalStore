@@ -6,7 +6,7 @@
 <h1 class="text-center text-primary my-4">Quản lý đơn hàng</h1>
 
 <div class="container mt-5 shadow p-4 rounded bg-white">
-    <div class="table-responsive">
+    <div class="table-responsive" id="tableOrder">
         <table id="orderTable" class="table table-hover table-bordered align-middle">
             <thead class="table-success text-center">
                 <tr>
@@ -31,7 +31,7 @@
                         <td>@item.StatusModel.StatusName</td>
                         <td>
                             <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal(`${@item.OrderId}`)">
+                                <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.OrderId')">
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
                             </div>
@@ -57,12 +57,12 @@
                 <form id="addProductForm">
                     <div class="mb-3">
                         <label for="orderId" class="form-label">Mã đơn hàng</label>
-                        <input type="text" disabled class="form-control" id="orderId" placeholder="Nhập tên sản phẩm" required>
+                        <input type="text" disabled class="form-control" id="orderId" placeholder="Mã đơn hàng" required>
                     </div>
                     <div class="mb-3">
                         <label for="customerName" class="form-label">Khách hàng</label>
-                        <input type="text" disabled class="form-control" id="customerId" placeholder="Nhập hãng" required>
-                        <input type="text" disabled class="form-control" id="customerName" placeholder="Nhập hãng" required>
+                        <input type="text" hidden class="form-control" id="customerId" placeholder="Mã khách hàng" required>
+                        <input type="text" disabled class="form-control" id="customerName" placeholder="Tên khách hàng" required>
                     </div>
                     <div class="mb-3">
                         <label for="status" class="form-label">Trạng thái đơn hàng</label>
@@ -76,15 +76,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="orderDate" class="form-label">Ngày tạo hóa đơn</label>
-                        <input type="date" disabled class="form-control" id="orderDate" placeholder="Nhập đơn vị tính" required>
+                        <input type="date" disabled class="form-control" id="orderDate" placeholder="Ngày tạo hóa đơn" required>
                     </div>
                     <div class="mb-3">
                         <label for="totalPrice" class="form-label">Tổng tiền</label>
-                        <input type="number" disabled class="form-control" id="totalPrice" placeholder="Nhập giá" required>
+                        <input type="number" disabled class="form-control" id="totalPrice" placeholder="Tổng tiền" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                        <button type="button" class="btn btn-primary" onclick="ModalProuctImplement()" data-bs-dismiss="modal">Lưu sản phẩm</button>
+                        <button type="button" class="btn btn-primary" onclick="updateStatusOrder()" data-bs-dismiss="modal">Cập nhật đơn hàng</button>
                     </div>
                 </form>
             </div>
@@ -123,6 +123,67 @@
 
     function showEditModal(orderId)
     {
+        $.ajax({
+            url: '@Url.Action("GetOrderInformation", "Admin")',
+            type: "GET",
+            data: {
+                orderId: orderId
+            },
+            success: function( result )
+            {
+                console.log(result)
+                let formattedDate = new Date(result.orderDate).toISOString().split('T')[0];
+                document.getElementById("orderId").value = result.orderId;
+                document.getElementById("customerId").value = result.userId;
+                document.getElementById("customerName").value = result.userModel.uName;
+                document.getElementById("status").value = result.statusId;
+                document.getElementById("orderDate").value = formattedDate;
+                document.getElementById("totalPrice").value = result.totalAmount;
+            }
+        });
         $("#updateOrderModal").modal('show')
+    }
+
+    function updateStatusOrder(){
+        var orderId = document.getElementById("orderId").value;
+        var customerId = document.getElementById("customerId").value;
+        var statusId = document.getElementById("status").value;
+
+        console.log(orderId, customerId, statusId)
+        $.ajax({
+            url: '@Url.Action("UpdateStatusOrder", "Admin")',
+            type: "POST",
+            data: {
+                orderId: orderId,
+                customerId: customerId,
+                statusId: statusId
+            },
+            success: function( result )
+            {
+                console.log(result)
+                $("#tableOrder").html(result)
+                $('#orderTable').DataTable({
+                    language: {
+                        "lengthMenu": "Hiển thị _MENU_ dòng mỗi trang",
+                        "zeroRecords": "Không tìm thấy kết quả",
+                        "info": "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                        "infoEmpty": "Không có dữ liệu",
+                        "infoFiltered": "(lọc từ _MAX_ tổng số dòng)",
+                        "search": "Tìm kiếm:",
+                        "paginate": {
+                            "first": "Đầu",
+                            "last": "Cuối",
+                            "next": "Sau",
+                            "previous": "Trước"
+                        }
+                    },
+                    pageLength: 10, // Số dòng mặc định mỗi trang
+                    ordering: true, // Kích hoạt sắp xếp
+                    searching: true, // Kích hoạt tìm kiếm
+                    paging: true // Kích hoạt phân trang
+                });
+                $("#updateOrderModal").modal('hide')
+            }
+        });
     }
 </script>

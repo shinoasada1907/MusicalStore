@@ -9,6 +9,7 @@ using MusicalStore.Repository.OrderDetailRepository;
 using MusicalStore.Repository.OrderRespository;
 using MusicalStore.Repository.PaymentRespository;
 using MusicalStore.Repository.ProductRepo;
+using MusicalStore.Repository.ShoppingCartRepo;
 using MusicalStore.Repository.UserRepository;
 using MusicalStore.Repository.vnpay;
 using MusicalStore.Services;
@@ -28,6 +29,7 @@ namespace MusicalStore.Controllers
         private readonly IOrderDetailRepository _orderDetailRepository;
         private readonly IEmailService _emailService;
         private readonly IInvoiceEmailService _invoiceEmailService;
+        private readonly IShoppingCartRepository _shoppingCartRepository;
         public PaymentController(IMomoService momoService, 
             IVnPayService vnPayService, 
             IUserRepository userRepository, 
@@ -36,7 +38,8 @@ namespace MusicalStore.Controllers
             IOrderRespository orderRespository,
             IOrderDetailRepository orderDetailRepository,
             IEmailService emailService,
-            IInvoiceEmailService invoiceEmailService)
+            IInvoiceEmailService invoiceEmailService,
+            IShoppingCartRepository shoppingCartRepository)
         {
             _momoService = momoService;
             _vnPayService = vnPayService;
@@ -47,6 +50,7 @@ namespace MusicalStore.Controllers
             _orderDetailRepository = orderDetailRepository;
             _emailService = emailService;
             _invoiceEmailService = invoiceEmailService;
+            _shoppingCartRepository = shoppingCartRepository;
         }
         [HttpPost]
         public IActionResult SendRequestOrder([FromBody] List<OrderDetail> orderDetails)
@@ -133,10 +137,11 @@ namespace MusicalStore.Controllers
             {
                 var newOrder = await _orderRespository.CreateNewOrder(order!);
                 var newOrderDetail = await _orderDetailRepository.CreateOrderDetail(orderDetails!);
+                string email = HttpContext.Session.GetString("Email")!;
                 InvoiceModel model = new InvoiceModel();
                 model = InvoiceMapping.ToInvoiceModel(order!, orderDetails!);
                 model.CustomerName = HttpContext.Session.GetString("UserName")!;
-                await _invoiceEmailService.SendInvoiceEmailAsync(model, "takatamashiho.tm2503@gmail.com");
+                await _invoiceEmailService.SendInvoiceEmailAsync(model, email);
             }
 
             return View(response);
@@ -170,10 +175,11 @@ namespace MusicalStore.Controllers
             {
                 var newOrder = await _orderRespository.CreateNewOrder(order!);
                 var newOrderDetail = await _orderDetailRepository.CreateOrderDetail(orderDetails!);
+                string email = HttpContext.Session.GetString("Email")!;
                 InvoiceModel model = new InvoiceModel();
                 model = InvoiceMapping.ToInvoiceModel(order!, orderDetails!);
                 model.CustomerName = HttpContext.Session.GetString("UserName")!;
-                await _invoiceEmailService.SendInvoiceEmailAsync(model, "takatamashiho.tm2503@gmail.com");
+                await _invoiceEmailService.SendInvoiceEmailAsync(model, email);
             }
 
             return View(response);
