@@ -101,6 +101,11 @@ namespace DTO.Repository
             return sanpham;
         }
 
+        public IEnumerable<SanPham> GetTopSaleSanPham()
+        {
+
+            throw new NotImplementedException();
+        }
         //Lấy top 4 sản phẩm bán chạy trong tháng
         public IEnumerable<SanPham> GetTopSellingProductsInMonth()
         {
@@ -133,7 +138,7 @@ namespace DTO.Repository
             var suutap = _context.SanPhams
                 .Join(_context.LoaiSanPhams
                 .Where(lsp => lsp.TenLsp.Contains(categoryName)),
-                sp=>sp.MaLsp, 
+                sp => sp.MaLsp,
                 lsp => lsp.MaLsp,
                 (sp, lsp) => new
                 {
@@ -144,6 +149,16 @@ namespace DTO.Repository
                 .Select(x => x.Product)
                 .ToList();
             return suutap;
+        }
+
+        public bool CheckQuantitySanPham(string masp, int soluong)
+        {
+            var sp = _context.SanPhams.FirstOrDefault(sp => sp.MaSp == masp);
+            if(sp!.Slsp < soluong)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

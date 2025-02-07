@@ -56,7 +56,9 @@ namespace MusicalStore.Controllers
 
         public IActionResult AdminOrder()
         {
+            string customerId = HttpContext.Session.GetString("UserId")!;
             var oders = _orderRespository.GetAllOrder();
+            ViewData["Status"] = _orderRespository.GetAllStatus();
             return View(oders);
         }
 
@@ -137,19 +139,21 @@ namespace MusicalStore.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct([FromForm] Product product, [FromForm] ProductDetail productDetail)
         {
+            //chỗ này em gọi hàm add detail product
             var listproductdetail = await _productdetailRepo.AddNewProductDetail(productDetail);
             var listproduct = await _productRepository.AddNewProduct(product);
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
         }
 
-        
+
         [HttpPost]
         public async Task<IActionResult> UpdateProduct([FromForm] Product product, [FromForm] ProductDetail productDetail)
         {
             Console.WriteLine(product.ProductCode);
             var listproductdetail = await _productdetailRepo.UpdateProductDetail(productDetail);
             var listproduct = await _productRepository.UpdateProduct(product);
+            //chỗ này em gọi hàm update detail product
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
         }
@@ -157,6 +161,7 @@ namespace MusicalStore.Controllers
         public async Task<IActionResult> DeleteProduct(string productId, string producdetailtId)
         {
             var listproduct = await _productRepository.DeleteProduct(productId);
+            //chỗ này em gọi hàm xóa detai product
             var listproductdetail = await _productdetailRepo.DeleteProductDetail(producdetailtId);
             ViewData["Category"] = _categoryRepository.GetCategorys();
             return PartialView("_TableProduct", listproduct);
@@ -231,6 +236,19 @@ namespace MusicalStore.Controllers
             return PartialView("_TablePayment", listPayments);
         }
 
+        [HttpGet]
+        public IActionResult GetOrderInformation(string orderId)
+        {
+            var order = _orderRespository.GerOrderById(orderId);
+            return Json(order);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateStatusOrder(string orderId, string customerId, int statusId)
+        {
+            var order = await _orderRespository.UpdateStatusOrder(orderId, customerId, statusId);
+            return PartialView("_TableOrder", order);
+        }
     }
 
 }

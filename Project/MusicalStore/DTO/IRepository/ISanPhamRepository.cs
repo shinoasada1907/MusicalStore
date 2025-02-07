@@ -14,9 +14,10 @@ namespace DTO.IRepository
         public Task<IEnumerable<SanPham>> AddNewSanPham(SanPham sanpham);
         public Task<IEnumerable<SanPham>> UpdateSanPham(SanPham sanpham);
         public Task<IEnumerable<SanPham>> DeleteSanPham(string masp);
+        public IEnumerable<SanPham> GetTopSaleSanPham();
         public IEnumerable<SanPham> GetTopSellingProductsInMonth();
         public IEnumerable<SanPham> GetListSanPhamByCategory(string category);
         public IEnumerable<SanPham> GetCollectionProduct(string categoryName);
-
+        public bool CheckQuantitySanPham(string masp, int soluong);
     }
 }

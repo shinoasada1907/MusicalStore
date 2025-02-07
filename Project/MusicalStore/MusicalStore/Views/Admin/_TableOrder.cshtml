@@ -1,0 +1,33 @@
+﻿<table id="orderTable" class="table table-hover table-bordered align-middle">
+    <thead class="table-success text-center">
+        <tr>
+            <th>Mã đơn</th>
+            <th>Khách hàng</th>
+            <th>Tổng tiền thanh toán</th>
+            <th>Ngày lập</th>
+            <th>Tình trạng</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (OrderModel item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/#" class="text-dark text-decoration-none fw-bold">@item.OrderId</a>
+                </td>
+                <td>@item.UserName</td>
+                <td>@String.Format("{0:C0}", item.TotalAmount)</td>
+                <td>@item.OrderDate.ToShortDateString()</td>
+                <td>@item.StatusModel.StatusName</td>
+                <td>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-sm btn-primary" title="Sửa" onclick="showEditModal('@item.OrderId')">
+                            <i class="bi bi-pencil-fill"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

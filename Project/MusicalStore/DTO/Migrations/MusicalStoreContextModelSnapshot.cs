@@ -253,6 +253,44 @@ namespace DTO.Migrations
                     b.ToTable("DON_HANG", (string)null);
                 });
 
+            modelBuilder.Entity("DTO.Models.GioHang", b =>
+                {
+                    b.Property<string>("MaGh")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("MaGH");
+
+                    b.Property<double?>("Gia")
+                        .HasColumnType("float")
+                        .HasColumnName("Gia");
+
+                    b.Property<string>("MaKh")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .IsUnicode(false)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("MaKH");
+
+                    b.Property<string>("MaSp")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("MaSP");
+
+                    b.Property<int>("SoLuong")
+                        .HasColumnType("int")
+                        .HasColumnName("SoLuong");
+
+                    b.HasKey("MaGh")
+                        .HasName("PK__GIO_HANG__22122024");
+
+                    b.HasIndex("MaKh");
+
+                    b.HasIndex("MaSp");
+
+                    b.ToTable("GIO_HANG", (string)null);
+                });
+
             modelBuilder.Entity("DTO.Models.KhachHang", b =>
                 {
                     b.Property<string>("MaKh")
@@ -761,6 +799,27 @@ namespace DTO.Migrations
                     b.Navigation("MaTtNavigation");
                 });
 
+            modelBuilder.Entity("DTO.Models.GioHang", b =>
+                {
+                    b.HasOne("DTO.Models.KhachHang", "MaKhNavigation")
+                        .WithMany("GioHangs")
+                        .HasForeignKey("MaKh")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK__GIO_HANG__MaKH__22122024");
+
+                    b.HasOne("DTO.Models.SanPham", "MaSpNavigation")
+                        .WithMany("GioHangs")
+                        .HasForeignKey("MaSp")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK__GIO_HANG__MaSP__22122024");
+
+                    b.Navigation("MaKhNavigation");
+
+                    b.Navigation("MaSpNavigation");
+                });
+
             modelBuilder.Entity("DTO.Models.NhanVien", b =>
                 {
                     b.HasOne("DTO.Models.ChucVu", "MaCvNavigation")
@@ -856,6 +915,8 @@ namespace DTO.Migrations
 
                     b.Navigation("DonHangs");
 
+                    b.Navigation("GioHangs");
+
                     b.Navigation("TaiKhoans");
                 });
 
@@ -905,6 +966,8 @@ namespace DTO.Migrations
                     b.Navigation("CtDonHangs");
 
                     b.Navigation("CtPhieuNhaps");
+
+                    b.Navigation("GioHangs");
                 });
 
             modelBuilder.Entity("DTO.Models.TinhTrang", b =>

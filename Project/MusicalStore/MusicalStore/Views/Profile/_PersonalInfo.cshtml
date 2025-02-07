@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Thông Tin Khách Hàng";
+}
+
+<div class="customer-container">
+    <div class="customer-header text-center">
+        <h1 class="customer-title">Thông Tin Khách Hàng</h1>
+    </div>
+    <div class="customer-info">
+        <p><span>Tên khách hàng:</span> @Context.Session.GetString("UserName")</p>
+        <p><span>Email:</span> @Context.Session.GetString("Email")</p>
+        <p><span>Số điện thoại:</span> @Context.Session.GetString("Phone")</p>
+        <p><span>Địa chỉ:</span> @Context.Session.GetString("Address")</p>
+    </div>
+    <div class="text-center mt-4">
+        <a href="/Profile/Edit" class="btn btn-edit">Chỉnh sửa thông tin</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .customer-container {
+        max-width: 800px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .customer-header {
+        border-bottom: 2px solid #007bff;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .customer-title {
+        font-size: 1.5rem;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .customer-info p {
+        margin: 0;
+        padding: 5px 0;
+    }
+
+    .customer-info span {
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    .btn-edit {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+    }
+
+        .btn-edit:hover {
+            background-color: #0056b3;
+        }
+</style>

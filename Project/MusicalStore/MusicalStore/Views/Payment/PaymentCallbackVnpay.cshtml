@@ -1,0 +1,47 @@
+﻿@using MusicalStore.Models.Service.Vnpay
+@model PaymentResponseModel
+
+@{
+    Layout = "_Layout"; // Sử dụng layout nếu có
+    ViewData["Title"] = Model.Success ? "Thanh toán thành công" : "Thanh toán thất bại";
+}
+
+
+<div class="container mt-5 mb-5 text-center">
+    <div class="card shadow-lg">
+        <div class="card-body">
+            @if (Model.VnPayResponseCode == "00")
+            {
+                <h2 class="text-success">Cảm ơn bạn đã mua hàng!</h2>
+                <p>Đơn hàng của bạn đã được thanh toán thành công.</p>
+                <div class="my-4">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                </div>
+                <p><strong>Mã giao dịch:</strong> @Model.TransactionId</p>
+                <p><strong>Mã đơn hàng:</strong> @Model.OrderId</p>
+                <p><strong>Phương thức thanh toán:</strong> @Model.PaymentMethod</p>
+                <p><strong>Số tiền:</strong> @string.Format("{0:N0}VND", Model.OrderDescription.Split(' ').Last())</p>
+                <p>Một email xác nhận đã được gửi đến địa chỉ email của bạn. Vui lòng kiểm tra hộp thư để biết thêm chi tiết.</p>
+                <div class="mt-4">
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Quay về trang chủ</a>
+                    <a href="" class="btn btn-outline-secondary">Xem lịch sử đơn hàng</a>
+                </div>
+            }
+            else
+            {
+                <h2 class="text-danger">Thanh toán thất bại</h2>
+                <p>Rất tiếc, giao dịch thanh toán của bạn đã không thành công.</p>
+                <div class="my-4">
+                    <i class="bi bi-x-circle-fill text-danger" style="font-size: 4rem;"></i>
+                </div>
+                <p><strong>Mã đơn hàng:</strong> @Model.OrderId</p>
+                <p><strong>Lý do:</strong> Mã phản hồi từ VNPay: @Model.VnPayResponseCode</p>
+                <p>Vui lòng thử lại hoặc liên hệ với chúng tôi để được hỗ trợ.</p>
+                <div class="mt-4">
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Quay về trang chủ</a>
+                    <a href="">Liên hệ hỗ trợ</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

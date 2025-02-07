@@ -1,0 +1,140 @@
+﻿<div class="order-container">
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link active" onclick="getAllOrder()">Tất cả</a>
+        </li>
+        @foreach (StatusModel item in ViewData["ListStatus"] as IEnumerable<StatusModel>)
+        {
+            <li class="nav-item">
+                <a class="nav-link" onclick="getOrderByStatus('@item.StatusId')">@item.StatusName</a>
+            </li>
+        }
+    </ul>
+
+    <!-- Order Item -->
+    <div id="listOrder">
+        @if(Model.Count !=0)
+        {
+            foreach (OrderDetail item in Model)
+            {
+                <div class="order-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <img src="~/images/@item.Product.ImageUrl" alt="Product Image">
+                        </div>
+                        <div class="col-md-6">
+                            <p class="order-title">@item.Product.ProductName</p>
+                            <p class="order-status">Số lượng: @item.Quantity</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <p class="order-price">@string.Format("{0:N0}VNĐ", item.UnitPrice)</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <button class="btn btn-orange btn-sm mb-1">Đánh Giá</button>
+                            <button class="btn btn-outline-secondary btn-sm mt-1">Yêu Cầu Hoàn Tiền</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        
+    </div>
+    
+</div>
+
+<style>
+    body {
+        background-color: #f9f9f9;
+    }
+
+    .order-container {
+        max-width: 1200px;
+        margin: 30px auto;
+    }
+
+    .order-header {
+        border-bottom: 2px solid #ff5722;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .order-item {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .order-item img {
+            max-width: 80px;
+            border-radius: 4px;
+        }
+
+    .order-title {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .order-status {
+        color: #ff5722;
+        font-weight: bold;
+    }
+
+    .order-price {
+        color: #ff5722;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .btn-orange {
+        background-color: #ff5722;
+        color: #fff;
+        font-weight: bold;
+    }
+
+        .btn-orange:hover {
+            background-color: #e64a19;
+        }
+</style>
+
+<script>
+    $(document).ready(function () {
+        // Handle tab clicks
+        $(".nav-link").click(function (e) {
+            e.preventDefault();
+
+            $(".nav-link").removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+
+    function getAllOrder(){
+        $.ajax({
+            url: '@Url.Action("GetAllOrder", "Profile")',
+            type: "GET",
+            success: function( result )
+            {
+                $('#listOrder').html(result)
+            }
+        });
+    }
+
+    function getOrderByStatus(statusId)
+    {
+        console.log(statusId)
+        $.ajax({
+            url: '@Url.Action("GetListOrderByStatus", "Profile")',
+            type: "GET",
+            data: {
+                statusId: statusId
+            },
+            success: function( result )
+            {
+                $('#listOrder').html(result)
+            }
+        });
+        
+    }
+</script>

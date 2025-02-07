@@ -7,12 +7,9 @@
     <!--Header Category-->
     <div class="d-flex align-items-center position-relative">
         <a href="#" class="btna me-3 text-dark text-decoration-none p-2" onclick="toggleCategoryMenu(event)">
-           @*  <i class="bi bi-list me-2 text-dark"></i>Danh mục sản phẩm *@
-
             <div id="categoryHeader">
                 <i class="bi bi-list me-2 text-dark"></i>Danh mục sản phẩm
             </div>
-
         </a>
         <div id="categoryMenu" class="d-none bg-light border rounded shadow p-3">
             <ul class="list-unstyled m-0">
@@ -25,8 +22,6 @@
             </ul>
         </div>
     </div>
-
-
 
     <!-- Widget Chat -->
     <div id="chat-widget" class="chat-widget">
@@ -45,10 +40,6 @@
     <button id="open-chat" class="open-chat">
         <i class="bi bi-chat-dots"></i>
     </button>
-
-
-
-
 
     <div style="border-top: 2px solid #AAAAAA; margin: 20px 0;"></div>
     <!--Show Category-->
@@ -85,6 +76,7 @@
             </button>
         </div>
     </div>
+
     <!--List Top Sale Today-->
     <div class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -105,11 +97,10 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">@item.ProductName</h5>
                             <p class="card-text small">@item.Description</p>
-                            @* <p class="text-muted text-decoration-line-through small">91,400,000 đ</p> *@
                             <div class="d-flex justify-content-between mt-auto">
                                 <span class="text-dark fw-bold">@string.Format("{0:N0}", item.Price) VND</span>
                                 <div class="">
-                                    @* <i class="bi bi-clock me-1 text-danger"></i><span class="text-danger">01:57:38</span> *@
+                                    <button class="btn btn-sm btn-danger" onclick="AddShoppingCart('@item.ProductCode'); event.stopPropagation();"><i class="bi bi-cart-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -139,6 +130,7 @@
             }
         </div>
     </div>
+
     <!--The Product for You-->
     <div id="product-list" class="container mt-5 mb-5">
         <h2 class="mb-4">Dành cho bạn</h2>
@@ -156,7 +148,7 @@
                             <div class="d-flex justify-content-between mt-auto">
                                 <span class="text-dark fw-bold">@string.Format("{0:N0}", item.Price) VND</span>
                                 <div class="">
-                                    @* <i class="bi bi-clock me-1 text-danger"></i><span class="text-danger">01:57:38</span> *@
+                                    <button class="btn btn-sm btn-danger" onclick="AddShoppingCart('@item.ProductCode'); event.stopPropagation();"><i class="bi bi-cart-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -210,10 +202,6 @@
 </div>
 
 <style>
-
-
-
-
     /* CSS cho widget chat */
     .chat-widget {
         position: fixed;
@@ -515,9 +503,6 @@
         #cardproduct:hover img {
             transform: scale(1.1); /* Zoom the image */
         }
-
-
-
 </style>
 
 @section Scripts {
@@ -533,6 +518,28 @@
             if (productListSection) {
                 productListSection.scrollIntoView({ behavior: "smooth" });
             }
+        }
+
+        function AddShoppingCart(productId) {
+            $.ajax({
+                url: '@Url.Action("AddShoppingCart", "Home")',
+                method: 'POST',
+                type: 'POST',
+                data: {
+                    productId: productId
+                },
+                success: function (data) {
+                    console.log(data);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Yay~~~",
+                        text: "Đã thêm sản phẩm vào giỏ hàng"
+
+                    });
+                },
+                error: function () { }
+            })
+
         }
 
         function getProductDetail(id) {

@@ -14,5 +14,6 @@ namespace MusicalStore.Repository.ProductRepo
         public IEnumerable<Product> GetListProductByCategory(string category);
         public IEnumerable<Product> GetListProductByCategoryWithPage(string category, int page, int pageSize);
         public IEnumerable<Product> GetListCollectionProduct(string category, int page, int pageSize);
+        public bool CheckQuantityProduct(string productId, int quantity);
     }
 }

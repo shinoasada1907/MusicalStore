@@ -1,32 +1,42 @@
 using DTO.IRepository;
 using DTO.Models;
 using DTO.Repository;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using MusicalStore.Models.Service.Momo;
 using MusicalStore.Repository.AccountRepository;
 using MusicalStore.Repository.CategoryRespository;
 using MusicalStore.Repository.ChucVuRepository;
 using MusicalStore.Repository.Momo;
+using MusicalStore.Repository.OrderDetailRepository;
 using MusicalStore.Repository.OrderRespository;
 using MusicalStore.Repository.PaymentRespository;
 using MusicalStore.Repository.ProductdetailRepo;
 using MusicalStore.Repository.ProductRepo;
+using MusicalStore.Repository.ShoppingCartRepo;
 using MusicalStore.Repository.StaffRepository;
 using MusicalStore.Repository.UserRepository;
 using MusicalStore.Repository.vnpay;
+using MusicalStore.Repository.VoucherDetailRepo;
+using MusicalStore.Repository.VoucherRepo;
+using MusicalStore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container. 
 builder.Services.AddCors(option =>
 {
     option.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
+builder.Services.AddMvcCore().AddRazorViewEngine();
 builder.Services.AddSession();
 
 builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
 builder.Services.AddRazorPages();
-
+builder.Services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
+builder.Services.AddScoped<RenderViewToString>();
+builder.Services.AddScoped<IInvoiceEmailService, InvoiceEmailService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
 builder.Services.AddScoped<IMomoService, MomoService>();
 builder.Services.AddScoped<IVnPayService, VnPayService>();
@@ -44,6 +54,9 @@ builder.Services.AddScoped<ITaiKhoanRepository, TaiKhoanRepository>();
 builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
 builder.Services.AddScoped<IPtThanhToanRepository, PtThanhToanRepository>();
 builder.Services.AddScoped<IChucVuRepository, ChucVuRepository>();
+builder.Services.AddScoped<IChiTietDHRepository, ChiTietDHRepository>();
+builder.Services.AddScoped<IGioHangRepository, GioHangRepository>();
+builder.Services.AddScoped<ITrangThaiRepository, TrangThaiRepository>();
 
 //MusicalStore
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -55,6 +68,12 @@ builder.Services.AddScoped<IPaymentRespository, PaymentRespository>();
 builder.Services.AddScoped<IPositionRepository, PositionRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
+builder.Services.AddScoped<IVoucherRepository, VoucherRepository>();
+builder.Services.AddScoped<IVoucherDetailRepository, VoucherDetailRepository>();
+builder.Services.AddScoped<IVoucherRepository, VoucherRepository>();
+builder.Services.AddScoped<IVoucherDetailRepository, VoucherDetailRepository>();
 
 var app = builder.Build();
 

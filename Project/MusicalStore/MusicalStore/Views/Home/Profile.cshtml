@@ -2,3 +2,34 @@
     Layout = "_Layout";
     ViewData["Title"] = "Thông tin của tôi";
 }
+<div class="profile-container row">
+    <div class="col-3 profile-menu">
+        <h5>Menu</h5>
+        <a href="#" class="profile-link active" data-url="/Profile/PersonalInfo">Thông tin cá nhân</a>
+        <a href="#" class="profile-link" data-url="/Profile/PurchaseHistory">Đơn mua</a>
+        <a href="#" class="profile-link" data-url="/Profile/Favorites">Yêu thích</a>
+        <a href="#" class="profile-link" data-url="/Profile/Notifications">Thông báo</a>
+    </div>
+    <div class="col-9 profile-content">
+        <div id="partialContent">
+            <!-- Nội dung của Partial View sẽ được load vào đây -->
+            @await Html.PartialAsync("PersonalInfo")
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".profile-link").click(function (e) {
+            e.preventDefault();
+            $(".profile-link").removeClass("active");
+            $(this).addClass("active");
+
+            var url = $(this).data("url");
+            $.get(url, function (data) {
+                $("#partialContent").html(data);
+            });
+        });
+    });
+</script>

@@ -20,7 +20,7 @@ namespace MusicalStore.Data
                     <p>⏰Thời gian: 20:00, ngày 02-03-04.8.2024
 🏦Địa điểm: Phòng Hòa Nhạc - Nhạc Viện TP Hồ Chí Minh, 112 Nguyễn Du, Phường Bến Thành, Quận 1, TPHCM</p>",
                 Author = "Nh Y Music",
-                PublishedDate = Convert.ToDateTime("19/10/2024"),
+                PublishedDate = Convert.ToDateTime("10/10/2024"),
                 ImageUrl = "/images/ghibli.png"
             },
 

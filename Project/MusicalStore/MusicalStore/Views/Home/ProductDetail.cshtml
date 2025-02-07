@@ -21,13 +21,13 @@
         <!-- Product Image -->
         <div class="col-md-6 text-center">
             <img src="~/images/@Model.ProductDetail.ImageUrl"
-                 alt="Guitar Acoustic NG GT700NA"
-                 class="img-fluid product-img zoom-effect">
+            alt="Guitar Acoustic NG GT700NA"
+            class="img-fluid product-img zoom-effect">
         </div>
 
         <!-- Product Details -->
         <div class="col-md-6">
-            <input class="product-title" hidden id="productId" value="@Model.ProductDetail.ProductCode"></input>
+            <input class="product-title" hidden id="productId" value="@Model.ProductDetail.ProductCode" />
 
             <!-- Product Title -->
             <h2 class="product-title-header fw-bold text-dark">@Model.ProductDetail.ProductName</h2>
@@ -35,17 +35,37 @@
 
             <!-- Price and Discount -->
             <div class="product-pricing">
+                <input hidden id="price" value="@Model.ProductDetail.Price" />
                 <p class="product-price fs-4 text-danger">@string.Format("{0:N0}", Model.ProductDetail.Price) VND</p>
                 <p class="product-discount badge bg-warning text-dark">@Model.ProductDetail.DetailVoucher.Voucher.Description</p>
             </div>
 
             <!-- Add to Cart and Checkout Buttons -->
-            <div class="row mt-4">
-                <div class="col-6">
-                    <button class="btn btn-primary btn-lg w-100" onclick="AddShoppingCart()">Thêm vào giỏ hàng</button>
+            @if (Model.ProductDetail.StockQuantity != 0)
+            {
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <button class="btn btn-primary btn-lg w-100" onclick="AddShoppingCart()">Thêm vào giỏ hàng</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-success btn-lg w-100" onclick="Checkout()">Thanh Toán</button>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <button class="btn btn-success btn-lg w-100" onclick="Checkout()">Thanh Toán</button>
+            }
+            else
+            {
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <button class="btn btn-primary btn-lg w-100">Liên hệ</button>
+                    </div>
+                </div>
+            }
+
+            <div class="col-4 text-center mt-3">
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary decrease-btn">-</button>
+                    <input type="number" class="form-control text-center quantity-input" id="quantity" value="1" min="1">
+                    <button class="btn btn-outline-secondary increase-btn">+</button>
                 </div>
             </div>
 
@@ -85,6 +105,7 @@
                         {
                             <li class="mb-2"><i class="bi bi-dot"></i> @spec</li>
                         }
+
                     }
                     else
                     {
@@ -116,10 +137,6 @@
             </div>
         </div>
     </div>
-
-
-
-
     <!-- Related Products Section -->
     <div class="row mt-5 mb-5 related-products">
         <h2 class="mb-4 text-center">Sản phẩm liên quan</h2>
@@ -261,7 +278,7 @@
         transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-        
+
     .btn-success {
         transition: background-color 0.3s ease, transform 0.2s ease;
     }
@@ -371,19 +388,109 @@
 </style>
 
 @section Scripts {
+    <script src="~/js/site.js"></script>
     <script>
         $(document).ready(function(){
+            document.querySelectorAll(".increase-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const input = this.parentElement.querySelector(".quantity-input");
+                    input.value = parseInt(input.value) + 1;
+                    // updateItemTotal(this);
+                    // updateTotal();
+                });
+            });
 
+            document.querySelectorAll(".decrease-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const input = this.parentElement.querySelector(".quantity-input");
+                    if (parseInt(input.value) > 1) {
+                        input.value = parseInt(input.value) - 1;
+                        // updateItemTotal(this);
+                        // updateTotal();
+                    }
+                });
+            });
         })
         function Checkout() {
             var productId = document.getElementById('productId').value;
-            console.log(productId)
-            window.location.href='/Payment/Order?productId=' + productId;
+            var price = document.getElementById('price').value;
+            var quantity = document.getElementById('quantity').value
+
+            var order = {
+                orderDetailId: 'ODO'+ generateRandomString(6),
+                orderId: "",
+                productId: productId,
+                voucherId: "",
+                quantity: quantity,
+                unitPrice: price,
+                totalPrice: price * quantity
+            }
+
+            var orderDetails = [order]
+
+            $.ajax({
+                url: '@Url.Action("CheckQuantity", "Home")',
+                method: 'GET',
+                type: 'GET',
+                data: {
+                    productId: productId,
+                    quantity: quantity
+                },
+                success: function (data) {
+                    console.log(data.check);
+                    if(!data.check){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Opppp~~~",
+                            text: "Số lượng vượt quá số lượng sản phẩm đang có!"
+                        });
+                        return;
+                    }
+                    else
+                    {
+                        $.ajax({
+                            url: '@Url.Action("SendRequestOrder", "Payment")',
+                            method: 'POST',
+                            type: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify(orderDetails),
+                            success: function (data) {
+                                console.log(data);
+                                window.location.href = '/Payment/Order'
+                            },
+                            error: function () { }
+                        })
+                    }
+                },
+                error: function () { }
+            })
+
+
 
         }
 
         function AddShoppingCart() {
-            window.location.href = '@Url.Action("ShoppingCart", "Home")'
+            var productId = document.getElementById('productId').value;
+
+            $.ajax({
+                url: '@Url.Action("AddShoppingCart", "Home")',
+                method: 'POST',
+                type: 'POST',
+                data: {
+                    productId: productId
+                },
+                success: function (data) {
+                    console.log(data);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Yay~~~",
+                        text: "Đã thêm sản phẩm vào giỏ hàng"
+
+                    });
+                },
+                error: function () { }
+            })
+
         }
     </script>
 }

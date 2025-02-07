@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using System.Globalization;
 using System.Text;
 
 namespace MusicalStore.Function
@@ -57,6 +58,27 @@ namespace MusicalStore.Function
             }
             string filename = Path.GetFileName(filePath);
             return filename;
+        }
+
+        public static string ConvertToUnsign(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input)) return input;
+
+            // Normalize the string to decompose accents into base characters
+            string normalizedString = input.Normalize(NormalizationForm.FormD);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (char c in normalizedString)
+            {
+                UnicodeCategory unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            // Normalize back to the composed form and return
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
     }
 }

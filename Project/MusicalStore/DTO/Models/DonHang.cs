@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace DTO.Models;
+﻿namespace DTO.Models;
 
 public partial class DonHang
 {
@@ -11,7 +7,6 @@ public partial class DonHang
     public double TongTienHang { get; set; }
 
     public DateOnly NgayLap { get; set; }
-
     public string? MaKh { get; set; }
 
     public int? MaTt { get; set; }

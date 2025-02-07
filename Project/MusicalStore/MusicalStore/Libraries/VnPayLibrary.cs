@@ -18,7 +18,7 @@ namespace MusicalStore.Libraries
             {
                 if (!string.IsNullOrEmpty(key) && key.StartsWith("vnp_"))
                 {
-                    vnPay.AddResponseData(key, value);
+                    vnPay.AddResponseData(key, value!);
                 }
             }
             var orderId = Convert.ToInt64(vnPay.GetResponseData("vnp_TxnRef"));
@@ -28,7 +28,7 @@ namespace MusicalStore.Libraries
                 collection.FirstOrDefault(k => k.Key == "vnp_SecureHash").Value; //hash của dữ liệu trả về
             var orderInfo = vnPay.GetResponseData("vnp_OrderInfo");
             var checkSignature =
-                vnPay.ValidateSignature(vnpSecureHash, hashSecret); //check Signature
+                vnPay.ValidateSignature(vnpSecureHash!, hashSecret); //check Signature
             if (!checkSignature)
                 return new PaymentResponseModel()
                 {
@@ -42,7 +42,7 @@ namespace MusicalStore.Libraries
                 OrderId = orderId.ToString(),
                 PaymentId = vnPayTranId.ToString(),
                 TransactionId = vnPayTranId.ToString(),
-                Token = vnpSecureHash,
+                Token = vnpSecureHash!,
                 VnPayResponseCode = vnpResponseCode
             };
         }

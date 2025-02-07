@@ -136,5 +136,10 @@ namespace MusicalStore.Repository.ProductRepo
             var collection = ProductMapping.MapToProducts(suutap);
             return collection;
         }
+
+        public bool CheckQuantityProduct(string productId, int quantity)
+        {
+            return _sanPhamRepository.CheckQuantitySanPham(productId, quantity);
+        }
     }
 }

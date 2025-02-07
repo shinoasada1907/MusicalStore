@@ -50,6 +50,7 @@ public partial class MusicalStoreContext : DbContext
     public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
 
     public virtual DbSet<TinhTrang> TinhTrangs { get; set; }
+    public virtual DbSet<GioHang> GioHangs { get; set; }
 
     //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //    => optionsBuilder.UseSqlServer("Data Source=DESKTOP-JDRMAPE;Initial Catalog=MusicalStore;Integrated Security=True;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
@@ -455,13 +456,14 @@ public partial class MusicalStoreContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("TenSP");
+
             entity.Property(e => e.MaCtsp)
             .HasMaxLength(20)
             .IsUnicode(false)
             .HasColumnName("MaCTSP");
 
-            entity.HasOne(d => d.MaCTSPNavigation).WithMany(p=>p.SanPhams)
-            .HasForeignKey(d=>d.MaCtsp)
+            entity.HasOne(d => d.MaCTSPNavigation).WithMany(p => p.SanPhams)
+            .HasForeignKey(d => d.MaCtsp)
             .HasConstraintName("FK__CT__SAN_PHAM__MaCTSP");
 
             entity.HasOne(d => d.MaLspNavigation).WithMany(p => p.SanPhams)
@@ -528,6 +530,36 @@ public partial class MusicalStoreContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("TenTT");
+        });
+
+        modelBuilder.Entity<GioHang>(entity =>
+        {
+            entity.HasKey(e => e.MaGh).HasName("PK__GIO_HANG__22122024");
+
+            entity.ToTable("GIO_HANG");
+
+            entity.Property(e => e.MaGh)
+                .ValueGeneratedNever()
+                .HasColumnName("MaGH");
+            entity.Property(e => e.SoLuong)
+                .HasColumnName("SoLuong");
+            entity.Property(e => e.Gia)
+                .HasColumnName("Gia");
+            entity.Property(e => e.MaSp)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("MaSP");
+            entity.Property(e => e.MaKh)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("MaKH");
+
+            entity.HasOne(d => d.MaSpNavigation).WithMany(p => p.GioHangs)
+                .HasForeignKey(d => d.MaSp)
+                .HasConstraintName("FK__GIO_HANG__MaSP__22122024");
+            entity.HasOne(d => d.MaKhNavigation).WithMany(p => p.GioHangs)
+                .HasForeignKey(d => d.MaKh)
+                .HasConstraintName("FK__GIO_HANG__MaKH__22122024");
         });
 
         OnModelCreatingPartial(modelBuilder);

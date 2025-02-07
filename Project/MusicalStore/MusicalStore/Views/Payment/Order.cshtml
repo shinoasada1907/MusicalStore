@@ -1,6 +1,8 @@
-﻿@{
+﻿@using MusicalStore.Function
+@{
     Layout = "_Layout";
     ViewData["Title"] = "Đơn hàng";
+    string nameUnsign = FunctionApplication.ConvertToUnsign(Context.Session.GetString("UserName")!);
 }
 <div class="container mt-5">
     <h2>@ViewData["Title"]</h2>
@@ -12,7 +14,7 @@
             <p><strong>Số điện thoại:</strong> @Context.Session.GetString("Phone")</p>
             <p><strong>Địa Chỉ:</strong> @Context.Session.GetString("Address")</p>
 
-            <h5>Chi Tiết Sản Phẩm:</h5>
+            <h5>Chi Tiết Đơn Hàng:</h5>
             <table class="table">
                 <thead>
                     <tr>
@@ -23,40 +25,64 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Đàn Guitar</td>
-                        <td>1</td>
-                        <td>100.000 đ</td>
-                        <td>100.000 đ</td>
-                    </tr>
-                    <tr>
-                        <td>Trống Cajon</td>
-                        <td>1</td>
-                        <td>50.000 đ</td>
-                        <td>50.000 đ</td>
-                    </tr>
+                    @foreach (OrderDetail item in Model.OrderDetails)
+                    {
+                        <tr>
+                            <td>@item.Product.ProductName</td>
+                            <td>
+                                @* <div class="col-4 text-center">
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-secondary decrease-btn">-</button>
+                                        <input type="number" class="form-control text-center quantity-input" value="@item.Quantity" min="1">
+                                        <button class="btn btn-outline-secondary increase-btn">+</button>
+                                    </div>
+                                </div> *@
+                                <div class="text-start product-total">@item.Quantity</div>
+                            </td>
+                            <td>
+                                <div class="text-start product-price" data-price="@item.UnitPrice">@item.UnitPrice</div>
+                            </td>
+                            <td>
+                                <div class="text-start product-total">@item.TotalPrice</div>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-end">
+                            <strong class="grand-total">
+                                Tổng cộng: @string.Format("{0:N0}₫", ViewBag.GrandTotal) (Đã bao gồm VAT)
+                            </strong>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
 
     <h4 class="mt-4">Chọn Phương Thức Thanh Toán</h4>
     <form id="paymentForm" method="POST" class="mb-5">
-        <input type="hidden" name="UserName" value="Tien" />
-        <input type="hidden" name="TotalAmount" value="100000" />
-        <input type="hidden" name="OrderInfo" value="Thanh toán đặt hàng qua Momo tại Musical store" />
+        <input type="hidden" name="UserName" value="@nameUnsign" />
+        <input type="hidden" name="TotalAmount" value="@ViewBag.GrandTotal" />
+        <input type="hidden" name="OrderInfo" value="Thanh Toan Hoa Don Tai Website MusicalStore" />
 
         <div class="form-group">
-            <label for="paymentMethod">Chọn phương thức thanh toán</label>
-            <select class="form-select" id="paymentMethod" name="paymentMethod">
+            @* <label for="paymentMethod" class="mb-2">Chọn phương thức thanh toán</label> *@
+            <select class="form-select" id="paymentMethod" name="PaymentId">
                 <option value="Choose">Chọn phương thức thanh toán</option>
-                <option value="Momo">Momo</option>
+                @foreach (Payment item in Model.Payment)
+                {
+                    <option value="@item.PaymentMethodId">@item.MethodType</option>
+                }
+                @* <option value="Momo">Momo</option>
                 <option value="VNPay">VNPay</option>
-                <option value="CashOnDelivery">Thanh toán khi nhận hàng</option>
+                <option value="CashOnDelivery">Thanh toán khi nhận hàng</option> *@
             </select>
         </div>
 
         <div class="form-group mt-3">
+            <button type="button" class="btn btn-secondary" id="btnback">Trở lại</button>
             <button type="submit" class="btn btn-primary">Thanh Toán</button>
         </div>
     </form>
@@ -65,19 +91,86 @@
 @section Scripts
 {
     <script>
-            $('#paymentMethod').change(function() {
+
+        document.getElementById("btnback").addEventListener("click", function () {
+            // Quay lại trang trước
+            window.history.back();
+        });
+
+        function updateTotal() {
+            let grandTotal = 0;
+            document.querySelectorAll('.product-total').forEach(totalElement => {
+                const total = parseInt(totalElement.textContent.replace(/[^0-9]/g, ''));
+                grandTotal += total;
+            });
+
+            // Cập nhật tổng cộng trong tfoot
+            var totalAmount = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal);
+            document.querySelector('.grand-total').textContent = `Tổng cộng: ${totalAmount} (Đã bao gồm VAT)`
+
+
+            // Cập nhật tổng tiền trong hidden input của form
+            document.querySelector('[name="TotalAmount"]').value = grandTotal;
+        }
+
+        function updateItemTotal(button) {
+            const row = button.closest('tr');
+            const quantityInput = row.querySelector('.quantity-input');
+            const priceElement = row.querySelector('.product-price');
+            const totalElement = row.querySelector('.product-total');
+            const price = parseInt(priceElement.getAttribute('data-price'));
+            const quantity = parseInt(quantityInput.value);
+
+            // Update the total for this row
+            totalElement.textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price * quantity);
+        }
+
+        document.querySelectorAll(".increase-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const input = this.parentElement.querySelector(".quantity-input");
+                input.value = parseInt(input.value) + 1;
+                updateItemTotal(this);
+                updateTotal();
+            });
+        });
+
+        document.querySelectorAll(".decrease-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const input = this.parentElement.querySelector(".quantity-input");
+                if (parseInt(input.value) > 1) {
+                    input.value = parseInt(input.value) - 1;
+                    updateItemTotal(this);
+                    updateTotal();
+                }
+            });
+        });
+
+        document.querySelectorAll(".quantity-input").forEach(input => {
+            input.addEventListener("input", function () {
+                if (isNaN(this.value) || parseInt(this.value) < 1) {
+                    this.value = 1;
+                }
+                updateItemTotal(this);
+                updateTotal();
+            });
+        });
+
+        $('#paymentMethod').change(function() {
             var paymentMethod = $(this).val();
             var form = $('#paymentForm');
 
             // Thay đổi action của form dựa trên phương thức thanh toán đã chọn
             switch (paymentMethod) {
-                case 'Momo':
+                case 'MOMO':
                     form.attr('action', '@Url.Action("CreatePaymentMomo", "Payment")'); // URL cho MoMo
                     break;
-                case 'VNPay':
+                case 'VNPAY':
                     form.attr('action', '@Url.Action("CreatePaymentUrlVnpay", "Payment")'); // URL cho VNPay
                     break;
-                case 'CashOnDelivery':
+                case 'CASH':
+                    // form.attr('action', '@Url.Action("CashOnDelivery", "Payment")'); // URL cho COD
+                    break;
+                    case 'VDT':
                     // form.attr('action', '@Url.Action("CashOnDelivery", "Payment")'); // URL cho COD
                     break;
                 default:
